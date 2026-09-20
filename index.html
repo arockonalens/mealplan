@@ -362,6 +362,12 @@
     color:var(--stamp);white-space:nowrap;
   }
   .wantnow p{margin:0;font-size:14px}
+  .wkmark{color:var(--stamp);font-size:7px;vertical-align:super;margin-left:5px;letter-spacing:0}
+  .wk{
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--stamp);border:1px solid var(--stamp);padding:1px 5px;margin-left:6px;
+    vertical-align:middle;white-space:nowrap;
+  }
 
   /* ---------------- stubs ---------------- */
   .stubs{display:grid;gap:14px}
@@ -551,7 +557,7 @@
     </dl>
   </header>
   <section id="week">
-    <div class="sh"><h2>The week</h2><p class="sh-note">Tap a meal for the method</p></div>
+    <div class="sh"><h2>The week</h2><p class="sh-note">Tap a meal for the method · <span class="wkmark">◆</span> weekly staple</p></div>
     <div class="served">
       <span id="served-txt">0 / 28 served</span>
       <span class="served-bar"><i id="served-fill"></i></span>
@@ -562,7 +568,7 @@
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Sun</h3><span class="d-date"></span><span class="d-mode">Shop, cook-up + braise</span></div>
         <div class="rows">
-          <div class="row" data-pro="24"><button class="tick" data-id="sun-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Egg salad on focaccia</span><span class="leader"></span></button><span class="rpro">24 g</span></div>
+          <div class="row" data-pro="24"><button class="tick" data-id="sun-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Egg salad on focaccia<span class="wkmark" title="Weekly staple">◆</span></span><span class="leader"></span></button><span class="rpro">24 g</span></div>
           <div class="row" data-pro="34"><button class="tick" data-id="sun-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="mon-d"><span class="rname">Braised beef with leeks</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
           <div class="row" data-pro="18"><button class="tick" data-id="sun-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="sun-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
@@ -572,7 +578,7 @@
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Mon</h3><span class="d-date"></span><span class="d-mode">Reheat night</span></div>
         <div class="rows">
-          <div class="row" data-pro="26"><button class="tick" data-id="mon-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Egg sandwiches on focaccia</span><span class="leader"></span></button><span class="rpro">26 g</span></div>
+          <div class="row" data-pro="26"><button class="tick" data-id="mon-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Egg sandwiches on focaccia<span class="wkmark" title="Weekly staple">◆</span></span><span class="leader"></span></button><span class="rpro">26 g</span></div>
           <div class="row" data-pro="34"><button class="tick" data-id="mon-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sun-d"><span class="rname">Harissa pulled thigh</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
           <div class="row" data-pro="18"><button class="tick" data-id="mon-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="mon-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
@@ -641,7 +647,7 @@
       <ol>
         <li><div><b>Thigh fillets into the slow cooker</b><p>Harissa rubbed through, onion and lemon underneath, no liquid needed. Low for 6 hours. First thing, then forget about it — this is Monday and Tuesday sorted while the oven does tonight.</p></div></li>
         <li><div><b>Mix the focaccia dough</b><p>Ten minutes in the mixer with the dough hook, then it proves on its own for 2–3 hours while everything else happens.</p></div></li>
-        <li><div><b>Boil a dozen eggs</b><p>Twelve minutes, straight into cold water, stored in the shell. These are the week&rsquo;s sandwiches, salads and cracker toppings.</p></div></li>
+        <li><div><b>Boil six eggs and make the salad mix</b> <span class="wk">every week</span><p>Twelve minutes, straight into cold water. Mixed with yoghurt, smoked paprika and lemon while still warm — it takes the seasoning better. Today&rsquo;s lunch and tomorrow&rsquo;s sandwiches come out of this one bowl.</p></div></li>
         <li><div><b>Slaw base and spice paste — food processor</b><p>Cabbage and carrots shredded in thirty seconds, stored dry. Then blitz your own harissa: roasted capsicum, chilli, garlic, cumin, oil. Far better than the jar and a fraction of the price.</p></div></li>
         <li><div><b>Cook 500 g rice</b><p>Spread on a tray to cool fast. Saturday&rsquo;s fried rice needs it properly cold.</p></div></li>
         <li><div><b>Oven 180 °C — bake the oat slice</b><p>25–30 min. Cool completely in the tin before cutting.</p></div></li>
@@ -761,13 +767,27 @@
     <div class="wantbox">
       <div class="wantnow">
         <span class="tag">This week</span>
-        <p>Boiled eggs — for sandwiches and on crackers. Done: a dozen go on Sunday, egg salad runs Monday lunch and Friday lunch, and crackers are on the list.</p>
+        <p>Boiled egg mix, for salad and sandwiches. Now promoted to a standing staple rather than a one-off — see the list below. The want slot is free for next week.</p>
       </div>
       <label class="s-lab" for="want-text">Next week&rsquo;s want</label>
       <textarea id="want-text" placeholder="e.g. a roast on Sunday, something with haloumi, proper soup, a curry..."></textarea>
       <p class="wanthint" id="want-hint">Saved on this device</p>
     </div>
   </section>
+  <section id="staples">
+    <div class="sh"><h2>Weekly staples</h2><p class="sh-note">Fixed — these carry over every week</p></div>
+    <p class="para">The opposite of the want slot. These do not get reconsidered when the plan changes; they go in the shop and on the Sunday list automatically.</p>
+    <div class="wantbox">
+      <div class="wantnow">
+        <span class="tag">Locked in</span>
+        <p><b>Boiled egg mix</b> — six eggs, yoghurt, smoked paprika, lemon. Sunday lunch and Monday sandwiches, every week.</p>
+      </div>
+      <label class="s-lab" for="staple-text">Anything else that should never drop out</label>
+      <textarea id="staple-text" placeholder="e.g. focaccia, a braise on Sunday, something with chickpeas..."></textarea>
+      <p class="wanthint" id="staple-hint">Saved on this device</p>
+    </div>
+  </section>
+
   <section id="next">
     <div class="sh"><h2>Coming soon</h2><p class="sh-note">Shells only — no logic yet</p></div>
     <div class="stubs">
@@ -1181,7 +1201,8 @@
 
   /* ---------- weekly want ---------- */
   (function(){
-    var box=$("#want-text"), hint=$("#want-hint"), K="cu-want-v1", t=null;
+    [["#want-text","#want-hint","cu-want-v1"],["#staple-text","#staple-hint","cu-staple-v1"]].forEach(function(cfg){
+    var box=$(cfg[0]), hint=$(cfg[1]), K=cfg[2], t=null;
     if(!box) return;
     try{ var v=localStorage.getItem(K); if(v) box.value=v; }catch(e){}
     box.addEventListener("input",function(){
@@ -1191,6 +1212,7 @@
         try{ localStorage.setItem(K,box.value); hint.textContent="Saved on this device"; }
         catch(e){ hint.textContent="Could not save \u2014 storage blocked"; }
       },400);
+    });
     });
   })();
 
