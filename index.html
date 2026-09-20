@@ -25,7 +25,7 @@
   }
   body{margin:0;overscroll-behavior:none}
   img{max-width:100%}
-  button,a,[role="button"],label.r-item,.tick,.open{
+  button,a,[role="button"],label.r-item,.open{
     touch-action:manipulation;
     -webkit-user-select:none;user-select:none;
   }
@@ -208,18 +208,6 @@
   .aside b{color:var(--ink);font-weight:600}
 
   /* ---------------- week / dockets ---------------- */
-  .served{
-    display:flex;align-items:center;gap:10px;margin-bottom:14px;
-    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--ink-3);
-  }
-  .served-bar{flex:1;height:3px;background:var(--rule-2);max-width:220px}
-  .served-bar i{display:block;height:100%;background:var(--stamp);width:0%;transition:width .25s}
-  .reset{
-    border:1px solid var(--rule);background:transparent;cursor:pointer;
-    font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--ink-3);padding:4px 8px;
-  }
 
   .rail{display:grid;gap:14px}
   @media (min-width:860px){.rail{grid-template-columns:1fr 1fr}}
@@ -246,21 +234,10 @@
 
   .rows{display:grid}
   .row{
-    display:grid;grid-template-columns:20px 54px 1fr auto;gap:9px;align-items:center;
+    display:grid;grid-template-columns:54px 1fr auto;gap:9px;align-items:center;
     padding:9px 0;border-bottom:1px solid var(--rule-2);
   }
   .row:last-child{border-bottom:0}
-  .tick{
-    width:15px;height:15px;padding:0;border:1px solid var(--rule);background:transparent;
-    cursor:pointer;position:relative;
-  }
-  .tick::before{content:"";position:absolute;inset:-12px;border-radius:4px}
-  .tick[aria-pressed="true"]{background:var(--stamp);border-color:var(--stamp)}
-  .tick[aria-pressed="true"]::after{
-    content:"";position:absolute;left:3px;top:4px;width:7px;height:3.5px;
-    border-left:1.6px solid var(--chit);border-bottom:1.6px solid var(--chit);
-    transform:rotate(-45deg);
-  }
   .role{
     font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;
     color:var(--ink-3);
@@ -276,8 +253,6 @@
     font-family:var(--mono);font-size:11px;color:var(--ink-2);font-variant-numeric:tabular-nums;
     white-space:nowrap;
   }
-  .row.done .rname{text-decoration:line-through;color:var(--ink-3)}
-  .row.done .rpro{color:var(--ink-3)}
 
 
   /* ---------------- receipt ---------------- */
@@ -536,9 +511,7 @@
     .step:hover{background:var(--sunk);color:var(--ink)}
     .jump a:hover{color:var(--stamp)}
     .theme:hover{background:var(--sunk)}
-    .reset:hover{color:var(--flag);border-color:var(--flag)}
-    .tick:hover{border-color:var(--stamp)}
-    .open:not(:disabled):hover .rname{color:var(--stamp)}
+      .open:not(:disabled):hover .rname{color:var(--stamp)}
     .r-item:hover{background:var(--sunk)}
     .tbtn:hover{border-color:var(--stamp);color:var(--stamp)}
     .s-close:hover{border-color:var(--flag);color:var(--flag)}
@@ -551,7 +524,7 @@
     .rname{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.3}
     .leader{display:none}
     .open{gap:0}
-    .row{grid-template-columns:20px 46px 1fr auto;align-items:start;padding:10px 0}
+    .row{grid-template-columns:46px 1fr auto;align-items:start;padding:10px 0}
     .role,.rpro{padding-top:1px}
     .d-mode{font-size:8.5px}
     .tape{grid-template-columns:1fr 1fr}
@@ -595,80 +568,75 @@
   </header>
   <section id="week">
     <div class="sh"><h2>The week</h2><p class="sh-note">Tap a meal for the method ·  weekly staple</p></div>
-    <div class="served">
-      <span id="served-txt">0 / 28 served</span>
-      <span class="served-bar"><i id="served-fill"></i></span>
-      <button class="reset" id="reset-week">Clear</button>
-    </div>
     <div class="rail" id="rail">
 
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Sun</h3><span class="d-date"></span><span class="d-mode">Shop, cook-up + braise</span></div>
         <div class="rows">
-          <div class="row" data-pro="24"><button class="tick" data-id="sun-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Egg salad on focaccia</span><span class="leader"></span></button><span class="rpro">24 g</span></div>
-          <div class="row" data-pro="34"><button class="tick" data-id="sun-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="mon-d"><span class="rname">Braised beef with leeks</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
-          <div class="row" data-pro="18"><button class="tick" data-id="sun-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
-          <div class="row" data-pro="14"><button class="tick" data-id="sun-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
+          <div class="row" data-pro="24"><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Egg salad on focaccia</span><span class="leader"></span></button><span class="rpro">24 g</span></div>
+          <div class="row" data-pro="34"><span class="role">Dinner</span><button class="open" data-meal="mon-d"><span class="rname">Braised beef with leeks</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
+          <div class="row" data-pro="18"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
+          <div class="row" data-pro="14"><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
       </article>
 
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Mon</h3><span class="d-date"></span><span class="d-mode">Reheat night</span></div>
         <div class="rows">
-          <div class="row" data-pro="26"><button class="tick" data-id="mon-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Egg sandwiches on focaccia</span><span class="leader"></span></button><span class="rpro">26 g</span></div>
-          <div class="row" data-pro="34"><button class="tick" data-id="mon-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sun-d"><span class="rname">Harissa pulled thigh</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
-          <div class="row" data-pro="18"><button class="tick" data-id="mon-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
-          <div class="row" data-pro="14"><button class="tick" data-id="mon-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
+          <div class="row" data-pro="26"><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Egg sandwiches on focaccia</span><span class="leader"></span></button><span class="rpro">26 g</span></div>
+          <div class="row" data-pro="34"><span class="role">Dinner</span><button class="open" data-meal="sun-d"><span class="rname">Harissa pulled thigh</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
+          <div class="row" data-pro="18"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
+          <div class="row" data-pro="14"><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
       </article>
 
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Tue</h3><span class="d-date"></span><span class="d-mode">Quick cook</span></div>
         <div class="rows">
-          <div class="row" data-pro="24"><button class="tick" data-id="tue-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="tue-l"><span class="rname">Pulled chicken slaw bowl</span><span class="leader"></span></button><span class="rpro">24 g</span></div>
-          <div class="row" data-pro="32"><button class="tick" data-id="tue-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="tue-d"><span class="rname">Shakshuka with focaccia</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
-          <div class="row" data-pro="18"><button class="tick" data-id="tue-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
-          <div class="row" data-pro="14"><button class="tick" data-id="tue-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
+          <div class="row" data-pro="24"><span class="role">Lunch</span><button class="open" data-meal="tue-l"><span class="rname">Pulled chicken slaw bowl</span><span class="leader"></span></button><span class="rpro">24 g</span></div>
+          <div class="row" data-pro="32"><span class="role">Dinner</span><button class="open" data-meal="tue-d"><span class="rname">Shakshuka with focaccia</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
+          <div class="row" data-pro="18"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
+          <div class="row" data-pro="14"><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
       </article>
 
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Wed</h3><span class="d-date"></span><span class="d-mode">Second bird in</span></div>
         <div class="rows">
-          <div class="row" data-pro="26"><button class="tick" data-id="wed-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="wed-l"><span class="rname">Tuna &amp; cheese melt</span><span class="leader"></span></button><span class="rpro">26 g</span></div>
-          <div class="row" data-pro="32"><button class="tick" data-id="wed-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="wed-d"><span class="rname">Lemon-oregano thigh</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
-          <div class="row" data-pro="18"><button class="tick" data-id="wed-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
-          <div class="row" data-pro="14"><button class="tick" data-id="wed-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
+          <div class="row" data-pro="26"><span class="role">Lunch</span><button class="open" data-meal="wed-l"><span class="rname">Tuna &amp; cheese melt</span><span class="leader"></span></button><span class="rpro">26 g</span></div>
+          <div class="row" data-pro="32"><span class="role">Dinner</span><button class="open" data-meal="wed-d"><span class="rname">Lemon-oregano thigh</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
+          <div class="row" data-pro="18"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
+          <div class="row" data-pro="14"><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
       </article>
 
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Thu</h3><span class="d-date"></span><span class="d-mode">Clear the fridge</span></div>
         <div class="rows">
-          <div class="row" data-pro="20"><button class="tick" data-id="thu-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="thu-l"><span class="rname">Cold lemon-oregano chicken</span><span class="leader"></span></button><span class="rpro">30 g</span></div>
-          <div class="row" data-pro="28"><button class="tick" data-id="thu-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="thu-d"><span class="rname">Crispy harissa chickpeas</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
-          <div class="row" data-pro="18"><button class="tick" data-id="thu-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="frittata"><span class="rname">Frittata square</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
-          <div class="row" data-pro="14"><button class="tick" data-id="thu-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
+          <div class="row" data-pro="20"><span class="role">Lunch</span><button class="open" data-meal="thu-l"><span class="rname">Cold lemon-oregano chicken</span><span class="leader"></span></button><span class="rpro">30 g</span></div>
+          <div class="row" data-pro="28"><span class="role">Dinner</span><button class="open" data-meal="thu-d"><span class="rname">Crispy harissa chickpeas</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
+          <div class="row" data-pro="18"><span class="role">Savoury</span><button class="open" data-meal="frittata"><span class="rname">Frittata square</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="14"><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
       </article>
 
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Fri</h3><span class="d-date"></span><span class="d-mode">Ragu night</span></div>
         <div class="rows">
-          <div class="row" data-pro="24"><button class="tick" data-id="fri-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="fri-l"><span class="rname">Tuna salad on focaccia</span><span class="leader"></span></button><span class="rpro">24 g</span></div>
-          <div class="row" data-pro="32"><button class="tick" data-id="fri-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="fri-d"><span class="rname">Ragu from the braise</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
-          <div class="row" data-pro="18"><button class="tick" data-id="fri-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="frittata"><span class="rname">Frittata square</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
-          <div class="row" data-pro="14"><button class="tick" data-id="fri-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
+          <div class="row" data-pro="24"><span class="role">Lunch</span><button class="open" data-meal="fri-l"><span class="rname">Tuna salad on focaccia</span><span class="leader"></span></button><span class="rpro">24 g</span></div>
+          <div class="row" data-pro="32"><span class="role">Dinner</span><button class="open" data-meal="fri-d"><span class="rname">Ragu from the braise</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
+          <div class="row" data-pro="18"><span class="role">Savoury</span><button class="open" data-meal="frittata"><span class="rname">Frittata square</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="14"><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
       </article>
 
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Sat</h3><span class="d-date"></span><span class="d-mode">Leftovers day</span></div>
         <div class="rows">
-          <div class="row" data-pro="22"><button class="tick" data-id="sat-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sat-l"><span class="rname">Leftovers bowl, fried egg</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
-          <div class="row" data-pro="28"><button class="tick" data-id="sat-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sat-d"><span class="rname">Leftovers fried rice</span><span class="leader"></span></button><span class="rpro">28 g</span></div>
-          <div class="row" data-pro="18"><button class="tick" data-id="sat-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="frittata"><span class="rname">Frittata square</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
-          <div class="row" data-pro="14"><button class="tick" data-id="sat-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
+          <div class="row" data-pro="22"><span class="role">Lunch</span><button class="open" data-meal="sat-l"><span class="rname">Leftovers bowl, fried egg</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="28"><span class="role">Dinner</span><button class="open" data-meal="sat-d"><span class="rname">Leftovers fried rice</span><span class="leader"></span></button><span class="rpro">28 g</span></div>
+          <div class="row" data-pro="18"><span class="role">Savoury</span><button class="open" data-meal="frittata"><span class="rname">Frittata square</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="14"><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
       </article>
 
@@ -873,7 +841,7 @@
 <script>
 (function(){
   "use strict";
-  var LS = { list:"cu-list-v2", week:"cu-week-v2", pax:"cu-pax-v2", tgt:"cu-tgt-v2", theme:"cu-theme-v2" };
+  var LS = { list:"cu-list-v2", pax:"cu-pax-v2", tgt:"cu-tgt-v2", theme:"cu-theme-v2" };
   function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
 
@@ -1020,8 +988,7 @@
   /* ---------- state ---------- */
   var pax = parseInt(get(LS.pax),10); if(!pax || pax<1 || pax>6) pax = 2;
   var tgt = 130;
-  var done = {}, got = {};
-  try{ done = JSON.parse(get(LS.week)||"{}")||{}; }catch(e){ done = {}; }
+  var got = {};
   try{ got  = JSON.parse(get(LS.list)||"{}")||{}; }catch(e){ got = {}; }
 
   var $ = function(s,c){ return (c||document).querySelector(s); };
@@ -1037,32 +1004,6 @@
     return trim(v) + (s ? " " + s : "");
   }
 
-  /* ---------- week ---------- */
-  var rows = $$(".row");
-  function paintWeek(){
-    var n = 0;
-    rows.forEach(function(row){
-      var b = $(".tick", row), id = b.getAttribute("data-id");
-      var on = !!done[id];
-      b.setAttribute("aria-pressed", on ? "true" : "false");
-      row.classList.toggle("done", on);
-      if(on) n++;
-    });
-    $("#served-txt").textContent = n + " / " + rows.length + " served";
-    $("#served-fill").style.width = (n / rows.length * 100) + "%";
-
-  }
-  $$(".tick").forEach(function(b){
-    b.addEventListener("click", function(){
-      var id = b.getAttribute("data-id");
-      if(done[id]) delete done[id]; else done[id] = 1;
-      set(LS.week, JSON.stringify(done));
-      paintWeek();
-    });
-  });
-  $("#reset-week").addEventListener("click", function(){
-    done = {}; set(LS.week, "{}"); paintWeek();
-  });
 
   /* ---------- shop ---------- */
   var items = $$(".r-item");
@@ -1316,7 +1257,6 @@
   })();
 
   /* ---------- go ---------- */
-  paintWeek();
   paintShop();
 })();
 </script>
