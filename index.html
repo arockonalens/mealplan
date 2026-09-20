@@ -1,0 +1,1075 @@
+<title>Sunday Cook-Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..900&family=Azeret+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#E6E3DB;
+    --chit:#FAF9F5;
+    --sunk:#DEDAD1;
+    --ink:#16150F;
+    --ink-2:#5A574C;
+    --ink-3:#8D897C;
+    --rule:#C9C4B7;
+    --rule-2:#DEDAD1;
+    --stamp:#1B3ACB;
+    --stamp-wash:#DFE3F8;
+    --flag:#B03A21;
+    --ok:#1B6B42;
+    --mono:"Azeret Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --disp:"Archivo","Instrument Sans",sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#111318;
+      --chit:#1A1D23;
+      --sunk:#22262E;
+      --ink:#E9E6DD;
+      --ink-2:#9EA2A8;
+      --ink-3:#71757C;
+      --rule:#333842;
+      --rule-2:#272C34;
+      --stamp:#8098FF;
+      --stamp-wash:#1C2440;
+      --flag:#E07A62;
+      --ok:#63C08E;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#111318;
+    --chit:#1A1D23;
+    --sunk:#22262E;
+    --ink:#E9E6DD;
+    --ink-2:#9EA2A8;
+    --ink-3:#71757C;
+    --rule:#333842;
+    --rule-2:#272C34;
+    --stamp:#8098FF;
+    --stamp-wash:#1C2440;
+    --flag:#E07A62;
+    --ok:#63C08E;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:15px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding-inline:16px}
+  button{font:inherit;color:inherit}
+
+  /* ---------------- control bar ---------------- */
+  .bar{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+    background:var(--paper);border-bottom:1px solid var(--rule);
+  }
+  .bar-in{
+    max-width:1000px;margin:0 auto;padding-inline:16px;padding-block:8px;
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .mark{
+    font-family:var(--disp);font-variation-settings:"wdth" 82,"wght" 900;
+    font-size:15px;letter-spacing:.01em;text-transform:uppercase;margin:0;
+    white-space:nowrap;
+  }
+  .ctl{
+    display:flex;align-items:center;gap:0;
+    border:1px solid var(--rule);background:var(--chit);
+  }
+  .ctl-lab{
+    font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-3);padding:0 8px;white-space:nowrap;
+  }
+  .step{
+    width:26px;height:26px;border:0;background:transparent;cursor:pointer;
+    font-family:var(--mono);font-size:14px;line-height:1;color:var(--ink-2);
+  }
+  .step:hover{background:var(--sunk);color:var(--ink)}
+  .ctl-val{
+    font-family:var(--mono);font-size:12px;font-weight:600;min-width:38px;text-align:center;
+    font-variant-numeric:tabular-nums;
+  }
+  .bar-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .jump{display:flex;gap:2px}
+  .jump a{
+    font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-3);text-decoration:none;padding:5px 7px;
+  }
+  .jump a:hover{color:var(--stamp)}
+  .theme{
+    width:28px;height:26px;border:1px solid var(--rule);background:var(--chit);
+    cursor:pointer;font-family:var(--mono);font-size:11px;line-height:1;
+  }
+  .theme:hover{background:var(--sunk)}
+  :focus-visible{outline:2px solid var(--stamp);outline-offset:1px}
+
+  /* ---------------- masthead ---------------- */
+  .mast{padding-block:20px 14px}
+  .vh{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+
+  .tape{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);
+  }
+  .tp{padding:10px 0 11px;border-right:1px solid var(--rule-2)}
+  .tp:last-child{border-right:0}
+  .tp dt{
+    font-family:var(--mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--ink-3);margin:0 0 3px;
+  }
+  .tp dd{
+    margin:0;font-family:var(--disp);font-variation-settings:"wdth" 85,"wght" 800;
+    font-size:24px;font-variant-numeric:tabular-nums;line-height:1.1;
+  }
+  .tp dd i{font-style:normal;font-size:11px;color:var(--ink-3);font-family:var(--mono);font-weight:400}
+
+  /* ---------------- sections ---------------- */
+  section{padding-block:34px}
+  .sh{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  h2{
+    font-family:var(--disp);font-variation-settings:"wdth" 80,"wght" 800;
+    font-size:clamp(22px,4vw,32px);text-transform:uppercase;letter-spacing:-.005em;
+    margin:0;line-height:1;
+  }
+  .sh-note{
+    font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-3);margin:0;
+  }
+  .para{font-size:14px;color:var(--ink-2);max-width:62ch;margin:0 0 18px}
+
+  /* ---------------- sunday prep ---------------- */
+  .prep{border-top:1px solid var(--ink)}
+  .prep ol{margin:0;padding:0;list-style:none;counter-reset:s}
+  .prep li{
+    counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:14px;
+    padding:13px 0;border-bottom:1px solid var(--rule-2);align-items:start;
+  }
+  .prep li::before{
+    content:counter(s,decimal-leading-zero);
+    font-family:var(--mono);font-size:11px;color:var(--stamp);padding-top:2px;
+  }
+  .prep b{display:block;font-weight:600;font-size:14.5px;margin-bottom:2px}
+  .prep p{margin:0;font-size:13.5px;color:var(--ink-2)}
+  .aside{
+    margin-top:14px;padding:12px 14px;background:var(--stamp-wash);
+    font-size:13px;color:var(--ink-2);border-left:2px solid var(--stamp);
+  }
+  .aside b{color:var(--ink);font-weight:600}
+
+  /* ---------------- week / dockets ---------------- */
+  .served{
+    display:flex;align-items:center;gap:10px;margin-bottom:14px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .served-bar{flex:1;height:3px;background:var(--rule-2);max-width:220px}
+  .served-bar i{display:block;height:100%;background:var(--stamp);width:0%;transition:width .25s}
+  .reset{
+    border:1px solid var(--rule);background:transparent;cursor:pointer;
+    font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-3);padding:4px 8px;
+  }
+  .reset:hover{color:var(--flag);border-color:var(--flag)}
+
+  .rail{display:grid;gap:14px}
+  @media (min-width:860px){.rail{grid-template-columns:1fr 1fr}}
+
+  .docket{position:relative;background:var(--chit);border:1px solid var(--rule);border-top:0;padding:0 15px 13px}
+  .docket::before{
+    content:"";position:absolute;left:-1px;right:-1px;top:0;height:7px;
+    background-image:radial-gradient(circle at 5.5px 0,var(--paper) 4.6px,transparent 5.1px);
+    background-size:11px 7px;background-repeat:repeat-x;
+  }
+  .d-head{
+    padding:15px 0 9px;border-bottom:1px dashed var(--rule);
+    display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;
+  }
+  .d-day{
+    font-family:var(--disp);font-variation-settings:"wdth" 80,"wght" 900;
+    font-size:19px;text-transform:uppercase;margin:0;line-height:1;
+  }
+  .d-date{font-family:var(--mono);font-size:10px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .d-mode{
+    margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--stamp);
+  }
+
+  .rows{display:grid}
+  .row{
+    display:grid;grid-template-columns:20px 54px 1fr auto;gap:9px;align-items:center;
+    padding:9px 0;border-bottom:1px solid var(--rule-2);
+  }
+  .row:last-child{border-bottom:0}
+  .tick{
+    width:15px;height:15px;padding:0;border:1px solid var(--rule);background:transparent;
+    cursor:pointer;position:relative;
+  }
+  .tick:hover{border-color:var(--stamp)}
+  .tick[aria-pressed="true"]{background:var(--stamp);border-color:var(--stamp)}
+  .tick[aria-pressed="true"]::after{
+    content:"";position:absolute;left:3px;top:4px;width:7px;height:3.5px;
+    border-left:1.6px solid var(--chit);border-bottom:1.6px solid var(--chit);
+    transform:rotate(-45deg);
+  }
+  .role{
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .open{
+    display:flex;align-items:baseline;gap:7px;width:100%;text-align:left;
+    background:transparent;border:0;padding:0;cursor:pointer;min-width:0;
+  }
+  .open:disabled{cursor:default}
+  .rname{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto}
+  .open:not(:disabled):hover .rname{color:var(--stamp)}
+  .leader{flex:1 1 12px;border-bottom:1px dotted var(--rule);transform:translateY(-3px);min-width:10px}
+  .rpro{
+    font-family:var(--mono);font-size:11px;color:var(--ink-2);font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+  .row.done .rname{text-decoration:line-through;color:var(--ink-3)}
+  .row.done .rpro{color:var(--ink-3)}
+
+  .d-foot{padding-top:10px;display:flex;align-items:center;gap:9px}
+  .d-foot .lab{
+    font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+  }
+  .pbar{flex:1;height:5px;background:var(--rule-2);position:relative;min-width:40px}
+  .pbar i{display:block;height:100%;background:var(--ink-3);width:0%;transition:width .25s}
+  .pbar.hit i{background:var(--ok)}
+  .pnum{font-family:var(--mono);font-size:10.5px;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+  .pnum b{color:var(--ink);font-weight:600}
+
+  /* ---------------- receipt ---------------- */
+  .receipt{
+    background:var(--chit);border:1px solid var(--rule);border-top:0;border-bottom:0;
+    position:relative;padding:0 18px;max-width:560px;
+  }
+  .receipt::before,.receipt::after{
+    content:"";position:absolute;left:-1px;right:-1px;height:7px;
+    background-image:radial-gradient(circle at 5.5px 0,var(--paper) 4.6px,transparent 5.1px);
+    background-size:11px 7px;background-repeat:repeat-x;
+  }
+  .receipt::before{top:0}
+  .receipt::after{bottom:0;transform:scaleY(-1)}
+  .r-in{padding:20px 0 22px;font-family:var(--mono)}
+  .r-top{text-align:center;padding-bottom:14px;border-bottom:1px dashed var(--rule)}
+  .r-top h3{
+    font-family:var(--disp);font-variation-settings:"wdth" 82,"wght" 800;
+    font-size:17px;text-transform:uppercase;margin:0 0 3px;letter-spacing:.02em;
+  }
+  .r-top p{margin:0;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+  .r-cat{padding:13px 0 4px}
+  .r-cat h4{
+    font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+    margin:0 0 7px;font-weight:500;
+  }
+  .r-item{
+    display:grid;grid-template-columns:15px 1fr auto;gap:9px;align-items:baseline;
+    padding:4px 0;cursor:pointer;
+  }
+  .r-item:hover{background:var(--sunk)}
+  .r-item input{width:12px;height:12px;accent-color:var(--stamp);cursor:pointer;margin:0;transform:translateY(1px)}
+  .r-name{font-size:12px;line-height:1.35}
+  .r-qty{display:block;font-size:10px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .r-price{font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+  .r-item input:checked ~ .r-name,.r-item input:checked ~ .r-price{color:var(--ink-3);text-decoration:line-through}
+  .r-sub{
+    display:flex;justify-content:space-between;font-size:10px;color:var(--ink-3);
+    padding-top:6px;margin-top:3px;border-top:1px dotted var(--rule);
+    letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums;
+  }
+  .r-tot{margin-top:16px;padding-top:12px;border-top:1px dashed var(--rule)}
+  .r-line{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+  .r-line.big{
+    font-family:var(--disp);font-variation-settings:"wdth" 85,"wght" 800;
+    font-size:19px;color:var(--ink);padding-top:9px;margin-top:6px;border-top:1px solid var(--ink);
+  }
+  .r-line.owed{color:var(--stamp);font-size:12px;font-weight:600}
+  .barcode{
+    margin-top:18px;height:32px;
+    background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 3px,var(--ink) 3px 5px,transparent 5px 6px,var(--ink) 6px 7px,transparent 7px 10px);
+    opacity:.55;
+  }
+  .r-foot{text-align:center;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:7px 0 0}
+  .shoptools{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .tbtn{
+    border:1px solid var(--rule);background:var(--chit);cursor:pointer;padding:5px 10px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);
+  }
+  .tbtn:hover{border-color:var(--stamp);color:var(--stamp)}
+  .tbtn[aria-pressed="true"]{background:var(--stamp);border-color:var(--stamp);color:var(--chit)}
+
+  /* ---------------- stubs ---------------- */
+  .stubs{display:grid;gap:14px}
+  @media (min-width:800px){.stubs{grid-template-columns:1fr 1fr}}
+  .stub{border:1px solid var(--rule);border-left:2px solid var(--ink-3);padding:16px 16px 18px;background:var(--chit)}
+  .stub-h{display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap}
+  .stub-h h3{
+    font-family:var(--disp);font-variation-settings:"wdth" 82,"wght" 800;
+    font-size:16px;text-transform:uppercase;margin:0;
+  }
+  .nowire{
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
+    border:1px solid var(--flag);color:var(--flag);padding:2px 6px;
+  }
+  .stub > p{margin:0 0 14px;font-size:13.5px;color:var(--ink-2)}
+  .mock{display:grid;gap:8px;opacity:.6}
+  .mock label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+  .mock input,.mock textarea,.mock select{
+    width:100%;font:inherit;font-size:13px;color:var(--ink-3);background:var(--sunk);
+    border:1px solid var(--rule);padding:7px 9px;cursor:not-allowed;border-radius:0;
+  }
+  .mock textarea{resize:none;min-height:50px}
+  .dz{border:1px dashed var(--rule);background:var(--sunk);padding:22px 12px;text-align:center}
+  .dz p{margin:0;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+  .dz p.big{font-family:var(--sans);font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink-2);margin-bottom:3px}
+  .mbtn{
+    border:1px solid var(--ink-3);background:transparent;color:var(--ink-3);
+    padding:7px 12px;cursor:not-allowed;justify-self:start;
+    font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  }
+  .wired{margin:14px 0 0;padding-top:11px;border-top:1px dotted var(--rule);font-size:12.5px;color:var(--ink-3)}
+  .wired b{color:var(--ink-2);font-weight:600}
+
+  /* ---------------- note + footer ---------------- */
+  .note{border-top:1px solid var(--ink);padding-top:16px}
+  .note ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+  .note li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:13.5px;color:var(--ink-2)}
+  .note li::before{
+    content:"§";font-family:var(--mono);font-size:11px;color:var(--flag);padding-top:2px;
+  }
+  .note b{color:var(--ink);font-weight:600}
+  .note a{color:var(--stamp)}
+  footer{padding-block:24px 44px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-3)}
+  footer p{margin:0 0 8px;max-width:72ch}
+  footer b{color:var(--ink-2)}
+
+  /* ---------------- cook sheet ---------------- */
+  .scrim{position:fixed;inset:0;background:rgba(10,10,8,.4);z-index:50;border:0}
+  .sheet{
+    position:fixed;z-index:60;background:var(--chit);
+    display:flex;flex-direction:column;
+  }
+  @media (min-width:761px){
+    .sheet{top:0;right:0;bottom:0;width:min(440px,92vw);border-left:1px solid var(--ink)}
+  }
+  @media (max-width:760px){
+    .sheet{left:0;right:0;bottom:0;max-height:88vh;border-top:1px solid var(--ink)}
+  }
+  .s-head{
+    padding:16px 18px 12px;border-bottom:1px solid var(--ink);flex-shrink:0;
+    padding-top:calc(16px + env(safe-area-inset-top,0px));
+  }
+  @media (max-width:760px){.s-head{padding-top:16px}}
+  .s-role{
+    font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--stamp);margin:0 0 5px;
+  }
+  .s-title{
+    font-family:var(--disp);font-variation-settings:"wdth" 82,"wght" 800;
+    font-size:22px;text-transform:uppercase;line-height:1;margin:0 0 9px;padding-right:34px;
+  }
+  .s-meta{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{
+    font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;
+    border:1px solid var(--rule);padding:2px 6px;color:var(--ink-2);
+  }
+  .chip.k{border-color:var(--stamp);color:var(--stamp)}
+  .s-close{
+    position:absolute;top:12px;right:14px;width:28px;height:28px;
+    border:1px solid var(--rule);background:var(--chit);cursor:pointer;
+    font-family:var(--mono);font-size:13px;line-height:1;
+    top:calc(12px + env(safe-area-inset-top,0px));
+  }
+  @media (max-width:760px){.s-close{top:12px}}
+  .s-close:hover{border-color:var(--flag);color:var(--flag)}
+  .s-body{overflow-y:auto;padding:16px 18px 20px;flex:1}
+  .s-lab{
+    font-family:var(--mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-3);margin:0 0 8px;
+  }
+  .s-ing{margin:0 0 22px;padding:0;list-style:none;border-top:1px solid var(--rule-2)}
+  .s-ing li{
+    display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule-2);
+    font-size:13.5px;
+  }
+  .s-ing .iq{
+    font-family:var(--mono);font-size:11px;color:var(--stamp);font-variant-numeric:tabular-nums;
+    min-width:62px;flex-shrink:0;
+  }
+  .s-steps{margin:0;padding:0;list-style:none;counter-reset:t}
+  .s-steps li{
+    counter-increment:t;display:grid;grid-template-columns:20px 1fr;gap:11px;
+    padding:10px 0;border-bottom:1px solid var(--rule-2);align-items:start;
+  }
+  .s-steps li::before{
+    content:counter(t);font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-top:2px;
+  }
+  .s-steps p{margin:0;font-size:13.5px;line-height:1.5}
+  .tmr{
+    margin-top:7px;border:1px solid var(--stamp);background:transparent;color:var(--stamp);
+    cursor:pointer;padding:3px 8px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+  }
+  .tmr:hover{background:var(--stamp);color:var(--chit)}
+  .s-foot{
+    flex-shrink:0;border-top:1px solid var(--ink);padding:11px 18px;
+    display:flex;align-items:center;gap:11px;background:var(--chit);
+    padding-bottom:calc(11px + env(safe-area-inset-bottom,0px));
+  }
+  .clock{
+    font-family:var(--disp);font-variation-settings:"wdth" 85,"wght" 800;
+    font-size:27px;font-variant-numeric:tabular-nums;line-height:1;letter-spacing:.01em;
+  }
+  .clock.run{color:var(--stamp)}
+  .clock.ring{color:var(--flag);animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:.25}}
+  .clock-lab{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);flex:1;min-width:0}
+  .s-foot button{
+    border:1px solid var(--rule);background:transparent;cursor:pointer;padding:5px 9px;
+    font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);
+  }
+  .s-foot button:hover{border-color:var(--ink);color:var(--ink)}
+</style>
+
+<div class="bar">
+  <div class="bar-in">
+    <p class="mark">Sunday Cook-Up</p>
+    <div class="ctl">
+      <span class="ctl-lab">Pax</span>
+      <button class="step" id="pax-down" aria-label="Fewer people">&minus;</button>
+      <span class="ctl-val" id="pax-val">2</span>
+      <button class="step" id="pax-up" aria-label="More people">+</button>
+    </div>
+    <div class="ctl">
+      <span class="ctl-lab">Protein/day</span>
+      <button class="step" id="tgt-down" aria-label="Lower target">&minus;</button>
+      <span class="ctl-val" id="tgt-val">150g</span>
+      <button class="step" id="tgt-up" aria-label="Raise target">+</button>
+    </div>
+    <div class="bar-right">
+      <nav class="jump">
+        <a href="#prep">Prep</a>
+        <a href="#week">Week</a>
+        <a href="#shop">Shop</a>
+        <a href="#next">Soon</a>
+      </nav>
+      <button class="theme" id="theme" aria-label="Switch theme">◐</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="mast">
+    <h1 class="vh">Sunday Cook-Up</h1>
+    <dl class="tape">
+      <div class="tp"><dt>Shop total</dt><dd id="t-total">$91.20</dd></div>
+      <div class="tp"><dt>Per meal, each</dt><dd id="t-permeal">$3.26</dd></div>
+      <div class="tp"><dt>Protein avg</dt><dd id="t-pro">96<i>g/day</i></dd></div>
+      <div class="tp"><dt>Sunday bake</dt><dd>2<i>hr</i></dd></div>
+      <div class="tp"><dt>Longest cook</dt><dd>30<i>min</i></dd></div>
+    </dl>
+  </header>
+
+  <section id="prep">
+    <div class="sh"><h2>Sunday, in order</h2><p class="sh-note">≈2 hr elapsed · ~45 min hands-on</p></div>
+    <p class="para">The sequence matters. The dough proves while everything else cooks, the chickpeas need a head start, and the oven runs three jobs back to back — chicken, then slice, then focaccia, each hotter than the last.</p>
+    <div class="prep">
+      <ol>
+        <li><div><b>Mix the focaccia dough — first, before anything</b><p>It needs 2–3 hours to prove and it does that on its own while the rest of Sunday happens. Ten minutes of actual work.</p></div></li>
+        <li><div><b>Quick-soak the chickpeas</b><p>Cover 500 g dried chickpeas with water, boil 5 minutes, off the heat, stand 1 hour.</p></div></li>
+        <li><div><b>Oven to 200 °C — roast the thighs</b><p>All 1 kg, tossed in oil, paprika, cumin, salt. 25–30 min. Sunday dinner plus two lunches.</p></div></li>
+        <li><div><b>While the oven runs — build the dahl</b><p>500 g red lentils, 2 diced onions, 3 grated carrots, 1 can tomatoes, curry powder, 1.5 L water. Simmer 30 min.</p></div></li>
+        <li><div><b>Cook 500 g rice, shred the slaw</b><p>Rice spread on a tray to cool fast. Half a cabbage and 2 grated carrots, stored dry and undressed.</p></div></li>
+        <li><div><b>Chicken out — oven down to 180 °C — bake the oat slice</b><p>25–30 min. Cool it completely in the tin before cutting or it crumbles.</p></div></li>
+        <li><div><b>Oven up to 220 °C — dimple and bake the focaccia</b><p>20–25 min until deep gold. Last thing in, because it wants the hottest oven.</p></div></li>
+        <li><div><b>Drain the chickpeas, portion everything</b><p>Chickpeas to the fridge for bowls and the frittata. Slice and freeze half the focaccia now — it is excellent on day one and tired by day four.</p></div></li>
+      </ol>
+      <p class="aside"><b>Skipping the soak?</b> Two 400 g cans replace the dried chickpeas. Costs about $1.50 more and drops roughly 60 g of protein off the week.</p>
+    </div>
+  </section>
+
+  <section id="week">
+    <div class="sh"><h2>The week</h2><p class="sh-note">Tap a meal for the method</p></div>
+    <div class="served">
+      <span id="served-txt">0 / 28 served</span>
+      <span class="served-bar"><i id="served-fill"></i></span>
+      <button class="reset" id="reset-week">Clear</button>
+    </div>
+    <div class="rail" id="rail">
+
+      <article class="docket">
+        <div class="d-head"><h3 class="d-day">Sun</h3><span class="d-date"></span><span class="d-mode">Shop + bake day</span></div>
+        <div class="rows">
+          <div class="row" data-pro="38"><button class="tick" data-id="sun-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Tuna &amp; chickpea smash</span><span class="leader"></span></button><span class="rpro">38 g</span></div>
+          <div class="row" data-pro="45"><button class="tick" data-id="sun-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sun-d"><span class="rname">Thigh, roast potato, veg</span><span class="leader"></span></button><span class="rpro">45 g</span></div>
+          <div class="row" data-pro="15"><button class="tick" data-id="sun-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="11"><button class="tick" data-id="sun-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+        </div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>109</b> g</span></div>
+      </article>
+
+      <article class="docket">
+        <div class="d-head"><h3 class="d-day">Mon</h3><span class="d-date"></span><span class="d-mode">Assembly only</span></div>
+        <div class="rows">
+          <div class="row" data-pro="42"><button class="tick" data-id="mon-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Chicken &amp; rice bowl</span><span class="leader"></span></button><span class="rpro">42 g</span></div>
+          <div class="row" data-pro="30"><button class="tick" data-id="mon-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="mon-d"><span class="rname">Red lentil dahl + rice</span><span class="leader"></span></button><span class="rpro">30 g</span></div>
+          <div class="row" data-pro="15"><button class="tick" data-id="mon-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="11"><button class="tick" data-id="mon-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+        </div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>98</b> g</span></div>
+      </article>
+
+      <article class="docket">
+        <div class="d-head"><h3 class="d-day">Tue</h3><span class="d-date"></span><span class="d-mode">Cook fresh</span></div>
+        <div class="rows">
+          <div class="row" data-pro="26"><button class="tick" data-id="tue-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="tue-l"><span class="rname">Dahl + boiled egg</span><span class="leader"></span></button><span class="rpro">26 g</span></div>
+          <div class="row" data-pro="38"><button class="tick" data-id="tue-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="tue-d"><span class="rname">Beef bolognese</span><span class="leader"></span></button><span class="rpro">38 g</span></div>
+          <div class="row" data-pro="15"><button class="tick" data-id="tue-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="11"><button class="tick" data-id="tue-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+        </div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>90</b> g</span></div>
+      </article>
+
+      <article class="docket">
+        <div class="d-head"><h3 class="d-day">Wed</h3><span class="d-date"></span><span class="d-mode">Leftovers + air fryer</span></div>
+        <div class="rows">
+          <div class="row" data-pro="35"><button class="tick" data-id="wed-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="wed-l"><span class="rname">Bolognese on baked potato</span><span class="leader"></span></button><span class="rpro">35 g</span></div>
+          <div class="row" data-pro="40"><button class="tick" data-id="wed-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="wed-d"><span class="rname">Drumsticks + roast carrot</span><span class="leader"></span></button><span class="rpro">40 g</span></div>
+          <div class="row" data-pro="15"><button class="tick" data-id="wed-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="11"><button class="tick" data-id="wed-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+        </div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>101</b> g</span></div>
+      </article>
+
+      <article class="docket">
+        <div class="d-head"><h3 class="d-day">Thu</h3><span class="d-date"></span><span class="d-mode">Oven night</span></div>
+        <div class="rows">
+          <div class="row" data-pro="34"><button class="tick" data-id="thu-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="thu-l"><span class="rname">Cold drumstick, slaw, rice</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
+          <div class="row" data-pro="32"><button class="tick" data-id="thu-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="thu-d"><span class="rname">Chickpea &amp; veg frittata</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
+          <div class="row" data-pro="15"><button class="tick" data-id="thu-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="11"><button class="tick" data-id="thu-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+        </div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>92</b> g</span></div>
+      </article>
+
+      <article class="docket">
+        <div class="d-head"><h3 class="d-day">Fri</h3><span class="d-date"></span><span class="d-mode">Uses up the tuna</span></div>
+        <div class="rows">
+          <div class="row" data-pro="28"><button class="tick" data-id="fri-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="fri-l"><span class="rname">Frittata wedge + slaw</span><span class="leader"></span></button><span class="rpro">28 g</span></div>
+          <div class="row" data-pro="35"><button class="tick" data-id="fri-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="fri-d"><span class="rname">Tuna &amp; lentil patties</span><span class="leader"></span></button><span class="rpro">35 g</span></div>
+          <div class="row" data-pro="15"><button class="tick" data-id="fri-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="11"><button class="tick" data-id="fri-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+        </div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>89</b> g</span></div>
+      </article>
+
+      <article class="docket">
+        <div class="d-head"><h3 class="d-day">Sat</h3><span class="d-date"></span><span class="d-mode">Empty the fridge</span></div>
+        <div class="rows">
+          <div class="row" data-pro="30"><button class="tick" data-id="sat-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sat-l"><span class="rname">Clear-out bowl</span><span class="leader"></span></button><span class="rpro">30 g</span></div>
+          <div class="row" data-pro="38"><button class="tick" data-id="sat-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sat-d"><span class="rname">Chicken fried rice</span><span class="leader"></span></button><span class="rpro">38 g</span></div>
+          <div class="row" data-pro="15"><button class="tick" data-id="sat-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="11"><button class="tick" data-id="sat-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+        </div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>94</b> g</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="sh"><h2>The shop</h2><p class="sh-note">Sunday · one trip</p></div>
+    <p class="para">Quantities and prices scale with the pax counter, but supermarkets sell whole packs — at 3 or 4 people you'll round up and the real total lands higher than the arithmetic. Prices are rough shelf prices, not catalogue specials. Focaccia drinks olive oil — if your bottle is low, add one to the trip.</p>
+    <div class="shoptools">
+      <button class="tbtn" id="hide-got" aria-pressed="false">Hide what's in the trolley</button>
+      <button class="tbtn" id="reset-shop">Clear ticks</button>
+    </div>
+
+    <div class="receipt">
+      <div class="r-in">
+        <div class="r-top">
+          <h3>Weekly Shop</h3>
+          <p>Wk 38 · <span id="r-pax">2 pax</span> · 25 lines</p>
+        </div>
+
+        <div class="r-cat">
+          <h4>Protein &amp; chilled</h4>
+          <label class="r-item"><input type="checkbox" id="k1"><span class="r-name">Chicken thigh fillets<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="12.50">$12.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k2"><span class="r-name">Chicken drumsticks<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="6.00">$6.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k3"><span class="r-name">Beef mince, regular<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="6.50">$6.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k4"><span class="r-name">Eggs<span class="r-qty" data-q="18" data-u="ea" data-s="eggs">18 eggs</span></span><span class="r-price" data-p="8.50">$8.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k5"><span class="r-name">Tuna in springwater<span class="r-qty" data-q="3" data-u="ea" data-s="× 95 g tins">3 × 95 g tins</span></span><span class="r-price" data-p="4.50">$4.50</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="38.00">$38.00</span></div>
+        </div>
+
+        <div class="r-cat">
+          <h4>Dairy</h4>
+          <label class="r-item"><input type="checkbox" id="k6"><span class="r-name">Greek yoghurt, plain<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="3.50">$3.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k7"><span class="r-name">Cottage cheese<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="5.50">$5.50</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="9.00">$9.00</span></div>
+        </div>
+
+        <div class="r-cat">
+          <h4>Pantry &amp; dry</h4>
+          <label class="r-item"><input type="checkbox" id="k8"><span class="r-name">Dried red lentils<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="4.50">$4.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k9"><span class="r-name">Dried chickpeas<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k10"><span class="r-name">Long grain rice<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k11"><span class="r-name">Spaghetti<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k12"><span class="r-name">Rolled oats<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k24"><span class="r-name">Plain flour<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k25"><span class="r-name">Dry yeast<span class="r-qty" data-q="3" data-u="ea" data-s="× 7 g sachets">3 × 7 g sachets</span></span><span class="r-price" data-p="1.50">$1.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k13"><span class="r-name">Diced tomatoes<span class="r-qty" data-q="2" data-u="ea" data-s="× 400 g tins">2 × 400 g tins</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k14"><span class="r-name">Tomato paste<span class="r-qty" data-q="140" data-u="g">140 g</span></span><span class="r-price" data-p="1.20">$1.20</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="22.20">$22.20</span></div>
+        </div>
+
+        <div class="r-cat">
+          <h4>Produce</h4>
+          <label class="r-item"><input type="checkbox" id="k15"><span class="r-name">Potatoes<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k16"><span class="r-name">Carrots<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k17"><span class="r-name">Brown onions<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k18"><span class="r-name">Green cabbage<span class="r-qty" data-q="0.5" data-u="ea" data-s="head">0.5 head</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k19"><span class="r-name">Bananas<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="4.00">$4.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k20"><span class="r-name">Garlic<span class="r-qty" data-q="1" data-u="ea" data-s="bulb">1 bulb</span></span><span class="r-price" data-p="1.50">$1.50</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="16.50">$16.50</span></div>
+        </div>
+
+        <div class="r-cat">
+          <h4>Freezer</h4>
+          <label class="r-item"><input type="checkbox" id="k21"><span class="r-name">Mixed vegetables<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.50">$3.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k22"><span class="r-name">Peas<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="5.50">$5.50</span></div>
+        </div>
+
+        <div class="r-cat">
+          <h4>Optional</h4>
+          <label class="r-item"><input type="checkbox" id="k23"><span class="r-name">Canned chickpeas, if not soaking<span class="r-qty" data-q="2" data-u="ea" data-s="× 400 g — replaces dried">2 × 400 g — replaces dried</span></span><span class="r-price" data-p="1.50">+$1.50</span></label>
+        </div>
+
+        <div class="r-tot">
+          <div class="r-line"><span>Lines</span><span id="r-lines">25</span></div>
+          <div class="r-line"><span>In trolley</span><span id="r-got">0</span></div>
+          <div class="r-line owed"><span>Still to buy</span><span id="r-owed">$91.20</span></div>
+          <div class="r-line big"><span>Total</span><span id="r-total">$91.20</span></div>
+        </div>
+
+        <div class="barcode"></div>
+        <p class="r-foot">Cupboard assumed · olive oil salt pepper cumin paprika curry soy stock lemon cinnamon baking powder</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="sh"><h2>Coming soon</h2><p class="sh-note">Shells only — no logic yet</p></div>
+    <div class="stubs">
+      <div class="stub">
+        <div class="stub-h"><h3>One-off recipes</h3><span class="nowire">Not wired</span></div>
+        <p>For meals outside the weekly plan — a birthday dinner, guests on the weekend. Kept separate so they never disturb the shop or the Sunday sequence.</p>
+        <div class="mock">
+          <label for="m-occ">Occasion</label>
+          <input type="text" id="m-occ" value="Dad's birthday dinner" disabled>
+          <label for="m-serves">Serving</label>
+          <select id="m-serves" disabled><option>6 people</option></select>
+          <label for="m-rec">Recipe or rough notes</label>
+          <textarea id="m-rec" disabled>Slow-roast lamb shoulder, potatoes, greens...</textarea>
+          <button type="button" class="mbtn" disabled>Save as one-off</button>
+        </div>
+        <p class="wired"><b>To wire:</b> store against a date, flag whether its ingredients merge into that week's shop or stay separate, surface it on the day it falls.</p>
+      </div>
+      <div class="stub">
+        <div class="stub-h"><h3>Cook what's in the fridge</h3><span class="nowire">Not wired</span></div>
+        <p>Photograph what's actually on the shelf, get back a recipe that uses it. Aimed at the Thursday problem — half a cabbage, three eggs, some rice, no idea.</p>
+        <div class="mock">
+          <div class="dz"><p class="big">Take a photo or drop an image</p><p>JPG / PNG · fridge shelf, bench, pantry</p></div>
+          <label for="m-must">Must use up first</label>
+          <input type="text" id="m-must" value="Cabbage, opened yoghurt" disabled>
+          <button type="button" class="mbtn" disabled>Suggest a recipe</button>
+        </div>
+        <p class="wired"><b>To wire:</b> identify ingredients from the image, cross-check against what the plan says should still be in the fridge, rank by what expires soonest.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="note">
+      <ul>
+        <li><span><b>Three days, then freeze.</b> This plan assumes cooked dishes get eaten within about three days. That's deliberately conservative — portion and freeze anything past it rather than pushing your luck.</span></li>
+        <li><span><b>Cool fast, then fridge.</b> Shallow containers, spread out. A full hot pot straight in warms everything around it.</span></li>
+        <li><span><b>Rice needs care.</b> Cool it quickly, refrigerate promptly, reheat once only until steaming. That's why Saturday's fried rice wants properly chilled rice.</span></li>
+        <li><span>For actual internal temperatures and fridge and freezer times in Australia, check <a href="https://www.foodstandards.gov.au" target="_blank" rel="noopener">Food Standards Australia New Zealand</a> or your state health authority — not a meal plan.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>On the numbers.</b> Protein is estimated per person from standard composition values and moves with brands and portions. Prices are approximate shelf prices — expect the real total between $80 and $95.</p>
+    <p><b>On "fat-burning".</b> Nothing here burns fat. The plan keeps protein and fibre high and energy density moderate so you stay full on less. That's the whole mechanism; there's nothing thermogenic working in the background.</p>
+    <p>General healthy-eating guidance for two healthy adults, not clinical advice. Pregnancy, a diagnosed condition or diet-interacting medication — check with your GP or an Accredited Practising Dietitian first.</p>
+  </footer>
+</div>
+
+<button class="scrim" id="scrim" hidden aria-label="Close"></button>
+<aside class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="s-title">
+  <div class="s-head">
+    <p class="s-role" id="s-role">Dinner</p>
+    <h3 class="s-title" id="s-title">Meal</h3>
+    <div class="s-meta" id="s-meta"></div>
+    <button class="s-close" id="s-close" aria-label="Close">✕</button>
+  </div>
+  <div class="s-body">
+    <p class="s-lab">Ingredients · <span id="s-pax">2 pax</span></p>
+    <ul class="s-ing" id="s-ing"></ul>
+    <p class="s-lab">Method</p>
+    <ol class="s-steps" id="s-steps"></ol>
+  </div>
+  <div class="s-foot">
+    <span class="clock" id="clock">--:--</span>
+    <span class="clock-lab" id="clock-lab">No timer running</span>
+    <button id="clock-stop">Stop</button>
+  </div>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+  var LS = { list:"cu-list-v2", week:"cu-week-v2", pax:"cu-pax-v2", tgt:"cu-tgt-v2", theme:"cu-theme-v2" };
+  function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+
+  /* ---------- meal data ---------- */
+  var M = {
+    "sun-l":{r:"Lunch",t:"Tuna & chickpea smash",m:["No-cook","10 min"],
+      i:[[190,"g","tuna, drained"],[300,"g","cooked chickpeas"],[1,"ea","carrot, grated"],[200,"g","cabbage, shredded"],[1,"ea","lemon"],[15,"ml","olive oil"]],
+      s:[["Drain the tins properly — press the lid down hard. Wet tuna makes a sloppy bowl.",0],
+         ["Fork-mash half the chickpeas, leave the rest whole. The mash binds, the whole ones give it bite.",0],
+         ["Grate the carrot, shred the cabbage fine.",0],
+         ["Toss with lemon and oil. Season heavily — tinned tuna needs more salt than you think.",0]]},
+    "sun-d":{r:"Dinner",t:"Thigh, roast potato, veg",m:["Air fryer","25 min"],
+      i:[[4,"ea","roast thighs, from the cook-up"],[500,"g","potatoes, 2 cm chunks"],[200,"g","frozen mixed veg"],[15,"ml","oil"]],
+      s:[["Cut the potatoes into 2 cm chunks, toss with oil and plenty of salt.",0],
+         ["Air fryer 200 °C. Shake the basket at the halfway mark.",20],
+         ["Frozen veg into the basket for the last 4 minutes, or microwave them.",4],
+         ["Keep four thighs out of the Sunday roast, rest 5 minutes before slicing. The rest go straight to the fridge.",0]]},
+    "mon-l":{r:"Lunch",t:"Chicken & rice bowl",m:["No-cook","5 min"],
+      i:[[250,"g","roast chicken, sliced"],[300,"g","cooked rice"],[200,"g","slaw base"],[1,"ea","lemon"]],
+      s:[["Build it cold the night before — rice at the bottom, chicken on top, slaw in its own corner.",0],
+         ["Dress the slaw only when you eat it. Dressed slaw is limp by mid-morning.",0],
+         ["No reheat needed, but a squeeze of lemon over the chicken wakes it up.",0]]},
+    "mon-d":{r:"Dinner",t:"Red lentil dahl + rice",m:["Reheat","10 min"],
+      i:[[2,"ea","serves of dahl"],[250,"g","cooked rice"],[100,"g","frozen peas"]],
+      s:[["Dahl into a pot with a splash of water — it thickens hard in the fridge.",0],
+         ["Reheat until steaming right through, stirring so it doesn't catch.",8],
+         ["Peas stirred in for the last minute only, off the heat if you want them bright.",0],
+         ["Reheat dahl once only. Take out what you need and leave the rest cold.",0]]},
+    "tue-l":{r:"Lunch",t:"Dahl + boiled egg",m:["Reheat","8 min"],
+      i:[[1,"ea","serve of dahl per person"],[1,"ea","boiled egg per person"]],
+      s:[["Reheat the dahl until steaming.",6],
+         ["Halve a cold boiled egg and sit it on top.",0],
+         ["Pepper and a squeeze of lemon. The egg is what stops a second dahl serve feeling like a repeat.",0]]},
+    "tue-d":{r:"Dinner",t:"Beef bolognese",m:["Cooktop","30 min"],
+      i:[[500,"g","beef mince"],[1,"ea","onion, diced"],[2,"ea","carrots, grated"],[3,"ea","garlic cloves"],[400,"g","diced tomatoes"],[2,"ea","tbsp tomato paste"],[200,"g","spaghetti"]],
+      s:[["Grate the carrots. Grated disappears into the sauce, diced announces itself.",0],
+         ["Onion, carrot and garlic in oil over medium heat until soft.",8],
+         ["Mince in, break it up, and let it actually brown. Don't rush this bit.",0],
+         ["Paste in for a minute, then tomatoes and half a tin of water. Simmer.",20],
+         ["Make the whole batch — half of it is Wednesday's lunch.",0]]},
+    "wed-l":{r:"Lunch",t:"Bolognese on baked potato",m:["Reheat","12 min"],
+      i:[[2,"ea","serves of bolognese"],[2,"ea","large potatoes"]],
+      s:[["Prick the potatoes, microwave 6–7 minutes until soft.",0],
+         ["Air fryer 200 °C if you want the skin crisp.",8],
+         ["Split, fluff the inside with a fork, bolognese over the top.",0]]},
+    "wed-d":{r:"Dinner",t:"Drumsticks + roast carrot",m:["Air fryer","25 min"],
+      i:[[6,"ea","drumsticks, plus 2 for Thursday"],[2,"ea","carrots, in batons"],[300,"g","potatoes"],[150,"g","frozen peas"]],
+      s:[["Toss the drumsticks in oil, paprika and salt.",0],
+         ["Air fryer 200 °C, turned once at the halfway point.",25],
+         ["Carrot batons and potato chunks go in the same basket from the start.",0],
+         ["Cook two extra drumsticks — Thursday's lunch is then a straight lift from the fridge.",0],
+         ["Done when juices run clear at the bone and there's no pink at the joint.",0]]},
+    "thu-l":{r:"Lunch",t:"Cold drumstick, slaw, rice",m:["No-cook","5 min"],
+      i:[[2,"ea","cooked drumsticks"],[200,"g","slaw base"],[250,"g","cooked rice"]],
+      s:[["Everything cold, straight from the fridge.",0],
+         ["Dress the slaw now, not this morning.",0],
+         ["If the rice has gone claggy, a splash of water and 45 seconds in the microwave loosens it.",0]]},
+    "thu-d":{r:"Dinner",t:"Chickpea & veg frittata",m:["Oven","30 min"],
+      i:[[6,"ea","eggs"],[200,"g","cooked chickpeas"],[250,"g","frozen mixed veg"],[1,"ea","onion"]],
+      s:[["Oven to 180 °C.",0],
+         ["Onion soft in an ovenproof pan, then veg and chickpeas to drive off the water. Wet veg makes a weeping frittata.",6],
+         ["Beat the eggs hard with salt and pepper, pour over, leave it alone 2 minutes to set on the base.",0],
+         ["Into the oven until the centre is just firm.",22],
+         ["Cool it fully before the fridge. Half of it is Friday's lunch.",0]]},
+    "fri-l":{r:"Lunch",t:"Frittata wedge + slaw",m:["No-cook","5 min"],
+      i:[[0.5,"ea","of the frittata"],[200,"g","slaw base"],[1,"ea","lemon"]],
+      s:[["Good cold — don't bother reheating, it goes rubbery.",0],
+         ["Slaw dressed at the table.",0]]},
+    "fri-d":{r:"Dinner",t:"Tuna & lentil patties",m:["Air fryer","20 min"],
+      i:[[95,"g","tuna, drained"],[200,"g","cooked lentils or leftover dahl"],[1,"ea","egg"],[200,"g","mashed potato"],[150,"g","frozen peas"]],
+      s:[["Mash the potato and let it cool. Hot potato scrambles the egg.",0],
+         ["Mix tuna, lentils, potato and egg. It should just hold a shape — if it's wet, more potato.",0],
+         ["Form 6 patties, chill 10 minutes so they firm up.",10],
+         ["Air fryer 180 °C, turned once.",12],
+         ["Peas alongside.",0]]},
+    "sat-l":{r:"Lunch",t:"Clear-out bowl",m:["Cooktop","10 min"],
+      i:[[1,"ea","whatever's left — rice, lentils, veg"],[1,"ea","egg per person"]],
+      s:[["Rice or lentils at the base, whatever veg survived on top.",0],
+         ["Fried egg over it, yolk soft, and let the yolk do the dressing.",0],
+         ["This is the slot that stops food going in the bin. Don't over-plan it.",0]]},
+    "focaccia":{r:"Savoury snack \u00b7 baked Sunday",t:"Focaccia + whipped cottage cheese",m:["Oven","10 min work","3 hr prove"],
+      i:[[500,"g","plain flour"],[7,"g","dry yeast, 1 sachet"],[400,"ml","warm water"],[10,"g","salt"],[60,"ml","olive oil, plus more for the tin"],[500,"g","cottage cheese, for the week"]],
+      s:[["Flour, yeast and salt in a big bowl. Add the water and stir with a spoon until no dry flour is left. It will look like a wet, shaggy mess \u2014 that is correct. Do not knead it.",0],
+         ["Cover and leave until doubled and full of bubbles. Get on with the rest of Sunday while it proves.",0],
+         ["Oil a roasting tray more generously than feels sensible. Tip the dough in and leave it to relax.",20],
+         ["Oil your fingers and press straight down through the dough to the tray, all over. The dimples are what make it focaccia rather than bread.",0],
+         ["Rosemary and coarse salt over the top, another drizzle of oil, into a 220 \u00b0C oven until deep gold.",22],
+         ["Cut into 12. Half to the fridge, half sliced and frozen \u2014 it is excellent on day one and tired by day four. Four minutes in the air fryer brings a frozen piece back properly.",0],
+         ["For the cottage cheese: beat or blitz it with salt, pepper and a little olive oil until smooth. It turns a grainy tub into something that looks deliberate, and it is what keeps this snack at 15 g rather than 7 g.",0]]},
+    "oatslice":{r:"Sweet snack \u00b7 baked Sunday",t:"Banana oat slice",m:["Oven","35 min","12 squares"],
+      i:[[200,"g","rolled oats"],[3,"ea","ripe bananas"],[3,"ea","eggs"],[200,"g","Greek yoghurt"],[1,"ea","tsp cinnamon"],[1,"ea","tsp baking powder"]],
+      s:[["Mash the bananas properly. Lumps turn into wet pockets in the baked slice.",0],
+         ["Beat in the eggs and yoghurt, then fold through the oats, cinnamon and baking powder.",0],
+         ["Line a slice tin, pour it in, level the top.",0],
+         ["Bake at 180 \u00b0C until the centre springs back when you press it.",27],
+         ["Cool completely in the tin before cutting, or it crumbles. Twelve squares; two is a serve at about 11 g protein.",0],
+         ["Four or five days in the fridge, or freeze half. They go hard cold \u2014 fifteen seconds in the microwave fixes that.",0]]},
+    "sat-d":{r:"Dinner",t:"Chicken fried rice",m:["Cooktop","20 min"],
+      i:[[400,"g","cooked rice, properly chilled"],[200,"g","roast chicken"],[150,"g","frozen peas"],[150,"g","frozen mixed veg"],[2,"ea","eggs"],[3,"ea","garlic cloves"]],
+      s:[["The rice must be properly cold. Warm rice steams instead of frying and clumps.",0],
+         ["Eggs scrambled first in the hot pan, then out to a plate.",0],
+         ["Garlic, then the frozen veg — high heat, keep it moving.",4],
+         ["Rice in, press it flat and leave it 30 seconds at a time so it catches.",0],
+         ["Chicken and egg back in, soy down the side of the pan, toss and serve.",0]]}
+  };
+
+  /* ---------- state ---------- */
+  var pax = parseInt(get(LS.pax),10); if(!pax || pax<1 || pax>6) pax = 2;
+  var tgt = parseInt(get(LS.tgt),10); if(!tgt || tgt<40 || tgt>260) tgt = 150;
+  var done = {}, got = {};
+  try{ done = JSON.parse(get(LS.week)||"{}")||{}; }catch(e){ done = {}; }
+  try{ got  = JSON.parse(get(LS.list)||"{}")||{}; }catch(e){ got = {}; }
+
+  var $ = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  /* ---------- formatting ---------- */
+  function money(n){ return "$" + n.toFixed(2); }
+  function trim(n){ return String(Math.round(n*100)/100); }
+  function qty(q,u,s){
+    var v = q * pax / 2;
+    if(u === "g"){ return v >= 1000 ? trim(Math.round(v/10)/100) + " kg" : Math.round(v) + " g"; }
+    if(u === "ml"){ return Math.round(v) + " ml"; }
+    return trim(v) + (s ? " " + s : "");
+  }
+
+  /* ---------- week ---------- */
+  var rows = $$(".row");
+  function paintWeek(){
+    var n = 0;
+    rows.forEach(function(row){
+      var b = $(".tick", row), id = b.getAttribute("data-id");
+      var on = !!done[id];
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      row.classList.toggle("done", on);
+      if(on) n++;
+    });
+    $("#served-txt").textContent = n + " / " + rows.length + " served";
+    $("#served-fill").style.width = (n / rows.length * 100) + "%";
+
+    $$(".docket").forEach(function(d){
+      var sum = 0;
+      $$(".row", d).forEach(function(r){ sum += parseFloat(r.getAttribute("data-pro")) || 0; });
+      var bar = $(".pbar", d);
+      $("i", bar).style.width = Math.min(100, sum / tgt * 100) + "%";
+      bar.classList.toggle("hit", sum >= tgt);
+      $(".pnum", d).innerHTML = "<b>" + sum + "</b> g";
+    });
+  }
+  $$(".tick").forEach(function(b){
+    b.addEventListener("click", function(){
+      var id = b.getAttribute("data-id");
+      if(done[id]) delete done[id]; else done[id] = 1;
+      set(LS.week, JSON.stringify(done));
+      paintWeek();
+    });
+  });
+  $("#reset-week").addEventListener("click", function(){
+    done = {}; set(LS.week, "{}"); paintWeek();
+  });
+
+  /* ---------- shop ---------- */
+  var items = $$(".r-item");
+  function paintShop(){
+    var total = 0, owed = 0, n = 0;
+    $$(".r-cat").forEach(function(cat){
+      var sub = 0;
+      $$(".r-item", cat).forEach(function(it){
+        var box = $("input", it),
+            pEl = $(".r-price", it),
+            qEl = $(".r-qty", it),
+            base = parseFloat(pEl.getAttribute("data-p")) || 0,
+            price = base * pax / 2;
+        sub += price;
+        total += price;
+        if(box.checked){ n++; } else { owed += price; }
+        pEl.textContent = (pEl.textContent.charAt(0) === "+" ? "+" : "") + money(price);
+        qEl.textContent = qty(parseFloat(qEl.getAttribute("data-q")), qEl.getAttribute("data-u"), qEl.getAttribute("data-s"));
+        it.parentNode && (it.style.display = (hideGot && box.checked) ? "none" : "");
+      });
+      var subEl = $("[data-sub]", cat);
+      if(subEl) subEl.textContent = money(sub);
+    });
+    $("#r-got").textContent = String(n);
+    $("#r-owed").textContent = money(owed);
+    $("#r-total").textContent = money(total);
+    $("#r-pax").textContent = pax + " pax";
+    $("#t-total").textContent = money(total);
+    $("#t-permeal").textContent = money(total / (pax * 14));
+    $("#s-pax").textContent = pax + " pax";
+    $("#pax-val").textContent = String(pax);
+    $("#tgt-val").textContent = tgt + "g";
+  }
+  var hideGot = false;
+  items.forEach(function(it){
+    var box = $("input", it);
+    if(got[box.id]) box.checked = true;
+    box.addEventListener("change", function(){
+      if(box.checked) got[box.id] = 1; else delete got[box.id];
+      set(LS.list, JSON.stringify(got));
+      paintShop();
+    });
+  });
+  $("#hide-got").addEventListener("click", function(){
+    hideGot = !hideGot;
+    this.setAttribute("aria-pressed", hideGot ? "true" : "false");
+    this.textContent = hideGot ? "Show everything" : "Hide what's in the trolley";
+    paintShop();
+  });
+  $("#reset-shop").addEventListener("click", function(){
+    got = {}; set(LS.list, "{}");
+    items.forEach(function(it){ $("input", it).checked = false; });
+    paintShop();
+  });
+
+  /* ---------- pax + target ---------- */
+  function bump(which, d){
+    if(which === "pax"){ pax = Math.max(1, Math.min(6, pax + d)); set(LS.pax, String(pax)); paintShop(); if(openId) fill(openId); }
+    else { tgt = Math.max(40, Math.min(260, tgt + d*10)); set(LS.tgt, String(tgt)); paintWeek(); paintShop(); }
+  }
+  $("#pax-up").addEventListener("click", function(){ bump("pax", 1); });
+  $("#pax-down").addEventListener("click", function(){ bump("pax", -1); });
+  $("#tgt-up").addEventListener("click", function(){ bump("tgt", 1); });
+  $("#tgt-down").addEventListener("click", function(){ bump("tgt", -1); });
+
+  /* ---------- theme ---------- */
+  var th = get(LS.theme);
+  if(th === "dark" || th === "light") document.documentElement.setAttribute("data-theme", th);
+  $("#theme").addEventListener("click", function(){
+    var cur = document.documentElement.getAttribute("data-theme");
+    if(!cur){
+      cur = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    var next = cur === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    set(LS.theme, next);
+  });
+
+  /* ---------- cook sheet ---------- */
+  var sheet = $("#sheet"), scrim = $("#scrim"), openId = null, lastFocus = null;
+  function fill(id){
+    var m = M[id]; if(!m) return;
+    $("#s-role").textContent = m.r;
+    $("#s-title").textContent = m.t;
+    $("#s-meta").innerHTML = m.m.map(function(x,i){
+      return '<span class="chip' + (i===0 ? " k" : "") + '">' + x + "</span>";
+    }).join("");
+    $("#s-ing").innerHTML = m.i.map(function(x){
+      return '<li><span class="iq">' + qty(x[0], x[1], "") + "</span><span>" + x[2] + "</span></li>";
+    }).join("");
+    $("#s-steps").innerHTML = m.s.map(function(x){
+      return "<li><div><p>" + x[0] + "</p>" +
+        (x[1] ? '<button class="tmr" data-min="' + x[1] + '">' + x[1] + ' min timer</button>' : "") +
+        "</div></li>";
+    }).join("");
+    $$("#s-steps .tmr").forEach(function(b){
+      b.addEventListener("click", function(){ startTimer(parseInt(b.getAttribute("data-min"),10), m.t); });
+    });
+  }
+  function openSheet(id){
+    lastFocus = document.activeElement;
+    openId = id; fill(id);
+    sheet.hidden = false; scrim.hidden = false;
+    $("#s-close").focus();
+  }
+  function closeSheet(){
+    sheet.hidden = true; scrim.hidden = true; openId = null;
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  $$(".open").forEach(function(b){
+    if(b.disabled) return;
+    b.addEventListener("click", function(){ openSheet(b.getAttribute("data-meal")); });
+  });
+  $("#s-close").addEventListener("click", closeSheet);
+  scrim.addEventListener("click", closeSheet);
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && !sheet.hidden) closeSheet();
+  });
+
+  /* ---------- timer ---------- */
+  var tick = null, left = 0;
+  var clock = $("#clock"), clockLab = $("#clock-lab");
+  function show(){
+    var m = Math.floor(left/60), s = left % 60;
+    clock.textContent = (m<10?"0":"") + m + ":" + (s<10?"0":"") + s;
+  }
+  function startTimer(mins, label){
+    stopTimer(true);
+    left = mins * 60;
+    clock.className = "clock run";
+    clockLab.textContent = label;
+    show();
+    tick = setInterval(function(){
+      left--;
+      if(left <= 0){
+        clearInterval(tick); tick = null;
+        clock.textContent = "00:00";
+        clock.className = "clock ring";
+        clockLab.textContent = "Time — " + label;
+      } else { show(); }
+    }, 1000);
+  }
+  function stopTimer(quiet){
+    if(tick){ clearInterval(tick); tick = null; }
+    if(!quiet){
+      clock.textContent = "--:--";
+      clock.className = "clock";
+      clockLab.textContent = "No timer running";
+    }
+  }
+  $("#clock-stop").addEventListener("click", function(){ stopTimer(false); });
+
+  /* ---------- dates: Sunday of the current week ---------- */
+  (function(){
+    var d = new Date(); d.setHours(0,0,0,0);
+    d.setDate(d.getDate() - d.getDay());
+    $$(".d-date").forEach(function(el,i){
+      var x = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
+      el.textContent = ("0"+x.getDate()).slice(-2) + "/" + ("0"+(x.getMonth()+1)).slice(-2);
+    });
+  })();
+
+  /* ---------- go ---------- */
+  paintWeek();
+  paintShop();
+})();
+</script>
