@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="rice"><rect x="6" y="14" width="52" height="39" rx="18" ry="17"/></clipPath>
+  </defs>
+  <rect width="64" height="64" fill="#F9C6C2"/>
+  <g clip-path="url(#rice)">
+    <rect x="6" y="14" width="52" height="39" fill="#FCFCFC"/>
+    <path d="M6 14h52v13c-8 3-17-1-26 0-9 1-18 4-26 1z" fill="#D9E052"/>
+    <path d="M6 25h52v3c-8 3-17-1-26 0-9 1-18 4-26 1z" fill="#C4CB45"/>
+    <path d="M35 14h9l-5 39h-9z" fill="#1C1C1C"/>
+  </g>
+  <g fill="#D8A4A5">
+    <ellipse cx="15.5" cy="41.5" rx="4" ry="2.6"/>
+    <ellipse cx="30.5" cy="41.5" rx="4" ry="2.6"/>
+  </g>
+  <circle cx="18.5" cy="37" r="3.3" fill="#141414"/>
+  <circle cx="27.5" cy="37" r="3.3" fill="#141414"/>
+  <path d="M20.4 42.6q1.7 2.3 3.4 0 1.7-2.3 3.4 0" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
