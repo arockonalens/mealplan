@@ -362,6 +362,18 @@
     color:var(--stamp);white-space:nowrap;
   }
   .wantnow p{margin:0;font-size:14px}
+  .pairwrap{overflow-x:auto;border-top:1px solid var(--ink)}
+  .pair{width:100%;border-collapse:collapse;font-size:13.5px}
+  .pair td{padding:10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
+  .pair td:first-child{
+    font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--stamp);white-space:nowrap;padding-right:18px;width:1%;
+  }
+  @media (max-width:520px){
+    .pair td{display:block;border-bottom:0;padding:0}
+    .pair tr{display:block;padding:11px 0;border-bottom:1px solid var(--rule-2)}
+    .pair td:first-child{white-space:normal;padding:0 0 3px;width:auto}
+  }
   .rx-group{margin-bottom:22px}
   .rx-group h3{
     font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
@@ -675,6 +687,12 @@
   <section id="recipes">
     <div class="sh"><h2>Recipes</h2><p class="sh-note">Every method in one place</p></div>
     <div id="rx-index"></div>
+
+    <div class="sh" style="margin-top:34px"><h2>What lifts what</h2><p class="sh-note">Reach for these</p></div>
+    <p class="para">The difference between a plan you follow and food you want is almost always one dried spice and one raw green thing. Two rules underneath the table: <b>acid at the end</b>, not the start — lemon in the pan cooks flat. And <b>never stir soft herbs in</b>; they go khaki. On top, at the table.</p>
+    <div class="pairwrap">
+      <table class="pair"><tbody><tr><td>Eggs — boiled, salad</td><td>chives, dill, smoked paprika, chilli, capers, celery salt</td></tr><tr><td>Eggs — shakshuka, frittata</td><td>cumin, caraway, paprika, parsley or coriander raw on top</td></tr><tr><td>Chicken — slow-cooked</td><td>harissa, oregano, lemon, garlic, sumac, bay</td></tr><tr><td>Beef — braised</td><td>bay, thyme, peppercorns, caraway, parsley to finish</td></tr><tr><td>Tinned fish</td><td>dill, capers, lemon zest, red onion, chilli</td></tr><tr><td>Rice — fried</td><td>ginger, garlic, white pepper, sesame, raw spring onion</td></tr><tr><td>Cabbage, raw slaw</td><td>lemon, sumac, chilli, mint</td></tr><tr><td>Focaccia</td><td>rosemary, fennel seed, za’atar, garlic steeped in the oil</td></tr><tr><td>Chocolate</td><td>cinnamon, instant coffee, sea salt flakes</td></tr></tbody></table>
+    </div>
   </section>
   </div>
 
@@ -769,11 +787,12 @@
           <h4>Already in the cupboard — not part of the weekly total</h4>
           <label class="r-item"><input type="checkbox" id="x5"><span class="r-name">Protein powder<span class="r-qty">5 scoops a week for the brownie tray · a 1 kg tub lasts six</span></span><span class="r-price">have</span></label>
           <label class="r-item"><input type="checkbox" id="x1"><span class="r-name">Dry yeast<span class="r-qty">3 sachets · 3 bakes</span></span><span class="r-price">$1.50</span></label>
-          <label class="r-item"><input type="checkbox" id="x2"><span class="r-name">Spice shelf<span class="r-qty">smoked paprika, cumin, coriander, chilli flakes, oregano, cinnamon, bay</span></span><span class="r-price">$14.00</span></label>
+          <label class="r-item"><input type="checkbox" id="x2"><span class="r-name">Spice shelf<span class="r-qty">smoked paprika, cumin, coriander, chilli flakes, oregano, cinnamon, bay, caraway, fennel seed, sumac, za&rsquo;atar, white pepper, sea salt flakes</span></span><span class="r-price">$22.00</span></label>
           <label class="r-item"><input type="checkbox" id="x3"><span class="r-name">Harissa paste<span class="r-qty">or blitz your own when capsicums are cheap</span></span><span class="r-price">$4.00</span></label>
-          <label class="r-item"><input type="checkbox" id="x6"><span class="r-name">Herb pot — parsley or chives<span class="r-qty">lives on the windowsill · weeks, not the four days a cut bunch lasts</span></span><span class="r-price">$4.50</span></label>
+          <label class="r-item"><input type="checkbox" id="x6"><span class="r-name">Herb pots — chives, parsley, dill<span class="r-qty">windowsill · weeks, not the four days a cut bunch lasts</span></span><span class="r-price">$13.50</span></label>
+          <label class="r-item"><input type="checkbox" id="x7"><span class="r-name">Long red chillies × 6<span class="r-qty">freeze them whole, slice straight from frozen — they keep for months</span></span><span class="r-price">$3.00</span></label>
           <label class="r-item"><input type="checkbox" id="x4"><span class="r-name">Dark cocoa powder<span class="r-qty">250 g · many batches of brownie</span></span><span class="r-price">$4.00</span></label>
-          <div class="r-sub"><span>One-off</span><span>$28.00</span></div>
+          <div class="r-sub"><span>One-off</span><span>$48.50</span></div>
         </div>
 
         <div class="barcode"></div>
@@ -884,14 +903,17 @@
          ["Beat the eggs hard with the yoghurt, salt and plenty of pepper. The yoghurt keeps it tender rather than rubbery.",0],
          ["This is where the fridge condiments go — harissa, mustard, chopped pickles, the end of a chutney, capers. Stir them through the egg, not the pan, so they distribute.",0],
          ["Pour over, leave it completely alone for two minutes to set on the base, then cheese and herbs on top. Oven 180 °C until the centre is just firm with a slight wobble.",20],
+         ["Chives and dill are the two that suit a cold frittata best — parsley is fine, thyme goes in early with the onion rather than raw on top.",0],
          ["Cool completely, then cut into six good squares and fridge them. This is a cold snack, not a hot dinner — better on day two, and it travels.",0],
          ["Six eggs rather than four makes each square about 22 g instead of 15 g. Thursday, Friday and Saturday covered for the two of you; focaccia has Sunday through Wednesday.",0]]},
     "sun-l":{r:"Lunch",t:"Egg salad on focaccia",m:["No-cook","10 min","Makes two lunches"],
-      i:[[6,"ea","boiled eggs"],[60,"g","Greek yoghurt"],[1,"ea","tsp smoked paprika"],[1,"ea","lemon"],[2,"ea","pieces focaccia"]],
-      s:[["Boil all six on Sunday. This batch is today's lunch and tomorrow's sandwiches \u2014 that is why it looks like more egg than one meal needs.",0],
+      i:[[6,"ea","boiled eggs"],[60,"g","mayo, or Greek yoghurt"],[3,"ea","tbsp chives, finely cut"],[1,"ea","long red chilli, deseeded"],[1,"ea","tsp smoked paprika"],[1,"ea","lemon"],[2,"ea","pieces focaccia"]],
+      s:[["Boil all six on Sunday. This batch is today's lunch and tomorrow's sandwiches — that is why it looks like more egg than one meal needs.",0],
          ["Chop them roughly. Don't mash to paste; you want to still meet a piece of egg.",0],
-         ["Greek yoghurt instead of mayo: same creaminess, triple the protein, and it carries the paprika better.",0],
-         ["Smoked paprika, hard on the pepper, squeeze of lemon. Onto split focaccia.",0]]},
+         ["Chives and chilli are what make this rather than plain egg mayo. Cut the chives fine with scissors straight into the bowl, deseed the chilli and dice it small.",0],
+         ["Mayo, or Greek yoghurt for triple the protein and a sharper result. A bone broth mayo is worth it if you have one — more savoury than a standard jar and it does not need as much salt.",0],
+         ["Smoked paprika, hard on the pepper, squeeze of lemon. Onto split focaccia.",0],
+         ["Season it, taste it, season it again. Cold egg mutes salt — what tastes right warm will taste flat out of the fridge tomorrow.",0]]},
     "sun-d":{r:"Dinner",t:"Harissa pulled chicken",m:["Slow cooker","6 hr","10 min work"],
       i:[[500,"g","chicken thigh fillets"],[2,"ea","tbsp harissa"],[1,"ea","onion"],[1,"ea","lemon"],[500,"g","potatoes"]],
       s:[["Halved onion in the base of the slow cooker, thigh fillets on top, harissa rubbed all over and pushed under the skin. Lemon in the cavity. No liquid — it makes its own.",0],
@@ -907,6 +929,7 @@
     "mon-d":{r:"Dinner",t:"Braised beef with leeks",m:["Oven","2 hr + 50 min","Sunday job"],
       i:[[500,"g","beef chuck, in big chunks"],[1,"ea","leek"],[2,"ea","onions"],[6,"ea","garlic cloves"],[80,"ml","red wine"],[3,"ea","bay leaves"],[1,"ea","tsp peppercorns"],[2,"ea","pieces focaccia, to serve"]],
       s:[["Season the chuck hard, then sear it deeply — 3 to 4 minutes a side, in batches, never crowded. The original recipe is built on this step and so is the finished dish. Do not rush it.",0],
+         ["A few thyme sprigs in with the bay. Caraway if you want it leaning east rather than French.",0],
          ["One onion quartered and the garlic into the same pan for two minutes, then the wine in, scraping the base until it has mostly reduced.",2],
          ["Into a covered dish with the bay and peppercorns, water two-thirds of the way up the beef. Oven at 165 °C. This is the original method and it is the better one — the beef comes out tender but still holding its shape, which eight hours in a slow cooker will not give you.",120],
          ["Strain the liquid and keep every drop. Skim the fat, throw out the bay, peppercorns and quartered onion.",0],
@@ -918,13 +941,16 @@
       i:[[250,"g","pulled chicken"],[250,"g","cooked rice"],[150,"g","cabbage slaw"],[60,"g","Greek yoghurt"],[1,"ea","lemon"]],
       s:[["Dress the slaw now, not this morning.",0],
          ["Yoghurt thinned with lemon and a little harissa as the sauce. Thirty seconds and it lifts the whole bowl.",0],
-         ["Raw cabbage is doing real work — by Tuesday everything else in the fridge is soft.",0]]},
+         ["Raw cabbage is doing real work — by Tuesday everything else in the fridge is soft.",0],
+         ["Sumac over the top if you have it. It is lemony without being wet, which is exactly what a cold chicken bowl needs.",0]]},
     "tue-d":{r:"Dinner",t:"Shakshuka with focaccia",m:["Cooktop","30 min"],
       i:[[4,"ea","eggs"],[800,"g","diced tomatoes"],[1,"ea","onion"],[3,"ea","garlic cloves"],[1,"ea","tbsp harissa"],[2,"ea","pieces focaccia"]],
       s:[["Onion soft in a wide pan. Don't rush it — it's the difference between sweet and raw.",8],
          ["Garlic, cumin, smoked paprika and harissa for a minute, until it smells like something.",0],
          ["Tomatoes in, simmer until a spoon leaves a track through it.",12],
          ["Six wells, crack the eggs in, lid on, low heat until the whites set and the yolks are still soft.",6],
+         ["Caraway seeds with the cumin — a quarter teaspoon, crushed. It is the difference between a tomato dish and a shakshuka.",0],
+         ["Chopped parsley or coriander over the top at the table, and chilli flakes. Never stir herbs into shakshuka, they go khaki.",0],
          ["Cheese crumbled over at the end if you want it. Focaccia to mop — six eggs across two people is the best protein-per-dollar dinner in the week.",0]]},
     "wed-l":{r:"Lunch",t:"Tuna & cheese melt",m:["Air fryer","8 min","Or cold"],
       i:[[95,"g","tuna, drained"],[2,"ea","pieces focaccia"],[60,"g","cheese, grated"],[100,"g","cabbage slaw"],[1,"ea","lemon"]],
@@ -949,19 +975,23 @@
       s:[["The stock is the whole point — two carcasses simmered an hour give you a litre that would cost $6 in a carton.",0],
          ["Onion and carrot in the stock, simmered until soft.",12],
          ["Rice in for the last 10 minutes, then chicken and frozen veg to warm through.",10],
-         ["Big squeeze of lemon and a lot of black pepper at the end. Soup without acid tastes flat and most people reach for salt instead.",0]]},
+         ["Thyme and a bay leaf in with the stock, fished out before serving.",0],
+         ["Big squeeze of lemon and a lot of black pepper at the end. Soup without acid tastes flat and most people reach for salt instead.",0],
+         ["Chives or parsley on top, and a drizzle of chilli oil if you have made some. Chilli flakes warmed in oil for two minutes is all that is.",0]]},
     "fri-l":{r:"Lunch",t:"Tuna salad on focaccia",m:["No-cook","10 min"],
       i:[[190,"g","tuna, 2 tins drained"],[60,"g","Greek yoghurt"],[1,"ea","carrot, grated"],[100,"g","cabbage slaw"],[1,"ea","lemon"]],
       s:[["Two tins between you, drained hard.",0],
          ["Yoghurt, lemon, plenty of pepper, and the grated carrot through it for crunch.",0],
          ["By Friday the week has been soft and rich for days. This is the sharp one \u2014 do not go easy on the lemon.",0],
+         ["Dill and capers if you have them, chives if not. Tuna wants something green and something sharp or it just tastes of tin.",0],
          ["Last of the focaccia out of the freezer, four minutes in the air fryer.",0]]},
     "fri-d":{r:"Dinner",t:"Ragu from the braise",m:["Cooktop","25 min"],
       i:[[2,"ea","serves of the braise"],[500,"g","spaghetti"],[1,"ea","tsp smoked paprika"],[1,"ea","tsp cumin"],[40,"g","cheese, grated"]],
       s:[["Shred the reserved beef back through the strained braising liquid from Monday. That liquid is the best thing in the fridge — do not throw it out on Monday night.",0],
          ["Smoked paprika and cumin in now. It turns Monday's French braise into something that reads as a different meal rather than a third night of leftovers.",0],
          ["Reduce hard so it clings to the pasta instead of pooling under it.",10],
-         ["Pasta a minute short, finished in the sauce with a splash of its water, grated cheese at the table.",0]]},
+         ["A bay leaf and a pinch of chilli flakes in while it reduces.",0],
+         ["Pasta a minute short, finished in the sauce with a splash of its water, grated cheese and parsley at the table.",0]]},
     "sat-l":{r:"Lunch",t:"Leftovers bowl, fried egg",m:["Cooktop","10 min"],
       i:[[1,"ea","whatever survived the week"],[2,"ea","eggs, one each"]],
       s:[["Rice or potato at the base, whatever is left on top — including a wedge of Thursday's frittata if any survived.",0],
@@ -973,7 +1003,8 @@
          ["Eggs scrambled first, out to a plate.",0],
          ["Garlic, then the frozen veg — high heat, keep it moving.",4],
          ["Rice in, pressed flat, thirty seconds at a time so it catches.",0],
-         ["Everything back in, soy down the side of the pan, toss and serve.",0]]},
+         ["Everything back in, soy down the side of the pan, white pepper rather than black, toss and serve.",0],
+         ["Spring onion raw over the top and a few sesame seeds. Fried rice needs one raw thing on it.",0]]},
     "focaccia":{r:"Savoury snack · baked Sunday",t:"Focaccia + harissa yoghurt",m:["Oven","10 min work","3 hr prove"],
       i:[[500,"g","plain flour"],[7,"g","dry yeast"],[400,"ml","warm water"],[10,"g","salt"],[60,"ml","olive oil"],[500,"g","Greek yoghurt, for the week"]],
       s:[["Flour, yeast and salt in the mixer with the dough hook. Water in, six minutes on low. Weigh the flour if you can \u2014 a cup varies by up to 30% depending how it is scooped, and that is where the ratio usually goes wrong.",0],
@@ -984,6 +1015,7 @@
          ["Oil a roasting tray more generously than feels sensible. Tip the dough in and let it relax.",20],
          ["Oiled fingers, press straight down through to the tray all over. The dimples are the point.",0],
          ["Rosemary, slivered garlic, chilli flakes, coarse salt, more oil. 220 °C until deep gold.",22],
+         ["Worth rotating: fennel seed and sea salt one week, za'atar the next, or crushed garlic and rosemary steeped in the oil first. The dough never changes, the top always can.",0],
          ["Cut into 12. Half to the fridge, half sliced and frozen. Four minutes in the air fryer revives a frozen piece.",0],
          ["Yoghurt beaten with harissa, lemon, salt and a little oil. Focaccia alone is 7 g of protein; with the dip it is 18 g.",0]]},
     "oatslice":{r:"Sweet snack · baked Sunday",t:"Protein brownie",m:["Oven","40 min","14 squares"],
@@ -992,6 +1024,8 @@
          ["Eggs and yoghurt in, blitz again. Then the protein powder, oat flour, cocoa, sugar and baking powder.",0],
          ["Do not overmix once the powder is in — whey and casein tighten the batter and an overworked one bakes rubbery. Add a splash of milk if it is stiffer than a thick cake batter.",0],
          ["Lined tin, 180 °C. Pull it while the centre is still slightly soft; it firms as it cools and an over-baked one is dry and chalky.",34],
+         ["A teaspoon of instant coffee in the batter. You will not taste coffee — it makes the chocolate read as darker, which is the trick most brownie recipes are too polite to mention.",0],
+         ["Sea salt flakes over the top before it bakes.",0],
          ["Cool completely, then chill. Genuinely better cold on day two.",0],
          ["Fourteen squares — one each per day, all week, at about 17 g. Five scoops does the whole tray, so a 1 kg tub lasts six weeks at this rate.",0],
          ["Adapted from @benmoore_coach, originally @nickkaz.fit. The powder is what takes this from 9 g a square to 17 g, and it costs you nothing extra because you already have it.",0]]}
