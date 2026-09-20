@@ -310,6 +310,31 @@
   .tbtn:hover{border-color:var(--stamp);color:var(--stamp)}
   .tbtn[aria-pressed="true"]{background:var(--stamp);border-color:var(--stamp);color:var(--chit)}
 
+  .r-stock{margin-top:20px;padding-top:14px;border-top:1px dashed var(--rule)}
+  .r-stock h4{
+    font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ochre,var(--flag));
+    margin:0 0 8px;font-weight:500;
+  }
+  .wantbox{background:var(--chit);border:1px solid var(--rule);border-left:2px solid var(--stamp);padding:15px 16px}
+  .wantbox textarea{
+    width:100%;font:inherit;font-size:14px;color:var(--ink);background:var(--sunk);
+    border:1px solid var(--rule);padding:9px 11px;resize:vertical;min-height:70px;border-radius:0;
+  }
+  .wantbox textarea:focus{border-color:var(--stamp)}
+  .wanthint{
+    margin:8px 0 0;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-3);
+  }
+  .wantnow{
+    display:flex;gap:9px;align-items:baseline;margin-bottom:13px;padding-bottom:12px;
+    border-bottom:1px dotted var(--rule);
+  }
+  .wantnow .tag{
+    font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--stamp);white-space:nowrap;
+  }
+  .wantnow p{margin:0;font-size:14px}
+
   /* ---------------- stubs ---------------- */
   .stubs{display:grid;gap:14px}
   @media (min-width:800px){.stubs{grid-template-columns:1fr 1fr}}
@@ -463,6 +488,7 @@
         <a href="#prep">Prep</a>
         <a href="#week">Week</a>
         <a href="#shop">Shop</a>
+        <a href="#want">Want</a>
         <a href="#next">Soon</a>
       </nav>
       <button class="theme" id="theme" aria-label="Switch theme">◐</button>
@@ -475,29 +501,29 @@
   <header class="mast">
     <h1 class="vh">Meal Planner</h1>
     <dl class="tape">
-      <div class="tp"><dt>Shop total</dt><dd id="t-total">$91.20</dd></div>
-      <div class="tp"><dt>Per meal, each</dt><dd id="t-permeal">$3.26</dd></div>
-      <div class="tp"><dt>Protein avg</dt><dd id="t-pro">96<i>g/day</i></dd></div>
-      <div class="tp"><dt>Sunday bake</dt><dd>2<i>hr</i></dd></div>
+      <div class="tp"><dt>Shop total</dt><dd id="t-total">$128.45</dd></div>
+      <div class="tp"><dt>Per meal, each</dt><dd id="t-permeal">$4.59</dd></div>
+      <div class="tp"><dt>Protein avg</dt><dd id="t-pro">123<i>g/day</i></dd></div>
+      <div class="tp"><dt>Hands-on Sun</dt><dd>50<i>min</i></dd></div>
       <div class="tp"><dt>Longest cook</dt><dd>30<i>min</i></dd></div>
     </dl>
   </header>
 
   <section id="prep">
     <div class="sh"><h2>Sunday, in order</h2><p class="sh-note">≈2 hr elapsed · ~45 min hands-on</p></div>
-    <p class="para">The sequence matters. The dough proves while everything else cooks, the chickpeas need a head start, and the oven runs three jobs back to back — chicken, then slice, then focaccia, each hotter than the last.</p>
+    <p class="para">The slow cooker does the chicken unattended, the dough proves while you work, and the oven runs two jobs back to back. Hands-on time is about 50 minutes spread across the afternoon.</p>
     <div class="prep">
       <ol>
-        <li><div><b>Mix the focaccia dough — first, before anything</b><p>It needs 2–3 hours to prove and it does that on its own while the rest of Sunday happens. Ten minutes of actual work.</p></div></li>
-        <li><div><b>Quick-soak the chickpeas</b><p>Cover 500 g dried chickpeas with water, boil 5 minutes, off the heat, stand 1 hour.</p></div></li>
-        <li><div><b>Oven to 200 °C — roast the thighs</b><p>All 1 kg, tossed in oil, paprika, cumin, salt. 25–30 min. Sunday dinner plus two lunches.</p></div></li>
-        <li><div><b>While the oven runs — build the dahl</b><p>500 g red lentils, 2 diced onions, 3 grated carrots, 1 can tomatoes, curry powder, 1.5 L water. Simmer 30 min.</p></div></li>
-        <li><div><b>Cook 500 g rice, shred the slaw</b><p>Rice spread on a tray to cool fast. Half a cabbage and 2 grated carrots, stored dry and undressed.</p></div></li>
-        <li><div><b>Chicken out — oven down to 180 °C — bake the oat slice</b><p>25–30 min. Cool it completely in the tin before cutting or it crumbles.</p></div></li>
-        <li><div><b>Oven up to 220 °C — dimple and bake the focaccia</b><p>20–25 min until deep gold. Last thing in, because it wants the hottest oven.</p></div></li>
-        <li><div><b>Drain the chickpeas, portion everything</b><p>Chickpeas to the fridge for bowls and the frittata. Slice and freeze half the focaccia now — it is excellent on day one and tired by day four.</p></div></li>
+        <li><div><b>First bird into the slow cooker</b><p>Whole chicken, rubbed with harissa, onion and lemon underneath, no liquid needed — it makes its own. Low for 6 hours. Do this before anything else and forget about it.</p></div></li>
+        <li><div><b>Mix the focaccia dough</b><p>Ten minutes in the mixer with the dough hook, then it proves on its own for 2–3 hours while everything else happens.</p></div></li>
+        <li><div><b>Boil a dozen eggs</b><p>Twelve minutes, straight into cold water, stored in the shell. These are the week&rsquo;s sandwiches, salads and cracker toppings.</p></div></li>
+        <li><div><b>Slaw base and spice paste — food processor</b><p>Cabbage and carrots shredded in thirty seconds, stored dry. Then blitz your own harissa: roasted capsicum, chilli, garlic, cumin, oil. Far better than the jar and a fraction of the price.</p></div></li>
+        <li><div><b>Cook 500 g rice</b><p>Spread on a tray to cool fast. Saturday&rsquo;s fried rice needs it properly cold.</p></div></li>
+        <li><div><b>Oven 180 °C — bake the oat slice</b><p>25–30 min. Cool completely in the tin before cutting.</p></div></li>
+        <li><div><b>Oven up to 220 °C — dimple and bake the focaccia</b><p>20–25 min until deep gold. Last in, because it wants the hottest oven.</p></div></li>
+        <li><div><b>Shred the chicken, portion everything</b><p>Two forks, or ten seconds in the mixer on low — it pulls a whole bird apart. Keep the carcass and simmer it for stock; that becomes Wednesday&rsquo;s braising liquid.</p></div></li>
       </ol>
-      <p class="aside"><b>Skipping the soak?</b> Two 400 g cans replace the dried chickpeas. Costs about $1.50 more and drops roughly 60 g of protein off the week.</p>
+      <p class="aside"><b>No legumes in this plan.</b> Lentils and chickpeas are both out — same family, same bloating mechanism. That removed the cheapest protein in the shop, and the slow cooker is what replaces it: whole chickens run about $0.040 per gram of protein against $0.069 for thigh fillets.</p>
     </div>
   </section>
 
@@ -511,82 +537,96 @@
     <div class="rail" id="rail">
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Sun</h3><span class="d-date"></span><span class="d-mode">Shop + bake day</span></div>
+        <div class="d-head"><h3 class="d-day">Sun</h3><span class="d-date"></span><span class="d-mode">Shop + cook-up</span></div>
         <div class="rows">
-          <div class="row" data-pro="38"><button class="tick" data-id="sun-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Tuna &amp; chickpea smash</span><span class="leader"></span></button><span class="rpro">38 g</span></div>
-          <div class="row" data-pro="45"><button class="tick" data-id="sun-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sun-d"><span class="rname">Thigh, roast potato, veg</span><span class="leader"></span></button><span class="rpro">45 g</span></div>
-          <div class="row" data-pro="15"><button class="tick" data-id="sun-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
-          <div class="row" data-pro="11"><button class="tick" data-id="sun-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+          <div class="row" data-pro="35"><button class="tick" data-id="sun-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Egg salad on crackers</span><span class="leader"></span></button><span class="rpro">35 g</span></div>
+          <div class="row" data-pro="50"><button class="tick" data-id="sun-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sun-d"><span class="rname">Harissa pulled chicken</span><span class="leader"></span></button><span class="rpro">50 g</span></div>
+          <div class="row" data-pro="22"><button class="tick" data-id="sun-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa cottage cheese</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="18"><button class="tick" data-id="sun-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Oat slice × 2 + milk</span><span class="leader"></span></button><span class="rpro">18 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>109</b> g</span></div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>125</b> g</span></div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Mon</h3><span class="d-date"></span><span class="d-mode">Assembly only</span></div>
+        <div class="d-head"><h3 class="d-day">Mon</h3><span class="d-date"></span><span class="d-mode">Braise on before work</span></div>
         <div class="rows">
-          <div class="row" data-pro="42"><button class="tick" data-id="mon-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Chicken &amp; rice bowl</span><span class="leader"></span></button><span class="rpro">42 g</span></div>
-          <div class="row" data-pro="30"><button class="tick" data-id="mon-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="mon-d"><span class="rname">Red lentil dahl + rice</span><span class="leader"></span></button><span class="rpro">30 g</span></div>
-          <div class="row" data-pro="15"><button class="tick" data-id="mon-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
-          <div class="row" data-pro="11"><button class="tick" data-id="mon-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+          <div class="row" data-pro="42"><button class="tick" data-id="mon-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Egg sandwiches on focaccia</span><span class="leader"></span></button><span class="rpro">42 g</span></div>
+          <div class="row" data-pro="45"><button class="tick" data-id="mon-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="mon-d"><span class="rname">Red wine braised beef</span><span class="leader"></span></button><span class="rpro">45 g</span></div>
+          <div class="row" data-pro="22"><button class="tick" data-id="mon-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa cottage cheese</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="18"><button class="tick" data-id="mon-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Oat slice × 2 + milk</span><span class="leader"></span></button><span class="rpro">18 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>98</b> g</span></div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>127</b> g</span></div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Tue</h3><span class="d-date"></span><span class="d-mode">Cook fresh</span></div>
+        <div class="d-head"><h3 class="d-day">Tue</h3><span class="d-date"></span><span class="d-mode">Assembly + quick cook</span></div>
         <div class="rows">
-          <div class="row" data-pro="26"><button class="tick" data-id="tue-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="tue-l"><span class="rname">Dahl + boiled egg</span><span class="leader"></span></button><span class="rpro">26 g</span></div>
-          <div class="row" data-pro="38"><button class="tick" data-id="tue-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="tue-d"><span class="rname">Beef bolognese</span><span class="leader"></span></button><span class="rpro">38 g</span></div>
-          <div class="row" data-pro="15"><button class="tick" data-id="tue-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
-          <div class="row" data-pro="11"><button class="tick" data-id="tue-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+          <div class="row" data-pro="40"><button class="tick" data-id="tue-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="tue-l"><span class="rname">Pulled chicken slaw bowl</span><span class="leader"></span></button><span class="rpro">40 g</span></div>
+          <div class="row" data-pro="42"><button class="tick" data-id="tue-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="tue-d"><span class="rname">Shakshuka with focaccia</span><span class="leader"></span></button><span class="rpro">42 g</span></div>
+          <div class="row" data-pro="22"><button class="tick" data-id="tue-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa cottage cheese</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="18"><button class="tick" data-id="tue-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Oat slice × 2 + milk</span><span class="leader"></span></button><span class="rpro">18 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>90</b> g</span></div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>122</b> g</span></div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Wed</h3><span class="d-date"></span><span class="d-mode">Leftovers + air fryer</span></div>
+        <div class="d-head"><h3 class="d-day">Wed</h3><span class="d-date"></span><span class="d-mode">Second bird in</span></div>
         <div class="rows">
-          <div class="row" data-pro="35"><button class="tick" data-id="wed-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="wed-l"><span class="rname">Bolognese on baked potato</span><span class="leader"></span></button><span class="rpro">35 g</span></div>
-          <div class="row" data-pro="40"><button class="tick" data-id="wed-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="wed-d"><span class="rname">Drumsticks + roast carrot</span><span class="leader"></span></button><span class="rpro">40 g</span></div>
-          <div class="row" data-pro="15"><button class="tick" data-id="wed-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
-          <div class="row" data-pro="11"><button class="tick" data-id="wed-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+          <div class="row" data-pro="40"><button class="tick" data-id="wed-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="wed-l"><span class="rname">Red wine beef on mash</span><span class="leader"></span></button><span class="rpro">40 g</span></div>
+          <div class="row" data-pro="46"><button class="tick" data-id="wed-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="wed-d"><span class="rname">Lemon-oregano chicken</span><span class="leader"></span></button><span class="rpro">46 g</span></div>
+          <div class="row" data-pro="22"><button class="tick" data-id="wed-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa cottage cheese</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="18"><button class="tick" data-id="wed-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Oat slice × 2 + milk</span><span class="leader"></span></button><span class="rpro">18 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>101</b> g</span></div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>126</b> g</span></div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Thu</h3><span class="d-date"></span><span class="d-mode">Oven night</span></div>
+        <div class="d-head"><h3 class="d-day">Thu</h3><span class="d-date"></span><span class="d-mode">Fish night</span></div>
         <div class="rows">
-          <div class="row" data-pro="34"><button class="tick" data-id="thu-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="thu-l"><span class="rname">Cold drumstick, slaw, rice</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
-          <div class="row" data-pro="32"><button class="tick" data-id="thu-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="thu-d"><span class="rname">Chickpea &amp; veg frittata</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
-          <div class="row" data-pro="15"><button class="tick" data-id="thu-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
-          <div class="row" data-pro="11"><button class="tick" data-id="thu-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+          <div class="row" data-pro="38"><button class="tick" data-id="thu-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="thu-l"><span class="rname">Chicken &amp; slaw roll</span><span class="leader"></span></button><span class="rpro">38 g</span></div>
+          <div class="row" data-pro="44"><button class="tick" data-id="thu-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="thu-d"><span class="rname">Sardine fritters, lime &amp; chilli</span><span class="leader"></span></button><span class="rpro">44 g</span></div>
+          <div class="row" data-pro="22"><button class="tick" data-id="thu-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa cottage cheese</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="18"><button class="tick" data-id="thu-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Oat slice × 2 + milk</span><span class="leader"></span></button><span class="rpro">18 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>92</b> g</span></div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>122</b> g</span></div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Fri</h3><span class="d-date"></span><span class="d-mode">Uses up the tuna</span></div>
+        <div class="d-head"><h3 class="d-day">Fri</h3><span class="d-date"></span><span class="d-mode">Ragu night</span></div>
         <div class="rows">
-          <div class="row" data-pro="28"><button class="tick" data-id="fri-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="fri-l"><span class="rname">Frittata wedge + slaw</span><span class="leader"></span></button><span class="rpro">28 g</span></div>
-          <div class="row" data-pro="35"><button class="tick" data-id="fri-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="fri-d"><span class="rname">Tuna &amp; lentil patties</span><span class="leader"></span></button><span class="rpro">35 g</span></div>
-          <div class="row" data-pro="15"><button class="tick" data-id="fri-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
-          <div class="row" data-pro="11"><button class="tick" data-id="fri-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+          <div class="row" data-pro="36"><button class="tick" data-id="fri-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="fri-l"><span class="rname">Egg salad on crackers</span><span class="leader"></span></button><span class="rpro">36 g</span></div>
+          <div class="row" data-pro="45"><button class="tick" data-id="fri-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="fri-d"><span class="rname">Ragu from the braise</span><span class="leader"></span></button><span class="rpro">45 g</span></div>
+          <div class="row" data-pro="22"><button class="tick" data-id="fri-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa cottage cheese</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="18"><button class="tick" data-id="fri-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Oat slice × 2 + milk</span><span class="leader"></span></button><span class="rpro">18 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>89</b> g</span></div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>121</b> g</span></div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Sat</h3><span class="d-date"></span><span class="d-mode">Empty the fridge</span></div>
+        <div class="d-head"><h3 class="d-day">Sat</h3><span class="d-date"></span><span class="d-mode">Leftovers day</span></div>
         <div class="rows">
-          <div class="row" data-pro="30"><button class="tick" data-id="sat-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sat-l"><span class="rname">Clear-out bowl</span><span class="leader"></span></button><span class="rpro">30 g</span></div>
-          <div class="row" data-pro="38"><button class="tick" data-id="sat-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sat-d"><span class="rname">Chicken fried rice</span><span class="leader"></span></button><span class="rpro">38 g</span></div>
-          <div class="row" data-pro="15"><button class="tick" data-id="sat-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped cottage cheese</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
-          <div class="row" data-pro="11"><button class="tick" data-id="sat-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Banana oat slice × 2</span><span class="leader"></span></button><span class="rpro">11 g</span></div>
+          <div class="row" data-pro="34"><button class="tick" data-id="sat-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sat-l"><span class="rname">Leftovers bowl, fried egg</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
+          <div class="row" data-pro="44"><button class="tick" data-id="sat-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sat-d"><span class="rname">Leftovers fried rice</span><span class="leader"></span></button><span class="rpro">44 g</span></div>
+          <div class="row" data-pro="22"><button class="tick" data-id="sat-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa cottage cheese</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="18"><button class="tick" data-id="sat-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Oat slice × 2 + milk</span><span class="leader"></span></button><span class="rpro">18 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>94</b> g</span></div>
+        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>118</b> g</span></div>
       </article>
 
+    </div>
+  </section>
+
+  <section id="want">
+    <div class="sh"><h2>This week&rsquo;s want</h2><p class="sh-note">One thing you actually feel like</p></div>
+    <p class="para">A standing slot for whatever you&rsquo;re in the mood for. It gets its own lines on the receipt and gets worked into the meals rather than bolted on the side.</p>
+    <div class="wantbox">
+      <div class="wantnow">
+        <span class="tag">This week</span>
+        <p>Boiled eggs — for sandwiches and on crackers. Done: a dozen go on Sunday, egg salad runs Monday lunch and Friday lunch, and crackers are on the list.</p>
+      </div>
+      <label class="s-lab" for="want-text">Next week&rsquo;s want</label>
+      <textarea id="want-text" placeholder="e.g. a roast on Sunday, something with haloumi, proper soup, a curry..."></textarea>
+      <p class="wanthint" id="want-hint">Saved on this device</p>
     </div>
   </section>
 
@@ -602,72 +642,80 @@
       <div class="r-in">
         <div class="r-top">
           <h3>Weekly Shop</h3>
-          <p>Wk 38 · <span id="r-pax">2 pax</span> · 25 lines</p>
+          <p><span id="r-pax">2 pax</span> · 26 lines · no legumes</p>
         </div>
 
         <div class="r-cat">
           <h4>Protein &amp; chilled</h4>
-          <label class="r-item"><input type="checkbox" id="k1"><span class="r-name">Chicken thigh fillets<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="12.50">$12.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k2"><span class="r-name">Chicken drumsticks<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="6.00">$6.00</span></label>
-          <label class="r-item"><input type="checkbox" id="k3"><span class="r-name">Beef mince, regular<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="6.50">$6.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k4"><span class="r-name">Eggs<span class="r-qty" data-q="18" data-u="ea" data-s="eggs">18 eggs</span></span><span class="r-price" data-p="8.50">$8.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k1"><span class="r-name">Whole chickens<span class="r-qty" data-q="2" data-u="ea" data-s="× ~1.7 kg birds">2 × ~1.7 kg birds</span></span><span class="r-price" data-p="20.00">$20.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k2"><span class="r-name">Beef chuck steak<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="11.00">$11.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k3"><span class="r-name">Eggs<span class="r-qty" data-q="36" data-u="ea" data-s="eggs">36 eggs</span></span><span class="r-price" data-p="16.00">$16.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k4"><span class="r-name">Sardines<span class="r-qty" data-q="4" data-u="ea" data-s="× 110 g tins">4 × 110 g tins</span></span><span class="r-price" data-p="6.00">$6.00</span></label>
           <label class="r-item"><input type="checkbox" id="k5"><span class="r-name">Tuna in springwater<span class="r-qty" data-q="3" data-u="ea" data-s="× 95 g tins">3 × 95 g tins</span></span><span class="r-price" data-p="4.50">$4.50</span></label>
-          <div class="r-sub"><span>Subtotal</span><span data-sub="38.00">$38.00</span></div>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="57.50">$57.50</span></div>
         </div>
 
         <div class="r-cat">
           <h4>Dairy</h4>
-          <label class="r-item"><input type="checkbox" id="k6"><span class="r-name">Greek yoghurt, plain<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="3.50">$3.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k6"><span class="r-name">Greek yoghurt, plain<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="6.50">$6.50</span></label>
           <label class="r-item"><input type="checkbox" id="k7"><span class="r-name">Cottage cheese<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="5.50">$5.50</span></label>
-          <div class="r-sub"><span>Subtotal</span><span data-sub="9.00">$9.00</span></div>
-        </div>
-
-        <div class="r-cat">
-          <h4>Pantry &amp; dry</h4>
-          <label class="r-item"><input type="checkbox" id="k8"><span class="r-name">Dried red lentils<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="4.50">$4.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k9"><span class="r-name">Dried chickpeas<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
-          <label class="r-item"><input type="checkbox" id="k10"><span class="r-name">Long grain rice<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
-          <label class="r-item"><input type="checkbox" id="k11"><span class="r-name">Spaghetti<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
-          <label class="r-item"><input type="checkbox" id="k12"><span class="r-name">Rolled oats<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k24"><span class="r-name">Plain flour<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
-          <label class="r-item"><input type="checkbox" id="k25"><span class="r-name">Dry yeast<span class="r-qty" data-q="3" data-u="ea" data-s="× 7 g sachets">3 × 7 g sachets</span></span><span class="r-price" data-p="1.50">$1.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k13"><span class="r-name">Diced tomatoes<span class="r-qty" data-q="2" data-u="ea" data-s="× 400 g tins">2 × 400 g tins</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k14"><span class="r-name">Tomato paste<span class="r-qty" data-q="140" data-u="g">140 g</span></span><span class="r-price" data-p="1.20">$1.20</span></label>
-          <div class="r-sub"><span>Subtotal</span><span data-sub="22.20">$22.20</span></div>
-        </div>
-
-        <div class="r-cat">
-          <h4>Produce</h4>
-          <label class="r-item"><input type="checkbox" id="k15"><span class="r-name">Potatoes<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
-          <label class="r-item"><input type="checkbox" id="k16"><span class="r-name">Carrots<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k17"><span class="r-name">Brown onions<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
-          <label class="r-item"><input type="checkbox" id="k18"><span class="r-name">Green cabbage<span class="r-qty" data-q="0.5" data-u="ea" data-s="head">0.5 head</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k19"><span class="r-name">Bananas<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="4.00">$4.00</span></label>
-          <label class="r-item"><input type="checkbox" id="k20"><span class="r-name">Garlic<span class="r-qty" data-q="1" data-u="ea" data-s="bulb">1 bulb</span></span><span class="r-price" data-p="1.50">$1.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k8"><span class="r-name">Milk<span class="r-qty" data-q="3" data-u="ea" data-s="litres">3 litres</span></span><span class="r-price" data-p="4.50">$4.50</span></label>
           <div class="r-sub"><span>Subtotal</span><span data-sub="16.50">$16.50</span></div>
         </div>
 
         <div class="r-cat">
-          <h4>Freezer</h4>
-          <label class="r-item"><input type="checkbox" id="k21"><span class="r-name">Mixed vegetables<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.50">$3.50</span></label>
-          <label class="r-item"><input type="checkbox" id="k22"><span class="r-name">Peas<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
-          <div class="r-sub"><span>Subtotal</span><span data-sub="5.50">$5.50</span></div>
+          <h4>Pantry &amp; dry</h4>
+          <label class="r-item"><input type="checkbox" id="k9"><span class="r-name">Rolled oats<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k10"><span class="r-name">Long grain rice<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k11"><span class="r-name">Spaghetti<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k12"><span class="r-name">Diced tomatoes<span class="r-qty" data-q="3" data-u="ea" data-s="× 400 g tins">3 × 400 g tins</span></span><span class="r-price" data-p="3.75">$3.75</span></label>
+          <label class="r-item"><input type="checkbox" id="k13"><span class="r-name">Tomato paste<span class="r-qty" data-q="140" data-u="g">140 g</span></span><span class="r-price" data-p="1.20">$1.20</span></label>
+          <label class="r-item"><input type="checkbox" id="k14"><span class="r-name">Crackers — this week&rsquo;s want<span class="r-qty" data-q="250" data-u="g">250 g</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="15.45">$15.45</span></div>
         </div>
 
         <div class="r-cat">
-          <h4>Optional</h4>
-          <label class="r-item"><input type="checkbox" id="k23"><span class="r-name">Canned chickpeas, if not soaking<span class="r-qty" data-q="2" data-u="ea" data-s="× 400 g — replaces dried">2 × 400 g — replaces dried</span></span><span class="r-price" data-p="1.50">+$1.50</span></label>
+          <h4>Produce</h4>
+          <label class="r-item"><input type="checkbox" id="k15"><span class="r-name">Potatoes<span class="r-qty" data-q="2000" data-u="g">2 kg</span></span><span class="r-price" data-p="5.50">$5.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k16"><span class="r-name">Carrots<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k17"><span class="r-name">Brown onions<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k18"><span class="r-name">Green cabbage<span class="r-qty" data-q="1" data-u="ea" data-s="head">1 head</span></span><span class="r-price" data-p="4.50">$4.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k19"><span class="r-name">Capsicum<span class="r-qty" data-q="2" data-u="ea" data-s="capsicums">2 capsicums</span></span><span class="r-price" data-p="5.00">$5.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k20"><span class="r-name">Bananas<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="4.00">$4.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k21"><span class="r-name">Garlic<span class="r-qty" data-q="1" data-u="ea" data-s="bulb">1 bulb</span></span><span class="r-price" data-p="1.50">$1.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k22"><span class="r-name">Lemons<span class="r-qty" data-q="3" data-u="ea" data-s="lemons">3 lemons</span></span><span class="r-price" data-p="3.00">$3.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k23"><span class="r-name">Ginger<span class="r-qty" data-q="100" data-u="g">100 g</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="31.00">$31.00</span></div>
+        </div>
+
+        <div class="r-cat">
+          <h4>Freezer</h4>
+          <label class="r-item"><input type="checkbox" id="k24"><span class="r-name">Mixed vegetables<span class="r-qty" data-q="1000" data-u="g">1 kg</span></span><span class="r-price" data-p="3.50">$3.50</span></label>
+          <label class="r-item"><input type="checkbox" id="k25"><span class="r-name">Peas<span class="r-qty" data-q="500" data-u="g">500 g</span></span><span class="r-price" data-p="2.00">$2.00</span></label>
+          <label class="r-item"><input type="checkbox" id="k26"><span class="r-name">Spinach<span class="r-qty" data-q="250" data-u="g">250 g</span></span><span class="r-price" data-p="2.50">$2.50</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="8.00">$8.00</span></div>
         </div>
 
         <div class="r-tot">
-          <div class="r-line"><span>Lines</span><span id="r-lines">25</span></div>
+          <div class="r-line"><span>Lines</span><span id="r-lines">26</span></div>
           <div class="r-line"><span>In trolley</span><span id="r-got">0</span></div>
-          <div class="r-line owed"><span>Still to buy</span><span id="r-owed">$91.20</span></div>
-          <div class="r-line big"><span>Total</span><span id="r-total">$91.20</span></div>
+          <div class="r-line owed"><span>Still to buy</span><span id="r-owed">$128.45</span></div>
+          <div class="r-line big"><span>Weekly total</span><span id="r-total">$128.45</span></div>
+        </div>
+
+        <div class="r-stock">
+          <h4>Stock up — lasts weeks, not in the total above</h4>
+          <label class="r-item"><input type="checkbox" id="x1"><span class="r-name">Plain flour<span class="r-qty">1 kg · ~2 focaccias</span></span><span class="r-price">$2.00</span></label>
+          <label class="r-item"><input type="checkbox" id="x2"><span class="r-name">Dry yeast<span class="r-qty">3 sachets · 3 bakes</span></span><span class="r-price">$1.50</span></label>
+          <label class="r-item"><input type="checkbox" id="x3"><span class="r-name">Spice shelf<span class="r-qty">smoked paprika, cumin, coriander, garam masala, chilli flakes, oregano</span></span><span class="r-price">$14.00</span></label>
+          <label class="r-item"><input type="checkbox" id="x4"><span class="r-name">Harissa paste<span class="r-qty">or make your own in the processor</span></span><span class="r-price">$4.00</span></label>
+          <label class="r-item"><input type="checkbox" id="x5"><span class="r-name">Fish sauce<span class="r-qty">500 ml · lasts a year</span></span><span class="r-price">$3.00</span></label>
+          <label class="r-item"><input type="checkbox" id="x6"><span class="r-name">Sriracha<span class="r-qty">bottle</span></span><span class="r-price">$3.50</span></label>
+          <div class="r-sub"><span>One-off</span><span>$28.00</span></div>
         </div>
 
         <div class="barcode"></div>
-        <p class="r-foot">Cupboard assumed · olive oil salt pepper cumin paprika curry soy stock lemon cinnamon baking powder</p>
+        <p class="r-foot">Cupboard assumed · olive oil salt pepper soy stock cinnamon baking powder · red wine you already have</p>
       </div>
     </div>
   </section>
@@ -751,105 +799,106 @@
 
   /* ---------- meal data ---------- */
   var M = {
-    "sun-l":{r:"Lunch",t:"Tuna & chickpea smash",m:["No-cook","10 min"],
-      i:[[190,"g","tuna, drained"],[300,"g","cooked chickpeas"],[1,"ea","carrot, grated"],[200,"g","cabbage, shredded"],[1,"ea","lemon"],[15,"ml","olive oil"]],
-      s:[["Drain the tins properly — press the lid down hard. Wet tuna makes a sloppy bowl.",0],
-         ["Fork-mash half the chickpeas, leave the rest whole. The mash binds, the whole ones give it bite.",0],
-         ["Grate the carrot, shred the cabbage fine.",0],
-         ["Toss with lemon and oil. Season heavily — tinned tuna needs more salt than you think.",0]]},
-    "sun-d":{r:"Dinner",t:"Thigh, roast potato, veg",m:["Air fryer","25 min"],
-      i:[[4,"ea","roast thighs, from the cook-up"],[500,"g","potatoes, 2 cm chunks"],[200,"g","frozen mixed veg"],[15,"ml","oil"]],
-      s:[["Cut the potatoes into 2 cm chunks, toss with oil and plenty of salt.",0],
-         ["Air fryer 200 °C. Shake the basket at the halfway mark.",20],
-         ["Frozen veg into the basket for the last 4 minutes, or microwave them.",4],
-         ["Keep four thighs out of the Sunday roast, rest 5 minutes before slicing. The rest go straight to the fridge.",0]]},
-    "mon-l":{r:"Lunch",t:"Chicken & rice bowl",m:["No-cook","5 min"],
-      i:[[250,"g","roast chicken, sliced"],[300,"g","cooked rice"],[200,"g","slaw base"],[1,"ea","lemon"]],
-      s:[["Build it cold the night before — rice at the bottom, chicken on top, slaw in its own corner.",0],
-         ["Dress the slaw only when you eat it. Dressed slaw is limp by mid-morning.",0],
-         ["No reheat needed, but a squeeze of lemon over the chicken wakes it up.",0]]},
-    "mon-d":{r:"Dinner",t:"Red lentil dahl + rice",m:["Reheat","10 min"],
-      i:[[2,"ea","serves of dahl"],[250,"g","cooked rice"],[100,"g","frozen peas"]],
-      s:[["Dahl into a pot with a splash of water — it thickens hard in the fridge.",0],
-         ["Reheat until steaming right through, stirring so it doesn't catch.",8],
-         ["Peas stirred in for the last minute only, off the heat if you want them bright.",0],
-         ["Reheat dahl once only. Take out what you need and leave the rest cold.",0]]},
-    "tue-l":{r:"Lunch",t:"Dahl + boiled egg",m:["Reheat","8 min"],
-      i:[[1,"ea","serve of dahl per person"],[1,"ea","boiled egg per person"]],
-      s:[["Reheat the dahl until steaming.",6],
-         ["Halve a cold boiled egg and sit it on top.",0],
-         ["Pepper and a squeeze of lemon. The egg is what stops a second dahl serve feeling like a repeat.",0]]},
-    "tue-d":{r:"Dinner",t:"Beef bolognese",m:["Cooktop","30 min"],
-      i:[[500,"g","beef mince"],[1,"ea","onion, diced"],[2,"ea","carrots, grated"],[3,"ea","garlic cloves"],[400,"g","diced tomatoes"],[2,"ea","tbsp tomato paste"],[200,"g","spaghetti"]],
-      s:[["Grate the carrots. Grated disappears into the sauce, diced announces itself.",0],
-         ["Onion, carrot and garlic in oil over medium heat until soft.",8],
-         ["Mince in, break it up, and let it actually brown. Don't rush this bit.",0],
-         ["Paste in for a minute, then tomatoes and half a tin of water. Simmer.",20],
-         ["Make the whole batch — half of it is Wednesday's lunch.",0]]},
-    "wed-l":{r:"Lunch",t:"Bolognese on baked potato",m:["Reheat","12 min"],
-      i:[[2,"ea","serves of bolognese"],[2,"ea","large potatoes"]],
-      s:[["Prick the potatoes, microwave 6–7 minutes until soft.",0],
-         ["Air fryer 200 °C if you want the skin crisp.",8],
-         ["Split, fluff the inside with a fork, bolognese over the top.",0]]},
-    "wed-d":{r:"Dinner",t:"Drumsticks + roast carrot",m:["Air fryer","25 min"],
-      i:[[6,"ea","drumsticks, plus 2 for Thursday"],[2,"ea","carrots, in batons"],[300,"g","potatoes"],[150,"g","frozen peas"]],
-      s:[["Toss the drumsticks in oil, paprika and salt.",0],
-         ["Air fryer 200 °C, turned once at the halfway point.",25],
-         ["Carrot batons and potato chunks go in the same basket from the start.",0],
-         ["Cook two extra drumsticks — Thursday's lunch is then a straight lift from the fridge.",0],
-         ["Done when juices run clear at the bone and there's no pink at the joint.",0]]},
-    "thu-l":{r:"Lunch",t:"Cold drumstick, slaw, rice",m:["No-cook","5 min"],
-      i:[[2,"ea","cooked drumsticks"],[200,"g","slaw base"],[250,"g","cooked rice"]],
-      s:[["Everything cold, straight from the fridge.",0],
-         ["Dress the slaw now, not this morning.",0],
-         ["If the rice has gone claggy, a splash of water and 45 seconds in the microwave loosens it.",0]]},
-    "thu-d":{r:"Dinner",t:"Chickpea & veg frittata",m:["Oven","30 min"],
-      i:[[6,"ea","eggs"],[200,"g","cooked chickpeas"],[250,"g","frozen mixed veg"],[1,"ea","onion"]],
-      s:[["Oven to 180 °C.",0],
-         ["Onion soft in an ovenproof pan, then veg and chickpeas to drive off the water. Wet veg makes a weeping frittata.",6],
-         ["Beat the eggs hard with salt and pepper, pour over, leave it alone 2 minutes to set on the base.",0],
-         ["Into the oven until the centre is just firm.",22],
-         ["Cool it fully before the fridge. Half of it is Friday's lunch.",0]]},
-    "fri-l":{r:"Lunch",t:"Frittata wedge + slaw",m:["No-cook","5 min"],
-      i:[[0.5,"ea","of the frittata"],[200,"g","slaw base"],[1,"ea","lemon"]],
-      s:[["Good cold — don't bother reheating, it goes rubbery.",0],
-         ["Slaw dressed at the table.",0]]},
-    "fri-d":{r:"Dinner",t:"Tuna & lentil patties",m:["Air fryer","20 min"],
-      i:[[95,"g","tuna, drained"],[200,"g","cooked lentils or leftover dahl"],[1,"ea","egg"],[200,"g","mashed potato"],[150,"g","frozen peas"]],
-      s:[["Mash the potato and let it cool. Hot potato scrambles the egg.",0],
-         ["Mix tuna, lentils, potato and egg. It should just hold a shape — if it's wet, more potato.",0],
-         ["Form 6 patties, chill 10 minutes so they firm up.",10],
+    "sun-l":{r:"Lunch",t:"Egg salad on crackers",m:["No-cook","10 min"],
+      i:[[6,"ea","boiled eggs"],[3,"ea","tbsp Greek yoghurt"],[1,"ea","tsp smoked paprika"],[1,"ea","lemon"],[100,"g","crackers"]],
+      s:[["Chop the eggs roughly. Don't mash them to paste — you want to still meet a piece of egg.",0],
+         ["Yoghurt instead of mayo: same creaminess, triple the protein, and it carries the paprika better.",0],
+         ["Smoked paprika, hard on the black pepper, squeeze of lemon.",0],
+         ["Onto crackers. Once the focaccia is out of the oven, that works too.",0]]},
+    "sun-d":{r:"Dinner",t:"Harissa pulled chicken",m:["Slow cooker","6 hr","10 min work"],
+      i:[[1,"ea","whole chicken, ~1.7 kg"],[2,"ea","tbsp harissa"],[1,"ea","onion"],[1,"ea","lemon"],[600,"g","potatoes"],[0.5,"ea","cabbage"]],
+      s:[["Halved onion in the base of the slow cooker, bird on top, harissa rubbed all over and pushed under the skin. Lemon halves in the cavity. No liquid — it makes its own.",0],
+         ["Low, 6 hours. It will not dry out and it does not want checking.",0],
+         ["Potatoes in the air fryer at 200 °C.",20],
+         ["Cabbage in thick wedges, hard sear in a dry pan until the cut edges properly char, then a spoonful of the chicken juices over.",0],
+         ["Pull the meat with two forks — or ten seconds in the mixer on low, which pulls a whole bird apart. A third tonight, the rest to the fridge.",0],
+         ["Keep the carcass. Simmer it with an onion and it becomes Wednesday's braising liquid for free.",0]]},
+    "mon-l":{r:"Lunch",t:"Egg sandwiches on focaccia",m:["No-cook","5 min"],
+      i:[[4,"ea","boiled eggs"],[2,"ea","pieces focaccia"],[80,"g","whipped cottage cheese"],[1,"ea","lemon"]],
+      s:[["Split a piece of focaccia horizontally. It is sturdier than sliced bread and won't be soggy by lunchtime.",0],
+         ["Whipped cottage cheese on both faces first — it waterproofs the bread and adds 10 g of protein.",0],
+         ["Sunday's egg salad in, black pepper, lemon. Wrap it tight; it travels well.",0]]},
+    "mon-d":{r:"Dinner",t:"Red wine braised beef",m:["Slow cooker","8 hr","15 min work"],
+      i:[[1000,"g","beef chuck, in big chunks"],[300,"ml","red wine"],[2,"ea","onions"],[3,"ea","carrots"],[4,"ea","garlic cloves"],[2,"ea","tbsp tomato paste"],[400,"g","diced tomatoes"],[600,"g","potatoes for mash"]],
+      s:[["Start this before work. Brown the chuck hard in a pan first — four minutes a side, in batches, don't crowd it. This step is not optional; it is where the colour and most of the flavour come from.",0],
+         ["Deglaze the pan with the red wine, scraping everything off the base, and let it bubble to cook off the raw alcohol.",2],
+         ["Everything into the slow cooker — beef, wine, onions, carrots, garlic, paste, tomatoes. Low for 8 hours.",0],
+         ["It is ready when the beef collapses against a spoon. If it is still firm it needs longer, not hotter.",0],
+         ["Mash tonight. Make the whole kilo: this braise is Wednesday's lunch and Friday's ragu as well.",0]]},
+    "tue-l":{r:"Lunch",t:"Pulled chicken slaw bowl",m:["No-cook","5 min"],
+      i:[[250,"g","pulled chicken"],[200,"g","slaw base"],[3,"ea","tbsp yoghurt"],[250,"g","cooked rice"],[1,"ea","lemon"]],
+      s:[["Dress the slaw now, not this morning.",0],
+         ["Yoghurt thinned with lemon and sriracha as the sauce. Thirty seconds and it lifts the whole bowl.",0],
+         ["Chicken cold is fine. If you warm it, don't microwave the slaw along with it.",0]]},
+    "tue-d":{r:"Dinner",t:"Shakshuka with focaccia",m:["Cooktop","30 min"],
+      i:[[6,"ea","eggs"],[800,"g","diced tomatoes"],[1,"ea","onion"],[1,"ea","capsicum"],[3,"ea","garlic cloves"],[1,"ea","tbsp harissa"],[2,"ea","pieces focaccia"]],
+      s:[["Onion and capsicum soft in a wide pan. Don't rush this — it is the difference between sweet and raw.",8],
+         ["Garlic, cumin, smoked paprika and the harissa in for a minute, until it smells like something.",0],
+         ["Tomatoes in, simmer until it thickens enough that a spoon leaves a track.",12],
+         ["Make six wells, crack the eggs in, lid on, low heat until the whites set and the yolks are still soft.",6],
+         ["Straight to the table in the pan, focaccia to mop it. Six eggs across two people is most of the day's protein in one dish.",0]]},
+    "wed-l":{r:"Lunch",t:"Red wine beef on mash",m:["Reheat","12 min"],
+      i:[[2,"ea","serves of the braise"],[400,"g","potatoes"]],
+      s:[["Reheat the braise gently. It is better on day three than it was on Monday night — braises improve in the fridge.",0],
+         ["Mash, or over rice if you would rather not peel anything.",0],
+         ["Fresh pepper and a little lemon zest cuts the richness.",0]]},
+    "wed-d":{r:"Dinner",t:"Lemon-oregano chicken",m:["Slow cooker","6 hr","Air fryer"],
+      i:[[1,"ea","whole chicken, ~1.7 kg"],[2,"ea","lemons"],[4,"ea","garlic cloves"],[2,"ea","tbsp dried oregano"],[800,"g","potatoes"],[150,"g","yoghurt"]],
+      s:[["Second bird into the slow cooker in the morning with lemon, garlic, oregano and a splash of the stock from Sunday's carcass. Low, 6 hours.",0],
+         ["Potatoes in wedges, air fryer 200 °C, tossed with oregano and lemon.",22],
+         ["Yoghurt-garlic sauce: yoghurt, crushed garlic, lemon, salt. Five ingredients and it makes the plate.",0],
+         ["Pull the meat. Thursday's lunch and Saturday's fried rice both come out of this bird.",0]]},
+    "thu-l":{r:"Lunch",t:"Chicken & slaw roll",m:["No-cook","5 min"],
+      i:[[250,"g","pulled chicken"],[200,"g","slaw base"],[2,"ea","pieces focaccia"],[80,"g","yoghurt-garlic sauce"]],
+      s:[["Focaccia split, sauce on both faces.",0],
+         ["Chicken first, slaw on top, so the bread doesn't go soft underneath.",0],
+         ["Press it under something heavy for ten minutes if you have time. It holds together far better.",0]]},
+    "thu-d":{r:"Dinner",t:"Sardine fritters, lime & chilli",m:["Air fryer","25 min"],
+      i:[[4,"ea","tins sardines"],[3,"ea","eggs"],[300,"g","mashed potato, cooled"],[1,"ea","red chilli"],[2,"ea","limes"],[150,"g","frozen peas"]],
+      s:[["Drain the sardines and mash them, bones and all. They are soft, you won't find them, and they are most of the calcium.",0],
+         ["Mix with cooled mash, eggs, chopped chilli and lime zest. Hot potato scrambles the egg, so let it cool properly.",0],
+         ["Form eight patties and chill them so they hold together.",10],
          ["Air fryer 180 °C, turned once.",12],
-         ["Peas alongside.",0]]},
-    "sat-l":{r:"Lunch",t:"Clear-out bowl",m:["Cooktop","10 min"],
-      i:[[1,"ea","whatever's left — rice, lentils, veg"],[1,"ea","egg per person"]],
-      s:[["Rice or lentils at the base, whatever veg survived on top.",0],
+         ["Lime squeezed over at the table — that is doing real work against the oily fish, don't skip it. Peas alongside.",0]]},
+    "fri-l":{r:"Lunch",t:"Egg salad on crackers",m:["No-cook","10 min"],
+      i:[[4,"ea","boiled eggs"],[3,"ea","tbsp Greek yoghurt"],[100,"g","crackers"],[1,"ea","lemon"]],
+      s:[["Same as Sunday, but add finely diced pickle or a splash of vinegar.",0],
+         ["By day five the week needs sharpness more than it needs another creamy thing.",0],
+         ["Crackers, or the last of the focaccia out of the freezer — four minutes in the air fryer brings it back.",0]]},
+    "fri-d":{r:"Dinner",t:"Ragu from the braise",m:["Cooktop","25 min"],
+      i:[[2,"ea","serves of the braise"],[500,"g","spaghetti"],[1,"ea","tsp smoked paprika"],[1,"ea","tsp cumin"]],
+      s:[["Shred whatever beef is left back through its own sauce.",0],
+         ["Smoked paprika and cumin in now. It turns Monday's French braise into something that reads as a different meal rather than a third night of leftovers.",0],
+         ["Reduce hard so it clings to the pasta instead of pooling under it.",10],
+         ["Pasta cooked a minute short and finished in the sauce with a splash of its water.",0]]},
+    "sat-l":{r:"Lunch",t:"Leftovers bowl, fried egg",m:["Cooktop","10 min"],
+      i:[[1,"ea","whatever survived the week"],[1,"ea","egg per person"]],
+      s:[["Rice or potato at the base, whatever veg and meat is left on top.",0],
          ["Fried egg over it, yolk soft, and let the yolk do the dressing.",0],
-         ["This is the slot that stops food going in the bin. Don't over-plan it.",0]]},
-    "focaccia":{r:"Savoury snack \u00b7 baked Sunday",t:"Focaccia + whipped cottage cheese",m:["Oven","10 min work","3 hr prove"],
-      i:[[500,"g","plain flour"],[7,"g","dry yeast, 1 sachet"],[400,"ml","warm water"],[10,"g","salt"],[60,"ml","olive oil, plus more for the tin"],[500,"g","cottage cheese, for the week"]],
-      s:[["Flour, yeast and salt in a big bowl. Add the water and stir with a spoon until no dry flour is left. It will look like a wet, shaggy mess \u2014 that is correct. Do not knead it.",0],
-         ["Cover and leave until doubled and full of bubbles. Get on with the rest of Sunday while it proves.",0],
-         ["Oil a roasting tray more generously than feels sensible. Tip the dough in and leave it to relax.",20],
-         ["Oil your fingers and press straight down through the dough to the tray, all over. The dimples are what make it focaccia rather than bread.",0],
-         ["Rosemary and coarse salt over the top, another drizzle of oil, into a 220 \u00b0C oven until deep gold.",22],
-         ["Cut into 12. Half to the fridge, half sliced and frozen \u2014 it is excellent on day one and tired by day four. Four minutes in the air fryer brings a frozen piece back properly.",0],
-         ["For the cottage cheese: beat or blitz it with salt, pepper and a little olive oil until smooth. It turns a grainy tub into something that looks deliberate, and it is what keeps this snack at 15 g rather than 7 g.",0]]},
-    "oatslice":{r:"Sweet snack \u00b7 baked Sunday",t:"Banana oat slice",m:["Oven","35 min","12 squares"],
-      i:[[200,"g","rolled oats"],[3,"ea","ripe bananas"],[3,"ea","eggs"],[200,"g","Greek yoghurt"],[1,"ea","tsp cinnamon"],[1,"ea","tsp baking powder"]],
-      s:[["Mash the bananas properly. Lumps turn into wet pockets in the baked slice.",0],
-         ["Beat in the eggs and yoghurt, then fold through the oats, cinnamon and baking powder.",0],
-         ["Line a slice tin, pour it in, level the top.",0],
-         ["Bake at 180 \u00b0C until the centre springs back when you press it.",27],
-         ["Cool completely in the tin before cutting, or it crumbles. Twelve squares; two is a serve at about 11 g protein.",0],
-         ["Four or five days in the fridge, or freeze half. They go hard cold \u2014 fifteen seconds in the microwave fixes that.",0]]},
-    "sat-d":{r:"Dinner",t:"Chicken fried rice",m:["Cooktop","20 min"],
-      i:[[400,"g","cooked rice, properly chilled"],[200,"g","roast chicken"],[150,"g","frozen peas"],[150,"g","frozen mixed veg"],[2,"ea","eggs"],[3,"ea","garlic cloves"]],
-      s:[["The rice must be properly cold. Warm rice steams instead of frying and clumps.",0],
+         ["This slot exists so nothing gets thrown out. Don't over-plan it.",0]]},
+    "sat-d":{r:"Dinner",t:"Leftovers fried rice",m:["Cooktop","20 min"],
+      i:[[400,"g","cooked rice, properly chilled"],[200,"g","pulled chicken"],[150,"g","frozen peas"],[150,"g","frozen mixed veg"],[2,"ea","eggs"],[20,"g","ginger"],[3,"ea","garlic cloves"]],
+      s:[["The rice has to be properly cold. Warm rice steams instead of frying and clumps.",0],
          ["Eggs scrambled first in the hot pan, then out to a plate.",0],
-         ["Garlic, then the frozen veg — high heat, keep it moving.",4],
-         ["Rice in, press it flat and leave it 30 seconds at a time so it catches.",0],
-         ["Chicken and egg back in, soy down the side of the pan, toss and serve.",0]]}
+         ["Ginger and garlic, then the frozen veg — high heat, keep it moving.",4],
+         ["Rice in, press it flat and leave it thirty seconds at a time so it catches and crisps.",0],
+         ["Everything back in, soy down the side of the pan, sriracha, toss and serve.",0]]},
+    "focaccia":{r:"Savoury snack · baked Sunday",t:"Focaccia + harissa cottage cheese",m:["Oven","10 min work","3 hr prove"],
+      i:[[500,"g","plain flour"],[7,"g","dry yeast"],[400,"ml","warm water"],[10,"g","salt"],[60,"ml","olive oil"],[500,"g","cottage cheese, for the week"]],
+      s:[["Flour, yeast and salt in the mixer with the dough hook. Water in, six minutes on low. It should stay wet and slack, not come together as a tidy ball.",0],
+         ["Cover and prove 2–3 hours until doubled and full of bubbles.",0],
+         ["Oil a roasting tray more generously than feels sensible. Tip the dough in and let it relax.",20],
+         ["Oiled fingers, press straight down through to the tray all over. The dimples are the point.",0],
+         ["Rosemary, slivered garlic, chilli flakes, coarse salt, more oil. 220 °C until deep gold.",22],
+         ["Cut into 12. Half to the fridge, half sliced and frozen. Four minutes in the air fryer revives a frozen piece properly.",0],
+         ["Whip the cottage cheese in the processor with harissa, lemon and oil until smooth. That is what takes this snack from 7 g of protein to 22 g.",0]]},
+    "oatslice":{r:"Sweet snack · baked Sunday",t:"Oat slice + milk",m:["Oven","35 min","12 squares"],
+      i:[[200,"g","rolled oats"],[3,"ea","ripe bananas"],[3,"ea","eggs"],[200,"g","Greek yoghurt"],[1,"ea","tsp cinnamon"],[1,"ea","tsp baking powder"],[300,"ml","milk, per serve"]],
+      s:[["Bananas, eggs and yoghurt into the food processor — five seconds, no lumps. Lumps become wet pockets in the baked slice.",0],
+         ["Fold through the oats, cinnamon and baking powder by hand.",0],
+         ["Lined tin, 180 °C, until the centre springs back when you press it.",27],
+         ["Cool completely in the tin before cutting or it crumbles. Twelve squares; two is a serve.",0],
+         ["A 300 ml glass of milk alongside adds 10 g of protein for about 45 cents — the cheapest protein in the shop.",0]]}
   };
 
   /* ---------- state ---------- */
@@ -1057,6 +1106,21 @@
     }
   }
   $("#clock-stop").addEventListener("click", function(){ stopTimer(false); });
+
+  /* ---------- weekly want ---------- */
+  (function(){
+    var box=$("#want-text"), hint=$("#want-hint"), K="cu-want-v1", t=null;
+    if(!box) return;
+    try{ var v=localStorage.getItem(K); if(v) box.value=v; }catch(e){}
+    box.addEventListener("input",function(){
+      hint.textContent="Saving\u2026";
+      clearTimeout(t);
+      t=setTimeout(function(){
+        try{ localStorage.setItem(K,box.value); hint.textContent="Saved on this device"; }
+        catch(e){ hint.textContent="Could not save \u2014 storage blocked"; }
+      },400);
+    });
+  })();
 
   /* ---------- dates: Sunday of the current week ---------- */
   (function(){
