@@ -100,7 +100,7 @@
     background:var(--paper);border-bottom:1px solid var(--rule);
   }
   .bar-in{
-    max-width:1000px;margin:0 auto;padding-inline:16px;padding-block:8px;
+    max-width:1000px;margin:0 auto;padding-inline:16px;padding-block:8px 6px;
     display:flex;align-items:center;gap:8px;flex-wrap:wrap;
   }
   .mark{
@@ -125,6 +125,21 @@
     font-variant-numeric:tabular-nums;
   }
   .bar-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .tabs{
+    max-width:1000px;margin:0 auto;padding-inline:16px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border-top:1px solid var(--rule-2);
+  }
+  .tab{
+    border:0;border-bottom:2px solid transparent;background:transparent;cursor:pointer;
+    padding:10px 4px 8px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .tab[aria-selected="true"]{color:var(--stamp);border-bottom-color:var(--stamp)}
+  .tab:active{background:var(--sunk)}
+  .panel{display:block}
+  .panel[hidden]{display:none!important}
   .jump{display:flex;gap:2px}
   .jump a{
     font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
@@ -512,21 +527,19 @@
       <button class="step" id="pax-up" aria-label="More people">+</button>
     </div>
     <div class="bar-right">
-      <nav class="jump">
-        <a href="#prep">Prep</a>
-        <a href="#week">Week</a>
-        <a href="#shop">Shop</a>
-        <a href="#freezer">Freezer</a>
-        <a href="#want">Want</a>
-        <a href="#next">Soon</a>
-      </nav>
       <button class="theme" id="theme" aria-label="Switch theme">◐</button>
     </div>
   </div>
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" id="tab-week" role="tab" data-tab="week" aria-selected="true" aria-controls="panel-week">Week</button>
+    <button class="tab" id="tab-prep" role="tab" data-tab="prep" aria-selected="false" aria-controls="panel-prep">Prep</button>
+    <button class="tab" id="tab-shop" role="tab" data-tab="shop" aria-selected="false" aria-controls="panel-shop">Shop</button>
+    <button class="tab" id="tab-notes" role="tab" data-tab="notes" aria-selected="false" aria-controls="panel-notes">Notes</button>
 </div>
 
 <div class="wrap">
 
+  <div class="panel" id="panel-week" role="tabpanel" aria-labelledby="tab-week">
   <header class="mast">
     <h1 class="vh">Meal Planner</h1>
     <dl class="tape">
@@ -537,25 +550,6 @@
       <div class="tp"><dt>Energy</dt><dd>1750<i>kcal/day</i></dd></div>
     </dl>
   </header>
-
-  <section id="prep">
-    <div class="sh"><h2>Sunday, in order</h2><p class="sh-note">≈2 hr elapsed · ~45 min hands-on</p></div>
-    <p class="para">The slow cooker does the chicken unattended, the dough proves while you work, and the oven runs two jobs back to back. Hands-on time is about 50 minutes spread across the afternoon.</p>
-    <div class="prep">
-      <ol>
-        <li><div><b>Thigh fillets into the slow cooker</b><p>Harissa rubbed through, onion and lemon underneath, no liquid needed. Low for 6 hours. First thing, then forget about it — this is Monday and Tuesday sorted while the oven does tonight.</p></div></li>
-        <li><div><b>Mix the focaccia dough</b><p>Ten minutes in the mixer with the dough hook, then it proves on its own for 2–3 hours while everything else happens.</p></div></li>
-        <li><div><b>Boil a dozen eggs</b><p>Twelve minutes, straight into cold water, stored in the shell. These are the week&rsquo;s sandwiches, salads and cracker toppings.</p></div></li>
-        <li><div><b>Slaw base and spice paste — food processor</b><p>Cabbage and carrots shredded in thirty seconds, stored dry. Then blitz your own harissa: roasted capsicum, chilli, garlic, cumin, oil. Far better than the jar and a fraction of the price.</p></div></li>
-        <li><div><b>Cook 500 g rice</b><p>Spread on a tray to cool fast. Saturday&rsquo;s fried rice needs it properly cold.</p></div></li>
-        <li><div><b>Oven 180 °C — bake the oat slice</b><p>25–30 min. Cool completely in the tin before cutting.</p></div></li>
-        <li><div><b>Oven up to 220 °C — dimple and bake the focaccia</b><p>20–25 min until deep gold. Last in, because it wants the hottest oven.</p></div></li>
-        <li><div><b>Sear the beef and get the braise in</b><p>Oven at 165 °C for two hours, then the leek stage. It shares the oven with the brownie and focaccia if you stagger them. Shred the thigh when the slow cooker is done.</p></div></li>
-      </ol>
-      <p class="aside"><b>No lentils.</b> Chickpeas are fine and worth knowing about: dried, they are <b>$0.030 per gram of protein</b> — less than half what eggs or tuna cost and the cheapest thing in the shop by a distance. Not in this week’s list, but a $3 bag is the single best value add there is.</p>
-    </div>
-  </section>
-
   <section id="week">
     <div class="sh"><h2>The week</h2><p class="sh-note">Tap a meal for the method</p></div>
     <div class="served">
@@ -637,7 +631,26 @@
 
     </div>
   </section>
+  </div>
 
+  <div class="panel" id="panel-prep" role="tabpanel" aria-labelledby="tab-prep" hidden>
+  <section id="prep">
+    <div class="sh"><h2>Sunday, in order</h2><p class="sh-note">≈2 hr elapsed · ~45 min hands-on</p></div>
+    <p class="para">The slow cooker does the chicken unattended, the dough proves while you work, and the oven runs two jobs back to back. Hands-on time is about 50 minutes spread across the afternoon.</p>
+    <div class="prep">
+      <ol>
+        <li><div><b>Thigh fillets into the slow cooker</b><p>Harissa rubbed through, onion and lemon underneath, no liquid needed. Low for 6 hours. First thing, then forget about it — this is Monday and Tuesday sorted while the oven does tonight.</p></div></li>
+        <li><div><b>Mix the focaccia dough</b><p>Ten minutes in the mixer with the dough hook, then it proves on its own for 2–3 hours while everything else happens.</p></div></li>
+        <li><div><b>Boil a dozen eggs</b><p>Twelve minutes, straight into cold water, stored in the shell. These are the week&rsquo;s sandwiches, salads and cracker toppings.</p></div></li>
+        <li><div><b>Slaw base and spice paste — food processor</b><p>Cabbage and carrots shredded in thirty seconds, stored dry. Then blitz your own harissa: roasted capsicum, chilli, garlic, cumin, oil. Far better than the jar and a fraction of the price.</p></div></li>
+        <li><div><b>Cook 500 g rice</b><p>Spread on a tray to cool fast. Saturday&rsquo;s fried rice needs it properly cold.</p></div></li>
+        <li><div><b>Oven 180 °C — bake the oat slice</b><p>25–30 min. Cool completely in the tin before cutting.</p></div></li>
+        <li><div><b>Oven up to 220 °C — dimple and bake the focaccia</b><p>20–25 min until deep gold. Last in, because it wants the hottest oven.</p></div></li>
+        <li><div><b>Sear the beef and get the braise in</b><p>Oven at 165 °C for two hours, then the leek stage. It shares the oven with the brownie and focaccia if you stagger them. Shred the thigh when the slow cooker is done.</p></div></li>
+      </ol>
+      <p class="aside"><b>No lentils.</b> Chickpeas are fine and worth knowing about: dried, they are <b>$0.030 per gram of protein</b> — less than half what eggs or tuna cost and the cheapest thing in the shop by a distance. Not in this week’s list, but a $3 bag is the single best value add there is.</p>
+    </div>
+  </section>
   <section id="freezer">
     <div class="sh"><h2>Freezer plan</h2><p class="sh-note">One shop, seven days — nothing sits too long</p></div>
     <p class="para">Raw chicken should not be sitting in the fridge from Sunday to Wednesday, and cooked meat is a three-day proposition. This is what moves where, and when.</p>
@@ -653,21 +666,9 @@
       <p class="aside"><b>The rule underneath all of this:</b> cooked dishes get eaten within about three days or they get frozen, and anything frozen thaws in the fridge overnight rather than on the bench. For actual times and temperatures, <a href="https://www.foodstandards.gov.au">Food Standards Australia New Zealand</a> rather than a meal plan.</p>
     </div>
   </section>
+  </div>
 
-  <section id="want">
-    <div class="sh"><h2>This week&rsquo;s want</h2><p class="sh-note">One thing you actually feel like</p></div>
-    <p class="para">A standing slot for whatever you&rsquo;re in the mood for. It gets its own lines on the receipt and gets worked into the meals rather than bolted on the side.</p>
-    <div class="wantbox">
-      <div class="wantnow">
-        <span class="tag">This week</span>
-        <p>Boiled eggs — for sandwiches and on crackers. Done: a dozen go on Sunday, egg salad runs Monday lunch and Friday lunch, and crackers are on the list.</p>
-      </div>
-      <label class="s-lab" for="want-text">Next week&rsquo;s want</label>
-      <textarea id="want-text" placeholder="e.g. a roast on Sunday, something with haloumi, proper soup, a curry..."></textarea>
-      <p class="wanthint" id="want-hint">Saved on this device</p>
-    </div>
-  </section>
-
+  <div class="panel" id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" hidden>
   <section id="shop">
     <div class="sh"><h2>The shop</h2><p class="sh-note">Sunday · one trip</p></div>
     <p class="para">Quantities and prices scale with the pax counter, but supermarkets sell whole packs — at 3 or 4 people you'll round up and the real total lands higher than the arithmetic. Prices are rough shelf prices, not catalogue specials. Focaccia drinks olive oil — if your bottle is low, add one to the trip. The bottom two blocks are not in the weekly total: one is stock-up that lasts months, the other is what each extra $10 buys you in protein.</p>
@@ -751,7 +752,22 @@
       </div>
     </div>
   </section>
+  </div>
 
+  <div class="panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes" hidden>
+  <section id="want">
+    <div class="sh"><h2>This week&rsquo;s want</h2><p class="sh-note">One thing you actually feel like</p></div>
+    <p class="para">A standing slot for whatever you&rsquo;re in the mood for. It gets its own lines on the receipt and gets worked into the meals rather than bolted on the side.</p>
+    <div class="wantbox">
+      <div class="wantnow">
+        <span class="tag">This week</span>
+        <p>Boiled eggs — for sandwiches and on crackers. Done: a dozen go on Sunday, egg salad runs Monday lunch and Friday lunch, and crackers are on the list.</p>
+      </div>
+      <label class="s-lab" for="want-text">Next week&rsquo;s want</label>
+      <textarea id="want-text" placeholder="e.g. a roast on Sunday, something with haloumi, proper soup, a curry..."></textarea>
+      <p class="wanthint" id="want-hint">Saved on this device</p>
+    </div>
+  </section>
   <section id="next">
     <div class="sh"><h2>Coming soon</h2><p class="sh-note">Shells only — no logic yet</p></div>
     <div class="stubs">
@@ -782,7 +798,6 @@
       </div>
     </div>
   </section>
-
   <section>
     <div class="note">
       <ul>
@@ -793,12 +808,12 @@
       </ul>
     </div>
   </section>
-
   <footer>
     <p><b>On the numbers.</b> Protein is estimated per person from standard composition values and moves with brands and portions. Prices are approximate shelf prices — expect the real total between $80 and $95.</p>
     <p><b>On "fat-burning".</b> Nothing here burns fat. The plan keeps protein and fibre high and energy density moderate so you stay full on less. That's the whole mechanism; there's nothing thermogenic working in the background.</p>
     <p>General healthy-eating guidance for two healthy adults, not clinical advice. Pregnancy, a diagnosed condition or diet-interacting medication — check with your GP or an Accredited Practising Dietitian first.</p>
   </footer>
+  </div>
 </div>
 
 <button class="scrim" id="scrim" hidden aria-label="Close"></button>
@@ -1051,6 +1066,31 @@
   }
   $("#pax-up").addEventListener("click", function(){ bump(1); });
   $("#pax-down").addEventListener("click", function(){ bump(-1); });
+
+  /* ---------- tabs ---------- */
+  (function(){
+    var K="cu-tab-v1", tabs=$$(".tab"), first=true;
+    function show(name){
+      var found=false;
+      tabs.forEach(function(t){
+        var on=t.getAttribute("data-tab")===name;
+        if(on) found=true;
+        t.setAttribute("aria-selected", on?"true":"false");
+        var pane=document.getElementById("panel-"+t.getAttribute("data-tab"));
+        if(pane) pane.hidden=!on;
+      });
+      if(!found){ show("week"); return; }
+      try{ localStorage.setItem(K,name); }catch(e){}
+      if(!first) window.scrollTo(0,0);
+      first=false;
+    }
+    tabs.forEach(function(t){
+      t.addEventListener("click", function(){ show(t.getAttribute("data-tab")); });
+    });
+    var saved=null;
+    try{ saved=localStorage.getItem(K); }catch(e){}
+    show(saved || "week");
+  })();
 
   /* ---------- theme ---------- */
   var th = get(LS.theme);
