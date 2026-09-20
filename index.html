@@ -127,13 +127,13 @@
   .bar-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .tabs{
     max-width:1000px;margin:0 auto;padding-inline:16px;
-    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:0;
     border-top:1px solid var(--rule-2);
   }
   .tab{
     border:0;border-bottom:2px solid transparent;background:transparent;cursor:pointer;
     padding:10px 4px 8px;
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
     color:var(--ink-3);
   }
   .tab[aria-selected="true"]{color:var(--stamp);border-bottom-color:var(--stamp)}
@@ -362,6 +362,37 @@
     color:var(--stamp);white-space:nowrap;
   }
   .wantnow p{margin:0;font-size:14px}
+  .rx-group{margin-bottom:22px}
+  .rx-group h3{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-3);margin:0 0 4px;font-weight:500;
+    padding-bottom:7px;border-bottom:1px solid var(--ink);
+  }
+  .rx{
+    display:flex;align-items:baseline;gap:9px;width:100%;text-align:left;
+    background:transparent;border:0;border-bottom:1px solid var(--rule-2);
+    padding:11px 0;cursor:pointer;
+  }
+  .rx:active{background:var(--sunk)}
+  .rx-name{font-size:14.5px;font-weight:500;flex:0 1 auto}
+  .rx-meta{
+    font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-3);white-space:nowrap;
+  }
+  @media (max-width:430px){
+    .rx{flex-wrap:wrap;gap:2px 9px}
+    .rx .leader{display:none}
+    .rx-name{flex:1 1 100%}
+  }
+  .noterow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:9px}
+  .noterow .wanthint{margin:0}
+  .notelist{list-style:none;margin:14px 0 0;padding:13px 0 0;border-top:1px dotted var(--rule);display:grid;gap:9px}
+  .notelist:empty{display:none}
+  .notelist li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;font-size:13.5px}
+  .n-when{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums;
+  }
   .wkmark{color:var(--stamp);font-size:7px;vertical-align:super;margin-left:5px;letter-spacing:0}
   .wk{
     font-family:var(--mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;
@@ -538,7 +569,8 @@
   </div>
   <div class="tabs" role="tablist" aria-label="Sections">
     <button class="tab" id="tab-week" role="tab" data-tab="week" aria-selected="true" aria-controls="panel-week">Week</button>
-    <button class="tab" id="tab-prep" role="tab" data-tab="prep" aria-selected="false" aria-controls="panel-prep">Prep</button>
+    <button class="tab" id="tab-recipes" role="tab" data-tab="recipes" aria-selected="false" aria-controls="panel-recipes">Recipes</button>
+    <button class="tab" id="tab-prep" role="tab" data-tab="prep" aria-selected="false" aria-controls="panel-prep">Freezer</button>
     <button class="tab" id="tab-shop" role="tab" data-tab="shop" aria-selected="false" aria-controls="panel-shop">Shop</button>
     <button class="tab" id="tab-notes" role="tab" data-tab="notes" aria-selected="false" aria-controls="panel-notes">Notes</button>
 </div>
@@ -557,7 +589,7 @@
     </dl>
   </header>
   <section id="week">
-    <div class="sh"><h2>The week</h2><p class="sh-note">Tap a meal for the method · <span class="wkmark">◆</span> weekly staple</p></div>
+    <div class="sh"><h2>The week</h2><p class="sh-note">Tap a meal for the method ·  weekly staple</p></div>
     <div class="served">
       <span id="served-txt">0 / 28 served</span>
       <span class="served-bar"><i id="served-fill"></i></span>
@@ -568,7 +600,7 @@
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Sun</h3><span class="d-date"></span><span class="d-mode">Shop, cook-up + braise</span></div>
         <div class="rows">
-          <div class="row" data-pro="24"><button class="tick" data-id="sun-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Egg salad on focaccia<span class="wkmark" title="Weekly staple">◆</span></span><span class="leader"></span></button><span class="rpro">24 g</span></div>
+          <div class="row" data-pro="24"><button class="tick" data-id="sun-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Egg salad on focaccia</span><span class="leader"></span></button><span class="rpro">24 g</span></div>
           <div class="row" data-pro="34"><button class="tick" data-id="sun-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="mon-d"><span class="rname">Braised beef with leeks</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
           <div class="row" data-pro="18"><button class="tick" data-id="sun-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="sun-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
@@ -578,7 +610,7 @@
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Mon</h3><span class="d-date"></span><span class="d-mode">Reheat night</span></div>
         <div class="rows">
-          <div class="row" data-pro="26"><button class="tick" data-id="mon-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Egg sandwiches on focaccia<span class="wkmark" title="Weekly staple">◆</span></span><span class="leader"></span></button><span class="rpro">26 g</span></div>
+          <div class="row" data-pro="26"><button class="tick" data-id="mon-l" aria-pressed="false" aria-label="Mark served"></button><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Egg sandwiches on focaccia</span><span class="leader"></span></button><span class="rpro">26 g</span></div>
           <div class="row" data-pro="34"><button class="tick" data-id="mon-d" aria-pressed="false" aria-label="Mark served"></button><span class="role">Dinner</span><button class="open" data-meal="sun-d"><span class="rname">Harissa pulled thigh</span><span class="leader"></span></button><span class="rpro">34 g</span></div>
           <div class="row" data-pro="18"><button class="tick" data-id="mon-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="mon-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
@@ -639,24 +671,14 @@
   </section>
   </div>
 
-  <div class="panel" id="panel-prep" role="tabpanel" aria-labelledby="tab-prep" hidden>
-  <section id="prep">
-    <div class="sh"><h2>Sunday, in order</h2><p class="sh-note">≈2 hr elapsed · ~45 min hands-on</p></div>
-    <p class="para">The slow cooker does the chicken unattended, the dough proves while you work, and the oven runs two jobs back to back. Hands-on time is about 50 minutes spread across the afternoon.</p>
-    <div class="prep">
-      <ol>
-        <li><div><b>Thigh fillets into the slow cooker</b><p>Harissa rubbed through, onion and lemon underneath, no liquid needed. Low for 6 hours. First thing, then forget about it — this is Monday and Tuesday sorted while the oven does tonight.</p></div></li>
-        <li><div><b>Mix the focaccia dough</b><p>Ten minutes in the mixer with the dough hook, then it proves on its own for 2–3 hours while everything else happens.</p></div></li>
-        <li><div><b>Boil six eggs and make the salad mix</b> <span class="wk">every week</span><p>Twelve minutes, straight into cold water. Mixed with yoghurt, smoked paprika and lemon while still warm — it takes the seasoning better. Today&rsquo;s lunch and tomorrow&rsquo;s sandwiches come out of this one bowl.</p></div></li>
-        <li><div><b>Slaw base and spice paste — food processor</b><p>Cabbage and carrots shredded in thirty seconds, stored dry. Then blitz your own harissa: roasted capsicum, chilli, garlic, cumin, oil. Far better than the jar and a fraction of the price.</p></div></li>
-        <li><div><b>Cook 500 g rice</b><p>Spread on a tray to cool fast. Saturday&rsquo;s fried rice needs it properly cold.</p></div></li>
-        <li><div><b>Oven 180 °C — bake the oat slice</b><p>25–30 min. Cool completely in the tin before cutting.</p></div></li>
-        <li><div><b>Oven up to 220 °C — dimple and bake the focaccia</b><p>20–25 min until deep gold. Last in, because it wants the hottest oven.</p></div></li>
-        <li><div><b>Sear the beef and get the braise in</b><p>Oven at 165 °C for two hours, then the leek stage. It shares the oven with the brownie and focaccia if you stagger them. Shred the thigh when the slow cooker is done.</p></div></li>
-      </ol>
-      <p class="aside"><b>No lentils.</b> Chickpeas are fine and worth knowing about: dried, they are <b>$0.030 per gram of protein</b> — less than half what eggs or tuna cost and the cheapest thing in the shop by a distance. Not in this week’s list, but a $3 bag is the single best value add there is.</p>
-    </div>
+  <div class="panel" id="panel-recipes" role="tabpanel" aria-labelledby="tab-recipes" hidden>
+  <section id="recipes">
+    <div class="sh"><h2>Recipes</h2><p class="sh-note">Every method in one place</p></div>
+    <div id="rx-index"></div>
   </section>
+  </div>
+
+  <div class="panel" id="panel-prep" role="tabpanel" aria-labelledby="tab-prep" hidden>
   <section id="freezer">
     <div class="sh"><h2>Freezer plan</h2><p class="sh-note">One shop, seven days — nothing sits too long</p></div>
     <p class="para">Raw chicken should not be sitting in the fridge from Sunday to Wednesday, and cooked meat is a three-day proposition. This is what moves where, and when.</p>
@@ -762,30 +784,17 @@
   </div>
 
   <div class="panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes" hidden>
-  <section id="want">
-    <div class="sh"><h2>This week&rsquo;s want</h2><p class="sh-note">One thing you actually feel like</p></div>
-    <p class="para">A standing slot for whatever you&rsquo;re in the mood for. It gets its own lines on the receipt and gets worked into the meals rather than bolted on the side.</p>
+  <section id="notebox">
+    <div class="sh"><h2>Note to Claude</h2><p class="sh-note">For next week&rsquo;s plan</p></div>
+    <p class="para">Anything you want changed, added or dropped. Write it as it occurs to you — mid-cook, in the aisle, after dinner — and it will be waiting when the next plan gets built.</p>
     <div class="wantbox">
-      <div class="wantnow">
-        <span class="tag">This week</span>
-        <p>Boiled egg mix, for salad and sandwiches. Now promoted to a standing staple rather than a one-off — see the list below. The want slot is free for next week.</p>
+      <label class="s-lab" for="note-text">What should change</label>
+      <textarea id="note-text" placeholder="e.g. the frittata was dry, more chickpeas, drop the shakshuka, 700g chuck was not enough..."></textarea>
+      <div class="noterow">
+        <button type="button" class="tbtn" id="note-send">Copy for Claude</button>
+        <span class="wanthint" id="note-status">Checking how this copy can send&hellip;</span>
       </div>
-      <label class="s-lab" for="want-text">Next week&rsquo;s want</label>
-      <textarea id="want-text" placeholder="e.g. a roast on Sunday, something with haloumi, proper soup, a curry..."></textarea>
-      <p class="wanthint" id="want-hint">Saved on this device</p>
-    </div>
-  </section>
-  <section id="staples">
-    <div class="sh"><h2>Weekly staples</h2><p class="sh-note">Fixed — these carry over every week</p></div>
-    <p class="para">The opposite of the want slot. These do not get reconsidered when the plan changes; they go in the shop and on the Sunday list automatically.</p>
-    <div class="wantbox">
-      <div class="wantnow">
-        <span class="tag">Locked in</span>
-        <p><b>Boiled egg mix</b> — six eggs, yoghurt, smoked paprika, lemon. Sunday lunch and Monday sandwiches, every week.</p>
-      </div>
-      <label class="s-lab" for="staple-text">Anything else that should never drop out</label>
-      <textarea id="staple-text" placeholder="e.g. focaccia, a braise on Sunday, something with chickpeas..."></textarea>
-      <p class="wanthint" id="staple-hint">Saved on this device</p>
+      <ul class="notelist" id="note-list"></ul>
     </div>
   </section>
 
@@ -1166,7 +1175,26 @@
     sheet.hidden = true; scrim.hidden = true; openId = null;
     if(lastFocus && lastFocus.focus) lastFocus.focus();
   }
-  $$(".open").forEach(function(b){
+  (function(){
+    var host=$("#rx-index"); if(!host) return;
+    var groups=[["Dinners",function(m){return m.r.indexOf("Dinner")===0;}],
+                ["Lunches",function(m){return m.r.indexOf("Lunch")===0;}],
+                ["Baked Sunday and Wednesday",function(m){return m.r.indexOf("snack")>-1||m.r.indexOf("Savoury")>-1||m.r.indexOf("Sweet")>-1;}]];
+    var seen={}, html="";
+    groups.forEach(function(g){
+      var rows="";
+      Object.keys(M).forEach(function(k){
+        if(seen[k] || !g[1](M[k])) return;
+        seen[k]=1;
+        rows+='<button class="rx" data-meal="'+k+'"><span class="rx-name">'+M[k].t+
+              '</span><span class="leader"></span><span class="rx-meta">'+M[k].m.slice(0,2).join(" \u00b7 ")+'</span></button>';
+      });
+      if(rows) html+='<div class="rx-group"><h3>'+g[0]+'</h3>'+rows+'</div>';
+    });
+    host.innerHTML=html;
+  })();
+
+  $$(".open, .rx").forEach(function(b){
     if(b.disabled) return;
     b.addEventListener("click", function(){ openSheet(b.getAttribute("data-meal")); });
   });
@@ -1209,20 +1237,59 @@
   }
   $("#clock-stop").addEventListener("click", function(){ stopTimer(false); });
 
-  /* ---------- weekly want ---------- */
+  /* ---------- note to Claude ---------- */
   (function(){
-    [["#want-text","#want-hint","cu-want-v1"],["#staple-text","#staple-hint","cu-staple-v1"]].forEach(function(cfg){
-    var box=$(cfg[0]), hint=$(cfg[1]), K=cfg[2], t=null;
+    var box=$("#note-text"), btn=$("#note-send"), stat=$("#note-status"), list=$("#note-list");
     if(!box) return;
-    try{ var v=localStorage.getItem(K); if(v) box.value=v; }catch(e){}
-    box.addEventListener("input",function(){
-      hint.textContent="Saving\u2026";
-      clearTimeout(t);
-      t=setTimeout(function(){
-        try{ localStorage.setItem(K,box.value); hint.textContent="Saved on this device"; }
-        catch(e){ hint.textContent="Could not save \u2014 storage blocked"; }
-      },400);
-    });
+    var db=null, unsub=null;
+    function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+    function when(iso){
+      try{ var d=new Date(iso); return ("0"+d.getDate()).slice(-2)+"/"+("0"+(d.getMonth()+1)).slice(-2); }catch(e){ return ""; }
+    }
+    function offline(){
+      btn.textContent="Copy for Claude";
+      stat.textContent="This copy can't send \u2014 tap to copy, then paste it to Claude";
+    }
+    offline();
+
+    function watch(){
+      if(unsub) return;
+      try{
+        unsub=db.collection("notes").orderBy("at","desc").limit(20).onSnapshot(function(snap){
+          list.innerHTML=snap.docs.map(function(d){
+            var v=d.data()||{};
+            return '<li><span class="n-when">'+esc(when(v.at))+'</span><span>'+esc(v.text||"")+'</span></li>';
+          }).join("");
+        }, function(){});
+      }catch(e){}
+    }
+
+    if(window.claude && typeof window.claude.use==="function"){
+      window.claude.use("db").then(function(d){
+        if(!d) return;
+        db=d;
+        btn.textContent="Send to Claude";
+        stat.textContent="Goes straight through";
+        watch();
+      }).catch(function(){});
+    }
+
+    btn.addEventListener("click", function(){
+      var t=box.value.trim();
+      if(!t){ stat.textContent="Nothing to send yet"; return; }
+      if(db){
+        btn.disabled=true; stat.textContent="Sending\u2026";
+        db.collection("notes").add({ text:t, at:new Date().toISOString(), done:false })
+          .then(function(){ box.value=""; stat.textContent="Sent \u2014 Claude picks it up next time"; })
+          .catch(function(e){ stat.textContent="Didn't send ("+((e&&e.code)||"error")+") \u2014 try again"; })
+          .then(function(){ btn.disabled=false; });
+      } else if(navigator.clipboard){
+        navigator.clipboard.writeText("Meal planner note: "+t).then(function(){
+          stat.textContent="Copied \u2014 paste it to Claude";
+        }).catch(function(){ stat.textContent="Copy failed \u2014 select it and copy by hand"; });
+      } else {
+        box.select(); stat.textContent="Select it and copy by hand";
+      }
     });
   })();
 
