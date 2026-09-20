@@ -483,6 +483,13 @@
     font-size:22px;text-transform:uppercase;line-height:1;margin:0 0 9px;padding-right:34px;
   }
   .s-meta{display:flex;gap:6px;flex-wrap:wrap}
+  .s-macro{
+    margin:9px 0 0;padding-top:8px;border-top:1px dotted var(--rule);
+    font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-3);display:flex;flex-wrap:wrap;gap:2px 10px;
+  }
+  .s-macro b{color:var(--ink);font-weight:500}
+  .s-macro:empty{display:none}
   .chip{
     font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;
     border:1px solid var(--rule);padding:2px 6px;color:var(--ink-2);
@@ -524,23 +531,7 @@
     cursor:pointer;padding:3px 8px;
     font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
   }
-  .s-foot{
-    flex-shrink:0;border-top:1px solid var(--ink);padding:11px 18px;
-    display:flex;align-items:center;gap:11px;background:var(--chit);
-    padding-bottom:calc(11px + env(safe-area-inset-bottom,0px));
-  }
-  .clock{
-    font-family:var(--disp);font-variation-settings:"wdth" 85,"wght" 800;
-    font-size:27px;font-variant-numeric:tabular-nums;line-height:1;letter-spacing:.01em;
-  }
-  .clock.run{color:var(--stamp)}
-  .clock.ring{color:var(--flag);animation:blink 1s steps(2) infinite}
   @keyframes blink{50%{opacity:.25}}
-  .clock-lab{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);flex:1;min-width:0}
-  .s-foot button{
-    border:1px solid var(--rule);background:transparent;cursor:pointer;padding:5px 9px;
-    font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);
-  }
   @media (hover: hover) and (pointer: fine){
     .step:hover{background:var(--sunk);color:var(--ink)}
     .jump a:hover{color:var(--stamp)}
@@ -552,8 +543,10 @@
     .tbtn:hover{border-color:var(--stamp);color:var(--stamp)}
     .s-close:hover{border-color:var(--flag);color:var(--flag)}
     .tmr:hover{background:var(--stamp);color:var(--chit)}
-    .s-foot button:hover{border-color:var(--ink);color:var(--ink)}
-  }
+  .tmr.run{background:var(--stamp);color:var(--chit);font-variant-numeric:tabular-nums}
+  .tmr.ring{background:var(--flag);border-color:var(--flag);color:var(--chit);animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:.35}}
+    }
   @media (max-width:430px){
     .rname{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.3}
     .leader{display:none}
@@ -866,6 +859,7 @@
     <p class="s-role" id="s-role">Dinner</p>
     <h3 class="s-title" id="s-title">Meal</h3>
     <div class="s-meta" id="s-meta"></div>
+    <p class="s-macro" id="s-macro"></p>
     <button class="s-close" id="s-close" aria-label="Close">✕</button>
   </div>
   <div class="s-body">
@@ -873,11 +867,6 @@
     <ul class="s-ing" id="s-ing"></ul>
     <p class="s-lab">Method</p>
     <ol class="s-steps" id="s-steps"></ol>
-  </div>
-  <div class="s-foot">
-    <span class="clock" id="clock">--:--</span>
-    <span class="clock-lab" id="clock-lab">No timer running</span>
-    <button id="clock-stop">Stop</button>
   </div>
 </aside>
 
@@ -890,7 +879,7 @@
 
   /* ---------- meal data ---------- */
   var M = {
-    "frittata":{r:"Savoury snack · baked Wednesday",t:"Frittata square",m:["Cooktop + oven","30 min","6 squares"],
+    "frittata":{r:"Savoury snack · baked Wednesday",t:"Frittata square",p:22,c:12,sv:"6 squares · one each, Thu–Sat",m:["Cooktop + oven","30 min","6 squares"],
       i:[[6,"ea","eggs"],[150,"g","ham, or whatever protein is going"],[300,"g","potato, cooked and diced"],[1,"ea","onion"],[60,"g","cheese, grated"],[2,"ea","tbsp herbs, chopped"],[60,"g","Greek yoghurt"]],
       s:[["Bake it Wednesday while the slow cooker is doing the thigh. Mid-week is the right time — by then there is actually something in the fridge to clear.",0],
          ["The ratio is the recipe, not the ingredient list: six eggs to about 500 g of filling. Keep that proportion and it sets through; push the filling past it and the middle stays wet.",0],
@@ -901,7 +890,7 @@
          ["Chives and dill are the two that suit a cold frittata best — parsley is fine, thyme goes in early with the onion rather than raw on top.",0],
          ["Cool completely, then cut into six good squares and fridge them. This is a cold snack, not a hot dinner — better on day two, and it travels.",0],
          ["Six eggs rather than four makes each square about 22 g instead of 15 g. Thursday, Friday and Saturday covered for the two of you; focaccia has Sunday through Wednesday.",0]]},
-    "sun-l":{r:"Lunch",t:"Egg salad on focaccia",m:["No-cook","10 min","Makes two lunches"],
+    "sun-l":{r:"Lunch",t:"Egg salad on focaccia",p:24,c:30,sv:"2, twice — today and tomorrow",m:["No-cook","10 min","Makes two lunches"],
       i:[[6,"ea","boiled eggs"],[60,"g","mayo, or Greek yoghurt"],[3,"ea","tbsp chives, finely cut"],[1,"ea","long red chilli, deseeded"],[1,"ea","tsp smoked paprika"],[1,"ea","lemon"],[2,"ea","pieces focaccia"]],
       s:[["Boil all six on Sunday. This batch is today's lunch and tomorrow's sandwiches — that is why it looks like more egg than one meal needs.",0],
          ["Chop them roughly. Don't mash to paste; you want to still meet a piece of egg.",0],
@@ -909,19 +898,19 @@
          ["Mayo, or Greek yoghurt for triple the protein and a sharper result. A bone broth mayo is worth it if you have one — more savoury than a standard jar and it does not need as much salt.",0],
          ["Smoked paprika, hard on the pepper, squeeze of lemon. Onto split focaccia.",0],
          ["Season it, taste it, season it again. Cold egg mutes salt — what tastes right warm will taste flat out of the fridge tomorrow.",0]]},
-    "sun-d":{r:"Dinner",t:"Harissa pulled chicken",m:["Slow cooker","6 hr","10 min work"],
+    "sun-d":{r:"Dinner",t:"Harissa pulled chicken",p:34,c:26,sv:"2, plus Friday's ragu",m:["Slow cooker","6 hr","10 min work"],
       i:[[500,"g","chicken thigh fillets"],[2,"ea","tbsp harissa"],[1,"ea","onion"],[1,"ea","lemon"],[500,"g","potatoes"]],
       s:[["Halved onion in the base of the slow cooker, thigh fillets on top, harissa rubbed all over and pushed under the skin. Lemon in the cavity. No liquid — it makes its own.",0],
          ["Low, 6 hours. It will not dry out and it does not want checking.",0],
          ["Potatoes in the air fryer at 200 °C.",20],
          ["Pull the meat with two forks, or ten seconds in the mixer on low. A third tonight, the rest to the fridge.",0],
          ["Keep the carcass — simmer it with an onion and half a carrot. That stock is Thursday's soup and it costs nothing.",0]]},
-    "mon-l":{r:"Lunch",t:"Egg sandwiches on focaccia",m:["No-cook","5 min"],
+    "mon-l":{r:"Lunch",t:"Egg sandwiches on focaccia",p:26,c:32,sv:"2",m:["No-cook","5 min"],
       i:[[4,"ea","boiled eggs — from Sunday's batch of 6"],[2,"ea","pieces focaccia"],[1,"ea","lemon"]],
       s:[["Split a piece of focaccia horizontally. Sturdier than sliced bread and it won't be soggy by lunchtime.",0],
          ["Sunday's egg salad in, black pepper, lemon.",0],
          ["Wrap it tight. It travels well and it's the cheapest 34 g of protein in the week.",0]]},
-    "mon-d":{r:"Dinner",t:"Braised beef with leeks",m:["Oven","2 hr + 50 min","Sunday job"],
+    "mon-d":{r:"Dinner",t:"Braised beef with leeks",p:34,c:38,sv:"2, plus Tuesday lunch",m:["Oven","2 hr + 50 min","Sunday job"],
       i:[[500,"g","beef chuck, in big chunks"],[1,"ea","leek"],[2,"ea","onions"],[6,"ea","garlic cloves"],[80,"ml","red wine"],[3,"ea","bay leaves"],[1,"ea","tsp peppercorns"],[2,"ea","pieces focaccia, to serve"]],
       s:[["Season the chuck hard, then sear it deeply — 3 to 4 minutes a side, in batches, never crowded. The original recipe is built on this step and so is the finished dish. Do not rush it.",0],
          ["A few thyme sprigs in with the bay. Caraway if you want it leaning east rather than French.",0],
@@ -932,13 +921,13 @@
          ["Lid off, brush the leeks with oil, spoon liquid over the beef, then 220 °C until the leek edges catch and the beef goes glossy. The focaccia can share the oven at this temperature.",18],
          ["Halve it before you sit down. Friday's ragu is the other half, and five days is too long in the fridge — that portion and the strained liquid go straight to the freezer tonight.",0],
          ["Adapted from @yarindanieli on TikTok. Red wine for white, one leek instead of four at this scale, and the oven rather than the slow cooker because the day is free.",0]]},
-    "tue-l":{r:"Lunch",t:"Pulled chicken slaw bowl",m:["No-cook","5 min"],
+    "tue-l":{r:"Lunch",t:"Pulled chicken slaw bowl",p:24,c:54,sv:"2",m:["No-cook","5 min"],
       i:[[250,"g","pulled chicken"],[250,"g","cooked rice"],[150,"g","cabbage slaw"],[60,"g","Greek yoghurt"],[1,"ea","lemon"]],
       s:[["Dress the slaw now, not this morning.",0],
          ["Yoghurt thinned with lemon and a little harissa as the sauce. Thirty seconds and it lifts the whole bowl.",0],
          ["Raw cabbage is doing real work — by Tuesday everything else in the fridge is soft.",0],
          ["Sumac over the top if you have it. It is lemony without being wet, which is exactly what a cold chicken bowl needs.",0]]},
-    "tue-d":{r:"Dinner",t:"Shakshuka with focaccia",m:["Cooktop","30 min"],
+    "tue-d":{r:"Dinner",t:"Shakshuka with focaccia",p:32,c:34,sv:"2",m:["Cooktop","30 min"],
       i:[[4,"ea","eggs"],[800,"g","diced tomatoes"],[1,"ea","onion"],[3,"ea","garlic cloves"],[1,"ea","tbsp harissa"],[2,"ea","pieces focaccia"]],
       s:[["Onion soft in a wide pan. Don't rush it — it's the difference between sweet and raw.",8],
          ["Garlic, cumin, smoked paprika and harissa for a minute, until it smells like something.",0],
@@ -947,25 +936,25 @@
          ["Caraway seeds with the cumin — a quarter teaspoon, crushed. It is the difference between a tomato dish and a shakshuka.",0],
          ["Chopped parsley or coriander over the top at the table, and chilli flakes. Never stir herbs into shakshuka, they go khaki.",0],
          ["Cheese crumbled over at the end if you want it. Focaccia to mop — six eggs across two people is the best protein-per-dollar dinner in the week.",0]]},
-    "wed-l":{r:"Lunch",t:"Tuna & cheese melt",m:["Air fryer","8 min","Or cold"],
+    "wed-l":{r:"Lunch",t:"Tuna & cheese melt",p:26,c:32,sv:"2",m:["Air fryer","8 min","Or cold"],
       i:[[95,"g","tuna, drained"],[2,"ea","pieces focaccia"],[60,"g","cheese, grated"],[100,"g","cabbage slaw"],[1,"ea","lemon"]],
       s:[["Sunday's thigh is finished \u2014 Tuesday's bowl took the last of it, and the second batch is still in the slow cooker until tonight.",0],
          ["Drain the tin properly, pressing the lid down hard. Wet tuna makes soggy bread.",0],
          ["Split focaccia, tuna, cheese over the tuna rather than the bread so it melts down into it.",8],
          ["Slaw on top after it comes out, and a squeeze of lemon. Tinned fish needs acid more than it needs salt.",0]]},
-    "wed-d":{r:"Dinner",t:"Lemon-oregano chicken",m:["Slow cooker","6 hr","Air fryer"],
+    "wed-d":{r:"Dinner",t:"Lemon-oregano chicken",p:32,c:46,sv:"2, plus Thursday lunch",m:["Slow cooker","6 hr","Air fryer"],
       i:[[500,"g","chicken thigh fillets"],[2,"ea","lemons"],[4,"ea","garlic cloves"],[2,"ea","tbsp dried oregano"],[600,"g","potatoes"]],
       s:[["Second half of the thigh fillets into the slow cooker this morning with lemon, garlic, oregano and a splash of Sunday's stock. Low, 6 hours — completely different from Sunday despite being the same cut.",0],
          ["Potatoes in wedges, air fryer 200 °C, tossed with oregano and lemon.",22],
          ["Spoon the cooking juices over everything — that liquid is concentrated and it's the sauce.",0],
          ["Pull the meat. Thursday's soup and Saturday's fried rice both come out of this bird.",0]]},
-    "thu-l":{r:"Lunch",t:"Cold lemon-oregano chicken",m:["No-cook","5 min","Packs well"],
+    "thu-l":{r:"Lunch",t:"Cold lemon-oregano chicken",p:30,c:50,sv:"2",m:["No-cook","5 min","Packs well"],
       i:[[250,"g","lemon-oregano chicken, from last night"],[150,"g","cabbage slaw"],[250,"g","cooked rice"],[60,"g","Greek yoghurt"],[1,"ea","lemon"]],
       s:[["Straight out of the fridge. Wednesday's slow cooker did the work and this is the payoff.",0],
          ["Yoghurt thinned with lemon and crushed garlic as the dressing — the same sauce as last night, which is the point of making extra.",0],
          ["Dress the slaw when you eat it, not this morning.",0],
          ["Spoon a little of the cooking liquid over the rice before you pack it. That liquid is concentrated lemon and garlic and it stops cold rice tasting like nothing.",0]]},
-    "thu-d":{r:"Dinner",t:"Crispy harissa chickpeas",m:["Air fryer","20 min","+ soak"],
+    "thu-d":{r:"Dinner",t:"Crispy harissa chickpeas",p:32,c:56,sv:"2",m:["Air fryer","20 min","+ soak"],
       i:[[250,"g","dried chickpeas"],[2,"ea","tbsp harissa"],[200,"g","Greek yoghurt"],[2,"ea","garlic cloves"],[1,"ea","lemon"],[60,"g","cheese"],[2,"ea","pieces focaccia"]],
       s:[["Soak the chickpeas overnight, or quick-soak on the day: cover with water, boil five minutes, off the heat, stand an hour. Then simmer 45 minutes until they give completely.",45],
          ["Dried are a third the price of tinned and it is not a close contest on texture — tinned ones are already soft and will never crisp.",0],
@@ -974,26 +963,26 @@
          ["Whip the yoghurt with crushed garlic, lemon, salt and the rest of the harissa. Spread it thick across the plate, not in a pot on the side.",0],
          ["Chickpeas straight over while still hot, so they land on cold yoghurt. Cheese, herbs, another squeeze of lemon.",0],
          ["Focaccia to scoop. This is by some distance the cheapest dinner of the week and it does not taste like it.",0]]},
-    "fri-l":{r:"Lunch",t:"Tuna salad on focaccia",m:["No-cook","10 min"],
+    "fri-l":{r:"Lunch",t:"Tuna salad on focaccia",p:24,c:30,sv:"2",m:["No-cook","10 min"],
       i:[[190,"g","tuna, 2 tins drained"],[60,"g","Greek yoghurt"],[1,"ea","carrot, grated"],[100,"g","cabbage slaw"],[1,"ea","lemon"]],
       s:[["Two tins between you, drained hard.",0],
          ["Yoghurt, lemon, plenty of pepper, and the grated carrot through it for crunch.",0],
          ["By Friday the week has been soft and rich for days. This is the sharp one \u2014 do not go easy on the lemon.",0],
          ["Dill and capers if you have them, chives if not. Tuna wants something green and something sharp or it just tastes of tin.",0],
          ["Last of the focaccia out of the freezer, four minutes in the air fryer.",0]]},
-    "fri-d":{r:"Dinner",t:"Ragu from the braise",m:["Cooktop","25 min"],
+    "fri-d":{r:"Dinner",t:"Ragu from the braise",p:32,c:72,sv:"2",m:["Cooktop","25 min"],
       i:[[2,"ea","serves of the braise"],[500,"g","spaghetti"],[1,"ea","tsp smoked paprika"],[1,"ea","tsp cumin"],[40,"g","cheese, grated"]],
       s:[["Shred the reserved beef back through the strained braising liquid from Monday. That liquid is the best thing in the fridge — do not throw it out on Monday night.",0],
          ["Smoked paprika and cumin in now. It turns Monday's French braise into something that reads as a different meal rather than a third night of leftovers.",0],
          ["Reduce hard so it clings to the pasta instead of pooling under it.",10],
          ["A bay leaf and a pinch of chilli flakes in while it reduces.",0],
          ["Pasta a minute short, finished in the sauce with a splash of its water, grated cheese and parsley at the table.",0]]},
-    "sat-l":{r:"Lunch",t:"Leftovers bowl, fried egg",m:["Cooktop","10 min"],
+    "sat-l":{r:"Lunch",t:"Leftovers bowl, fried egg",p:22,c:44,sv:"2",m:["Cooktop","10 min"],
       i:[[1,"ea","whatever survived the week"],[2,"ea","eggs, one each"]],
       s:[["Rice or potato at the base, whatever is left on top — including a wedge of Thursday's frittata if any survived.",0],
          ["Fried egg each over the top, yolk soft, and let the yolk do the dressing. The 24 pack leaves a couple spare for exactly this.",0],
          ["This slot exists so nothing gets thrown out. Don't over-plan it.",0]]},
-    "sat-d":{r:"Dinner",t:"Leftovers fried rice",m:["Cooktop","20 min"],
+    "sat-d":{r:"Dinner",t:"Leftovers fried rice",p:28,c:62,sv:"2",m:["Cooktop","20 min"],
       i:[[400,"g","cooked rice, properly chilled"],[150,"g","any chicken left"],[1,"ea","carrot, grated"],[150,"g","cabbage, shredded"],[2,"ea","eggs"],[3,"ea","garlic cloves"]],
       s:[["Rice properly cold, or it clumps and steams.",0],
          ["Eggs scrambled first, out to a plate.",0],
@@ -1001,7 +990,7 @@
          ["Rice in, pressed flat, thirty seconds at a time so it catches.",0],
          ["Everything back in, soy down the side of the pan, white pepper rather than black, toss and serve.",0],
          ["Spring onion raw over the top and a few sesame seeds. Fried rice needs one raw thing on it.",0]]},
-    "focaccia":{r:"Savoury snack · baked Sunday",t:"Focaccia + harissa yoghurt",m:["Oven","10 min work","3 hr prove"],
+    "focaccia":{r:"Savoury snack · baked Sunday",t:"Focaccia + harissa yoghurt",p:16,c:40,sv:"12 pieces · one each, Sun–Wed",m:["Oven","10 min work","3 hr prove"],
       i:[[500,"g","plain flour"],[7,"g","dry yeast"],[400,"ml","warm water"],[10,"g","salt"],[60,"ml","olive oil"],[500,"g","Greek yoghurt, for the week"]],
       s:[["Flour, yeast and salt in the mixer with the dough hook. Water in, six minutes on low. Weigh the flour if you can \u2014 a cup varies by up to 30% depending how it is scooped, and that is where the ratio usually goes wrong.",0],
          ["Stop the mixer and watch it for ten seconds. If it holds a ball and the bowl looks clean, it is too dry \u2014 add water 50 ml at a time until it slumps back and stays smeared round the sides. It should swallow a finger with no resistance.",0],
@@ -1014,7 +1003,7 @@
          ["Worth rotating: fennel seed and sea salt one week, za'atar the next, or crushed garlic and rosemary steeped in the oil first. The dough never changes, the top always can.",0],
          ["Cut into 12. Half to the fridge, half sliced and frozen. Four minutes in the air fryer revives a frozen piece.",0],
          ["Yoghurt beaten with harissa, lemon, salt and a little oil. Focaccia alone is 7 g of protein; with the dip it is 18 g.",0]]},
-    "oatslice":{r:"Sweet snack · baked Sunday",t:"Protein brownie",m:["Oven","40 min","14 squares"],
+    "oatslice":{r:"Sweet snack · baked Sunday",t:"Protein brownie",p:17,c:18,sv:"14 squares · one each, all week",m:["Oven","40 min","14 squares"],
       i:[[500,"g","cottage cheese"],[2,"ea","eggs"],[200,"g","Greek yoghurt"],[150,"g","protein powder, 5 scoops"],[80,"g","oats, blitzed to flour"],[40,"g","dark cocoa powder"],[50,"g","sugar or sweetener"],[1,"ea","tsp baking powder"]],
       s:[["Cottage cheese into the food processor and run it a full minute, until completely smooth. Any grain left is still grain in the baked brownie, and that is the one thing that makes these taste like diet food.",0],
          ["Eggs and yoghurt in, blitz again. Then the protein powder, oat flour, cocoa, sugar and baking powder.",0],
@@ -1178,11 +1167,15 @@
   var sheet = $("#sheet"), scrim = $("#scrim"), openId = null, lastFocus = null;
   function fill(id){
     var m = M[id]; if(!m) return;
+    clearTimers();
     $("#s-role").textContent = m.r;
     $("#s-title").textContent = m.t;
     $("#s-meta").innerHTML = m.m.map(function(x,i){
       return '<span class="chip' + (i===0 ? " k" : "") + '">' + x + "</span>";
     }).join("");
+    $("#s-macro").innerHTML = m.sv
+      ? '<b>Serves ' + m.sv + '</b><span>' + m.p + ' g protein \u00b7 ' + m.c + ' g carbs per serve</span>'
+      : "";
     $("#s-ing").innerHTML = m.i.map(function(x){
       return '<li><span class="iq">' + qty(x[0], x[1], "") + "</span><span>" + x[2] + "</span></li>";
     }).join("");
@@ -1192,7 +1185,7 @@
         "</div></li>";
     }).join("");
     $$("#s-steps .tmr").forEach(function(b){
-      b.addEventListener("click", function(){ startTimer(parseInt(b.getAttribute("data-min"),10), m.t); });
+      b.addEventListener("click", function(){ startTimer(parseInt(b.getAttribute("data-min"),10), b); });
     });
   }
   function openSheet(id){
@@ -1202,6 +1195,7 @@
     $("#s-close").focus();
   }
   function closeSheet(){
+    clearTimers();
     sheet.hidden = true; scrim.hidden = true; openId = null;
     if(lastFocus && lastFocus.focus) lastFocus.focus();
   }
@@ -1234,38 +1228,26 @@
     if(e.key === "Escape" && !sheet.hidden) closeSheet();
   });
 
-  /* ---------- timer ---------- */
-  var tick = null, left = 0;
-  var clock = $("#clock"), clockLab = $("#clock-lab");
-  function show(){
-    var m = Math.floor(left/60), s = left % 60;
-    clock.textContent = (m<10?"0":"") + m + ":" + (s<10?"0":"") + s;
-  }
-  function startTimer(mins, label){
-    stopTimer(true);
-    left = mins * 60;
-    clock.className = "clock run";
-    clockLab.textContent = label;
-    show();
-    tick = setInterval(function(){
-      left--;
-      if(left <= 0){
-        clearInterval(tick); tick = null;
-        clock.textContent = "00:00";
-        clock.className = "clock ring";
-        clockLab.textContent = "Time — " + label;
-      } else { show(); }
-    }, 1000);
-  }
-  function stopTimer(quiet){
-    if(tick){ clearInterval(tick); tick = null; }
-    if(!quiet){
-      clock.textContent = "--:--";
-      clock.className = "clock";
-      clockLab.textContent = "No timer running";
+  /* ---------- step timers ---------- */
+  var live=[];
+  function clearTimers(){ live.forEach(clearInterval); live=[]; }
+  function startTimer(mins, btn){
+    if(btn._t){ clearInterval(btn._t); btn._t=null; btn.textContent=btn._label; btn.className="tmr"; return; }
+    var left=mins*60;
+    btn._label=btn._label||btn.textContent;
+    btn.className="tmr run";
+    function show(){
+      var m=Math.floor(left/60), sec=left%60;
+      btn.textContent=(m<10?"0":"")+m+":"+(sec<10?"0":"")+sec;
     }
+    show();
+    btn._t=setInterval(function(){
+      left--;
+      if(left<=0){ clearInterval(btn._t); btn._t=null; btn.textContent="Time"; btn.className="tmr ring"; }
+      else show();
+    },1000);
+    live.push(btn._t);
   }
-  $("#clock-stop").addEventListener("click", function(){ stopTimer(false); });
 
   /* ---------- note to Claude ---------- */
   (function(){
