@@ -1,4 +1,4 @@
-# Sunday Cook-Up
+# Meal Planner
 
 A seven-day high-protein meal plan for two, built around one Sunday batch cook
 and a single Coles/Woolworths shop.
