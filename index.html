@@ -264,15 +264,6 @@
   .row.done .rname{text-decoration:line-through;color:var(--ink-3)}
   .row.done .rpro{color:var(--ink-3)}
 
-  .d-foot{padding-top:10px;display:flex;align-items:center;gap:9px}
-  .d-foot .lab{
-    font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
-  }
-  .pbar{flex:1;height:5px;background:var(--rule-2);position:relative;min-width:40px}
-  .pbar i{display:block;height:100%;background:var(--ink-3);width:0%;transition:width .25s}
-  .pbar.hit i{background:var(--ok)}
-  .pnum{font-family:var(--mono);font-size:10.5px;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
-  .pnum b{color:var(--ink);font-weight:600}
 
   /* ---------------- receipt ---------------- */
   .receipt{
@@ -561,7 +552,7 @@
         <li><div><b>Oven up to 220 °C — dimple and bake the focaccia</b><p>20–25 min until deep gold. Last in, because it wants the hottest oven.</p></div></li>
         <li><div><b>Sear the beef and get the braise in</b><p>Oven at 165 °C for two hours, then the leek stage. It shares the oven with the brownie and focaccia if you stagger them. Shred the thigh when the slow cooker is done.</p></div></li>
       </ol>
-      <p class="aside"><b>No legumes in this plan.</b> Lentils and chickpeas are both out — same family, same bloating mechanism. That removed the cheapest protein in the shop, and the slow cooker is what replaces it: whole chickens run about $0.040 per gram of protein against $0.069 for thigh fillets.</p>
+      <p class="aside"><b>No lentils.</b> Chickpeas are fine and worth knowing about: dried, they are <b>$0.030 per gram of protein</b> — less than half what eggs or tuna cost and the cheapest thing in the shop by a distance. Not in this week’s list, but a $3 bag is the single best value add there is.</p>
     </div>
   </section>
 
@@ -582,7 +573,6 @@
           <div class="row" data-pro="18"><button class="tick" data-id="sun-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="sun-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>90</b> g</span></div>
       </article>
 
       <article class="docket">
@@ -593,7 +583,6 @@
           <div class="row" data-pro="18"><button class="tick" data-id="mon-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="mon-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>92</b> g</span></div>
       </article>
 
       <article class="docket">
@@ -604,7 +593,6 @@
           <div class="row" data-pro="18"><button class="tick" data-id="tue-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="tue-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>88</b> g</span></div>
       </article>
 
       <article class="docket">
@@ -615,7 +603,6 @@
           <div class="row" data-pro="18"><button class="tick" data-id="wed-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="wed-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>90</b> g</span></div>
       </article>
 
       <article class="docket">
@@ -626,7 +613,6 @@
           <div class="row" data-pro="18"><button class="tick" data-id="thu-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="thu-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>80</b> g</span></div>
       </article>
 
       <article class="docket">
@@ -637,7 +623,6 @@
           <div class="row" data-pro="18"><button class="tick" data-id="fri-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="fri-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>88</b> g</span></div>
       </article>
 
       <article class="docket">
@@ -648,7 +633,6 @@
           <div class="row" data-pro="18"><button class="tick" data-id="sat-sv" aria-pressed="false" aria-label="Mark served"></button><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
           <div class="row" data-pro="14"><button class="tick" data-id="sat-sw" aria-pressed="false" aria-label="Mark served"></button><span class="role">Sweet</span><button class="open" data-meal="oatslice"><span class="rname">Protein brownie</span><span class="leader"></span></button><span class="rpro">17 g</span></div>
         </div>
-        <div class="d-foot"><span class="lab">Protein</span><span class="pbar"><i></i></span><span class="pnum"><b>82</b> g</span></div>
       </article>
 
     </div>
@@ -696,7 +680,7 @@
       <div class="r-in">
         <div class="r-top">
           <h3>Weekly Shop</h3>
-          <p><span id="r-pax">2 pax</span> · 19 lines · shelf packs only</p>
+          <p><span id="r-pax">2 pax</span> · 19 lines · shelf packs, no lentils</p>
         </div>
 
         <div class="r-cat">
@@ -991,14 +975,6 @@
     $("#served-txt").textContent = n + " / " + rows.length + " served";
     $("#served-fill").style.width = (n / rows.length * 100) + "%";
 
-    $$(".docket").forEach(function(d){
-      var sum = 0;
-      $$(".row", d).forEach(function(r){ sum += parseFloat(r.getAttribute("data-pro")) || 0; });
-      var bar = $(".pbar", d);
-      $("i", bar).style.width = Math.min(100, sum / tgt * 100) + "%";
-      bar.classList.toggle("hit", sum >= tgt);
-      $(".pnum", d).innerHTML = "<b>" + sum + "</b> g";
-    });
   }
   $$(".tick").forEach(function(b){
     b.addEventListener("click", function(){
