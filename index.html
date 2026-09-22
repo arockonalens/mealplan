@@ -127,13 +127,13 @@
   .bar-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .tabs{
     max-width:1000px;margin:0 auto;padding-inline:16px;
-    display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+    display:grid;grid-template-columns:repeat(6,1fr);gap:0;
     border-top:1px solid var(--rule-2);
   }
   .tab{
     border:0;border-bottom:2px solid transparent;background:transparent;cursor:pointer;
     padding:10px 4px 8px;
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.02em;text-transform:uppercase;
     color:var(--ink-3);
   }
   .tab[aria-selected="true"]{color:var(--stamp);border-bottom-color:var(--stamp)}
@@ -337,6 +337,47 @@
     color:var(--stamp);white-space:nowrap;
   }
   .wantnow p{margin:0;font-size:14px}
+  .ex{
+    display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:start;
+    padding:20px 0;border-bottom:1px solid var(--rule-2);
+  }
+  .ex-fig{background:var(--chit);border:1px solid var(--rule);padding:8px}
+  .ex-fig svg{display:block;width:100%;height:auto}
+  .ex-n{
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--stamp);margin:0 0 3px;
+  }
+  .ex-body h3{
+    font-family:var(--disp);font-variation-settings:"wdth" 82,"wght" 800;
+    font-size:19px;text-transform:uppercase;margin:0 0 3px;line-height:1;
+  }
+  .ex-kit{
+    font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-3);margin:0 0 12px;
+  }
+  .ex-nums{
+    display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--rule-2);margin-bottom:12px;
+  }
+  .ex-nums span{
+    flex:1 1 auto;min-width:74px;padding:8px 10px 9px 0;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    display:flex;flex-direction:column;gap:2px;
+  }
+  .ex-nums b{
+    font-family:var(--disp);font-variation-settings:"wdth" 85,"wght" 800;
+    font-size:19px;letter-spacing:-.01em;color:var(--ink);text-transform:none;
+  }
+  .ex-cues{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+  .ex-cues li{
+    font-size:13.5px;color:var(--ink-2);line-height:1.5;
+    padding-left:14px;position:relative;
+  }
+  .ex-cues li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--stamp)}
+  .ex-cues b{color:var(--ink);font-weight:600}
+  @media (max-width:620px){
+    .ex{grid-template-columns:1fr;gap:14px}
+    .ex-fig{max-width:280px}
+  }
   .pairwrap{overflow-x:auto;border-top:1px solid var(--ink)}
   .pair{width:100%;border-collapse:collapse;font-size:13.5px}
   .pair td{padding:10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
@@ -548,6 +589,7 @@
   <div class="tabs" role="tablist" aria-label="Sections">
     <button class="tab" id="tab-week" role="tab" data-tab="week" aria-selected="true" aria-controls="panel-week">Week</button>
     <button class="tab" id="tab-recipes" role="tab" data-tab="recipes" aria-selected="false" aria-controls="panel-recipes">Recipes</button>
+    <button class="tab" id="tab-gym" role="tab" data-tab="gym" aria-selected="false" aria-controls="panel-gym">Gym</button>
     <button class="tab" id="tab-prep" role="tab" data-tab="prep" aria-selected="false" aria-controls="panel-prep">Freezer</button>
     <button class="tab" id="tab-shop" role="tab" data-tab="shop" aria-selected="false" aria-controls="panel-shop">Shop</button>
     <button class="tab" id="tab-notes" role="tab" data-tab="notes" aria-selected="false" aria-controls="panel-notes">Notes</button>
@@ -654,6 +696,29 @@
     <div class="pairwrap">
       <table class="pair"><tbody><tr><td>Eggs — boiled, salad</td><td>chives, dill, smoked paprika, chilli, capers, celery salt</td></tr><tr><td>Eggs — shakshuka, frittata</td><td>cumin, caraway, paprika, parsley or coriander raw on top</td></tr><tr><td>Chicken — slow-cooked</td><td>harissa, oregano, lemon, garlic, sumac, bay</td></tr><tr><td>Beef — braised</td><td>bay, thyme, peppercorns, caraway, parsley to finish</td></tr><tr><td>Tinned fish</td><td>dill, capers, lemon zest, red onion, chilli</td></tr><tr><td>Rice — fried</td><td>ginger, garlic, white pepper, sesame, raw spring onion</td></tr><tr><td>Cabbage, raw slaw</td><td>lemon, sumac, chilli, mint</td></tr><tr><td>Focaccia</td><td>rosemary, fennel seed, za’atar, garlic steeped in the oil</td></tr><tr><td>Chocolate</td><td>cinnamon, instant coffee, sea salt flakes</td></tr></tbody></table>
     </div>
+  </section>
+  </div>
+
+  <div class="panel" id="panel-gym" role="tabpanel" aria-labelledby="tab-gym" hidden>
+  <section id="gym">
+    <div class="sh"><h2>Chest · 45 min</h2><p class="sh-note">Technogym floor</p></div>
+    <dl class="tape">
+      <div class="tp"><dt>Working time</dt><dd>36<i>min</i></dd></div>
+      <div class="tp"><dt>Warm-up</dt><dd>5<i>min</i></dd></div>
+      <div class="tp"><dt>Stretch</dt><dd>4<i>min</i></dd></div>
+      <div class="tp"><dt>Working sets</dt><dd>15</dd></div>
+    </dl>
+    <p class="para" style="margin-top:18px"><b>Warm up first, five minutes, not optional.</b> Two minutes on a bike or rower, then 15 band pull-aparts and one very light set of 15 on the first machine. Cold shoulders under a heavy press is the most common way to lose six weeks.</p>
+    <p class="para"><b>Order is deliberate.</b> Heaviest compound while you are fresh, isolation after, bodyweight last. Do not reshuffle it to get on a free machine — wait, or swap the order of 03 and 04 only.</p>
+<article class="ex"><div class="ex-fig"><svg viewBox="0 0 200 140" role="img" aria-label="Incline chest press: seated on an inclined back pad, pressing handles up and away"><g fill="none" stroke="var(--rule-strong)" stroke-width="2.5" stroke-linecap="round"><path d="M28 124h44M50 124V96"/><path d="M50 96 96 54"/><path d="M96 54v-8"/><path d="M150 124V40M138 124h24"/></g><g fill="none" stroke="var(--stamp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M62 100 100 62"/><circle cx="106" cy="55" r="9"/><path d="M96 74 126 86M126 86l14-12"/></g><g fill="none" stroke="var(--stamp)" stroke-width="2" stroke-dasharray="4 4"><path d="M140 74q16-6 18-22"/></g><path d="M156 50l4 10-10-2z" fill="var(--stamp)"/><g fill="none" stroke="var(--rule-strong)" stroke-width="2.5"><circle cx="150" cy="74" r="6"/></g></svg></div><div class="ex-body"><p class="ex-n">01</p><h3>Incline Chest Press</h3><p class="ex-kit">Technogym Selection Pro · incline chest press</p><div class="ex-nums"><span><b>4</b>sets</span><span><b>8–10</b>reps</span><span><b>90s</b>rest</span><span><b>2-1-1</b>tempo</span></div><ul class="ex-cues"><li>Set the seat so the handles sit at <b>upper-chest height</b>, not shoulder height. Too high and it becomes a shoulder press.</li><li>Press up and slightly in. Stop just short of locking the elbows — the tension is the point, not the lockout.</li><li>Upper chest is the part almost everyone under-builds, which is why it goes first while you are fresh.</li><li>Last two reps should be genuinely hard with form intact. If rep 10 is easy, the weight goes up next session.</li></ul></div></article>
+<article class="ex"><div class="ex-fig"><svg viewBox="0 0 200 140" role="img" aria-label="Chest press: seated upright, pressing handles straight forward"><g fill="none" stroke="var(--rule-strong)" stroke-width="2.5" stroke-linecap="round"><path d="M28 124h44M50 124V88M50 88h26"/><path d="M50 88V44"/><path d="M152 124V36M140 124h24"/></g><g fill="none" stroke="var(--stamp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M62 88V56"/><circle cx="62" cy="46" r="9"/><path d="M64 66 96 70M96 70l22-2"/></g><g fill="none" stroke="var(--stamp)" stroke-width="2" stroke-dasharray="4 4"><path d="M124 68h22"/></g><path d="M144 62l10 6-10 6z" fill="var(--stamp)"/><circle cx="152" cy="68" r="6" fill="none" stroke="var(--rule-strong)" stroke-width="2.5"/></svg></div><div class="ex-body"><p class="ex-n">02</p><h3>Chest Press</h3><p class="ex-kit">Technogym Selection Pro · chest press</p><div class="ex-nums"><span><b>3</b>sets</span><span><b>8–10</b>reps</span><span><b>90s</b>rest</span><span><b>2-1-1</b>tempo</span></div><ul class="ex-cues"><li>Shoulder blades pulled back and <b>down</b> into the pad, and keep them there the whole set. Letting them roll forward moves the work to the front delts.</li><li>Lower for a slow count of two. The stretched part is where most of the growth comes from and it is the part people rush.</li><li>Feet flat, no arching off the seat to move more weight.</li></ul></div></article>
+<article class="ex"><div class="ex-fig"><svg viewBox="0 0 200 140" role="img" aria-label="Pectoral machine: seated, arms open wide then swept together in front"><g fill="none" stroke="var(--rule-strong)" stroke-width="2.5" stroke-linecap="round"><path d="M78 126h44M100 126V92M100 92h24"/><path d="M100 92V40"/><path d="M100 46 44 34M100 46l56-12"/><circle cx="44" cy="34" r="6"/><circle cx="156" cy="34" r="6"/></g><g fill="none" stroke="var(--stamp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="112" cy="44" r="9"/><path d="M112 54v18M112 60 68 50M112 60l44-10"/></g><g fill="none" stroke="var(--stamp)" stroke-width="2" stroke-dasharray="4 4"><path d="M60 62q22 18 48 18M164 62q-22 18-48 18"/></g><path d="M104 74l12 6-12 6z" fill="var(--stamp)"/><path d="M120 74l-12 6 12 6z" fill="var(--stamp)"/></svg></div><div class="ex-body"><p class="ex-n">03</p><h3>Pectoral Machine</h3><p class="ex-kit">Technogym Selection Pro · pectoral machine (pec deck)</p><div class="ex-nums"><span><b>3</b>sets</span><span><b>12–15</b>reps</span><span><b>60s</b>rest</span><span><b>2-1-2</b>tempo</span></div><ul class="ex-cues"><li>A wide arc, elbows soft and <b>fixed</b> at that angle — if the elbow angle changes you are pressing, not flying.</li><li>Squeeze for a full second where the pads meet. This is the only point in the session where the chest is fully shortened.</li><li>Lighter than feels impressive. This is a stretch-and-squeeze exercise, not a load exercise.</li></ul></div></article>
+<article class="ex"><div class="ex-fig"><svg viewBox="0 0 200 140" role="img" aria-label="Cable crossover: standing between two low pulleys, hands swept up and together"><g fill="none" stroke="var(--rule-strong)" stroke-width="2.5" stroke-linecap="round"><path d="M22 124V24M22 124h16M178 124V24M178 124h-16"/><circle cx="22" cy="30" r="5"/><circle cx="178" cy="30" r="5"/><path d="M27 33 70 66M173 33l-43 33"/></g><g fill="none" stroke="var(--stamp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="40" r="9"/><path d="M100 50v34M100 84l-10 38M100 84l10 38M100 58 70 66M100 58l30 8"/></g><g fill="none" stroke="var(--stamp)" stroke-width="2" stroke-dasharray="4 4"><path d="M72 80q14 18 26 6M128 80q-14 18-26 6"/></g><path d="M94 82l10 6-11 5z" fill="var(--stamp)"/><path d="M106 82l-10 6 11 5z" fill="var(--stamp)"/></svg></div><div class="ex-body"><p class="ex-n">04</p><h3>Cable Crossover, low to high</h3><p class="ex-kit">Technogym Pure · dual adjustable pulley, both arms set low</p><div class="ex-nums"><span><b>3</b>sets</span><span><b>12–15</b>reps</span><span><b>60s</b>rest</span><span><b>2-1-2</b>tempo</span></div><ul class="ex-cues"><li>Pulleys at the <b>bottom</b> setting. Sweep up and in, hands finishing around collarbone height.</li><li>Step one foot forward and lean in slightly. Standing straight up lets the cables pull you backwards.</li><li>The cable keeps tension on at the top where a machine loses it — that is the whole reason this is here and not a second press.</li></ul></div></article>
+<article class="ex"><div class="ex-fig"><svg viewBox="0 0 200 140" role="img" aria-label="Push-up: body straight from head to heels, lowering to the floor and pressing back up"><path d="M20 118h160" fill="none" stroke="var(--rule-strong)" stroke-width="2.5" stroke-linecap="round"/><g fill="none" stroke="var(--stamp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="48" cy="62" r="9"/><path d="M58 66 150 92M66 70v46M150 92l14 24"/></g><g fill="none" stroke="var(--stamp)" stroke-width="2" stroke-dasharray="4 4"><path d="M100 60v22"/></g><path d="M94 74l6 12 6-12z" fill="var(--stamp)"/><path d="M106 68l-6-12-6 12z" fill="var(--stamp)"/></svg></div><div class="ex-body"><p class="ex-n">05</p><h3>Push-ups to finish</h3><p class="ex-kit">Bodyweight · floor</p><div class="ex-nums"><span><b>2</b>sets</span><span><b>To failure</b>reps</span><span><b>60s</b>rest</span><span><b>Controlled</b>tempo</span></div><ul class="ex-cues"><li>Straight line from head to heels. The moment your hips sag the set is over, whatever the count says.</li><li>Nothing left to lift by now, so this empties the tank without needing a spotter.</li><li>Count them and write it down. It is the easiest progress marker in the session.</li></ul></div></article>
+    <p class="para"><b>Finish with a stretch, four minutes.</b> Doorway pec stretch, 45 seconds each side, twice. Chest work shortens the front of the shoulder and this is what stops it becoming posture.</p>
+    <div class="aside"><b>On frequency.</b> One chest session a week will build some muscle, but the same 15 sets split across two sessions builds noticeably more — muscle protein synthesis runs about 48 hours, so twice a week catches a second wave. With four training days, chest on day one and day three with this session split in half would beat doing it all at once. Your call; this is the 45 minutes you asked for.</div>
+    <div class="aside" style="border-left-color:var(--flag)"><b>Load and progression.</b> Pick a weight where the last two reps are hard but your form holds. When you hit the top of the rep range on every set, add the smallest increment next session. That is the whole method — there is nothing cleverer, it just has to happen every week for months.</div>
+    <p class="para" style="color:var(--ink-3);font-size:13px"><b>The diagrams are mine, not Technogym’s.</b> Drawn to show the movement and seat position rather than the exact machine — your gym’s model will differ in the detail. General training guidance, not coaching: sharp pain in the shoulder joint means stop, not push through.</p>
   </section>
   </div>
 
