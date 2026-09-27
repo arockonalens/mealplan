@@ -647,12 +647,6 @@
 <div class="bar">
   <div class="bar-in">
     <p class="mark">Meal <span>Planner</span></p>
-    <div class="ctl">
-      <span class="ctl-lab">Pax</span>
-      <button class="step" id="pax-down" aria-label="Fewer people">&minus;</button>
-      <span class="ctl-val" id="pax-val">2</span>
-      <button class="step" id="pax-up" aria-label="More people">+</button>
-    </div>
     <div class="bar-right">
       <button class="theme" id="theme" aria-label="Switch theme">◐</button>
     </div>
@@ -892,7 +886,7 @@
   <div class="panel" id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" hidden>
   <section id="shop">
     <div class="sh"><h2>The shop</h2><p class="sh-note">Sunday · one trip</p></div>
-    <p class="para">Quantities and prices scale with the pax counter, but supermarkets sell whole packs — at 3 or 4 people you'll round up and the real total lands higher than the arithmetic. Prices are rough shelf prices, not catalogue specials. Focaccia drinks olive oil — if your bottle is low, add one to the trip. The bottom two blocks are not in the weekly total: one is stock-up that lasts months, the other is what each extra $10 buys you in protein.</p>
+    <p class="para">Everything here is for two, in supermarket pack sizes. Prices are rough shelf prices, not catalogue specials. Focaccia drinks olive oil — if your bottle is low, add one to the trip. The block below the total is buy-once: spices, yeast and the like, which last months and are not part of the weekly spend.</p>
     <div class="shoptools">
       <button class="tbtn" id="hide-got" aria-pressed="false">Hide what's in the trolley</button>
       <button class="tbtn" id="reset-shop">Clear ticks</button>
@@ -902,7 +896,7 @@
       <div class="r-in">
         <div class="r-top">
           <h3>Weekly Shop</h3>
-          <p><span id="r-pax">2 pax</span> · 20 lines · shelf packs, no lentils</p>
+          <p>20 lines · shelf packs, no lentils</p>
         </div>
 
         <div class="r-cat">
@@ -1044,7 +1038,7 @@
     <button class="s-close" id="s-close" aria-label="Close">✕</button>
   </div>
   <div class="s-body">
-    <p class="s-lab">Ingredients · <span id="s-pax">2 pax</span></p>
+    <p class="s-lab">Ingredients</p>
     <ul class="s-ing" id="s-ing"></ul>
     <p class="s-lab">Method</p>
     <ol class="s-steps" id="s-steps"></ol>
@@ -1054,7 +1048,7 @@
 <script>
 (function(){
   "use strict";
-  var LS = { list:"cu-list-v2", pax:"cu-pax-v2", tgt:"cu-tgt-v2", theme:"cu-theme-v2" };
+  var LS = { list:"cu-list-v2", tgt:"cu-tgt-v2", theme:"cu-theme-v2" };
   function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
 
@@ -1199,7 +1193,7 @@
   };
 
   /* ---------- state ---------- */
-  var pax = parseInt(get(LS.pax),10); if(!pax || pax<1 || pax>6) pax = 2;
+  var PAX = 2;
   var tgt = 130;
   var got = {};
   try{ got  = JSON.parse(get(LS.list)||"{}")||{}; }catch(e){ got = {}; }
@@ -1211,7 +1205,7 @@
   function money(n){ return "$" + n.toFixed(2); }
   function trim(n){ return String(Math.round(n*100)/100); }
   function qty(q,u,s){
-    var v = q * pax / 2;
+    var v = q;
     if(u === "g"){ return v >= 1000 ? trim(Math.round(v/10)/100) + " kg" : Math.round(v) + " g"; }
     if(u === "ml"){ return Math.round(v) + " ml"; }
     return trim(v) + (s ? " " + s : "");
@@ -1229,7 +1223,7 @@
             pEl = $(".r-price", it),
             qEl = $(".r-qty", it),
             base = parseFloat(pEl.getAttribute("data-p")) || 0,
-            price = base * pax / 2;
+            price = base;
         sub += price;
         total += price;
         if(box.checked){ n++; } else { owed += price; }
@@ -1243,11 +1237,8 @@
     $("#r-got").textContent = String(n);
     $("#r-owed").textContent = money(owed);
     $("#r-total").textContent = money(total);
-    $("#r-pax").textContent = pax + " pax";
     $("#t-total").textContent = money(total);
-    $("#t-permeal").textContent = money(total / (pax * 14));
-    $("#s-pax").textContent = pax + " pax";
-    $("#pax-val").textContent = String(pax);
+    $("#t-permeal").textContent = money(total / (PAX * 14));
   }
   var hideGot = false;
   items.forEach(function(it){
@@ -1271,13 +1262,7 @@
     paintShop();
   });
 
-  /* ---------- pax + target ---------- */
-  function bump(d){
-    pax = Math.max(1, Math.min(6, pax + d));
-    set(LS.pax, String(pax)); paintShop(); if(openId) fill(openId);
-  }
-  $("#pax-up").addEventListener("click", function(){ bump(1); });
-  $("#pax-down").addEventListener("click", function(){ bump(-1); });
+  /* ---------- theme ---------- */
 
   /* ---------- workout sessions ---------- */
   (function(){
