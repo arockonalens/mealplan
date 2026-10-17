@@ -291,12 +291,9 @@
   .kps b,.alg b{letter-spacing:.1em;text-transform:uppercase;font-size:9px;color:var(--ink-2);font-weight:500}
   .alg{text-transform:lowercase}
   .ig{font-style:normal;font-size:10px;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
-  .r-for{font-size:10px;line-height:1.3;color:var(--ink-3);text-align:right;max-width:48%}
+  .r-for{grid-column:2 / -1;font-size:10px;line-height:1.4;color:var(--ink-3);margin-top:1px}
   .r-stock-n{font-size:11px;line-height:1.5;color:var(--ink-2);margin:4px 0 0}
-  @media (max-width:560px){
-    .r-item{grid-template-columns:15px 1fr}
-    .r-for{grid-column:2;text-align:left;max-width:none;margin-top:2px}
-  }
+
   .r-item input:checked ~ .r-name,.r-item input:checked ~ .r-price{color:var(--ink-3);text-decoration:line-through}
   .r-sub{
     display:flex;justify-content:space-between;font-size:10px;color:var(--ink-3);
