@@ -287,6 +287,9 @@
   .r-name{font-size:12px;line-height:1.35}
   .r-qty{display:block;font-size:10px;color:var(--ink-3);font-variant-numeric:tabular-nums}
   .r-price{font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+  .kps,.alg{display:block;font-size:10px;line-height:1.4;color:var(--ink-3);margin-top:3px}
+  .kps b,.alg b{letter-spacing:.1em;text-transform:uppercase;font-size:9px;color:var(--ink-2);font-weight:500}
+  .alg{text-transform:lowercase}
   .ig{font-style:normal;font-size:10px;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
   .r-for{font-size:10px;line-height:1.3;color:var(--ink-3);text-align:right;max-width:48%}
   .r-stock-n{font-size:11px;line-height:1.5;color:var(--ink-2);margin:4px 0 0}
@@ -663,7 +666,7 @@
     <button class="tab" id="tab-recipes" role="tab" data-tab="recipes" aria-selected="false" aria-controls="panel-recipes">Recipes</button>
     <button class="tab" id="tab-gym" role="tab" data-tab="gym" aria-selected="false" aria-controls="panel-gym">Gym</button>
     <button class="tab" id="tab-prep" role="tab" data-tab="prep" aria-selected="false" aria-controls="panel-prep">Freezer</button>
-    <button class="tab" id="tab-shop" role="tab" data-tab="shop" aria-selected="false" aria-controls="panel-shop">Stock</button>
+    <button class="tab" id="tab-shop" role="tab" data-tab="shop" aria-selected="false" aria-controls="panel-shop">Shop</button>
     <button class="tab" id="tab-notes" role="tab" data-tab="notes" aria-selected="false" aria-controls="panel-notes">Notes</button>
 </div>
 
@@ -687,70 +690,70 @@
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Sun</h3><span class="d-date"></span><span class="d-mode">The big cook-up</span></div>
         <div class="rows">
-          <div class="row" data-pro="45"><span class="role">Lunch</span><button class="open" data-meal="sun-l"><span class="rname">Mince &amp; cheese wraps</span><span class="leader"></span></button><span class="rpro">45 g</span></div>
-          <div class="row" data-pro="32"><span class="role">Dinner</span><button class="open" data-meal="sun-d"><span class="rname">Bangers and mash</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
-          <div class="row" data-pro="16"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
-          <div class="row" data-pro="15"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="burrito"><span class="rname">Green chile, potato &amp; cheddar burritos</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
+          <div class="row" data-pro="46"><span class="role">Dinner</span><button class="open" data-meal="tuscan"><span class="rname">Creamy Tuscan chicken &amp; white beans</span><span class="leader"></span></button><span class="rpro">46 g</span></div>
+          <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="pumpkinbread"><span class="rname">Brown butter pumpkin bread</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Mon</h3><span class="d-date"></span><span class="d-mode">Pumpkin night</span></div>
+        <div class="d-head"><h3 class="d-day">Mon</h3><span class="d-date"></span><span class="d-mode">Over rice tonight</span></div>
         <div class="rows">
-          <div class="row" data-pro="25"><span class="role">Lunch</span><button class="open" data-meal="mon-l"><span class="rname">Hotdogs + mash patty</span><span class="leader"></span></button><span class="rpro">25 g</span></div>
-          <div class="row" data-pro="48"><span class="role">Dinner</span><button class="open" data-meal="mon-d"><span class="rname">Spiced mince &amp; roast pumpkin</span><span class="leader"></span></button><span class="rpro">48 g</span></div>
-          <div class="row" data-pro="16"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
-          <div class="row" data-pro="15"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="37"><span class="role">Lunch</span><button class="open" data-meal="bowl"><span class="rname">Crunchy peanut chicken bowls</span><span class="leader"></span></button><span class="rpro">37 g</span></div>
+          <div class="row" data-pro="46"><span class="role">Dinner</span><button class="open" data-meal="tuscan"><span class="rname">Creamy Tuscan chicken &amp; white beans</span><span class="leader"></span></button><span class="rpro">46 g</span></div>
+          <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="pumpkinbread"><span class="rname">Brown butter pumpkin bread</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Tue</h3><span class="d-date"></span><span class="d-mode">Eggs + leftovers</span></div>
+        <div class="d-head"><h3 class="d-day">Tue</h3><span class="d-date"></span><span class="d-mode">Feta pasta</span></div>
         <div class="rows">
-          <div class="row" data-pro="41"><span class="role">Lunch</span><button class="open" data-meal="tue-l"><span class="rname">Mince on a baked potato</span><span class="leader"></span></button><span class="rpro">41 g</span></div>
-          <div class="row" data-pro="32"><span class="role">Dinner</span><button class="open" data-meal="tue-d"><span class="rname">Shakshuka</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
-          <div class="row" data-pro="16"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
-          <div class="row" data-pro="15"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="burrito"><span class="rname">Green chile, potato &amp; cheddar burritos</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
+          <div class="row" data-pro="22"><span class="role">Dinner</span><button class="open" data-meal="pasta"><span class="rname">Roasted tomato &amp; feta pasta</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="pumpkinbread"><span class="rname">Brown butter pumpkin bread</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Wed</h3><span class="d-date"></span><span class="d-mode">One tray</span></div>
+        <div class="d-head"><h3 class="d-day">Wed</h3><span class="d-date"></span><span class="d-mode">Something different</span></div>
         <div class="rows">
-          <div class="row" data-pro="25"><span class="role">Lunch</span><button class="open" data-meal="wed-l"><span class="rname">Egg salad sandwiches</span><span class="leader"></span></button><span class="rpro">25 g</span></div>
-          <div class="row" data-pro="32"><span class="role">Dinner</span><button class="open" data-meal="wed-d"><span class="rname">Sausage, pumpkin &amp; potato tray bake</span><span class="leader"></span></button><span class="rpro">32 g</span></div>
-          <div class="row" data-pro="16"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + harissa yoghurt</span><span class="leader"></span></button><span class="rpro">16 g</span></div>
-          <div class="row" data-pro="15"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="37"><span class="role">Lunch</span><button class="open" data-meal="bowl"><span class="rname">Crunchy peanut chicken bowls</span><span class="leader"></span></button><span class="rpro">37 g</span></div>
+          <div class="row" data-pro="42"><span class="role">Dinner</span><button class="open" data-meal="quesadilla"><span class="rname">Green chile chicken quesadillas</span><span class="leader"></span></button><span class="rpro">42 g</span></div>
+          <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="pumpkinbread"><span class="rname">Brown butter pumpkin bread</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Thu</h3><span class="d-date"></span><span class="d-mode">Chicken night</span></div>
+        <div class="d-head"><h3 class="d-day">Thu</h3><span class="d-date"></span><span class="d-mode">Pasta, night two</span></div>
         <div class="rows">
-          <div class="row" data-pro="28"><span class="role">Lunch</span><button class="open" data-meal="thu-l"><span class="rname">Tray bake leftovers</span><span class="leader"></span></button><span class="rpro">28 g</span></div>
-          <div class="row" data-pro="56"><span class="role">Dinner</span><button class="open" data-meal="thu-d"><span class="rname">Pan-roast chicken, broccoli, crushed potato</span><span class="leader"></span></button><span class="rpro">56 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Savoury</span><button class="open" data-meal="snack-chick"><span class="rname">Spiced roasted chickpeas</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
-          <div class="row" data-pro="15"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="burrito"><span class="rname">Green chile, potato &amp; cheddar burritos</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
+          <div class="row" data-pro="22"><span class="role">Dinner</span><button class="open" data-meal="pasta"><span class="rname">Roasted tomato &amp; feta pasta</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
+          <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="pumpkinbread"><span class="rname">Brown butter pumpkin bread</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
       <article class="docket">
-        <div class="d-head"><h3 class="d-day">Fri</h3><span class="d-date"></span><span class="d-mode">Beans + chickpeas</span></div>
+        <div class="d-head"><h3 class="d-day">Fri</h3><span class="d-date"></span><span class="d-mode">Out of the freezer</span></div>
         <div class="rows">
-          <div class="row" data-pro="35"><span class="role">Lunch</span><button class="open" data-meal="fri-l"><span class="rname">Home-made baked beans</span><span class="leader"></span></button><span class="rpro">35 g</span></div>
-          <div class="row" data-pro="33"><span class="role">Dinner</span><button class="open" data-meal="fri-d"><span class="rname">Crispy harissa chickpeas, fried egg</span><span class="leader"></span></button><span class="rpro">33 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Savoury</span><button class="open" data-meal="snack-chick"><span class="rname">Spiced roasted chickpeas</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
-          <div class="row" data-pro="15"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="37"><span class="role">Lunch</span><button class="open" data-meal="bowl"><span class="rname">Crunchy peanut chicken bowls</span><span class="leader"></span></button><span class="rpro">37 g</span></div>
+          <div class="row" data-pro="46"><span class="role">Dinner</span><button class="open" data-meal="tuscan"><span class="rname">Creamy Tuscan chicken &amp; white beans</span><span class="leader"></span></button><span class="rpro">46 g</span></div>
+          <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="pumpkinbread"><span class="rname">Brown butter pumpkin bread</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
       <article class="docket">
         <div class="d-head"><h3 class="d-day">Sat</h3><span class="d-date"></span><span class="d-mode">Clear the fridge</span></div>
         <div class="rows">
-          <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="sat-l"><span class="rname">Pumpkin &amp; chickpea bowl</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
-          <div class="row" data-pro="27"><span class="role">Dinner</span><button class="open" data-meal="sat-d"><span class="rname">Leftovers fried rice</span><span class="leader"></span></button><span class="rpro">27 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Savoury</span><button class="open" data-meal="snack-chick"><span class="rname">Spiced roasted chickpeas</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
-          <div class="row" data-pro="15"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">15 g</span></div>
+          <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="burrito"><span class="rname">Green chile, potato &amp; cheddar burritos</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
+          <div class="row" data-pro="30"><span class="role">Dinner</span><button class="open" data-meal="clear"><span class="rname">Saturday fridge-clear fried rice</span><span class="leader"></span></button><span class="rpro">30 g</span></div>
+          <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="pumpkinbread"><span class="rname">Brown butter pumpkin bread</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
@@ -766,7 +769,7 @@
     <div class="sh" style="margin-top:34px"><h2>What lifts what</h2><p class="sh-note">Reach for these</p></div>
     <p class="para">The difference between a plan you follow and food you want is almost always one dried spice and one raw green thing. Two rules underneath the table: <b>acid at the end</b>, not the start — lemon in the pan cooks flat. And <b>never stir soft herbs in</b>; they go khaki. On top, at the table.</p>
     <div class="pairwrap">
-      <table class="pair"><tbody><tr><td>Sausage — pan, with gravy</td><td>onion cooked down slow, bay, vinegar or Worcestershire at the end</td></tr><tr><td>Sausage — whole, roasted</td><td>oregano, garlic in its skin, vinegar into the pan juices</td></tr><tr><td>Beef — mince</td><td>cumin, smoked paprika, oregano, a pinch of cinnamon — into the fat, never the liquid</td></tr><tr><td>Pumpkin — roasted hard</td><td>cumin, chilli, sumac, sage if you have it</td></tr><tr><td>Eggs — boiled, salad</td><td>chives, dill, smoked paprika, capers, celery salt</td></tr><tr><td>Eggs — shakshuka</td><td>cumin, caraway, harissa, parsley raw on top</td></tr><tr><td>Chicken — pan-roast breast</td><td>garlic, oregano, lemon, butter spooned over at the end</td></tr><tr><td>Chickpeas — roasted crisp</td><td>smoked paprika, cumin, chilli — all <b>after</b> the oven</td></tr><tr><td>Beans — home baked</td><td>smoked paprika, mustard, bay, vinegar at the very end</td></tr><tr><td>Pickled cabbage</td><td>caraway, chilli, garlic, bay</td></tr><tr><td>Rice — fried</td><td>ginger, garlic, white pepper, sesame, soy down the side of the pan</td></tr><tr><td>Broccoli</td><td>garlic butter, lemon, chilli flakes, a little soy</td></tr><tr><td>Focaccia</td><td>rosemary, fennel seed, za’atar, or garlic steeped in the oil first</td></tr></tbody></table>
+      <table class="pair"><tbody><tr><td>Chicken thigh — seared</td><td>cumin, smoked paprika, lime, coriander raw at the end</td></tr><tr><td>Chicken — creamy Tuscan</td><td>oregano, garlic, sun-dried tomato <b>and the oil from its jar</b>, lemon last</td></tr><tr><td>Peanut dressing</td><td>soy, sesame oil, lime, honey, raw garlic, chilli — loosen with warm water</td></tr><tr><td>Green chile + cheddar</td><td>cumin, coriander stems, lime, a little smoked paprika</td></tr><tr><td>Eggs — scrambled, for batching</td><td>underdone, salt late, chives or coriander raw</td></tr><tr><td>Potato — diced and browned</td><td>cumin, paprika, oregano — and real heat, which is the actual seasoning</td></tr><tr><td>Tomato + feta, roasted</td><td>chilli flakes, whole unpeeled garlic, lemon zest, basil or parsley raw</td></tr><tr><td>White beans</td><td>bay, oregano, garlic, their own starchy cooking water</td></tr><tr><td>Pumpkin — roasted hard</td><td>cumin and chilli if savoury; cinnamon, mixed spice and brown butter if sweet</td></tr><tr><td>Cabbage — raw slaw</td><td>lime, sesame, chilli — dressed at the table, never in advance</td></tr><tr><td>Rice — fried</td><td>garlic, white pepper, sesame, soy down the side of the hot pan</td></tr><tr><td>Focaccia</td><td>fennel seed and sea salt, or za’atar — rotate it weekly</td></tr></tbody></table>
     </div>
   </section>
   </div>
@@ -873,37 +876,34 @@
 
   <div class="panel" id="panel-prep" role="tabpanel" aria-labelledby="tab-prep" hidden>
   <section id="freezer">
-    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">Dough, two soaks, three oven temperatures, bangers</p></div>
-    <p class="para">Shorter than last week — no focaccia and no cookies to bake. The two long jobs are both legumes and they both start with water, so <b>get the soaks on before anything else</b> and the rest of the day works around them.</p>
+    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">Four batches · the whole week in one afternoon</p></div>
+    <p class="para">This is a bigger Sunday than usual — four batch dishes plus two bakes — but it buys you a week with almost no weekday cooking. Order matters more than it has before, because the oven has to go up and down and two things need soaking first.</p>
     <div class="prep">
       <ol>
-        <li><div><b>Dough first — before anything else</b><p>It needs two to three hours and the rest of the day fits around it. Flour, yeast and salt, water in, six minutes on low. <b>Weigh the flour if you can</b> — the card shows cups now, but a scooped cup varies by up to 30%, and that is exactly what made it too dry last week.</p></div></li>
-        <li><div><b>Both soaks on</b><p>Chickpeas and cannellini in separate pots. Quick-soak each: cover with water, hard boil five minutes, off the heat, stand an hour. You need about <b>500 g of chickpeas</b> soaked — they feed four things this week.</p></div></li>
-        <li><div><b>Pickled cabbage</b><p>Fifteen minutes of shredding. Warm the vinegar, water, salt and sugar just enough to dissolve and <b>never boil it</b>, or you cook the crunch out. Fridge. Usable in an hour, properly good by Wednesday.</p></div></li>
-        <li><div><b>Fold the dough at 45 minutes</b><p>Wet hand, not floured — flour on a wet dough leaves dry lumps. Reach under one edge, stretch up, fold over the middle, quarter turn, four times round. Twenty seconds. Again at 90 minutes if you are about.</p></div></li>
-        <li><div><b>Both legume pots on to simmer</b><p>45–50 minutes until tender but still holding shape. <b>Save a cup of the bean water</b> — it is what makes the baked bean sauce cling.</p></div></li>
-        <li><div><b>The mince batch — the full kilo</b><p>One cook, three meals: <b>300 g for today’s wraps, 400 g for Monday, 300 g for Tuesday.</b> Portion it the moment it comes off the heat, not later.</p></div></li>
-        <li><div><b>Gravy onions on early</b><p>Three onions sliced thin, low heat, half an hour to brown and jammy. They sit happily while everything else happens, and they are the difference between gravy and brown water.</p></div></li>
-        <li><div><b>Bangers and mash</b><p>A kilo of potatoes, cold-start boiled, drained, then <b>steam-dried in the empty hot pan for two minutes</b> before butter goes near them. <b>Cook all six sausages</b> — two of them plus 300 g of mash go to the fridge for tomorrow’s hotdogs.</p></div></li>
-        <li><div><b>Oven 165 °C — beans in, two hours</b><p>Thick and glossy, not soupy. The rest of the vinegar goes in off the heat at the end.</p></div></li>
-        <li><div><b>Four eggs boiled</b><p>Nine minutes from boiling. They keep all week in the shell and they are Wednesday’s egg salad.</p></div></li>
-        <li><div><b>Oven up to 200 °C — chickpeas, 40 minutes</b><p>Shaken twice. <b>Spices on after roasting, not before</b>, or the paprika burns bitter. Cool completely before the lid goes on.</p></div></li>
-        <li><div><b>Oven up to 220 °C — focaccia last</b><p>Oil the tray more generously than feels sensible. Oiled fingers, press straight down through to the tray. Rosemary, slivered garlic, chilli, coarse salt, more oil. Twenty-two minutes to deep gold.</p></div></li>
+        <li><div><b>Dough and both soaks, before anything else</b><p>Focaccia dough needs three hours. <b>Put the oil in it this time.</b> Then quick-soak the chickpeas and the cannellini in separate pots: cover, hard boil five minutes, off the heat, stand an hour.</p></div></li>
+        <li><div><b>Pumpkin into the oven at 200 °C</b><p>The whole kilo, in chunks, oil and salt. 400 g gets mashed for the loaf, the rest keeps for the week. <b>Roast it, never boil it</b> — boiled pumpkin is waterlogged and makes a wet loaf.</p></div></li>
+        <li><div><b>Brown the butter and make the loaf</b><p>Butter on medium until the solids go nutty brown and it smells of toffee, then <b>off the heat immediately</b> — nutty to burnt is about twenty seconds. Cool it to warm before the eggs go near it. Oven down to 180 °C, 55 minutes.</p></div></li>
+        <li><div><b>Legumes on to simmer, and fold the dough at 45 minutes</b><p>Both pots 45–50 minutes until tender but holding shape. <b>Keep a cup of the bean water</b> — it is what stops the Tuscan sauce being a thin cream slick. Wet hand on the dough, not floured.</p></div></li>
+        <li><div><b>Burrito filling — potatoes first, and brown them hard</b><p>Diced small, fifteen minutes, properly crisp at the edges. Then onion, chiles, spice. <b>Scramble the eggs soft and underdone</b>; they cook again on reheating. Then <b>let it all go completely cold before you roll anything</b> — warm filling steams the wrap and you get eight soggy burritos.</p></div></li>
+        <li><div><b>Tuscan chicken — the kilo of thigh</b><p>Browned in batches, never crowded. Onion, garlic, sun-dried tomatoes in the chicken fat, cream, reduce, then beans and their water. <b>Spinach off the heat at the very end.</b> Cooked in, it goes khaki and waters down everything you just reduced.</p></div></li>
+        <li><div><b>Peanut bowls — and the dressing goes in its own jar</b><p>Sear the 750 g of thigh, cook the rice and <b>spread it on a tray to cool fast</b>. Assemble the six bowls dry: rice, chicken, raw cabbage and carrot. <b>Nothing gets dressed.</b> Dressed slaw is limp inside a day and that is the whole reason these keep four days.</p></div></li>
+        <li><div><b>Oven up to 220 °C — focaccia last</b><p>Heaps of oil in the tray. Oiled fingers, press through to the base. Rotate the topping this week — fennel seed and sea salt, or za’atar. Twenty-two minutes.</p></div></li>
+        <li><div><b>Whipped feta, two minutes</b><p>100 g feta, 100 g yoghurt, lemon, pepper, oil, blitzed until <b>completely smooth</b>. If it is still grainy it eats like crumbled cheese and the point is lost.</p></div></li>
       </ol>
-      <p class="aside"><b>Three oven temperatures, so they go in rising order:</b> beans at 165 for two hours, chickpeas at 200 for forty minutes, focaccia at 220 for twenty-two. The oven only ever climbs, never has to cool, which is the whole reason for that order — about three hours of oven and almost all of it unattended. Dough and soaks going by early afternoon and the focaccia comes out just before dinner.</p>
+      <p class="aside"><b>The oven goes 200 → 180 → 220.</b> Only one step down, and it is while the loaf bakes, so crack the door for a minute to drop it rather than waiting. Everything else is cooktop and can happen around it.</p>
     </div>
 
-    <div class="sh" style="margin-top:34px"><h2>What moves where</h2><p class="sh-note">Nothing sits too long</p></div>
-    <p class="para">Raw sausage and chicken both want freezing on Sunday rather than four days in the fridge. The cooked batches are the opposite problem — they need portioning while you are still standing there.</p>
+    <div class="sh" style="margin-top:34px"><h2>What moves where</h2><p class="sh-note">Twenty-six portions, seven days</p></div>
+    <p class="para">Almost all of this is cooked today, so the real work is portioning it correctly before you sit down. Four days is the limit on cooked egg and cooked chicken; anything later than Wednesday goes in the freezer tonight.</p>
     <div class="prep">
       <ol>
-        <li><div><b>Sunday, unpacking</b><p><b>Six sausages to the freezer</b> — they are not needed until Wednesday and four days raw is past where I would eat them. <b>Both chicken breasts to the freezer</b> too; Thursday is five days away.</p></div></li>
-        <li><div><b>Sunday, as each batch comes off</b><p>Mince into three portions. Ragù into two, <b>sauce stored away from pasta</b> or it turns to paste. Beans into six: two to the fridge for Friday, four to the freezer. Cooked chickpeas: the jar gets roasted, and <b>freeze Saturday’s share</b> — six days in the fridge is too long.</p></div></li>
-        <li><div><b>Monday — roast extra pumpkin</b><p>If the tray has room, do 400 g more than Monday needs. That is Saturday’s lunch and it saves you cooking at the weekend. Roast pumpkin holds five days, which makes Saturday the last safe day for it.</p></div></li>
-        <li><div><b>Tuesday night</b><p>The six sausages out of the freezer into the fridge for Wednesday’s tray.</p></div></li>
-        <li><div><b>Wednesday night</b><p>Chicken breasts out of the freezer into the fridge. Breast thaws fast, so one night is enough — and <b>salt them as soon as they are thawed</b>, not just before they hit the pan.</p></div></li>
-        <li><div><b>Thursday — keep the broccoli stems</b><p>Peel and slice them, into a container. They are Saturday’s fried rice and they are sweeter than the florets you ate on Thursday.</p></div></li>
-        <li><div><b>Friday — cook the rice</b><p>Saturday needs cold rice for both meals. Cook it Friday and chill it properly overnight; warm rice in a wok clumps and steams and you get risotto.</p></div></li>
+        <li><div><b>Unpacking — one job</b><p>Split the 2 kg of thigh three ways: <b>1 kg out for the Tuscan, 750 g out for the bowls, and 250 g straight to the freezer</b> for Wednesday’s quesadillas. Three days raw in the fridge is the limit and Wednesday is past it.</p></div></li>
+        <li><div><b>Burritos — four and four</b><p>Wrapped individually. <b>Four to the fridge for Sunday, Tuesday; four to the freezer for Thursday and Saturday.</b> From the fridge they are 8 minutes in the air fryer; from frozen, 25 at 170 °C.</p></div></li>
+        <li><div><b>Tuscan — two, two and two</b><p>Two eaten tonight, two to the fridge for Monday, <b>two to the freezer for Friday</b>. Six days in the fridge would be well past it.</p></div></li>
+        <li><div><b>Bowls — six dry, one jar</b><p>All six assembled and lidded, dressing separate. They are Monday, Wednesday and Friday lunches.</p></div></li>
+        <li><div><b>Bakes</b><p>Focaccia cut into 12, half fridge half frozen. The loaf keeps two days out — <b>slice and freeze from Wednesday on</b>, it goes dry faster than the focaccia does.</p></div></li>
+        <li><div><b>Thursday night</b><p>Wednesday’s quesadilla chicken is already eaten by then — nothing to move. Take the last focaccia out of the freezer for Friday’s Tuscan.</p></div></li>
+        <li><div><b>Saturday — the gap</b><p>Twenty-six batch portions against twenty-eight slots. Saturday’s dinner is deliberately undefined: whatever is left, fried rice. <b>If the fridge has given you nothing with protein in it, add two eggs or a tin of beans</b> rather than eating a bowl of rice.</p></div></li>
       </ol>
       <p class="aside"><b>The rule underneath all of this:</b> cooked dishes get eaten within about three days or they get frozen, and anything frozen thaws in the fridge overnight rather than on the bench. For actual times and temperatures, <a href="https://www.foodstandards.gov.au">Food Standards Australia New Zealand</a> rather than a meal plan.</p>
     </div>
@@ -912,81 +912,80 @@
 
   <div class="panel" id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" hidden>
   <section id="shop">
-    <div class="sh"><h2>The stock</h2><p class="sh-note">Already shopped · what it is all for</p></div>
-    <p class="para">No prices and no total this week — you have already been. This is the inventory and, next to each line, the job it is doing, so nothing sits in the fridge all week wondering what it was bought for. Tick things off as you confirm you actually have them. <b>Check these three before you start:</b> the week now wants about <b>2.7 kg of potatoes</b> — bangers and mash added a kilo — roughly <b>500 g of dried chickpeas</b>, and <b>two hot dog rolls</b> for Monday. Tinned tomatoes have dropped from six to four, now the ragù is off.</p>
+    <div class="sh"><h2>The shop</h2><p class="sh-note">Sunday · one trip · batch-cook week</p></div>
+    <p class="para">A different shape of week: <b>four batch dishes cooked Sunday, then rotated</b>, rather than seven separate dinners. Twenty-six portions against twenty-eight lunch-and-dinner slots for the two of you, and Saturday’s fridge-clear is the gap. Prices are rough shelf prices, not specials. The pantry block at the bottom is what I have assumed you already have — <b>check the chickpeas and cannellini before you leave</b>, they are the two that stop the week working.</p>
     <div class="shoptools">
-      <button class="tbtn" id="hide-got" aria-pressed="false">Hide what's confirmed</button>
+      <button class="tbtn" id="hide-got" aria-pressed="false">Hide what's in the trolley</button>
       <button class="tbtn" id="reset-shop">Clear ticks</button>
     </div>
 
     <div class="receipt">
       <div class="r-in">
         <div class="r-top">
-          <h3>Stock List</h3>
-          <p>4–10 October · focaccia back in · cookies already made</p>
+          <h3>Weekly Shop</h3>
+          <p>18–24 October · 22 lines · no lentils</p>
         </div>
 
         <div class="r-cat">
-          <h4>Protein</h4>
-          <label class="r-item"><input type="checkbox" id="st69790"><span class="r-name">Sausages<span class="r-qty">12</span></span><span class="r-for">6 cooked tonight (4 eaten, 2 to Monday’s hotdogs), 6 to Wednesday’s tray</span></label>
-          <label class="r-item"><input type="checkbox" id="st52472"><span class="r-name">Beef mince<span class="r-qty">1 kg</span></span><span class="r-for">One Sunday batch — wraps, Monday, Tuesday</span></label>
-          <label class="r-item"><input type="checkbox" id="st32272"><span class="r-name">Chicken breasts<span class="r-qty">2</span></span><span class="r-for">Thursday’s dinner, all of it</span></label>
-          <label class="r-item"><input type="checkbox" id="st65002"><span class="r-name">Eggs<span class="r-qty">12</span></span><span class="r-for">Shakshuka 4, egg salad 4, Friday 2, fried rice 2</span></label>
-          <div class="r-sub"><span>The whole week’s meat</span><span></span></div>
+          <h4>Protein &amp; chilled</h4>
+          <label class="r-item"><input type="checkbox" id="w1"><span class="r-name">Chicken thigh fillets<span class="r-qty" data-q="2000" data-u="g"></span></span><span class="r-price" data-p="25.00">$25.00</span><span class="r-for">1 kg Tuscan, 750 g bowls, 250 g quesadillas</span></label>
+          <label class="r-item"><input type="checkbox" id="w2"><span class="r-name">Eggs<span class="r-qty" data-q="24" data-u="ea" data-s="pack"></span></span><span class="r-price" data-p="10.50">$10.50</span><span class="r-for">16 to the burritos, 2 to the loaf, 2 Saturday</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="35.50">$35.50</span></div>
         </div>
+
         <div class="r-cat">
           <h4>Dairy</h4>
-          <label class="r-item"><input type="checkbox" id="st78923"><span class="r-name">Greek yoghurt<span class="r-qty">1 kg</span></span><span class="r-for">The crema on almost everything</span></label>
-          <label class="r-item"><input type="checkbox" id="st77830"><span class="r-name">Cheese, block<span class="r-qty">500 g</span></span><span class="r-for">Wraps, shakshuka, potato, bowls</span></label>
-          <label class="r-item"><input type="checkbox" id="st15623"><span class="r-name">Milk<span class="r-qty">—</span></span><span class="r-for">Crushed potato, and the protein shakes</span></label>
-          <label class="r-item"><input type="checkbox" id="st84770"><span class="r-name">Protein powder<span class="r-qty">have</span></span><span class="r-for">Closes the gap on the lighter days</span></label>
-          <div class="r-sub"><span>Acid, fat and the protein top-up</span><span></span></div>
+          <label class="r-item"><input type="checkbox" id="w3"><span class="r-name">Tasty cheese, block<span class="r-qty" data-q="750" data-u="g"></span></span><span class="r-price" data-p="10.50">$10.50</span><span class="r-for">Burritos 320 g, quesadillas 150 g, the rest scattered</span></label>
+          <label class="r-item"><input type="checkbox" id="w4"><span class="r-name">Feta, in a block<span class="r-qty" data-q="300" data-u="g"></span></span><span class="r-price" data-p="6.75">$6.75</span><span class="r-for">200 g roasted in the pasta, 100 g whipped for the focaccia</span></label>
+          <label class="r-item"><input type="checkbox" id="w5"><span class="r-name">Thickened cream<span class="r-qty" data-q="300" data-u="ml"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">The Tuscan sauce</span></label>
+          <label class="r-item"><input type="checkbox" id="w6"><span class="r-name">Greek yoghurt, plain<span class="r-qty" data-q="1000" data-u="g"></span></span><span class="r-price" data-p="6.00">$6.00</span><span class="r-for">Whipped feta, the bowls, the quesadillas</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="26.25">$26.25</span></div>
         </div>
+
+        <div class="r-cat">
+          <h4>Bakery</h4>
+          <label class="r-item"><input type="checkbox" id="w7"><span class="r-name">Large tortillas<span class="r-qty" data-q="12" data-u="ea"></span></span><span class="r-price" data-p="5.50">$5.50</span><span class="r-for">8 burritos + 4 quesadillas</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="5.50">$5.50</span></div>
+        </div>
+
+        <div class="r-cat">
+          <h4>Pantry — new this week</h4>
+          <label class="r-item"><input type="checkbox" id="w8"><span class="r-name">Peanut butter<span class="r-qty" data-q="375" data-u="g"></span></span><span class="r-price" data-p="4.50">$4.50</span><span class="r-for">The bowl dressing — 100 g of it</span></label>
+          <label class="r-item"><input type="checkbox" id="w9"><span class="r-name">Sun-dried tomatoes<span class="r-qty" data-q="280" data-u="g"></span></span><span class="r-price" data-p="4.00">$4.00</span><span class="r-for">The Tuscan — and use the oil from the jar</span></label>
+          <label class="r-item"><input type="checkbox" id="w10"><span class="r-name">Roasted peanuts<span class="r-qty" data-q="100" data-u="g"></span></span><span class="r-price" data-p="2.00">$2.00</span><span class="r-for">On the bowls, at the table, last</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="10.50">$10.50</span></div>
+        </div>
+
         <div class="r-cat">
           <h4>Produce</h4>
-          <label class="r-item"><input type="checkbox" id="st51891"><span class="r-name">Pumpkin<span class="r-qty">≈ 1.2 kg</span></span><span class="r-for">Monday roast, Wednesday tray, Saturday bowl</span></label>
-          <label class="r-item"><input type="checkbox" id="st6847"><span class="r-name">Potatoes<span class="r-qty">≈ 2.7 kg</span></span><span class="r-for">Mash tonight, Tuesday baked, Wednesday wedges, Thursday crushed — <b>a kilo more than last night</b></span></label>
-          <label class="r-item"><input type="checkbox" id="st57107"><span class="r-name">Broccoli<span class="r-qty">400 g</span></span><span class="r-for">Thursday — keep the stem for Saturday</span></label>
-          <label class="r-item"><input type="checkbox" id="st18755"><span class="r-name">Carrots<span class="r-qty">—</span></span><span class="r-for">Ragù base and the fried rice</span></label>
-          <label class="r-item"><input type="checkbox" id="st8999"><span class="r-name">Onions<span class="r-qty">≈ 8</span></span><span class="r-for">Every single dish</span></label>
-          <label class="r-item"><input type="checkbox" id="st43504"><span class="r-name">Garlic<span class="r-qty">—</span></span><span class="r-for">Every single dish</span></label>
-          <label class="r-item"><input type="checkbox" id="st59974"><span class="r-name">Cabbage<span class="r-qty">500 g</span></span><span class="r-for">The pickle jar — the week’s acid</span></label>
-          <label class="r-item"><input type="checkbox" id="st13400"><span class="r-name">Lemons<span class="r-qty">—</span></span><span class="r-for">The other acid, at the end not the start</span></label>
-          <div class="r-sub"><span>Pumpkin is the week’s best value</span><span></span></div>
-        </div>
-        <div class="r-cat">
-          <h4>Pantry</h4>
-          <label class="r-item"><input type="checkbox" id="st55293"><span class="r-name">Diced tomatoes<span class="r-qty">4 tins</span></span><span class="r-for">Shakshuka 2, mince 1, beans 1 — two fewer, the ragù is off</span></label>
-          <label class="r-item"><input type="checkbox" id="st50311"><span class="r-name">Dried chickpeas<span class="r-qty">≈ 500 g</span></span><span class="r-for">Snack jar, Friday, Saturday twice</span></label>
-          <label class="r-item"><input type="checkbox" id="st36015"><span class="r-name">Dried cannellini<span class="r-qty">250 g</span></span><span class="r-for">Friday’s baked beans</span></label>
-          <label class="r-item"><input type="checkbox" id="st90001"><span class="r-name">Plain flour<span class="r-qty">1 kg · about 6⅔ cups</span></span><span class="r-for">Focaccia — weigh this one if you can</span></label>
-          <label class="r-item"><input type="checkbox" id="st90002"><span class="r-name">Dry yeast<span class="r-qty">1 sachet · 7 g</span></span><span class="r-for">Focaccia</span></label>
-          <label class="r-item"><input type="checkbox" id="st90003"><span class="r-name">Olive oil<span class="r-qty">check the bottle</span></span><span class="r-for">Focaccia drinks it — dough and tray both</span></label>
-          <label class="r-item"><input type="checkbox" id="st62109"><span class="r-name">Pasta<span class="r-qty">—</span></span><span class="r-for">Not needed now — stays in the cupboard for next week</span></label>
-          <label class="r-item"><input type="checkbox" id="st6651"><span class="r-name">Rice<span class="r-qty">—</span></span><span class="r-for">Saturday, both meals</span></label>
-          <label class="r-item"><input type="checkbox" id="st50649"><span class="r-name">Bread and wraps<span class="r-qty">—</span></span><span class="r-for">Sunday, Tuesday, Wednesday, Friday</span></label>
-          <label class="r-item"><input type="checkbox" id="st90010"><span class="r-name">Hot dog rolls<span class="r-qty">2 · or fold sliced bread</span></span><span class="r-for">Monday’s lunch — <b>new</b></span></label>
-          <label class="r-item"><input type="checkbox" id="st90011"><span class="r-name">Butter<span class="r-qty">40 g · 2 tbsp</span></span><span class="r-for">The mash, and Thursday’s broccoli</span></label>
-          <label class="r-item"><input type="checkbox" id="st90012"><span class="r-name">Beef stock<span class="r-qty">400 ml · 1⅔ cups</span></span><span class="r-for">The onion gravy — a cube is fine</span></label>
-          <label class="r-item"><input type="checkbox" id="st90013"><span class="r-name">Mustard<span class="r-qty">—</span></span><span class="r-for">The hotdogs, and the baked beans</span></label>
-          <label class="r-item"><input type="checkbox" id="st55699"><span class="r-name">White vinegar<span class="r-qty">—</span></span><span class="r-for">The pickle, and the late hit in the beans</span></label>
-          <label class="r-item"><input type="checkbox" id="st46614"><span class="r-name">Harissa<span class="r-qty">—</span></span><span class="r-for">Monday, Tuesday, Friday</span></label>
-          <label class="r-item"><input type="checkbox" id="st67527"><span class="r-name">Spice shelf<span class="r-qty">have</span></span><span class="r-for">cumin, smoked paprika, oregano, fennel, caraway, chilli, sumac</span></label>
-          <div class="r-sub"><span>Mostly already open</span><span></span></div>
+          <label class="r-item"><input type="checkbox" id="w11"><span class="r-name">Cherry tomatoes<span class="r-qty" data-q="500" data-u="g"></span></span><span class="r-price" data-p="5.00">$5.00</span><span class="r-for">Roasted whole around the feta</span></label>
+          <label class="r-item"><input type="checkbox" id="w12"><span class="r-name">Baby spinach<span class="r-qty" data-q="120" data-u="g"></span></span><span class="r-price" data-p="3.50">$3.50</span><span class="r-for">Into the Tuscan off the heat</span></label>
+          <label class="r-item"><input type="checkbox" id="w13"><span class="r-name">Green chiles or jalapeños<span class="r-qty" data-q="230" data-u="g"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">Burritos 150 g, quesadillas 80 g</span></label>
+          <label class="r-item"><input type="checkbox" id="w14"><span class="r-name">Pumpkin<span class="r-qty" data-q="1000" data-u="g"></span></span><span class="r-price" data-p="4.00">$4.00</span><span class="r-for">400 g to the loaf, the rest roasted alongside</span></label>
+          <label class="r-item"><input type="checkbox" id="w15"><span class="r-name">Potatoes<span class="r-qty" data-q="800" data-u="g"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">Diced small and browned hard for the burritos</span></label>
+          <label class="r-item"><input type="checkbox" id="w16"><span class="r-name">Green cabbage<span class="r-qty" data-q="0.6" data-u="ea" data-s="head"></span></span><span class="r-price" data-p="2.50">$2.50</span><span class="r-for">Bowls 400 g, Saturday 200 g</span></label>
+          <label class="r-item"><input type="checkbox" id="w17"><span class="r-name">Carrots<span class="r-qty" data-q="1000" data-u="g"></span></span><span class="r-price" data-p="2.50">$2.50</span><span class="r-for">Grated through the bowls and Saturday</span></label>
+          <label class="r-item"><input type="checkbox" id="w18"><span class="r-name">Brown onions<span class="r-qty" data-q="1000" data-u="g"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">Six of them across the week</span></label>
+          <label class="r-item"><input type="checkbox" id="w19"><span class="r-name">Garlic<span class="r-qty" data-q="2" data-u="ea" data-s="bulbs"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">Twenty-two cloves this week — buy two</span></label>
+          <label class="r-item"><input type="checkbox" id="w20"><span class="r-name">Lemons<span class="r-qty" data-q="4" data-u="ea" data-s="lemons"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">Pasta, Tuscan, focaccia dip</span></label>
+          <label class="r-item"><input type="checkbox" id="w21"><span class="r-name">Limes<span class="r-qty" data-q="3" data-u="ea" data-s="limes"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">The peanut dressing and the quesadillas</span></label>
+          <label class="r-item"><input type="checkbox" id="w22"><span class="r-name">Coriander<span class="r-qty" data-q="1" data-u="ea" data-s="bunch"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">Burritos and quesadillas, raw</span></label>
+          <div class="r-sub"><span>Subtotal</span><span data-sub="38.50">$38.50</span></div>
         </div>
 
         <div class="r-tot">
-          <div class="r-line"><span>Lines</span><span id="r-lines">28</span></div>
-          <div class="r-line"><span>Confirmed</span><span id="r-got">0</span></div>
-          <div class="r-line owed"><span>Still to check</span><span id="r-owed">28</span></div>
+          <div class="r-line"><span>Lines</span><span id="r-lines">22</span></div>
+          <div class="r-line"><span>In trolley</span><span id="r-got">0</span></div>
+          <div class="r-line owed"><span>Still to buy</span><span id="r-owed">$116.25</span></div>
+          <div class="r-line big"><span>Weekly total</span><span id="r-total">$116.25</span></div>
         </div>
 
         <div class="r-stock">
-          <h4>Not needed this week</h4>
-          <p class="r-stock-n">No cookie bake — last week’s batch covers the sweet snack, and that is the one long Sunday job you do not have to repeat. <b>Focaccia is back in</b>, so the savoury snack is focaccia and harissa yoghurt Sunday to Wednesday, then the chickpea jar Thursday to Saturday. Check the olive oil before you start: the tray takes more than feels sensible, and that is what makes the crust.</p>
+          <h4>Assumed already in the cupboard</h4>
+          <p class="r-stock-n">Rice, pasta, plain flour, dry yeast, <b>dried chickpeas</b> (400 g cooked goes in the pasta), <b>dried cannellini</b> (250 g for the Tuscan), olive and sesame oil, soy, honey, butter, brown sugar, baking powder, protein powder, oats, and the spice shelf — cumin, smoked paprika, oregano, chilli flakes, cinnamon, mixed spice. <b>The two dried legumes are the only ones worth physically checking</b>, because both need soaking on Sunday morning and there is no recovering from finding the bag empty at midday.</p>
         </div>
 
-        <p class="r-foot">Protein lands about <b>97 g each a day</b> across the week, from 83 on Saturday to 109 on Thursday. Sausages are only about 13 g per 100 g against mince at 20, so the chickpeas, beans, eggs and yoghurt are doing more of the work than the meat is.</p>
+        <p class="r-foot">Protein averages <b>92 g each a day</b> — 105 on the Tuscan nights, 75 on the two pasta nights. A spoon of yoghurt or a boiled egg on pasta night closes that gap.</p>
       </div>
     </div>
   </section>
@@ -998,7 +997,7 @@
     <p class="para">Anything you want changed, added or dropped. Write it as it occurs to you — mid-cook, in the aisle, after dinner — and it will be waiting when the next plan gets built.</p>
     <div class="wantbox">
       <label class="s-lab" for="note-text">What should change</label>
-      <textarea id="note-text" placeholder="e.g. 2 sausages each was not enough, the mash patty worked, pumpkin twice is too much, bring the ragu back next week..."></textarea>
+      <textarea id="note-text" placeholder="e.g. four burritos was too many, peanut dressing was the winner, pasta nights felt light, Sunday was too big a cook..."></textarea>
       <div class="noterow">
         <button type="button" class="tbtn" id="note-send">Copy for Claude</button>
         <span class="wanthint" id="note-status">Checking how this copy can send&hellip;</span>
@@ -1081,169 +1080,98 @@
 
   /* ---------- meal data ---------- */
   var M = {
-    "cookies":{r:"Sweet snack · already made",p:15,c:22,sv:"Last week's batch · two each per day",t:"Oat & banana cookies",m:["Already baked","0 min","From last week"],
-      i:[[0,"ea","nothing — you made these last week"]],
-      s:[["<b>No baking this week.</b> You have the batch from last week, which is the whole reason this card is here rather than a method: so you do not accidentally bake a second lot.",0],
-         ["If they have gone soft, four minutes at 160 °C brings the edge back. If they have gone hard, that is what they are meant to be.",4],
-         ["Two each a day covers Sunday to Saturday. When they run out, the recipe is in last week's bake and it has not changed.",0]]},
-
-    "focaccia":{r:"Savoury snack · baked Sunday",t:"Focaccia + harissa yoghurt",p:16,c:40,sv:"12 pieces · one each, Sun–Wed",m:["Oven","10 min work","3 hr prove"],
-      i:[[500,"g","plain flour"],[7,"g","dry yeast"],[400,"ml","warm water"],[10,"g","salt \u2014 fine, not flakes"],[60,"ml","olive oil, into the dough"],[1,"ea","more oil for the tray and top"],[500,"g","Greek yoghurt, for the week"]],
-      s:[["<b>Salt: 10 g is 1\u00be tsp of fine salt but 3\u00bd tsp of flakes</b>, because flakes are mostly air. At 2% of the flour this matters \u2014 too much salt slows the yeast, and this dough has been sluggish twice. Flour, yeast and salt in the mixer with the dough hook. Water in, six minutes on low. Weigh the flour if you can \u2014 a cup varies by up to 30% depending how it is scooped, and that is where the ratio usually goes wrong.",0],
-         ["Stop the mixer and watch it for ten seconds. If it holds a ball and the bowl looks clean, it is too dry \u2014 add water 50 ml at a time until it slumps back and stays smeared round the sides. It should swallow a finger with no resistance.",0],
-         ["Now the oil. Pour the 60 ml in and run the hook on low for a minute or two. It will sit in a slick on top and look like it will never go in, then it goes in all at once. Adding the fat after the gluten has developed is deliberate \u2014 in at the start it coats the flour and slows the gluten down.",2],
-         ["The oil is what makes the crumb tender rather than chewy, and it is why day-three focaccia is still worth eating. It is <b>not</b> what makes the crust \u2014 that comes from the oil in the tray, further down, which is the one you cannot skip.",0],
-         ["Cover and prove 2\u20133 hours until doubled and full of bubbles.",0],
-         ["At about 45 minutes, fold it once. Wet hand, not floured \u2014 flour on a wet dough leaves dry lumps in the crumb. Reach under one edge, stretch up, fold over the middle, quarter turn, four times round. Twenty seconds.",45],
-         ["Again at 90 minutes if you are about, then leave it completely alone. You are folding tension in, not knocking gas out \u2014 the bubbles are the whole point.",0],
-         ["Oil a roasting tray more generously than feels sensible. Tip the dough in and let it relax.",20],
+    "focaccia":{r:"Savoury snack · baked Sunday",t:"Focaccia + whipped feta",p:13,c:40,sv:"12 pieces · one each a day",m:["Oven","10 min work","3 hr prove"],
+      kp:"2 days at room temperature · freeze half",al:"wheat, dairy",
+      i:[[500,"g","plain flour"],[7,"g","dry yeast"],[400,"ml","warm water"],[10,"g","salt — fine, not flakes"],[60,"ml","olive oil, into the dough"],[1,"ea","more oil for the tray and top"],[100,"g","feta, for the dip"],[100,"g","Greek yoghurt"],[1,"ea","lemon"]],
+      s:[["<b>Salt: 10 g is 1¾ tsp of fine salt but 3½ tsp of flakes</b>, because flakes are mostly air. At 2% of the flour that matters — excess salt slows the yeast. Flour, yeast and salt in the mixer with the dough hook, water in, six minutes on low.",0],
+         ["Stop the mixer and watch it ten seconds. If it holds a ball and the bowl looks clean it is <b>too dry</b> — add water 50 ml at a time until it slumps and stays smeared round the sides. At 80% hydration it should look alarmingly wet. That is correct.",0],
+         ["<b>The oil goes in now.</b> Pour the 60 ml in and run the hook a minute or two. It sits in a slick and looks like it will never go in, then goes all at once. You have skipped this three bakes running and the last one came out heavy — fat shortens the gluten, which is what makes the crumb tender instead of chewy. Add it this time.",2],
+         ["Cover and prove 2–3 hours until doubled and full of bubbles.",0],
+         ["Fold at <b>45 minutes</b>, wet hand not floured. Under one edge, stretch up, fold over the middle, quarter turn, four times round. Twenty seconds. Again at 90.",45],
+         ["<b>Do not fold after about two hours.</b> Folding early builds structure; folding late knocks the gas out with no time to recover, and that does make it heavy.",0],
+         ["Oil the tray more generously than feels sensible. This is the oil that makes the crust and it is the one you cannot skip. Tip the dough in, let it relax twenty minutes.",20],
          ["Oiled fingers, press straight down through to the tray all over. The dimples are the point.",0],
-         ["Rosemary, slivered garlic, chilli flakes, coarse salt, more oil. 220 °C until deep gold.",22],
-         ["Worth rotating: fennel seed and sea salt one week, za'atar the next, or crushed garlic and rosemary steeped in the oil first. The dough never changes, the top always can.",0],
-         ["Cut into 12. Half to the fridge, half sliced and frozen. Four minutes in the air fryer revives a frozen piece.",0],
-         ["Yoghurt beaten with harissa, lemon, salt and a little oil. Focaccia alone is 7 g of protein; with the dip it is 18 g.",0]]},
+         ["<b>Rotate the top each week</b> so it stops being the same bread: fennel seed and sea salt, or za’atar, or garlic steeped in the oil first. 220 °C to deep gold.",22],
+         ["<b>Whipped feta instead of the harissa yoghurt.</b> Feta, yoghurt, lemon juice, a grind of pepper and a slug of oil, blitzed until completely smooth — thirty seconds, and it must be smooth or it eats like crumbled cheese. Salty and sharp rather than warm and spicy.",0],
+         ["Cut into 12. Half to the fridge, half sliced and frozen. Four minutes in the air fryer brings a frozen piece back.",0]]},
 
-    "snack-chick":{r:"Savoury snack · roasted Sunday",p:10,c:14,sv:"A jar · a handful each a day",t:"Spiced roasted chickpeas",m:["Oven","40 min","Keeps a week"],
-      i:[[200,"g","dried chickpeas, from the soak"],[2,"ea","tbsp olive oil"],[2,"ea","tsp smoked paprika"],[1,"ea","tsp cumin"],[1,"ea","tsp salt"],[1,"ea","pinch chilli flakes"]],
-      s:[["This is the focaccia's replacement as the savoury snack, and it is a straight upgrade on cost: a handful is about 10 g of protein and it keeps a week in a jar rather than going stale in three days.",0],
-         ["Simmer the soaked chickpeas 50 minutes until tender, then <b>dry them properly on a tea towel</b>. Damp chickpeas steam in the oven and come out leathery. This is the only step that decides whether these work.",50],
-         ["Toss in the oil and salt only. <b>Spices go on after roasting, not before</b> — paprika and cumin burn bitter at 200 °C over forty minutes.",0],
-         ["Oven 200 °C on a bare tray, shaken twice. They are done when they rattle and a few have split open.",40],
-         ["Spices and chilli tossed through while they are still hot and oily, so it sticks.",0],
-         ["Cool completely before the jar goes on, or the trapped steam softens the lot overnight. Lid off if you are unsure.",0]]},
+    "pumpkinbread":{r:"Sweet snack · baked Sunday",t:"Brown butter pumpkin bread",p:9,c:28,sv:"1 loaf · 10 slices · one a day",m:["Oven","55 min","1 loaf"],
+      kp:"2 days at room temperature · 2 months frozen",al:"egg, dairy, wheat",
+      i:[[400,"g","pumpkin, roasted and mashed"],[150,"g","butter"],[220,"g","plain flour"],[60,"g","protein powder, 2 scoops"],[2,"ea","eggs"],[150,"g","brown sugar"],[2,"ea","tsp baking powder"],[2,"ea","tsp cinnamon"],[1,"ea","tsp mixed spice"],[50,"g","oats, for the crunch top"]],
+      s:[["<b>Brown the butter first and do not skip it.</b> Melt it, then keep going on medium until the milk solids at the bottom turn nutty brown and it smells like toffee — four to five minutes. Pull it off the second it smells right; it goes from nutty to burnt in about twenty seconds.",5],
+         ["Cool the browned butter until it is warm, not hot, or it scrambles the eggs.",0],
+         ["<b>Roast the pumpkin, do not boil it.</b> Boiled pumpkin is waterlogged and makes a sad wet loaf. It goes in the oven anyway for the week’s other dishes — take 400 g of it and mash it.",0],
+         ["Butter, sugar and eggs beaten properly, then the pumpkin. Dry ingredients folded in <b>until just combined</b> — over-mixing develops gluten and gives you a tough, rubbery loaf.",0],
+         ["<b>The two scoops of protein powder are deliberate</b> — they take a slice from about 4 g of protein to 9 g, which across a week is most of a day’s shortfall. It also dries the crumb slightly, which is why the butter is generous.",0],
+         ["Cinnamon crunch top: oats, a spoon of brown sugar, a spoon of the butter, a good pinch of cinnamon, rubbed together and scattered over.",0],
+         ["180 °C, 50–55 minutes. Skewer in the middle comes out clean. <b>If the top is browning too fast, foil over it</b> at forty minutes rather than pulling it early.",55],
+         ["Cool in the tin twenty minutes, then out onto a rack. Cutting it hot tears the crumb.",20]]},
 
-    "pickle":{r:"Savoury · made Sunday",p:2,c:6,sv:"A big jar · lasts three weeks",t:"Quick pickled cabbage",m:["No-cook","15 min","+ 1 hr"],
-      i:[[500,"g","cabbage, shredded fine"],[250,"ml","white vinegar"],[250,"ml","water"],[2,"ea","tsp salt"],[2,"ea","tsp sugar"],[1,"ea","long red chilli, sliced"],[2,"ea","garlic cloves, smashed"],[1,"ea","tsp caraway seeds"]],
-      s:[["This is the week's acid, and it is better than the raw slaw it replaces for one reason: <b>it keeps three weeks instead of four days</b>. Last week half a cabbage was a race against wilting. This is not.",0],
-         ["Shred the cabbage as fine as you can be bothered. Thin shreds take the pickle in an hour; thick ones take a day.",0],
-         ["Vinegar, water, salt and sugar warmed just enough to dissolve — <b>not boiled</b>. Boiling cooks the cabbage and you lose the crunch, which is the entire point.",0],
-         ["Chilli, garlic and caraway into the jar with the cabbage, liquid over, pressed down so everything is submerged.",0],
-         ["<b>Usable in an hour, properly good on day three.</b> Fridge, always — this is a fridge pickle, not a shelf-stable preserve, so it does not live in the cupboard.",0],
-         ["Where it goes: the mince wraps, the egg salad, alongside the tray bake, on top of the beans, with the chicken. Anything rich. It is doing the job the lemon does, on the days you forget the lemon.",0]]},
+    "burrito":{r:"Lunch · batch of 8",t:"Green chile, potato & cheddar burritos",p:31,c:48,sv:"8 burritos · one each, four days",m:["Pan + oven","45 min","Batch of 8"],
+      kp:"4 days chilled · 2 months frozen",al:"egg, dairy, wheat",
+      i:[[16,"ea","eggs"],[800,"g","potatoes, diced small"],[320,"g","cheese, grated"],[8,"ea","large tortillas"],[2,"ea","onions"],[4,"ea","garlic cloves"],[150,"g","green chiles or jalapeños, chopped"],[2,"ea","tsp cumin"],[1,"ea","tsp smoked paprika"],[1,"ea","bunch coriander"]],
+      s:[["<b>Potatoes first and give them real time.</b> Diced small, in oil, in a wide pan, 15 minutes until properly browned and crisp at the edges. Pale potato is the difference between a good burrito and a dull one, and it cannot be fixed later.",15],
+         ["Onion, garlic and chiles into the same pan until soft. Cumin and paprika in at the end, into the fat.",8],
+         ["<b>Scramble the eggs soft and underdone.</b> Low heat, pulled off while still glossy and a bit loose. They cook again when you reheat the burrito, and eggs scrambled hard now come back rubbery on Thursday.",0],
+         ["<b>Let everything cool completely before rolling.</b> Warm filling steams inside the wrap and you get a soggy burrito and a wet freezer. This is the single most important step in the whole batch.",0],
+         ["Warm the tortillas thirty seconds so they fold without cracking. Filling in a line a third of the way up, cheese on top, sides in first, then roll tight away from you.",0],
+         ["<b>Seam-side down in a dry hot pan, two minutes.</b> The cheese welds the seam shut and it holds together for the rest of the week. Skipping this gives you a parcel that unrolls in the fridge.",4],
+         ["Cool, then wrap individually in foil or baking paper. <b>Four to the fridge, four to the freezer</b> — four days is the limit on cooked egg and you are eating these across a week.",0],
+         ["Reheating: from the fridge, 8 minutes in the air fryer at 180 °C. From frozen, 25 minutes at 170 °C, or overnight in the fridge first. <b>Microwave only if you want it soft</b>, which rather defeats the seam.",8]]},
 
-    "sun-l":{r:"Lunch",p:45,c:35,sv:"2",t:"Mince & cheese wraps",m:["Pan","15 min","Off the batch"],
-      i:[[300,"g","beef mince, from today's batch"],[2,"ea","large wraps"],[60,"g","cheese, grated"],[1,"ea","onion"],[2,"ea","garlic cloves"],[1,"ea","tsp cumin + smoked paprika"],[60,"g","Greek yoghurt"],[1,"ea","lemon"]],
-      s:[["Today's mince batch is a kilo and this takes the first 300 g of it, so make the batch before you think about lunch.",0],
-         ["Onion and garlic soft, mince in and <b>left alone three minutes</b> to crust before you break it up. Cumin and paprika into the fat at the end.",3],
-         ["Wrap, mince, cheese, pickled cabbage, yoghurt thinned with lemon. Roll it tight.",0],
-         ["<b>Back in the dry pan, seam down, two minutes a side.</b> This is the difference between a wrap and a quesadilla — the cheese welds it shut and the outside goes crisp. Skipping it gives you a floppy parcel that falls apart.",4]]},
+    "bowl":{r:"Lunch · 6 portions",t:"Crunchy peanut chicken bowls",p:37,c:52,sv:"6 portions · dressing kept separate",m:["Pan","35 min","6 portions"],
+      kp:"4 days chilled · dressing separate",al:"peanut, soy, sesame",
+      i:[[750,"g","chicken thigh fillets"],[300,"g","rice, uncooked"],[400,"g","cabbage, shredded fine"],[3,"ea","carrots, grated"],[100,"g","peanut butter"],[3,"ea","tbsp soy"],[1,"ea","tbsp sesame oil"],[2,"ea","limes"],[1,"ea","tbsp honey"],[2,"ea","garlic cloves, grated"],[1,"ea","long red chilli"],[80,"g","roasted peanuts, crushed"],[160,"g","Greek yoghurt"]],
+      s:[["Thighs seasoned hard and seared in a hot pan, 5 minutes a side, then rested and sliced. <b>Thigh not breast here</b> — it survives four days in the fridge and reheating without going stringy, which breast does not.",10],
+         ["Rice cooked and <b>spread out on a tray to cool fast</b>. Rice left to cool slowly in a warm pot is the classic food-safety mistake in meal prep; get it cold quickly and into the fridge inside an hour.",0],
+         ["Dressing: peanut butter, soy, sesame oil, lime juice, honey, grated garlic and chilli, loosened with <b>warm water a tablespoon at a time</b> until it pours. It will look split and seized at first and then come together — keep going.",0],
+         ["<b>The dressing goes in a separate jar and nothing else touches it.</b> Dressed slaw weeps and goes limp inside a day. This is the whole reason these keep four days and the reason the menu says dressing separate.",0],
+         ["Assemble dry: rice at the bottom, chicken, then raw cabbage and carrot on top. Lids on, fridge.",0],
+         ["At the table: dressing over, crushed peanuts, a spoon of yoghurt, lime. <b>The peanuts go on last</b> or they soften and the whole point of the dish is the crunch.",0],
+         ["<b>The yoghurt is not decoration</b> — it adds about 4 g of protein a bowl and cuts the sweetness of the peanut dressing, which is cloying on its own by the third day.",0]]},
 
-    "sun-d":{r:"Dinner",p:32,c:62,sv:"2, plus Monday's hotdogs",t:"Bangers and mash, onion gravy",m:["Cooktop","40 min","Cook all six"],
-      i:[[6,"ea","sausages"],[1000,"g","potatoes, for mash"],[100,"ml","milk"],[40,"g","butter"],[3,"ea","onions, sliced thin"],[1,"ea","tbsp plain flour"],[400,"ml","beef stock"],[1,"ea","tbsp vinegar or Worcestershire"],[1,"ea","tsp sugar"]],
-      s:[["<b>Onions on first and give them half an hour.</b> The gravy is the dish here, not the sausages, and onions cannot be hurried \u2014 low heat, a pinch of salt, lid half on, stirred now and then until brown and jammy. Rushed onions give you thin brown sauce instead of gravy.",30],
-         ["Potatoes peeled, cut to an even size, started in <b>cold salted water</b>. Cold start matters: dropped into boiling water the outside goes to mush before the middle is done.",20],
-         ["Drain them, then put the pan back on the heat with the potatoes in it for two minutes, shaking. <b>This is the step everyone skips.</b> You are steaming off surface water, and wet potato is what makes mash gluey no matter how much butter goes in after.",2],
-         ["Butter in <b>before</b> the milk, off the heat, mashed through first. The fat coats the starch and stops it going stringy. Then warmed milk, a little at a time.",0],
-         ["Masher or a ricer, <b>never a food processor</b>. Blades shear the starch and turn mash into wallpaper paste in about four seconds.",0],
-         ["Sausages in their own pan on <b>medium, not hot</b>, turned every few minutes for fifteen to eighteen. High heat splits the skins and leaves the middle raw. <b>Do not prick them.</b>",18],
-         ["Gravy: flour stirred into the onions and cooked a full minute so it loses the raw taste, then stock in <b>a splash at a time</b>, smoothing each addition before the next. All at once and it goes lumpy.",8],
-         ["Vinegar and sugar at the very end, off the heat. Onion gravy with no acid is just sweet and it coats the mouth \u2014 that spoonful is what makes it taste finished.",0],
-         ["<b>Cook all six sausages tonight even though you will eat four.</b> Two to the fridge for tomorrow's hotdogs \u2014 cooked tonight and crisped tomorrow beats cooking raw ones at lunchtime.",0],
-         ["<b>Keep about 300 g of mash back as well.</b> That is tomorrow's fried patty, and it only works if it has gone properly cold in the fridge first.",0]]},
+    "tuscan":{r:"Dinner · 6 portions",t:"Creamy Tuscan chicken & white beans",p:46,c:30,sv:"6 portions · three dinners for two",m:["Cooktop","50 min","+ soak"],
+      kp:"4 days chilled · 2 months frozen",al:"dairy",
+      i:[[1000,"g","chicken thigh fillets"],[250,"g","dried cannellini beans, soaked"],[300,"ml","thickened cream"],[120,"g","baby spinach"],[100,"g","sun-dried tomatoes, chopped"],[6,"ea","garlic cloves"],[2,"ea","onions"],[60,"g","cheese, grated"],[2,"ea","tsp dried oregano"],[1,"ea","lemon"]],
+      s:[["Soak the cannellini overnight, or quick-soak: cover with water, hard boil five minutes, off the heat, stand an hour. Then simmer 45 minutes until tender but still holding shape.",45],
+         ["<b>Brown the thighs properly in batches and do not crowd the pan.</b> Crowded chicken steams grey and this dish has nowhere else to get its flavour from. Four minutes a side, out to a plate.",10],
+         ["Onion and garlic in the chicken fat, then the sun-dried tomatoes. <b>Use the oil from the jar</b> — it is the most concentrated flavour you own and people pour it down the sink.",8],
+         ["Cream in, scrape the base, and reduce until it coats a spoon. Oregano, a good grind of pepper.",10],
+         ["Chicken back in, sliced, with the beans and their starchy cooking water — a cup of it. <b>That water is what stops the sauce being a thin cream slick.</b>",5],
+         ["<b>Spinach in at the very end, off the heat.</b> It wilts in the residual heat in about thirty seconds. Cooked into the sauce it goes khaki and gives up water, which thins everything you just reduced.",0],
+         ["Lemon and the cheese at the table, not in the pot.",0],
+         ["<b>Six portions: two tonight, two to the fridge for tomorrow, two straight to the freezer.</b> You eat this three times this week, so change the plate — tonight as it is, tomorrow over rice, Friday with focaccia to mop. Same pot, three different dinners.",0]]},
 
-    "mon-l":{r:"Lunch",p:25,c:58,sv:"2",t:"Hotdogs + fried mash patty",m:["Pan","15 min","From Sunday"],
-      i:[[2,"ea","sausages, from last night"],[2,"ea","rolls, or sliced bread folded over"],[300,"g","cold mash, from last night"],[40,"g","cheese, grated"],[100,"g","pickled cabbage"],[1,"ea","tbsp mustard"],[1,"ea","tbsp plain flour, for the patty"]],
-      s:[["<b>Split the sausages lengthways and griddle them cut-side down.</b> Twice the surface browns, and a split sausage sits flat in a roll instead of rolling out of it. Same four minutes as reheating them whole, much better result.",4],
-         ["Mash patty: the mash must be <b>fridge cold</b>. Shape two thick rounds, dust both faces with flour, hot pan with oil, and <b>left alone three minutes a side</b>. Warm mash spreads and you get hash \u2014 fine, but not a patty.",6],
-         ["Rolls warmed in the same pan, cut faces down in the sausage fat. Thirty seconds.",0],
-         ["<b>Pickled cabbage goes in the hotdog, not beside it.</b> It is doing exactly the job sauerkraut does, and this is the meal the jar was made for.",0],
-         ["Mustard, cheese, and any gravy onions left from last night spooned in. Patty on the side.",0],
-         ["No rolls? Fold a slice of bread over and griddle the outside. Not traditional, better than no lunch.",0]]},
+    "pasta":{r:"Dinner · 6 portions",t:"Roasted tomato & feta pasta",p:22,c:72,sv:"6 portions · two dinners plus spares",m:["Oven","40 min","6 portions"],
+      kp:"4 days chilled",al:"wheat, dairy",
+      i:[[500,"g","pasta"],[500,"g","cherry tomatoes"],[200,"g","feta, in a block"],[400,"g","cooked chickpeas"],[6,"ea","garlic cloves, unpeeled"],[60,"ml","olive oil"],[2,"ea","lemons"],[1,"ea","tsp chilli flakes"],[2,"ea","tbsp herbs — parsley, basil, whatever is alive"]],
+      s:[["Tomatoes and whole unpeeled garlic in a baking dish, <b>the feta block sitting in the middle</b>, oil over everything, chilli flakes, salt. 200 °C.",35],
+         ["<b>Done is when the tomatoes have actually burst and gone jammy</b>, not just softened, and the feta has slumped and taken colour on top. Pull it early and you get watery pink sauce.",0],
+         ["Squash the garlic out of its skins and mash the whole lot together with a fork — feta, tomatoes, garlic, oil. It emulsifies into a sauce on its own.",0],
+         ["Chickpeas folded through. <b>This is my addition, not the original.</b> Without them this is 13 g of protein a portion, which is too low for a dinner; with them it is 22 g and it still reads as the same dish.",0],
+         ["Pasta a minute short of the packet. <b>Save a mug of the cooking water</b> before you drain, and use it to loosen the sauce — the starch is what makes it cling instead of sliding off.",0],
+         ["Lemon zest and juice, and the herbs raw at the table. <b>Never stir soft herbs in</b>; they go khaki. On top.",0],
+         ["<b>This is the week’s low-protein meal at 22 g.</b> On the two nights you eat it, have a spoon of yoghurt or a boiled egg alongside if you want the day to clear 90 g.",0]]},
 
-    "mon-d":{r:"Dinner",p:48,c:22,sv:"2, plus Tuesday lunch",t:"Spiced mince & roast pumpkin",m:["Oven + pan","35 min"],
-      i:[[400,"g","beef mince, from Sunday's batch"],[700,"g","pumpkin, in 3 cm chunks"],[1,"ea","onion"],[3,"ea","garlic cloves"],[400,"g","diced tomatoes"],[1,"ea","tbsp cumin + smoked paprika"],[1,"ea","tbsp harissa"],[100,"g","Greek yoghurt"],[1,"ea","lemon"]],
-      s:[["Pumpkin in 3 cm chunks, tossed in oil, cumin and salt, oven 200 °C. <b>Start it first</b> — it takes longer than the mince and it is the better half of the plate.",35],
-         ["Do not crowd the tray. Pumpkin steams at the slightest excuse and steamed pumpkin is wet and grey. One layer, space between the pieces.",0],
-         ["Mince reheated from Sunday's batch with the onion, garlic, tomatoes and the rest of the spice. Reduce until thick.",15],
-         ["<b>Roast the pumpkin until the edges are genuinely dark</b>, not golden. The caramelised edge against the cumin is the entire reason for this dish and underdone pumpkin tastes of nothing.",0],
-         ["Pumpkin down, mince over, harissa yoghurt thinned with lemon on top.",0],
-         ["<b>This is the lowest-carb dinner of the week at 22 g</b> — pumpkin reads starchy but has about a third the carbohydrate of potato. Worth knowing on a day you have eaten a lot of pasta.",0],
-         ["<b>Keep 300 g of the mince back</b> for tomorrow's baked potato. Roast extra pumpkin too if the tray has room — Saturday's lunch wants it.",0]]},
+    "quesadilla":{r:"Dinner · 2 portions",t:"Green chile chicken quesadillas",p:42,c:44,sv:"2",m:["Pan","20 min","Uses the spares"],
+      kp:"Eat the night you make them",al:"dairy, wheat",
+      i:[[250,"g","chicken thigh fillets"],[4,"ea","large tortillas"],[150,"g","cheese, grated"],[80,"g","green chiles, chopped"],[1,"ea","onion"],[1,"ea","tsp cumin"],[100,"g","Greek yoghurt"],[1,"ea","lime"],[1,"ea","bunch coriander"]],
+      s:[["This exists so the week is not four burritos and three bowls with nothing in between. It uses the same chiles, tortillas and cheese the burritos use, so it costs you nothing extra at the shop.",0],
+         ["Chicken diced small, seared hard, then the onion, chiles and cumin. Cook it <b>drier than feels right</b> — wet filling steams the tortilla and you lose the crisp.",10],
+         ["<b>Cheese on both tortillas, filling in the middle.</b> The cheese is the glue on both faces; filling straight onto bare tortilla and it slides apart when you cut it.",0],
+         ["Dry pan, medium, <b>weighted down with another pan on top</b>, three minutes a side. Pressing is what gets you an even crisp rather than bubbles.",6],
+         ["Rest two minutes before cutting or the cheese runs out. Yoghurt, lime and coriander on the side.",0]]},
 
-    "tue-l":{r:"Lunch",p:41,c:53,sv:"2",t:"Mince on a baked potato",m:["Reheat","12 min"],
-      i:[[2,"ea","large potatoes"],[300,"g","mince, the last of the batch"],[40,"g","cheese, grated"],[60,"g","Greek yoghurt"],[1,"ea","lemon"]],
-      s:[["Prick the potatoes, microwave seven minutes until soft, then eight in the air fryer at 200 °C for the skin. <b>Microwave alone gives you a steamed potato</b>, which is a different and worse thing.",8],
-         ["Mince reheated hard in a dry pan rather than the microwave. You want the edges to catch a second time.",6],
-         ["Split, salt the cut face, mince in, cheese, yoghurt with lemon, pickled cabbage on top.",0],
-         ["That is the kilo of mince finished: wraps Sunday, dinner Monday, this. One cook, three meals, and nothing eaten twice in the same form.",0]]},
-
-    "tue-d":{r:"Dinner",p:32,c:42,sv:"2",t:"Shakshuka",m:["Cooktop","30 min","4 eggs"],
-      i:[[4,"ea","eggs"],[800,"g","diced tomatoes, 2 tins"],[1,"ea","onion"],[3,"ea","garlic cloves"],[1,"ea","tbsp harissa"],[1,"ea","tsp cumin"],[60,"g","cheese"],[2,"ea","pieces focaccia, to mop"],[2,"ea","tbsp parsley"]],
-      s:[["Onion soft in a wide pan, and do not rush it — eight minutes is the difference between sweet and raw.",8],
-         ["Garlic, cumin and harissa for a minute, then the tomatoes and a big pinch of salt. Reduce until a spoon drawn through leaves a channel that holds.",15],
-         ["<b>Make wells with the back of a spoon and crack the eggs into them.</b> Eggs tipped onto a loose sauce sink and scramble; the wells are what give you distinct whites and a yolk that sits up.",0],
-         ["<b>Lid on, lowest heat.</b> Done is set whites and liquid yolks, which is six to eight minutes and not a second more. Check at six by nudging the pan — the yolk should still move.",7],
-         ["Cheese and parsley over, focaccia to mop. Four eggs between the two of you: this is the single biggest egg spend of the week out of the twelve.",0]]},
-
-    "wed-l":{r:"Lunch",p:25,c:32,sv:"2",t:"Egg salad sandwiches",m:["No-cook","10 min","4 eggs"],
-      i:[[4,"ea","eggs, boiled"],[60,"g","Greek yoghurt or mayo"],[2,"ea","tbsp chives or parsley"],[1,"ea","tsp smoked paprika"],[2,"ea","pieces focaccia, split"],[1,"ea","lemon"]],
-      s:[["Boil the four eggs Sunday with everything else and they keep all week in their shells. Nine minutes from boiling gives you a set yolk that still looks yellow rather than grey.",9],
-         ["Chop rather than mash. <b>Mashed egg salad goes to paste</b> and paste tastes like nothing — you want distinct pieces of white and yolk.",0],
-         ["Yoghurt, lemon, plenty of black pepper, paprika, herbs. Salt it more than feels right; egg needs it.",0],
-         ["Pickled cabbage in the sandwich, not beside it. The acid against the fat of the yolk is what stops it being heavy.",0]]},
-
-    "wed-d":{r:"Dinner",p:32,c:66,sv:"2, plus Thursday lunch",t:"Sausage, pumpkin & potato tray bake",m:["Oven","45 min","One tray"],
-      i:[[6,"ea","sausages"],[700,"g","potatoes, in wedges"],[500,"g","pumpkin, in chunks"],[2,"ea","onions, in thick wedges"],[6,"ea","garlic cloves, unpeeled"],[2,"ea","tsp dried oregano"],[1,"ea","tbsp vinegar"]],
-      s:[["One tray, oven 200 °C. Potatoes and pumpkin underneath, sausages on top, so the fat that renders out lands on the vegetables instead of in the sink.",0],
-         ["Potato wedges cut lengthways so each has a flat face against the metal. Toss with oil, salt and the oregano. <b>One layer only</b> — crowded wedges steam and stay pale.",0],
-         ["<b>Pumpkin goes in 20 minutes later than the potato.</b> It cooks in half the time and if they go in together the pumpkin collapses to mush while the potato is still raw. This is the mistake worth avoiding.",20],
-         ["Onion in thick wedges, garlic whole and unpeeled tucked among it all. The skins stop the garlic burning.",0],
-         ["Sausages laid on top, turned once. <b>Do not prick them.</b> The holes let the fat out fast and you get a dry sausage and a greasy tray.",25],
-         ["Squash the garlic out of its skins, mash it into the pan juices with a splash of vinegar, spoon it back over. That is the sauce and it costs nothing.",0],
-         ["<b>Two sausages and some veg held back</b> — that is tomorrow's lunch. Four sausages tonight, two each.",0]]},
-
-    "thu-l":{r:"Lunch",p:28,c:50,sv:"2",t:"Tray bake leftovers",m:["Air fryer","10 min","From Wednesday"],
-      i:[[2,"ea","sausages, from last night"],[2,"ea","serves of roast potato and pumpkin"],[100,"g","roasted chickpeas, from the jar"],[40,"g","cheese"],[60,"g","Greek yoghurt"]],
-      s:[["Air fryer, 180 °C, not the microwave. Roast vegetables reheated in a microwave go soft and sad; eight minutes of dry heat brings the edges back.",8],
-         ["Sausages sliced on the diagonal rather than left whole, so there is more cut surface to catch.",0],
-         ["<b>A handful of the roasted chickpeas over the top.</b> This is the lightest lunch of the week on its own and the chickpeas take it from 20 g of protein to 28 g for nothing.",0],
-         ["Yoghurt and pickled cabbage on the side.",0]]},
-
-    "thu-d":{r:"Dinner",p:56,c:41,sv:"2",t:"Pan-roast chicken, broccoli, crushed potato",m:["Pan + oven","35 min"],
-      i:[[2,"ea","chicken breasts"],[400,"g","broccoli"],[500,"g","potatoes"],[4,"ea","garlic cloves"],[2,"ea","lemons"],[30,"g","butter or oil"],[1,"ea","tsp dried oregano"]],
-      s:[["<b>Butterfly the breasts</b> — hand flat on top, knife through the side, open them out like a book. A whole breast is thick at one end and thin at the other, so it is always either raw in the middle or dry at the tip. Butterflied, it cooks evenly in eight minutes.",0],
-         ["Salt them hard and leave them fifteen minutes while the potatoes boil. This is the single best thing you can do to chicken breast.",15],
-         ["Potatoes boiled whole until a knife slides in, then <b>crushed, not mashed</b> — press each one flat with the bottom of a glass. Oil, salt, oven 220 °C until the edges go brown and brittle.",20],
-         ["Broccoli in florets, and <b>peel and slice the stem</b> rather than binning it: it is the sweetest part and it goes in Saturday's fried rice.",0],
-         ["Chicken into a properly hot pan, flat side down, and <b>left alone four minutes</b>. Three to four minutes the other side. Garlic, oregano and butter in at the end, spooned over.",8],
-         ["<b>Breast is done at 65 °C and dry at 75 °C</b>, and the gap is about ninety seconds. If you have no thermometer, press it: firm with a little give. Then rest it five minutes, which is not optional.",5],
-         ["Broccoli in the same pan with the garlic butter and a splash of water, lid on, three minutes. Lemon over everything at the table.",3],
-         ["<b>56 g of protein each, the biggest of the week.</b> Two breasts is 400 g and it all goes tonight — breast does not shred or keep like thigh, so there is deliberately nothing held back.",0]]},
-
-    "fri-l":{r:"Lunch · baked Sunday",p:35,c:70,sv:"2 · makes about 6 portions",t:"Home-made baked beans",m:["Oven","2 hr","+ soak"],
-      i:[[250,"g","dried cannellini or haricot beans"],[400,"g","diced tomatoes"],[1,"ea","onion"],[3,"ea","garlic cloves"],[1,"ea","tbsp smoked paprika"],[1,"ea","tsp mustard"],[1,"ea","tbsp honey or brown sugar"],[2,"ea","tbsp vinegar"],[2,"ea","bay leaves"],[2,"ea","pieces focaccia, split"]],
-      s:[["Soak overnight, or quick-soak: cover with water, hard boil five minutes, off the heat, stand an hour. Then simmer 45 minutes until tender but still holding shape — they cook again in the oven and mush is the one failure here.",45],
-         ["Onion soft, then garlic, smoked paprika and mustard for a minute.",0],
-         ["Tomatoes, honey, half the vinegar, bay, the beans and a cup of their cooking water. <b>That starchy water is worth more than plain water</b> — it is what makes the sauce cling.",0],
-         ["Oven 165 °C for two hours, in at the same time as the chickpeas go on to simmer. One oven, one afternoon.",120],
-         ["Thick and glossy, not soupy. Lid off for the last twenty minutes if there is too much liquid.",0],
-         ["<b>The rest of the vinegar goes in at the end, off the heat.</b> Homemade beans taste flat and oversweet without a late hit of acid, and that spoonful is the difference between these and the tin.",0],
-         ["<b>Six portions, and Friday eats two.</b> Freeze the other four the same night — a week in the fridge is too long and they are better on day two anyway.",0]]},
-
-    "fri-d":{r:"Dinner",p:33,c:50,sv:"2",t:"Crispy harissa chickpeas, fried egg",m:["Air fryer + pan","30 min"],
-      i:[[150,"g","dried chickpeas, from the soak"],[2,"ea","tbsp harissa"],[2,"ea","onions"],[2,"ea","eggs"],[100,"g","Greek yoghurt"],[60,"g","cheese, grated"],[1,"ea","lemon"]],
-      s:[["Simmered with Sunday's batch and kept aside, or cooked fresh from the soak. <b>Dry them on a tea towel</b> — wet chickpeas steam instead of crisping.",0],
-         ["Toss in oil, salt and half the harissa. Air fryer 200 °C, shaking twice. Split and blistered, not merely hot.",18],
-         ["Onions sliced thin and cooked slowly until collapsing and properly sweet — twelve minutes, not four. The rest of the harissa stirred through at the end.",12],
-         ["Fried eggs, one each, whites crisp at the edge and the yolk loose. <b>The yolk is the sauce</b>, which is why this needs no rice.",4],
-         ["Onions down, chickpeas over, egg on top, yoghurt thinned with lemon, cheese, pickled cabbage. Break the yolk and stir the lot through.",0],
-         ["<b>The last two eggs of the twelve.</b> Cheapest dinner of the week and it eats like one of the best.",0]]},
-
-    "sat-l":{r:"Lunch",p:31,c:55,sv:"2",t:"Pumpkin & chickpea bowl",m:["Reheat","12 min","Sunday's pumpkin"],
-      i:[[400,"g","roast pumpkin, from Monday's tray"],[300,"g","cooked chickpeas"],[300,"g","cooked rice"],[160,"g","Greek yoghurt"],[60,"g","cheese"],[1,"ea","lemon"],[1,"ea","tsp sumac or smoked paprika"]],
-      s:[["This is why Monday's tray had extra pumpkin on it. Roast pumpkin keeps five days and reheats better than almost anything else in the fridge.",0],
-         ["Rice and chickpeas warmed through, pumpkin on top, <b>crushed with a fork rather than left in chunks</b> so it works as a sauce through the rice instead of sitting on it.",0],
-         ["Yoghurt, lemon, sumac, cheese, pickled cabbage. Plenty of salt — pumpkin and chickpeas both need more than you would think.",0],
-         ["No cooking in this at all, which is the point of a Saturday.",0]]},
-
-    "sat-d":{r:"Dinner",p:27,c:62,sv:"2",t:"Leftovers fried rice",m:["Cooktop","20 min","Clears the fridge"],
-      i:[[400,"g","cooked rice, properly chilled"],[2,"ea","eggs"],[150,"g","cooked chickpeas"],[1,"ea","carrot, grated"],[1,"ea","broccoli stem, peeled and sliced"],[4,"ea","garlic cloves"],[2,"ea","tbsp soy"]],
-      s:[["<b>Rice properly cold, straight from the fridge.</b> Warm rice clumps and steams and you get risotto. Cook it the day before if you have not got leftovers.",0],
-         ["Eggs scrambled first in the hot pan, then out to a plate. They finish in the residual heat at the end rather than overcooking through the whole dish.",0],
-         ["Garlic, then the grated carrot and the sliced broccoli stem on high heat, kept moving. <b>The stem is the best bit</b> — sweeter than the florets and it holds a bite that frozen peas never do.",4],
+    "clear":{r:"Dinner · fridge-clear",t:"Saturday fridge-clear fried rice",p:30,c:62,sv:"2 · whatever is left",m:["Cooktop","20 min","Clears the week"],
+      kp:"Eat it the night you make it",al:"egg, soy",
+      i:[[400,"g","cooked rice, properly chilled"],[2,"ea","eggs"],[2,"ea","serves of anything left — chicken, beans, pasta sauce"],[1,"ea","carrot, grated"],[200,"g","cabbage, shredded"],[4,"ea","garlic cloves"],[2,"ea","tbsp soy"],[1,"ea","tsp sesame oil"]],
+      s:[["<b>Twenty-six batch portions against twenty-eight meal slots</b> — this is the gap, deliberately left open. Whatever survived the week goes in here.",0],
+         ["<b>Rice properly cold, straight from the fridge.</b> Warm rice clumps and steams and you get risotto.",0],
+         ["Eggs scrambled first and out to a plate, so they do not overcook while everything else fries.",0],
+         ["Garlic, then carrot and cabbage on high heat, kept moving. Four minutes to sweet with a bit of colour.",4],
          ["Rice in, pressed flat, left thirty seconds at a time so the bottom catches before you toss it.",0],
-         ["Chickpeas, egg back in, soy down the side of the pan rather than over the top so it hits hot metal and caramelises.",0],
-         ["White pepper rather than black, and something raw on top. <b>This is the lightest dinner of the week at 27 g</b> — it is a fridge-clearer by design, so if the week has left you anything with protein in it, this is where it goes.",0]]}
+         ["Leftovers and egg back in, <b>soy down the side of the pan</b> so it hits hot metal and caramelises rather than just making everything wet. Sesame oil off the heat at the end.",0],
+         ["<b>If the fridge gave you nothing with protein in it</b>, add a tin of beans or two more eggs. This should land near 30 g, not 15.",0]]}
   };
 
   /* ---------- state ---------- */
@@ -1449,9 +1377,11 @@
     $("#s-meta").innerHTML = m.m.map(function(x,i){
       return '<span class="chip' + (i===0 ? " k" : "") + '">' + x + "</span>";
     }).join("");
-    $("#s-macro").innerHTML = m.sv
+    $("#s-macro").innerHTML = (m.sv
       ? '<b>Serves ' + m.sv + '</b><span>' + m.p + ' g protein \u00b7 ' + m.c + ' g carbs per serve</span>'
-      : "";
+      : "")
+      + (m.kp ? '<span class="kps"><b>Keeps</b> ' + m.kp + '</span>' : "")
+      + (m.al ? '<span class="alg"><b>Contains</b> ' + m.al + '</span>' : "");
     $("#s-ing").innerHTML = m.i.map(function(x){
       var c = cups(x[0], x[1], x[2]), g = qty(x[0], x[1], "");
       return '<li><span class="iq">' + (c || g) + "</span><span>" + x[2] +
