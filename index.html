@@ -983,7 +983,7 @@
 
         <div class="r-stock">
           <h4>Assumed already in the cupboard</h4>
-          <p class="r-stock-n">Rice, pasta, plain flour, dry yeast, <b>dried chickpeas</b> (about 300 g dried — 400 g cooked into the curry, 400 g into the pasta), olive and sesame oil, soy, honey, butter, brown sugar, baking powder, protein powder, oats, and the spice shelf — cumin, smoked paprika, oregano, chilli flakes, cinnamon, mixed spice. <b>The chickpeas are the one worth physically checking</b>, because they need soaking on Sunday morning and there is no recovering from finding the bag empty at midday.</p>
+          <p class="r-stock-n">Rice, pasta, plain flour, dry yeast, <b>dried chickpeas</b> (about 300 g dried — 400 g cooked into the curry, 400 g into the pasta), <b>almond meal</b> (50 g into the loaf), olive and sesame oil, soy, honey, butter, brown sugar, baking powder, protein powder, oats, and the spice shelf — cumin, smoked paprika, oregano, chilli flakes, cinnamon, mixed spice. <b>The chickpeas are the one worth physically checking</b>, because they need soaking on Sunday morning and there is no recovering from finding the bag empty at midday.</p>
         </div>
 
         <p class="r-foot">Protein averages <b>91 g each a day</b> — 99 on the curry nights, 78 on the two pasta nights. A spoon of yoghurt or a boiled egg on pasta night closes that gap. The banana bread replaced the pumpkin loaf: <b>209 calories and 2.6 g of fat a slice instead of 343 and 14 g</b>, and more protein than either.</p>
@@ -1098,19 +1098,19 @@
          ["Dip: 100 g feta, 100 g yoghurt, lemon, pepper, oil. Blitz until smooth.",0],
          ["Cut into 12. Half fridge, half frozen.",0]]},
 
-    "cookies":{r:"Sweet snack · baked Sunday",t:"Protein banana bread",p:12,c:23,sv:"1 loaf · 10 thick slices · one each a day",m:["Oven","65 min","Half coconut flour"],
-      kp:"3 days in a tin · slice and freeze the rest",al:"egg, dairy, wheat, coconut",
-      i:[[5,"ea","very ripe bananas"],[100,"g","plain flour"],[35,"g","coconut flour"],[75,"g","protein powder"],[3,"ea","eggs"],[150,"g","Greek yoghurt"],[3.5,"ea","tsp baking powder"],[2,"ea","tsp cinnamon"],[40,"g","dark chocolate chips"],[1,"ea","pinch salt"]],
+    "cookies":{r:"Sweet snack · baked Sunday",t:"Protein banana bread",p:12,c:22,sv:"1 loaf · 10 thick slices · one each a day",m:["Oven","65 min","Half coconut flour"],
+      kp:"3 days in a tin · slice and freeze the rest",al:"egg, dairy, wheat, coconut, tree nuts",
+      i:[[5,"ea","very ripe bananas"],[75,"g","plain flour"],[50,"g","almond meal"],[35,"g","coconut flour"],[75,"g","protein powder"],[3,"ea","eggs"],[150,"g","Greek yoghurt"],[3.5,"ea","tsp baking powder"],[2,"ea","tsp cinnamon"],[40,"g","dark chocolate chips"],[1,"ea","pinch salt"]],
       s:[["Bananas must be black. Only spotty \u2014 15 minutes at 160 \u00b0C in their skins.",15],
          ["Mash four. Split the fifth lengthways for the top.",0],
          ["Eggs and yoghurt beaten into the mashed banana. <b>Three eggs, not two</b> \u2014 coconut flour has no gluten, so the eggs do the binding.",0],
-         ["Both flours, protein powder, baking powder, cinnamon, salt. <b>Fold until only just combined.</b>",0],
+         ["All three flours, protein powder, baking powder, cinnamon, salt. <b>Fold until only just combined.</b>",0],
          ["<b>Rest the batter 10 minutes.</b> It will thicken noticeably. If it goes too stiff to pour, a splash of milk.",10],
          ["Chocolate at the last turn. Into a lined tin, banana halves cut-side up.",0],
          ["170 \u00b0C. <b>Check at 55 minutes, expect 65.</b>",65],
          ["Foil over at 40 minutes if it browns early. Skewer comes out clean.",0],
          ["Cool in the tin 20 minutes, out onto a rack, <b>cool completely before cutting</b>.",20],
-         ["<b>All plain flour instead:</b> 200 g plain, no coconut, 2 eggs, protein powder back to 90 g, no rest, 60 minutes.",0],
+         ["<b>No almond meal:</b> plain flour up to 100 g, drop the almond. Expect it to stale faster and cut more gummy.",0],
          ["<b>All coconut flour instead:</b> 65 g coconut, no plain, 4 eggs, protein powder down to 60 g, splash of milk.",0]]},
 
     "burrito":{r:"Lunch · batch of 8",t:"Green chile, potato & cheddar burritos",p:31,c:48,sv:"8 burritos · one each, four days",m:["Pan + oven","45 min","Batch of 8"],
@@ -1190,7 +1190,7 @@
   function money(n){ return "$" + n.toFixed(2); }
   function trim(n){ return String(Math.round(n*100)/100); }
   var CUP = [
-    [/coconut flour/, 115], [/plain flour|flour/, 150], [/rolled oats|oats/, 90],
+    [/coconut flour/, 115], [/almond meal|almond flour/, 96], [/plain flour|flour/, 150], [/rolled oats|oats/, 90],
     [/cooked rice/, 175], [/rice/, 200],
     [/greek yoghurt|yoghurt|mayo/, 260],
     [/cheese/, 100],
