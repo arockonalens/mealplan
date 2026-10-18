@@ -9,6 +9,7 @@
 <meta name="description" content="A seven-day high-protein meal plan for two, built around one Sunday cook-up and a single shop.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Meal Planner">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 <title>Meal Planner</title>
@@ -290,6 +291,8 @@
   .kps,.alg{display:block;font-size:10px;line-height:1.4;color:var(--ink-3);margin-top:3px}
   .kps b,.alg b{letter-spacing:.1em;text-transform:uppercase;font-size:9px;color:var(--ink-2);font-weight:500}
   .alg{text-transform:lowercase}
+  .stamp{text-align:center;font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-3);margin:30px 0 calc(22px + env(safe-area-inset-bottom));font-family:var(--mono,monospace)}
   .ig{font-style:normal;font-size:10px;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
   .r-for{grid-column:2 / -1;font-size:10px;line-height:1.4;color:var(--ink-3);margin-top:1px}
   .r-stock-n{font-size:11px;line-height:1.5;color:var(--ink-2);margin:4px 0 0}
@@ -690,7 +693,7 @@
           <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="burrito"><span class="rname">Green chile, potato &amp; cheddar burritos</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
           <div class="row" data-pro="46"><span class="role">Dinner</span><button class="open" data-meal="tuscan"><span class="rname">Creamy Tuscan chicken &amp; white beans</span><span class="leader"></span></button><span class="rpro">46 g</span></div>
           <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
@@ -700,7 +703,7 @@
           <div class="row" data-pro="37"><span class="role">Lunch</span><button class="open" data-meal="bowl"><span class="rname">Crunchy peanut chicken bowls</span><span class="leader"></span></button><span class="rpro">37 g</span></div>
           <div class="row" data-pro="46"><span class="role">Dinner</span><button class="open" data-meal="tuscan"><span class="rname">Creamy Tuscan chicken &amp; white beans</span><span class="leader"></span></button><span class="rpro">46 g</span></div>
           <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
@@ -710,7 +713,7 @@
           <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="burrito"><span class="rname">Green chile, potato &amp; cheddar burritos</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
           <div class="row" data-pro="22"><span class="role">Dinner</span><button class="open" data-meal="pasta"><span class="rname">Roasted tomato &amp; feta pasta</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
           <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
@@ -720,7 +723,7 @@
           <div class="row" data-pro="37"><span class="role">Lunch</span><button class="open" data-meal="bowl"><span class="rname">Crunchy peanut chicken bowls</span><span class="leader"></span></button><span class="rpro">37 g</span></div>
           <div class="row" data-pro="42"><span class="role">Dinner</span><button class="open" data-meal="quesadilla"><span class="rname">Green chile chicken quesadillas</span><span class="leader"></span></button><span class="rpro">42 g</span></div>
           <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
@@ -730,7 +733,7 @@
           <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="burrito"><span class="rname">Green chile, potato &amp; cheddar burritos</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
           <div class="row" data-pro="22"><span class="role">Dinner</span><button class="open" data-meal="pasta"><span class="rname">Roasted tomato &amp; feta pasta</span><span class="leader"></span></button><span class="rpro">22 g</span></div>
           <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
@@ -740,7 +743,7 @@
           <div class="row" data-pro="37"><span class="role">Lunch</span><button class="open" data-meal="bowl"><span class="rname">Crunchy peanut chicken bowls</span><span class="leader"></span></button><span class="rpro">37 g</span></div>
           <div class="row" data-pro="46"><span class="role">Dinner</span><button class="open" data-meal="tuscan"><span class="rname">Creamy Tuscan chicken &amp; white beans</span><span class="leader"></span></button><span class="rpro">46 g</span></div>
           <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
@@ -750,7 +753,7 @@
           <div class="row" data-pro="31"><span class="role">Lunch</span><button class="open" data-meal="burrito"><span class="rname">Green chile, potato &amp; cheddar burritos</span><span class="leader"></span></button><span class="rpro">31 g</span></div>
           <div class="row" data-pro="30"><span class="role">Dinner</span><button class="open" data-meal="clear"><span class="rname">Saturday fridge-clear fried rice</span><span class="leader"></span></button><span class="rpro">30 g</span></div>
           <div class="row" data-pro="13"><span class="role">Savoury</span><button class="open" data-meal="focaccia"><span class="rname">Focaccia + whipped feta</span><span class="leader"></span></button><span class="rpro">13 g</span></div>
-          <div class="row" data-pro="10"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">10 g</span></div>
+          <div class="row" data-pro="9"><span class="role">Sweet</span><button class="open" data-meal="cookies"><span class="rname">Oat &amp; banana cookies</span><span class="leader"></span></button><span class="rpro">9 g</span></div>
         </div>
       </article>
 
@@ -878,7 +881,7 @@
     <div class="prep">
       <ol>
         <li><div><b>Dough and both soaks, before anything else</b><p>Focaccia dough needs three hours. <b>Put the oil in it this time.</b> Then quick-soak the chickpeas and the cannellini in separate pots: cover, hard boil five minutes, off the heat, stand an hour.</p></div></li>
-        <li><div><b>Cookies — the first thing into the oven</b><p>Half the oats blitzed to flour, half left whole. Mashed banana, egg, protein powder, cinnamon. Fourteen spoonfuls, flattened. <b>180 °C, out while the middles still look underdone</b> — they firm as they cool and two extra minutes makes them dry.</p></div></li>
+        <li><div><b>Cookies — the first thing into the oven</b><p>Half the oats blitzed to flour, half left whole. Mashed banana, egg, protein powder, cinnamon. Twelve spoonfuls, flattened. <b>180 °C, out while the middles still look underdone</b> — they firm as they cool and two extra minutes makes them dry.</p></div></li>
         <li><div><b>Burrito potatoes can start while the cookies bake</b><p>Diced small, in oil, in a wide pan on the cooktop. Fifteen minutes to properly crisp. The oven is busy and this is the long cooktop job, so they overlap neatly.</p></div></li>
         <li><div><b>Legumes on to simmer, and fold the dough at 45 minutes</b><p>Both pots 45–50 minutes until tender but holding shape. <b>Keep a cup of the bean water</b> — it is what stops the Tuscan sauce being a thin cream slick. Wet hand on the dough, not floured.</p></div></li>
         <li><div><b>Burrito filling — potatoes first, and brown them hard</b><p>Diced small, fifteen minutes, properly crisp at the edges. Then onion, chiles, spice. <b>Scramble the eggs soft and underdone</b>; they cook again on reheating. Then <b>let it all go completely cold before you roll anything</b> — warm filling steams the wrap and you get eight soggy burritos.</p></div></li>
@@ -898,7 +901,7 @@
         <li><div><b>Burritos — four and four</b><p>Wrapped individually. <b>Four to the fridge for Sunday, Tuesday; four to the freezer for Thursday and Saturday.</b> From the fridge they are 8 minutes in the air fryer; from frozen, 25 at 170 °C.</p></div></li>
         <li><div><b>Tuscan — two, two and two</b><p>Two eaten tonight, two to the fridge for Monday, <b>two to the freezer for Friday</b>. Six days in the fridge would be well past it.</p></div></li>
         <li><div><b>Bowls — six dry, one jar</b><p>All six assembled and lidded, dressing separate. They are Monday, Wednesday and Friday lunches.</p></div></li>
-        <li><div><b>Bakes</b><p>Focaccia cut into 12, half fridge half frozen. <b>Cookies into a tin, not the fridge</b> — five days at room temperature and they stay chewy; the fridge makes them hard. Fourteen is exactly one each a day, so there is nothing to freeze unless you doubled the batch.</p></div></li>
+        <li><div><b>Bakes</b><p>Focaccia cut into 12, half fridge half frozen. <b>Cookies into a tin, not the fridge</b> — five days at room temperature and they stay chewy; the fridge makes them hard. Twelve is one each a day Sunday to Friday, so there is nothing to freeze unless you doubled the batch.</p></div></li>
         <li><div><b>Thursday night</b><p>Wednesday’s quesadilla chicken is already eaten by then — nothing to move. Take the last focaccia out of the freezer for Friday’s Tuscan.</p></div></li>
         <li><div><b>Saturday — the gap</b><p>Twenty-six batch portions against twenty-eight slots. Saturday’s dinner is deliberately undefined: whatever is left, fried rice. <b>If the fridge has given you nothing with protein in it, add two eggs or a tin of beans</b> rather than eating a bowl of rice.</p></div></li>
       </ol>
@@ -982,7 +985,7 @@
           <p class="r-stock-n">Rice, pasta, plain flour, dry yeast, <b>dried chickpeas</b> (400 g cooked goes in the pasta), <b>dried cannellini</b> (250 g for the Tuscan), olive and sesame oil, soy, honey, butter, brown sugar, baking powder, protein powder, oats, and the spice shelf — cumin, smoked paprika, oregano, chilli flakes, cinnamon, mixed spice. <b>The two dried legumes are the only ones worth physically checking</b>, because both need soaking on Sunday morning and there is no recovering from finding the bag empty at midday.</p>
         </div>
 
-        <p class="r-foot">Protein averages <b>93 g each a day</b> — 106 on the Tuscan nights, 76 on the two pasta nights. A spoon of yoghurt or a boiled egg on pasta night closes that gap. The cookies replaced the pumpkin loaf: same protein, <b>124 calories a serve instead of 343</b>.</p>
+        <p class="r-foot">Protein averages <b>93 g each a day</b> — 106 on the Tuscan nights, 76 on the two pasta nights. A spoon of yoghurt or a boiled egg on pasta night closes that gap. The cookies replaced the pumpkin loaf: same protein, <b>125 calories a serve instead of 343</b>.</p>
       </div>
     </div>
   </section>
@@ -1049,6 +1052,8 @@
     <p>General healthy-eating guidance for two healthy adults, not clinical advice. Pregnancy, a diagnosed condition or diet-interacting medication — check with your GP or an Accredited Practising Dietitian first.</p>
   </footer>
   </div>
+
+  <p class="stamp">Page updated <span id="built">—</span> · pull down to refresh</p>
 </div>
 
 <button class="scrim" id="scrim" hidden aria-label="Close"></button>
@@ -1092,18 +1097,18 @@
          ["<b>Whipped feta instead of the harissa yoghurt.</b> Feta, yoghurt, lemon juice, a grind of pepper and a slug of oil, blitzed until completely smooth — thirty seconds, and it must be smooth or it eats like crumbled cheese. Salty and sharp rather than warm and spicy.",0],
          ["Cut into 12. Half to the fridge, half sliced and frozen. Four minutes in the air fryer brings a frozen piece back.",0]]},
 
-    "cookies":{r:"Sweet snack · baked Sunday",t:"Oat & banana cookies",p:10,c:16,sv:"14 cookies · one each a day · exactly the week",m:["Oven","25 min","14 cookies"],
+    "cookies":{r:"Sweet snack · baked Sunday",t:"Oat & banana cookies",p:9,c:15,sv:"12 cookies · one each a day, Sun–Fri",m:["Oven","25 min","12 cookies"],
       kp:"5 days in a tin · 2 months frozen",al:"egg, oats — no dairy, no added sugar",
-      i:[[200,"g","rolled oats"],[2,"ea","very ripe bananas"],[1,"ea","egg"],[120,"g","protein powder, 4 scoops"],[2,"ea","tsp cinnamon"],[1,"ea","tsp baking powder"],[50,"g","dark chocolate chips"]],
-      s:[["<b>124 calories and 2.5 g of fat a cookie, against 343 and 14 g for a slice of the pumpkin loaf</b>, for the same protein. That is the entire reason these are back \u2014 the loaf carried 150 g of butter across ten slices and almost all of its energy came from that.",0],
+      i:[[180,"g","rolled oats"],[2,"ea","very ripe bananas"],[1,"ea","egg"],[90,"g","protein powder, 3 scoops"],[2,"ea","tsp cinnamon"],[1,"ea","tsp baking powder"],[40,"g","dark chocolate chips"]],
+      s:[["<b>Two cups of oats, scaled down from fourteen cookies to twelve.</b> The cookie itself is unchanged \u2014 still about 125 calories and 9 g of protein \u2014 there are just fewer of them. Twelve is one each a day Sunday to Friday; Saturday you are out, which is the honest version rather than pretending it stretches.",0],
          ["Blitz <b>half</b> the oats to flour in the processor and leave the rest whole. All flour gives you a cake; all whole oats gives you a pile of rubble. Half and half is a cookie.",0],
-         ["Mash the bananas properly, then the egg. <b>The riper the banana the better</b> \u2014 black ones are ideal, and ripe enough means no added sugar at all, which is the other half of why these are lighter.",0],
+         ["Mash the bananas properly, then the egg. <b>The riper the banana the better</b> \u2014 black ones are ideal, and ripe enough means no added sugar at all.",0],
          ["Fold through oats, protein powder, cinnamon, baking powder and the chocolate. <b>Do not overmix once the powder is in</b>; it tightens the dough and bakes them dry.",0],
-         ["If it is too stiff to spoon, a splash of milk. It should drop off the spoon reluctantly.",0],
-         ["Fourteen spoonfuls on a lined tray, flattened a little with the back of a wet spoon \u2014 they barely spread on their own.",0],
+         ["Three scoops rather than four, in proportion. If it is too stiff to spoon, a splash of milk \u2014 it should drop off the spoon reluctantly.",0],
+         ["Twelve spoonfuls on a lined tray, flattened a little with the back of a wet spoon \u2014 they barely spread on their own.",0],
          ["180 \u00b0C until the edges are set and the middles still look <b>slightly underdone</b>. They firm as they cool, and two extra minutes is the difference between chewy and dry.",13],
-         ["<b>Fourteen cookies is one each a day for exactly seven days.</b> If you want two each, double everything \u2014 that is 248 calories a day rather than 124, which is still well under the loaf.",0],
-         ["Four scoops does a batch, so a 1 kg tub of protein powder lasts about eight weeks at this rate.",0]]},
+         ["<b>125 calories and 2.5 g of fat a cookie</b>, against 343 and 14 g for a slice of the pumpkin loaf this replaced, for the same protein. The loaf carried 150 g of butter across ten slices.",0],
+         ["Three scoops a batch means a 1 kg tub of protein powder lasts about eleven weeks.",0]]},
 
     "burrito":{r:"Lunch · batch of 8",t:"Green chile, potato & cheddar burritos",p:31,c:48,sv:"8 burritos · one each, four days",m:["Pan + oven","45 min","Batch of 8"],
       kp:"4 days chilled · 2 months frozen",al:"egg, dairy, wheat",
@@ -1297,6 +1302,39 @@
     items.forEach(function(it){ $("input", it).checked = false; });
     paintShop();
   });
+
+  /* ---------- freshness ---------- */
+
+  (function(){
+
+    var el = $("#built");
+
+    if(el && document.lastModified){
+
+      var d = new Date(document.lastModified);
+
+      if(!isNaN(d)){ el.textContent = d.toLocaleDateString(undefined,{day:"numeric",month:"short"}) + ", " + d.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"}); }
+
+    }
+
+    /* Pages only. The artifact copy lives on another origin and updates itself. */
+
+    if("serviceWorker" in navigator && location.protocol === "https:" && /github\.io$/.test(location.hostname)){
+
+      navigator.serviceWorker.register("sw.js").then(function(reg){ reg.update(); });
+
+      var reloaded = false;
+
+      navigator.serviceWorker.addEventListener("controllerchange", function(){
+
+        if(reloaded) return; reloaded = true; location.reload();
+
+      });
+
+    }
+
+  })();
+
 
   /* ---------- theme ---------- */
 
