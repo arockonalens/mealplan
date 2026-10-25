@@ -918,6 +918,7 @@
     <div class="shoptools">
       <button class="tbtn" id="hide-got" aria-pressed="false">Hide what's in the trolley</button>
       <button class="tbtn" id="reset-shop">Clear ticks</button>
+      <button class="tbtn" id="share-list">Send the list to my phone</button>
     </div>
 
     <div class="receipt">
@@ -969,7 +970,7 @@
           <label class="r-item"><input type="checkbox" id="n24"><span class="r-name">Fish sauce<span class="r-qty" data-q="1" data-u="ea" data-s="bottle"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">Larb and pork</span></label>
           <label class="r-item"><input type="checkbox" id="n25"><span class="r-name">Mirin<span class="r-qty" data-q="1" data-u="ea" data-s="bottle"></span></span><span class="r-price" data-p="4.00">$4.00</span><span class="r-for">Salmon and fish</span></label>
           <label class="r-item"><input type="checkbox" id="n26"><span class="r-name">Miso paste<span class="r-qty" data-q="1" data-u="ea" data-s="tub"></span></span><span class="r-price" data-p="5.00">$5.00</span><span class="r-for">The white fish</span></label>
-          <label class="r-item"><input type="checkbox" id="n27"><span class="r-name">Gochujang<span class="r-qty" data-q="1" data-u="ea" data-s="tub"></span></span><span class="r-price" data-p="5.00">$5.00</span><span class="r-for">Bulgogi</span></label>
+          <label class="r-item"><input type="checkbox" id="n27"><span class="r-name">Gochujang<span class="r-qty" data-q="1" data-u="ea" data-s="tub"></span></span><span class="r-price" data-p="5.00">$5.00</span><span class="r-for">Bulgogi — <b>optional, skip it if they are out</b></span></label>
           <label class="r-item"><input type="checkbox" id="n28"><span class="r-name">Rice vinegar<span class="r-qty" data-q="1" data-u="ea" data-s="bottle"></span></span><span class="r-price" data-p="3.00">$3.00</span><span class="r-for">Both pickles</span></label>
           <label class="r-item"><input type="checkbox" id="n29"><span class="r-name">Sesame oil<span class="r-qty" data-q="1" data-u="ea" data-s="bottle"></span></span><span class="r-price" data-p="4.00">$4.00</span><span class="r-for">Bulgogi and fish</span></label>
           <label class="r-item"><input type="checkbox" id="n30"><span class="r-name">Sesame seeds<span class="r-qty" data-q="100" data-u="g"></span></span><span class="r-price" data-p="2.50">$2.50</span><span class="r-for">Bulgogi</span></label>
@@ -1132,14 +1133,15 @@
 
     "bulgogi":{r:"Dinner · 6 portions",t:"Korean beef bulgogi",p:38,c:46,sv:"6 portions · three meals for two",m:["Pan","20 min","+ marinade"],
       kp:"4 days chilled · 2 months frozen",al:"soy, sesame",
-      i:[[1000,"g","beef rump, sliced thin"],[1,"ea","pear or apple, grated"],[6,"ea","tbsp soy"],[2,"ea","tbsp brown sugar"],[2,"ea","tbsp sesame oil"],[6,"ea","garlic cloves"],[30,"g","ginger, grated"],[2,"ea","tbsp gochujang"],[300,"g","rice, uncooked"],[3,"ea","cucumbers"],[2,"ea","tbsp rice vinegar"],[2,"ea","tbsp sesame seeds"]],
+      i:[[1000,"g","beef rump, sliced thin"],[1,"ea","pear or apple, grated"],[6,"ea","tbsp soy"],[2,"ea","tbsp brown sugar"],[2,"ea","tbsp sesame oil"],[6,"ea","garlic cloves"],[30,"g","ginger, grated"],[2,"ea","tbsp gochujang \u2014 optional, see the last step"],[300,"g","rice, uncooked"],[3,"ea","cucumbers"],[2,"ea","tbsp rice vinegar"],[2,"ea","tbsp sesame seeds"]],
       s:[["<b>Freeze the beef 30 minutes, then slice it as thin as you can.</b> Firm meat slices thin; soft meat tears. This is the whole technique.",30],
-         ["Marinade: grated pear, soy, sugar, sesame oil, garlic, ginger, gochujang. Beef through it, 30 minutes minimum.",30],
+         ["Marinade: grated pear, soy, sugar, sesame oil, garlic, ginger. Beef through it, 30 minutes minimum.",30],
          ["<b>The pear is not optional</b> — its enzymes tenderise the beef. Apple works, tinned pear does not.",0],
          ["<b>Screaming hot pan, thin layers, no crowding.</b> 2 minutes a batch. Crowded, it boils in its own marinade and goes grey.",8],
          ["Cucumber sliced thin, rice vinegar, pinch of salt, 10 minutes. That is the whole salad.",10],
          ["Rice, beef, cucumber, sesame seeds.",0],
-         ["Two tonight, two to the fridge, two to the freezer.",0]]},
+         ["Two tonight, two to the fridge, two to the freezer.",0],
+         ["<b>No gochujang? Leave it out.</b> Classic bulgogi does not have any \u2014 soy, sugar, sesame, garlic and pear is the real recipe. For heat: a teaspoon of miso plus chilli flakes, or sriracha.",0]]},
 
     "pork":{r:"Dinner · 8 portions",t:"Vietnamese caramelised pork",p:33,c:44,sv:"8 portions · four meals for two",m:["Pan","30 min","Four meals"],
       kp:"4 days chilled · 2 months frozen",al:"fish sauce",
@@ -1296,6 +1298,50 @@
     this.textContent = hideGot ? "Show everything" : "Hide what's in the trolley";
     paintShop();
   });
+  (function(){
+    var btn = $("#share-list"); if(!btn) return;
+    function buildText(){
+      var out = [], head = $(".r-top p");
+      $$(".r-cat").forEach(function(cat){
+        var rows = [];
+        $$(".r-item", cat).forEach(function(it){
+          if($("input", it).checked) return;
+          var nameEl = $(".r-name", it),
+              name = nameEl.childNodes[0] ? String(nameEl.childNodes[0].textContent).trim() : "",
+              qEl = $(".r-qty", it),
+              q = qEl ? String(qEl.textContent).trim() : "";
+          if(name){ rows.push("- " + name + (q ? "  (" + q + ")" : "")); }
+        });
+        if(rows.length){
+          var h = $("h4", cat);
+          out.push("");
+          out.push((h ? h.textContent : "").toUpperCase());
+          out = out.concat(rows);
+        }
+      });
+      if(!out.length){ return "Everything is ticked off."; }
+      return "SHOP" + (head ? " \u00b7 " + head.textContent.split("\u00b7")[0].trim() : "") + "\n" + out.join("\n");
+    }
+    btn.addEventListener("click", function(){
+      var txt = buildText(), done = function(msg){
+        var old = btn.textContent; btn.textContent = msg;
+        setTimeout(function(){ btn.textContent = old; }, 2000);
+      };
+      if(navigator.share){
+        navigator.share({ title: "Shopping list", text: txt }).catch(function(){});
+      } else if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){ done("Copied"); },
+                                                function(){ done("Could not copy"); });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done("Copied"); } catch(e){ done("Could not copy"); }
+        document.body.removeChild(ta);
+      }
+    });
+  })();
+
   $("#reset-shop").addEventListener("click", function(){
     got = {}; set(LS.list, "{}");
     items.forEach(function(it){ $("input", it).checked = false; });
