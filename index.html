@@ -29,6 +29,7 @@
   button,a,[role="button"],label.r-item,.open{
     touch-action:manipulation;
     -webkit-user-select:none;user-select:none;
+    -webkit-touch-callout:none;
   }
   input,textarea,select{font-size:16px}
   button:active,.tbtn:active,.step:active{opacity:.6}
@@ -92,7 +93,8 @@
     html{scroll-behavior:auto}
     *{animation-duration:.001ms!important;transition-duration:.001ms!important}
   }
-  .wrap{max-width:1000px;margin:0 auto;padding-inline:16px}
+  .wrap{max-width:1000px;margin:0 auto;
+    padding-inline:calc(16px + env(safe-area-inset-left,0px)) calc(16px + env(safe-area-inset-right,0px))}
   button{font:inherit;color:inherit}
 
   /* ---------------- control bar ---------------- */
@@ -101,7 +103,8 @@
     background:var(--paper);border-bottom:1px solid var(--rule);
   }
   .bar-in{
-    max-width:1000px;margin:0 auto;padding-inline:16px;padding-block:8px 6px;
+    max-width:1000px;margin:0 auto;padding-block:6px 4px;
+    padding-inline:calc(16px + env(safe-area-inset-left,0px)) calc(16px + env(safe-area-inset-right,0px));
     display:flex;align-items:center;gap:8px;flex-wrap:wrap;
   }
   .mark{
@@ -127,15 +130,21 @@
   }
   .bar-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .tabs{
-    max-width:1000px;margin:0 auto;padding-inline:16px;
+    max-width:1000px;margin:0 auto;
+    padding-inline:calc(16px + env(safe-area-inset-left,0px)) calc(16px + env(safe-area-inset-right,0px));
     display:grid;grid-template-columns:repeat(6,1fr);gap:0;
     border-top:1px solid var(--rule-2);
   }
   .tab{
     border:0;border-bottom:2px solid transparent;background:transparent;cursor:pointer;
-    padding:10px 4px 8px;
-    font-family:var(--mono);font-size:8.5px;letter-spacing:.02em;text-transform:uppercase;
+    display:flex;align-items:center;justify-content:center;min-height:44px;
+    padding:4px 2px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.02em;text-transform:uppercase;
     color:var(--ink-3);
+  }
+  @media (max-width:360px){
+    .tab{font-size:9px;letter-spacing:0}
+    .tabs{padding-inline:calc(8px + env(safe-area-inset-left,0px)) calc(8px + env(safe-area-inset-right,0px))}
   }
   .tab[aria-selected="true"]{color:var(--stamp);border-bottom-color:var(--stamp)}
   .tab:active{background:var(--sunk)}
@@ -151,6 +160,19 @@
     cursor:pointer;font-family:var(--mono);font-size:11px;line-height:1;
   }
   :focus-visible{outline:2px solid var(--stamp);outline-offset:1px}
+
+  /* the bar is sticky again, so anything scrolled to needs to clear it */
+  section[id],.wtabs{scroll-margin-top:96px}
+
+  /* touch targets -- grown on touch screens only, so the desk layout is untouched */
+  @media (pointer:coarse){
+    .tbtn{padding:11px 12px}
+    .tmr{padding:9px 12px;margin-top:9px}
+    .theme{width:40px;height:36px}
+    .row{padding:11px 0}
+    .open{padding-block:10px;margin-block:-10px}
+    .step{width:34px;height:34px}
+  }
 
   /* ---------------- masthead ---------------- */
   .mast{padding-block:20px 14px}
@@ -211,7 +233,7 @@
   /* ---------------- week / dockets ---------------- */
 
   .rail{display:grid;gap:14px}
-  @media (min-width:860px){.rail{grid-template-columns:1fr 1fr}}
+  @media (min-width:800px){.rail{grid-template-columns:1fr 1fr}}
 
   .docket{position:relative;background:var(--chit);border:1px solid var(--rule);border-top:0;padding:0 15px 13px}
   .docket::before{
@@ -559,6 +581,7 @@
   .sheet{
     position:fixed;z-index:60;background:var(--chit);
     display:flex;flex-direction:column;
+    padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px);
   }
   @media (min-width:761px){
     .sheet{top:0;right:0;bottom:0;width:min(440px,92vw);border-left:1px solid var(--ink)}
@@ -600,7 +623,8 @@
   }
   @media (max-width:760px){.s-close{top:12px}}
   .s-close:active{background:var(--sunk)}
-  .s-body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:16px 18px 20px;flex:1}
+  .s-body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;flex:1;
+    padding:16px 18px calc(20px + env(safe-area-inset-bottom,0px))}
   .s-lab{
     font-family:var(--mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;
     color:var(--ink-3);margin:0 0 8px;
@@ -668,6 +692,7 @@
     <button class="tab" id="tab-prep" role="tab" data-tab="prep" aria-selected="false" aria-controls="panel-prep">Freezer</button>
     <button class="tab" id="tab-shop" role="tab" data-tab="shop" aria-selected="false" aria-controls="panel-shop">Shop</button>
     <button class="tab" id="tab-notes" role="tab" data-tab="notes" aria-selected="false" aria-controls="panel-notes">Notes</button>
+  </div>
 </div>
 
 <div class="wrap">
