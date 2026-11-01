@@ -31,8 +31,19 @@ recipe or an inspiration menu wants to.
 - Dairy limited *in dishes*; no daily glass of milk.
 - **Pack sizes must be buyable**: 500 g / 1 kg trays. Never "700 g of mince".
   He is not going to the deli.
-- **No repeats week to week.** Same dinner, same dip, same snack three weeks
-  running gets rejected. Rotate the focaccia topping too.
+- **No repeats week to week — ever, not just three weeks running.** Before
+  choosing a single dish, dump every title the project has ever shipped and
+  pick from outside it:
+
+  ```bash
+  for c in $(git rev-list --all); do git show $c:index.html 2>/dev/null \
+    | grep -o 't:"[^"]*"'; done | sed 's/t:"//;s/"$//' | sort -u
+  ```
+
+  That is ~103 dishes as of 1 Nov 2026. A renamed version of one on the list
+  still counts as a repeat. His words: *"you are being lazy, we can rotate
+  receipes but you need to be orignal each week."* Pick a cuisine region the
+  recent weeks have not used and favour proteins never used at all.
 - Equipment: oven, cooktop, air fryer, slow cooker, stand mixer.
 
 **The gym**
@@ -86,6 +97,11 @@ sys.stdout.write(re.search(r'<script>(.*)</script>', s, re.S).group(1))" > /tmp/
 # 9. Every img/ file referenced actually exists
 ```
 
+**Computed at runtime, never hand-edit:** `#t-total`, `#r-total`,
+`#t-permeal`, `#r-owed`, `#r-lines`, every `.r-price`, every `.r-qty`, each
+`[data-sub]`. **Hand-maintained and silently stale:** `#t-pro`, `Hands-on
+Sun`, `Energy`, and every `.rpro` / `data-pro` on a row.
+
 **Recompute the shop total in code.** Hand-quoted figures have been wrong
 three times ($83 vs $92, $110 vs $124, $109 vs $116).
 
@@ -94,6 +110,14 @@ version**. Twice a wait-condition matched text present in both and reported
 success against a stale page.
 
 ---
+
+## This rebuilds itself every Sunday
+
+Scheduled task `sunday-meal-plan` (`~/.claude/scheduled-tasks/`), Sundays at
+07:10 local, builds and ships the whole week without being asked. It only
+fires while the desktop app is open — otherwise on next launch. Greg asked
+for this on 1 Nov 2026: *"Go build do this every Sunday without me telling
+you."* Do not stop to ask whether to build the week.
 
 ## Shipping
 
