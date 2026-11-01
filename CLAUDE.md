@@ -27,6 +27,9 @@ recipe or an inspiration menu wants to.
 - **Anything fat-heavy must be flagged before it ships**, with calories per
   serve. A 343 kcal / 14 g fat slice went into a weight-loss week once because
   it was on a menu he pasted. He caught it. Don't repeat that.
+- **No pork.** Stated 1 Nov 2026, after a pork loin dish had already been
+  built. It covers pork in every form — mince, loin, chops, bacon, ham.
+  Chorizo is cured pork too; ask before using it again.
 - **No lentils** — they bloat him. **Chickpeas are fine and he loves them.**
 - Dairy limited *in dishes*; no daily glass of milk.
 - **Pack sizes must be buyable**: 500 g / 1 kg trays. Never "700 g of mince".
@@ -67,6 +70,10 @@ sensible value, say what you picked, and build.
 **Methods are instructions, not essays.** No justification, no mechanism, no
 asides. Keep only what changes what he does ("chickpeas cooked in plain water
 first", "bare simmer never a boil"). Target ~12 words a step.
+
+**Do not oversell a number.** "High protein" was claimed for a sweet snack
+that had 8.8 g a square — less than the loaf it replaced. He checked. State
+what a thing is good at and what it is not, with the figure beside it.
 
 **Measurements**: cups lead, grams in small type beside them. The
 **Australian tablespoon is 20 ml = 4 tsp**, not 3. Only things people scoop
