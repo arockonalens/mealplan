@@ -27,9 +27,10 @@ recipe or an inspiration menu wants to.
 - **Anything fat-heavy must be flagged before it ships**, with calories per
   serve. A 343 kcal / 14 g fat slice went into a weight-loss week once because
   it was on a menu he pasted. He caught it. Don't repeat that.
-- **No pork.** Stated 1 Nov 2026, after a pork loin dish had already been
-  built. It covers pork in every form — mince, loin, chops, bacon, ham.
-  Chorizo is cured pork too; ask before using it again.
+- **No pork as a cut** — mince, loin, chops, roast, belly. Stated 1 Nov 2026
+  after a pork loin dish had already been built into a week.
+  **Bacon, ham and chorizo are fine** — he confirmed that immediately after,
+  so the line is fresh pork, not cured. Do not widen it back out.
 - **No lentils** — they bloat him. **Chickpeas are fine and he loves them.**
 - Dairy limited *in dishes*; no daily glass of milk.
 - **Pack sizes must be buyable**: 500 g / 1 kg trays. Never "700 g of mince".
