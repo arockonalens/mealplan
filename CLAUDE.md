@@ -52,8 +52,16 @@ recipe or an inspiration menu wants to.
 
 **The gym**
 - **No legs. Ever.** He hates them.
-- **No Friday.** Current split: Mon chest, Tue back+abs, Wed arms,
-  Thu shoulders+abs, Fri rest, Sat upper, Sun rest.
+- **No Friday.** Current split, since 5 Nov 2026: **Mon chest heavy,
+  Tue back+abs, Wed chest upper, Thu shoulders+abs, Fri rest,
+  Sat chest lower + back, Sun rest.**
+- **Chest is the priority.** He asked for it directly: *"for fitness, i
+  really just want to focus on chest."* Chest runs **three times a week**,
+  never on consecutive days, and the three sessions are deliberately
+  different (heavy / upper / lower). Arms lost their day to make room.
+- **Back stays twice a week and is not negotiable** — Tuesday and the back
+  half of Saturday. Pressing three times a week with no pulling rolls the
+  shoulders forward. Do not let a future "more chest" request delete it.
 - No warm-up or stretching sections — he removed them.
 - His machines: **Vertical Traction** (the pulldown), **Low Row**, and the
   **Abdominal Crunch**. Build around what he actually uses.
