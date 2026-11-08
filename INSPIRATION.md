@@ -13,7 +13,7 @@ same reject does not get re-litigated every week.
 
 Sent mid-build on 8 Nov: <https://vt.tiktok.com/ZSpkcCbx6/> — "Velveting Beef
 Recipe: Silky, Succulent Mongolian Beef at Home". **Shipped the same day** as
-Sunday dinner, at the recipe's own 500 g scale, because he had two steaks.
+Sunday dinner, at 460 g, rescaled when Greg weighed his steaks, because he had two steaks.
 
 The technique is the valuable part and it is now banked (see below). The
 dish itself is used — do not re-propose Mongolian beef — but **velveting
@@ -68,7 +68,7 @@ soup*) · *Greek lemon orzo chicken* (≈ three lemon-oregano chicken dishes)
 - **One pot of pasta water, twice** — lift the first batch out with a
   strainer, drop the second in. Not yet used.
 - **Twenty minutes of nothing but chopping** before any heat. Not yet used.
-- **Velveting** (8 Nov, @goosetheory05) — bicarb through raw sliced meat,
+- **Velveting** (8 Nov, @goosetheory05) — bicarb at 3 tsp a kilo through raw sliced meat,
   40 min, **rinsed off and dried**, then cornflour + egg white + soy, then a
   second dry cornflour dusting, flash-fried at **120–140 °C**. The rinse and
   the second dusting are the two steps people skip. Works on any tough cut.
