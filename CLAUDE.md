@@ -167,6 +167,49 @@ same-origin 390x844 iframe and drive that.
   It rescues cheap, tough cuts. **On a good cut it is a waste** — say so
   rather than using it because it is new.
 
+## Recipe format — grouped ingredients, method only in the method (8 Nov 2026)
+
+This is the format Greg asked for, and it is now the format for every recipe,
+every week. Do not go back to a flat list.
+
+- **`i:` is grouped by component**, the way a recipe names its own parts:
+  `[["Velveting marinade",[[q,u,name],...]],["Sauce",[...]],["Stir-fry",[...]]]`.
+  A quantity of **0 renders no number** — for "oil, for flash-frying" or
+  "rice, to serve". Fractions are **real numbers** (`0.5`, `0.25`); `qty()`
+  prints them as ½ and ¼. Never put the fraction in the name string.
+- **`s:` is `[title, html, timerMinutes]`.** The title is one or two words
+  (Slice, Marinate, Flash-fry). **Each step names its own ingredients**, so he
+  never has to read back up to the list while his hands are wet.
+- **`n:` is `[title, html]`** — every fact, flag, macro, caveat, correction and
+  substitution. **Nothing factual belongs in a method step.** Greg told me
+  "i dont need facts in the method" weeks ago and it crept straight back in.
+- **`src:`** credits the source when the recipe is someone else's.
+
+Prep words in an ingredient name ("cabbage, shredded") are safe: the shop
+cross-check normalises on the part before the first comma or em dash, both
+sides, so a prep word cannot silently break a quantity match.
+
+### Why this format exists — the 460 g mistake
+
+I flattened the Goose Theory velveting recipe into one prose ingredient array
+and prose steps. Once it was flat **every number looked like a number I was
+free to scale**, so when Greg's beef came in at 460 g instead of 500 g I
+"rescaled" it and got five things wrong at once:
+
+- white pepper at **1 tsp, four times** the source's ¼ tsp
+- **a whole bunch** of spring onions instead of the source's 3
+- marinade soy and sauce soy **merged into one 45 ml line** (it is 1 tbsp + 2 tbsp)
+- the **cornflour slurry dropped entirely** — then I wrote a note telling him to
+  hold sauce back to stop it going loose, which is what the slurry is for
+- worst: the recipe has **two bicarb routes** — ½ tsp that *stays in*, and 1½ tsp
+  that gets *washed off*. I welded them into one method, used the washed-off
+  dose, and then invented a "round the dose down, never up" rule for it. That
+  rule is backwards: the dose only matters on the version that stays in.
+
+**Scaling the main protein does not scale tablespoons.** At 460 g versus 500 g
+the only line that changes is the beef. Keep the source's structure and the
+source's quantities, and the card stays recognisable as that recipe.
+
 ## Shipping
 
 ```bash

@@ -671,6 +671,23 @@
     content:counter(t);font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-top:2px;
   }
   .s-steps p{margin:0;font-size:13.5px;line-height:1.5}
+  .s-ing .ig-h{
+    display:block;padding:13px 0 5px;border:0;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--stamp)}
+  .s-ing .ig-h:first-child{padding-top:5px}
+  .s-steps b.st{
+    display:block;margin:0 0 3px;font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  .s-notes{margin:0 0 8px;padding:0;list-style:none;border-top:1px solid var(--rule-2)}
+  .s-notes li{padding:11px 0;border-bottom:1px solid var(--rule-2)}
+  .s-notes b{
+    display:block;margin:0 0 3px;font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--stamp);font-weight:600}
+  .s-notes p{margin:0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+  .s-src{margin:1px 0 0;font-family:var(--mono);font-size:10px;
+    letter-spacing:.03em;color:var(--ink-3)}
+  .s-src b{letter-spacing:.09em;text-transform:uppercase;font-size:9px;color:var(--ink-3)}
   .tmr{
     margin-top:7px;border:1px solid var(--stamp);background:transparent;color:var(--stamp);
     cursor:pointer;padding:3px 8px;
@@ -1124,6 +1141,7 @@
   <div class="s-head">
     <p class="s-role" id="s-role">Dinner</p>
     <h3 class="s-title" id="s-title">Meal</h3>
+    <p class="s-src" id="s-src" hidden></p>
     <div class="s-meta" id="s-meta"></div>
     <p class="s-macro" id="s-macro"></p>
     <button class="s-close" id="s-close" aria-label="Close">✕</button>
@@ -1133,6 +1151,8 @@
     <ul class="s-ing" id="s-ing"></ul>
     <p class="s-lab">Method</p>
     <ol class="s-steps" id="s-steps"></ol>
+    <p class="s-lab" id="s-notes-lab" hidden>Notes</p>
+    <ul class="s-notes" id="s-notes" hidden></ul>
   </div>
 </aside>
 
@@ -1157,90 +1177,175 @@
   /* ---------- meal data ---------- */
   var M = {
     "mongolian":{r:"Dinner · 2 portions",t:"Velveted Mongolian beef",p:55,c:48,sv:"2 portions · tonight only · your 460 g",m:["Wok","40 min","Flag · 790 kcal"],
+      src:"Goose Theory — V is for Velveting · @goosetheory05",
       kp:"Eaten fresh — there are no leftovers from this one",al:"soy (wheat), egg",
-      i:[[460,"g","beef steak"],[1,"ea","heaped 1¼ tsp bicarb soda"],[1,"ea","tbsp cornflour, for the marinade"],[1,"ea","egg white"],[45,"ml","soy sauce"],[1,"ea","tsp white pepper"],[35,"g","cornflour, for dusting"],[200,"ml","neutral oil"],[30,"g","brown sugar"],[30,"ml","Shaoxing wine"],[3,"ea","garlic cloves"],[20,"g","ginger"],[1,"ea","capsicum"],[1,"ea","bunch spring onions"],[90,"g","jasmine rice"]],
-      s:[["Steaks sliced thin <b>against the grain</b>. Thin matters more than tidy. <b>460 g is two big plates</b> — about 230 g each, which is more beef than either of you usually gets at dinner.",10],
-         ["<b>A heaped 1¼ tsp of bicarb through the raw beef, then 40 minutes in the fridge.</b> The dose is three teaspoons a kilo, so 460 g lands just under 1½ — <b>round down, never up</b>. This is the velveting: it lifts the pH so the muscle cannot seize as it cooks.",40],
-         ["<b>Then rinse the bicarb off properly and pat dry.</b> Leave it on and the whole thing tastes of soap.",0],
-         ["Marinade: 1 tbsp cornflour, the egg white, soy, white pepper, a spoon of oil. <b>One white is the right size for 460 g.</b> Every strip coated, 30 minutes.",30],
-         ["Dusted again in dry cornflour, excess shaken off — 35 g is plenty. <b>That second dusting is the silky coating</b>, not the marinade. You want a dry dust, not a batter.",0],
-         ["Oil to 120–140 °C — <b>cooler than you would guess</b>. One batch is plenty at 460 g. Straight onto a rack, never into a pile on paper — that alone is 7 g of fat a serve.",8],
-         ["Sauce: soy, brown sugar, 3 tbsp water, Shaoxing. Simmered until glossy. <b>That quantity was built for 500 g, so hold a spoonful back</b> and add it only if the wok looks dry — loose sauce instead of glaze is how this dish usually fails at home.",0],
-         ["Capsicum briefly, then ginger and garlic until fragrant. Sauce in, then beef and the whole bunch of spring onion through it.",6],
-         ["<b>No Shaoxing? Sake, or any Chinese rice wine, 1:1 — change nothing else.</b> Dry sherry is just as close. <b>Mirin works but it is sweet</b>, so drop the brown sugar from 30 g to 20 g or the glaze turns to teriyaki. <b>Rice wine vinegar is not rice wine</b> — that would make the sauce sour rather than deep, so do not reach for the red wine vinegar either.",0],
-         ["<b>Worth saying once: velveting is a rescue technique for cheap, tough cuts.</b> If your two are good steaks, a hot pan and salt would honour them better. If they are rump, blade or round, this is exactly the right thing to do with them.",0],
-         ["<b>Fat flag, and a correction: 790 kcal and 33 g fat a serve, not the 600 I first wrote.</b> I had not counted the frying oil properly. About 28 g of that 200 ml ends up in the food, which is 130 kcal and 14 g of fat a serve on its own. <b>This is the biggest plate of the week by calories.</b>",0],
-         ["<b>My pick: velvet it, then skip the oil bath.</b> The silk comes from the bicarb and the cornflour, not the deep fry — a wok hot enough sets that coating in forty seconds. Searing in one tablespoon instead of 200 ml takes it to about <b>730 kcal and 26 g fat</b>, and dropping the rice to 60 g dry puts it under 700. Same texture, and on two good steaks I would rather not boil them in oil.",0],
-         ["<b>No leftovers from this one</b>, which is why nothing else in the week leans on it.",0]]},
+      i:[["Velveting marinade",[
+            [460,"g","beef — chuck or topside"],
+            [0.5,"ea","tsp bicarb soda"],
+            [1,"ea","tbsp cornflour"],
+            [1,"ea","egg white"],
+            [1,"ea","tbsp soy sauce"],
+            [0.25,"ea","tsp white pepper"],
+            [1,"ea","tbsp neutral oil"],
+            [0,"ea","cornflour, extra, for dusting"],
+            [0,"ea","neutral oil, for flash-frying"]]],
+         ["Sauce",[
+            [2,"ea","tbsp soy sauce"],
+            [2,"ea","tbsp brown sugar"],
+            [3,"ea","tbsp water"],
+            [2,"ea","tbsp Shaoxing wine"],
+            [1,"ea","tsp cornflour + 1 tbsp water — slurry, optional"]]],
+         ["Stir-fry",[
+            [1,"ea","tbsp neutral oil"],
+            [3,"ea","garlic cloves, minced"],
+            [1,"ea","tbsp ginger, minced"],
+            [1,"ea","capsicum, sliced — optional"],
+            [3,"ea","spring onions, cut into batons"],
+            [0,"ea","steamed rice, to serve"]]]],
+      s:[["Slice","Slice the beef into thin strips <b>against the grain</b>.",0],
+         ["Marinate","Mix the beef with the bicarb, cornflour, egg white, soy sauce, white pepper and oil until every strip is coated. Marinate 30 minutes.",30],
+         ["Extra tender — optional","Use <b>1½ tsp bicarb</b> instead. Mix, fridge 40 minutes, then <b>wash it off</b> and pat dry. Then do the marinade above.",40],
+         ["Dust","Dust the beef lightly with the extra cornflour. Shake the excess off.",0],
+         ["Flash-fry","Heat the frying oil to <b>120–140 °C</b>. Flash-fry the beef in batches until the coating sets and it is just cooked. Remove and drain.",8],
+         ["Aromatics","Leave 1 tbsp of oil in the wok. Stir-fry the capsicum briefly, then the ginger and garlic until fragrant.",0],
+         ["Sauce","Pour in the soy sauce, brown sugar, water and Shaoxing. Simmer until glossy. Add the slurry if it needs thickening.",0],
+         ["Toss","Return the beef with the spring onions. Toss until coated.",0],
+         ["Serve","Serve over steamed rice.",0]],
+      n:[["Serves","The recipe serves 2–3 at 500 g. Yours is 460 g and I have planned it as <b>two portions, tonight</b> — about 230 g of beef each."],
+         ["460 g changes nothing but the beef line","Everything else here is the recipe's own amount. Tablespoons do not move for 40 g, and <b>the bicarb is the one thing I should not have scaled</b> — see below."],
+         ["The two bicarb routes are not the same thing","<b>½ tsp stays in</b> the marinade and is the normal route. <b>1½ tsp gets washed off</b> and is the extra-tender route. I previously welded them together and ran 1½ tsp as the only method, then invented a <i>round the dose down</i> rule for it — which was backwards, because the dose only matters on the version that stays in."],
+         ["Fat flag — 790 kcal, 33 g fat a serve","The flash-fry is most of it: about 28 g of the oil ends up in the food, which is 130 kcal and 14 g of fat a serve. <b>The biggest plate of the week.</b> Drain on a rack, not in a pile on paper."],
+         ["Lighter, same texture","<b>Velvet it, then skip the oil bath.</b> The silk is the bicarb and the cornflour, not the deep fry — a hot enough wok sets that coating in forty seconds. One tablespoon instead of a pan of oil puts it near <b>730 kcal and 26 g fat</b>."],
+         ["No Shaoxing","<b>Sake, or any Chinese rice wine, 1:1 — change nothing else.</b> Dry sherry is just as close. <b>Mirin works but it is sweet</b>, so cut the brown sugar to 1 tbsp or the glaze turns to teriyaki. <b>Rice wine vinegar is not rice wine</b> — that makes it sour, not deep."],
+         ["The cut","The recipe asks for <b>chuck or topside</b>, and that is the point: velveting is a rescue for tough, cheap cuts. If what you have is good steak, a hot pan and salt would honour it better."],
+         ["No leftovers","The coating goes soft and the beef goes grey, which is why nothing else this week leans on it."]]},
 
     "wings":{r:"Dinner · 8 portions",t:"Lemon pepper wings",p:42,c:32,sv:"8 portions · four dinners for two",m:["Air fryer","30 min","Flag · 600 kcal"],
       kp:"Rubbed Sunday, cooked on the night · raw 3 days, frozen 2 months",al:"egg in the mayo",
-      i:[[2500,"g","chicken wings"],[3,"ea","tbsp lemon pepper seasoning"],[3,"ea","tsp baking powder"],[2,"ea","lemons"],[400,"g","cabbage"],[200,"g","carrots"],[4,"ea","tbsp mayonnaise"],[1,"ea","tbsp Dijon mustard"],[2000,"g","potatoes"]],
-      s:[["Wings dried hard with paper. <b>Wet wings will not crisp, at any temperature.</b>",0],
-         ["Tossed with lemon pepper and <b>the baking powder</b> — that is the thing that blisters the skin.",0],
-         ["Air fryer 200 °C, <b>single layer</b>, turned once. Two batches a night.",24],
-         ["<b>Do not stack them to save a batch.</b> Stacked wings steam and come out pale and loose.",0],
-         ["Potato wedges in the oven at 200 °C on the same clock.",35],
-         ["Slaw: cabbage, carrot, mayo, Dijon, lemon. <b>Dressed at the table, not in the tub.</b>",0],
-         ["Zest as well as juice over at the end.",0],
-         ["<b>Rubbed Sunday, cooked on the night.</b> They are 25 minutes from raw, and four dinners is too many to fry at once.",0],
-         ["<b>600 kcal and 34 g fat a serve.</b> These and tonight’s beef are the two fat-heavy plates of the week; here the skin is nearly all of it. Flats only, or skin off after cooking, takes about 150 kcal off.",0]]},
+      i:[["Wings",[
+            [2500,"g","chicken wings"],
+            [3,"ea","tbsp lemon pepper seasoning"],
+            [3,"ea","tsp baking powder"],
+            [2,"ea","lemons"]]],
+         ["Slaw",[
+            [400,"g","cabbage, shredded"],
+            [200,"g","carrots, grated"],
+            [4,"ea","tbsp mayonnaise"],
+            [1,"ea","tbsp Dijon mustard"]]],
+         ["To serve",[
+            [2000,"g","potatoes, cut into wedges"]]]],
+      s:[["Dry","Dry the wings hard with paper.",0],
+         ["Rub","Toss the wings with the lemon pepper and the baking powder.",0],
+         ["Air fry","Air fryer 200 °C, <b>single layer</b>, turned once. Two batches a night.",24],
+         ["Wedges","Potato wedges in the oven at 200 °C on the same clock.",35],
+         ["Slaw","Cabbage, carrot, mayo, Dijon and the juice of a lemon. <b>Dress at the table, not in the tub.</b>",0],
+         ["Finish","Zest as well as juice over the wings at the end.",0]],
+      n:[["Why baking powder","It lifts the skin's pH so it blisters instead of tightening. <b>Wet wings will not crisp at any temperature</b>, which is why they get dried first."],
+         ["Do not stack them","Stacked wings steam and come out pale and loose. Two batches is faster than one bad one."],
+         ["Rubbed Sunday, cooked on the night","They are 25 minutes from raw, and four dinners is too many to fry at once."],
+         ["Fat flag — 600 kcal, 34 g fat a serve","These and tonight's beef are the two fat-heavy plates of the week; here the skin is nearly all of it. Flats only, or skin off after cooking, takes about 150 kcal off."]]},
 
     "harvest":{r:"Lunch · 6 portions",t:"Harvest chicken bowl, apple and pecan",p:55,c:38,sv:"6 portions · three lunches for two · eaten cold",m:["Oven","35 min","Highest protein"],
       kp:"4 days chilled · dressing and apple kept out",al:"tree nuts, mustard",
-      i:[[1500,"g","chicken breast"],[900,"g","sweet potatoes"],[3,"ea","apples"],[60,"g","pecans"],[2,"ea","cos lettuce"],[3,"ea","tbsp Dijon mustard"],[2,"ea","tbsp honey"],[3,"ea","tbsp red wine vinegar"],[40,"ml","olive oil"],[1,"ea","bunch chives"]],
-      s:[["Breast butterflied flat. <b>Even thickness, or the thin end is chalk before the thick end is done.</b>",0],
-         ["Sweet potato in 2 cm cubes, oiled, on the same tray.",0],
-         ["200 °C.",22],
-         ["<b>Out at 70 °C internal and rested five minutes.</b> Breast goes from done to dry in about two minutes.",5],
-         ["Pecans toasted in a dry pan and watched — they catch without warning.",3],
-         ["Dressing: Dijon, honey, vinegar, oil, shaken in a jar.",0],
-         ["<b>Apple sliced on the day, never Sunday.</b> It browns and goes woolly.",0],
-         ["<b>Dressing in its own jar.</b> Dressed early the leaves collapse to nothing.",0]]},
+      i:[["Tray",[
+            [1500,"g","chicken breast, butterflied"],
+            [900,"g","sweet potatoes, in 2 cm cubes"],
+            [40,"ml","olive oil"]]],
+         ["Dressing",[
+            [3,"ea","tbsp Dijon mustard"],
+            [2,"ea","tbsp honey"],
+            [3,"ea","tbsp red wine vinegar"]]],
+         ["Assembled on the day",[
+            [3,"ea","apples"],
+            [60,"g","pecans"],
+            [2,"ea","cos lettuce"],
+            [1,"ea","bunch chives"]]]],
+      s:[["Butterfly","Butterfly the breast flat so it is an even thickness.",0],
+         ["Tray","Sweet potato cubes oiled, on the same tray as the chicken.",0],
+         ["Roast","200 °C.",22],
+         ["Rest","Out at <b>70 °C internal</b> and rested five minutes.",5],
+         ["Toast","Pecans toasted in a dry pan and watched.",3],
+         ["Dressing","Dijon, honey and vinegar shaken in a jar with the rest of the oil.",0],
+         ["Assemble","On the day: lettuce, chicken, sweet potato, apple sliced fresh, pecans, chives. Dressing poured on at the table.",0]],
+      n:[["Even thickness beats any timer","The thin end is chalk before the thick end is done, so butterflying is not optional. Breast goes from done to dry in about two minutes — the 70 °C is the whole game."],
+         ["Apple on the day, never Sunday","It browns and goes woolly."],
+         ["Dressing in its own jar","Dressed early, the leaves collapse to nothing."],
+         ["Highest protein plate here","55 g a serve, 588 kcal."]]},
 
     "grinder":{r:"Lunch · 6 portions",t:"Italian grinder sliders",p:42,c:40,sv:"6 portions · three lunches for two · nothing cooked",m:["No cook","15 min","Pack it apart"],
       kp:"Meat 4 days · Saturday's bag frozen · salad made fresh twice",al:"wheat, dairy, egg",
-      i:[[600,"g","shaved ham"],[200,"g","salami"],[200,"g","provolone"],[12,"ea","bread rolls"],[2,"ea","cos lettuce"],[300,"g","tomatoes"],[2,"ea","red onions"],[3,"ea","tbsp mayonnaise"],[2,"ea","tbsp red wine vinegar"],[1,"ea","tsp dried oregano"]],
-      s:[["Grinder salad: lettuce shredded fine, red onion, tomato, mayo, vinegar, oregano.",0],
-         ["<b>Salt the salad, leave it ten minutes, then pour off what pools.</b> That liquid is what would have ruined the bread.",10],
-         ["Rolls split, provolone on the base, ham and salami piled on.",0],
-         ["<b>Salad goes on at the last second.</b> Built in the morning it is soup by noon.",0],
-         ["Meat and cheese in one tub, salad in another, rolls left whole.",0],
-         ["Two rolls each. That is the portion.",0],
-         ["<b>No toasting.</b> This is a cold sandwich; hot it becomes a different and worse thing.",0],
-         ["<b>Ham and salami are cured, which is fine.</b> No fresh pork anywhere this week.",0]]},
+      i:[["Grinder salad",[
+            [2,"ea","cos lettuce, shredded fine"],
+            [300,"g","tomatoes, chopped"],
+            [2,"ea","red onions, sliced thin"],
+            [3,"ea","tbsp mayonnaise"],
+            [2,"ea","tbsp red wine vinegar"],
+            [1,"ea","tsp dried oregano"]]],
+         ["Build",[
+            [12,"ea","bread rolls"],
+            [200,"g","provolone, sliced"],
+            [600,"g","shaved ham"],
+            [200,"g","salami"]]]],
+      s:[["Salad","Lettuce, red onion, tomato, mayo, vinegar and oregano together.",0],
+         ["Drain it","<b>Salt the salad, leave it ten minutes, then pour off what pools.</b>",10],
+         ["Build","Rolls split, provolone on the base, ham and salami piled on.",0],
+         ["Pack apart","Meat and cheese in one tub, salad in another, rolls left whole.",0],
+         ["Finish","Salad onto the roll at the last second. Two rolls each.",0]],
+      n:[["That pooled liquid is the whole trick","It is what would have ruined the bread. Built in the morning with the salad on, this is soup by noon."],
+         ["No toasting","This is a cold sandwich; hot it becomes a different and worse thing."],
+         ["On the pork","Ham and salami are cured, which is fine. No fresh pork anywhere this week."]]},
 
     "salmon":{r:"Dinner · 6 portions",t:"Blackened salmon, charred corn salsa",p:43,c:23,sv:"6 portions · three dinners for two · cooked fresh",m:["Pan","20 min","Lowest carb"],
       kp:"Freeze a third on Sunday · out Thursday night",al:"fish",
-      i:[[1200,"g","salmon fillets"],[4,"ea","tbsp cajun seasoning"],[6,"ea","corn cobs"],[300,"g","tomatoes"],[2,"ea","red onions"],[3,"ea","lemons"],[1,"ea","bunch chives"]],
-      s:[["Salmon dried, then pressed hard into the spice on the flesh side only.",0],
-         ["<b>Screaming hot dry pan, spice side down first.</b> It has to catch, not sweat.",4],
-         ["Turned once, three minutes on the skin.",3],
-         ["<b>Blackened means the spice goes dark, not the fish.</b> Out while the centre is still coral.",0],
-         ["Corn cut off the cob and charred in the same pan — no oil, no stirring.",5],
-         ["Salsa: charred corn, tomato, red onion, lemon, salt, chives. Made fresh each night; it takes five minutes.",0],
-         ["<b>Two portions a night, Monday, Wednesday and Friday.</b> Friday's 400 g is frozen on Sunday and comes out Thursday night — fresh salmon will not hold to day five.",0]]},
+      i:[["Salmon",[
+            [1200,"g","salmon fillets"],
+            [4,"ea","tbsp cajun seasoning"]]],
+         ["Charred corn salsa",[
+            [6,"ea","corn cobs"],
+            [300,"g","tomatoes, chopped"],
+            [2,"ea","red onions, diced"],
+            [3,"ea","lemons"],
+            [1,"ea","bunch chives"]]]],
+      s:[["Press","Salmon dried, then pressed hard into the spice <b>on the flesh side only</b>.",0],
+         ["Sear","Screaming hot dry pan, spice side down first.",4],
+         ["Turn","Turned once, three minutes on the skin. Out while the centre is still coral.",3],
+         ["Char the corn","Corn cut off the cob and charred in the same pan — <b>no oil, no stirring</b>.",5],
+         ["Salsa","Charred corn, tomato, red onion, lemon, salt and chives. Made fresh each night.",0]],
+      n:[["Blackened means the spice goes dark, not the fish","If the pan sweats instead of catching, it is not hot enough."],
+         ["The freezer split","Two portions a night, Monday, Wednesday and Friday. <b>Friday's 400 g is frozen on Sunday and comes out Thursday night</b> — fresh salmon will not hold to day five."],
+         ["Lowest carb plate here","23 g a serve, 525 kcal."]]},
 
     "edamame":{r:"Savoury snack · 5 minutes",t:"Chilli-salt edamame",p:15,c:9,sv:"14 servings · 143 g each · one a day",m:["Boiled","5 min","Leanest here"],
       kp:"Stays frozen · cooked as you want it",al:"soy",
-      i:[[2000,"g","shelled edamame, frozen"],[2,"ea","tsp chilli flakes"],[2,"ea","tsp flaked salt"],[2,"ea","lemons"]],
-      s:[["Boiled straight from frozen. No thawing.",5],
-         ["Drained hard, then tossed hot with chilli, salt and lemon.",0],
-         ["<b>Salt them while they are still steaming</b> or it falls straight back off.",0],
-         ["<b>Cook them as you want them, not all on Sunday.</b> Five minutes from the freezer beats four-day-old edamame every time.",0],
-         ["<b>15 g protein, 7 g fat, 170 kcal a serving.</b> Nothing else in this plan returns that much protein for that little effort — and it is doing real work this week, because the beef is only one dinner.",0],
-         ["<b>Deliberately the laziest snack we have run.</b> Neither snack gets baked, which is why Sunday is 60 minutes instead of 95.",0]]},
+      i:[["All of it",[
+            [2000,"g","shelled edamame, frozen"],
+            [2,"ea","tsp chilli flakes"],
+            [2,"ea","tsp flaked salt"],
+            [2,"ea","lemons"]]]],
+      s:[["Boil","Straight from frozen. No thawing.",5],
+         ["Drain","Drained hard.",0],
+         ["Toss","Tossed hot with the chilli, salt and a squeeze of lemon.",0]],
+      n:[["Salt them steaming","Wait and it falls straight back off."],
+         ["Cook them as you want them, not all on Sunday","Five minutes from the freezer beats four-day-old edamame every time."],
+         ["15 g protein, 7 g fat, 170 kcal a serving","Nothing else here returns that much protein for that little effort — and it is doing real work this week, because the beef is only one dinner."]]},
 
     "parfait":{r:"Sweet snack · built in the morning",t:"Apple cinnamon yoghurt parfait",p:17,c:30,sv:"14 pots · one each a day · no baking",m:["No cook","5 min","Really is high protein"],
       kp:"Nut-and-oat mix keeps a fortnight · apple grated on the day",al:"dairy, tree nuts, gluten in the oats",
-      i:[[2000,"g","Greek yoghurt, 0% fat"],[6,"ea","apples"],[210,"g","rolled oats"],[140,"g","honey"],[70,"g","pecans"],[2,"ea","tsp cinnamon"]],
-      s:[["Pecans toasted dry and chopped. Oats and cinnamon stirred through them.",3],
-         ["<b>The whole nut-and-oat mix is made once on Sunday</b> and lives in a jar.",0],
-         ["Each morning: 145 g yoghurt, honey, a handful of the mix, apple grated over.",0],
-         ["<b>Apple grated on the day.</b> Grated Sunday it is brown by Tuesday.",0],
-         ["<b>0% Greek yoghurt, not the thick 10% stuff.</b> Same protein, a third of the fat, and here the yoghurt is most of the dish.",0],
-         ["<b>17 g protein, 5 g fat, 235 kcal.</b> This one genuinely is high protein — 14 g of it is the yoghurt alone. Unlike the semolina squares, which I oversold.",0],
-         ["No oats? Leave them out: 13 g protein and 180 kcal.",0]]}
+      i:[["Nut and oat mix — made once",[
+            [210,"g","rolled oats"],
+            [70,"g","pecans"],
+            [2,"ea","tsp cinnamon"]]],
+         ["Each pot, in the morning",[
+            [2000,"g","Greek yoghurt, 0% fat"],
+            [140,"g","honey"],
+            [6,"ea","apples"]]]],
+      s:[["Toast","Pecans toasted dry and chopped.",3],
+         ["Mix","Oats and cinnamon stirred through the pecans. Into a jar.",0],
+         ["Build","Each morning: 145 g yoghurt, a drizzle of honey, a handful of the mix, apple grated over.",0]],
+      n:[["Apple grated on the day","Grated Sunday it is brown by Tuesday."],
+         ["0% Greek yoghurt, not the thick 10%","Same protein, a third of the fat, and here the yoghurt is most of the dish."],
+         ["17 g protein, 5 g fat, 235 kcal","This one genuinely is high protein — 14 g of it is the yoghurt alone. Unlike the semolina squares, which I oversold."],
+         ["No oats?","Leave them out: 13 g protein and 180 kcal."]]}
   };
   /* ---------- state ---------- */
   var PAX = 2;
@@ -1557,16 +1662,31 @@
       : "")
       + (m.kp ? '<span class="kps"><b>Keeps</b> ' + m.kp + '</span>' : "")
       + (m.al ? '<span class="alg"><b>Contains</b> ' + m.al + '</span>' : "");
-    $("#s-ing").innerHTML = m.i.map(function(x){
-      var c = cups(x[0], x[1], x[2]), g = qty(x[0], x[1], "");
-      return '<li><span class="iq">' + (c || g) + "</span><span>" + x[2] +
-             (c ? ' <i class="ig">' + g + "</i>" : "") + "</span></li>";
+    var src = $("#s-src");
+    src.innerHTML = m.src ? "<b>From</b> " + m.src : "";
+    src.hidden = !m.src;
+    /* ingredients are grouped by component: [["Sauce",[[q,u,name],...]],...]
+       and a quantity of 0 means "to taste" / "for frying" — show no number */
+    $("#s-ing").innerHTML = m.i.map(function(g){
+      return '<li class="ig-h">' + g[0] + "</li>" + g[1].map(function(x){
+        var c = x[0] ? cups(x[0], x[1], x[2]) : null,
+            q = x[0] ? qty(x[0], x[1], "") : "";
+        return '<li><span class="iq">' + (c || q) + "</span><span>" + x[2] +
+               (c ? ' <i class="ig">' + q + "</i>" : "") + "</span></li>";
+      }).join("");
     }).join("");
+    /* steps are [title, html, timerMinutes] — method only, never facts */
     $("#s-steps").innerHTML = m.s.map(function(x){
-      return "<li><div><p>" + x[0] + "</p>" +
-        (x[1] ? '<button class="tmr" data-min="' + x[1] + '">' + x[1] + ' min timer</button>' : "") +
+      return "<li><div>" + '<b class="st">' + x[0] + "</b><p>" + x[1] + "</p>" +
+        (x[2] ? '<button class="tmr" data-min="' + x[2] + '">' + x[2] + ' min timer</button>' : "") +
         "</div></li>";
     }).join("");
+    var hasN = !!(m.n && m.n.length);
+    $("#s-notes").innerHTML = hasN ? m.n.map(function(x){
+      return "<li><b>" + x[0] + "</b><p>" + x[1] + "</p></li>";
+    }).join("") : "";
+    $("#s-notes").hidden = !hasN;
+    $("#s-notes-lab").hidden = !hasN;
     $$("#s-steps .tmr").forEach(function(b){
       b.addEventListener("click", function(){ startTimer(parseInt(b.getAttribute("data-min"),10), b); });
     });
