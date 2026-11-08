@@ -135,6 +135,38 @@ fires while the desktop app is open — otherwise on next launch. Greg asked
 for this on 1 Nov 2026: *"Go build do this every Sunday without me telling
 you."* Do not stop to ask whether to build the week.
 
+## The page is a mobile app, not a web page (8 Nov 2026)
+
+Greg uses this on an iPhone, installed to the home screen. Treat it as an app:
+
+- **Navigation is a fixed bottom tab bar** (`.tabbar` / `.tab`), inside
+  `env(safe-area-inset-bottom)`, where a thumb reaches. It is **not** a row
+  under the header any more. Six tabs, icon + label, 44px minimum targets.
+- **The nav markup must sit above the inline `<script>`.** The script runs
+  immediately and collects `.tab` at parse time; put the nav after it and the
+  query returns nothing, `show()` no-ops silently, **and nothing throws**.
+  That bug shipped once and was only caught by clicking a tab in a test.
+- **Each tab keeps its own scroll position** (`sessionStorage`,
+  `cu-scroll-v1`) and restores it with `behavior:"instant"`. It must be
+  instant: `html{scroll-behavior:smooth}` is set, so a plain `scrollTo`
+  animates the new panel in front of you on every tab change.
+- **Re-tapping the active tab scrolls to top**, smoothly. That one is meant
+  to animate.
+- `body` carries `padding-bottom: calc(52px + safe-area-inset-bottom)` so the
+  bar never covers content. The share sheet is z-index 60 and the scrim 50,
+  so the tab bar must stay **below 50** (it is 45).
+
+Test it at 390x844 before shipping. Desktop Chrome will not resize a
+maximised window — replace `document.documentElement.innerHTML` with a
+same-origin 390x844 iframe and drive that.
+
+## Techniques worth reaching for
+
+- **Velveting** — bicarb through raw sliced meat 40 min, **rinsed off**,
+  then cornflour + egg white, then a second dry dusting, fried at 120–140 °C.
+  It rescues cheap, tough cuts. **On a good cut it is a waste** — say so
+  rather than using it because it is new.
+
 ## Shipping
 
 ```bash
