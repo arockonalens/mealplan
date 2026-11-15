@@ -28,7 +28,7 @@ recipe or an inspiration menu wants to.
   in the prose. Choose on **food**: protein, originality, how the week eats.
   The shop total stays on the page as a **read-out, not a target** — it is how
   "fair" stays checkable. State it once, plainly, and never argue about it.
-  *Per meal, each* is gone from the tape; it was a budget metric.
+  *Per meal, each* went first, then the whole tape.
 - **No breakfast.** Lunch + dinner + snacks only. A "breakfast" dish from an
   external menu becomes lunch.
 - **Goal is fat loss with muscle gain.** 185 cm, 70 kg, 35, trains 5 days,
@@ -124,10 +124,24 @@ sys.stdout.write(re.search(r'<script>(.*)</script>', s, re.S).group(1))" > /tmp/
 # 9. Every img/ file referenced actually exists
 ```
 
-**Computed at runtime, never hand-edit:** `#t-total`, `#r-total`,
-`#t-permeal`, `#r-owed`, `#r-lines`, every `.r-price`, every `.r-qty`, each
-`[data-sub]`. **Hand-maintained and silently stale:** `#t-pro`, `Hands-on
-Sun`, `Energy`, and every `.rpro` / `data-pro` on a row.
+**Computed at runtime, never hand-edit:** `#r-total`, `#r-owed`,
+`#r-lines`, every `.r-price`, every `.r-qty`, each `[data-sub]`.
+**Hand-maintained and silently stale:** every `.rpro` / `data-pro` on a row,
+the receipt date line, `r-foot`, the pairing table and the cook-up panels.
+
+**The stats tape is gone** (15 Nov 2026) — Greg asked for it off the header.
+Every number on it was already elsewhere on the page: the shop total in the
+receipt, protein and energy in `r-foot`, the Sunday time in the cook-up
+heading. Do not reinstate it. `.tape` / `.tp` **CSS stays** — the seven gym
+panels use the same classes.
+
+**Ingredients are weighed, never cupped** (15 Nov 2026). Greg: *"chicken
+breast does not need to be in cups? can you do potions or grams/kg for those
+type of things."* `cups()` now returns a spoon measure only below
+`SPOONABLE` (60 g/ml), where a spoon really is how you measure it; everything
+else renders as g/kg. The old cup table had `/butter/`, which matched
+**"butterflied"** and showed 1.5 kg of chicken breast as "6 ⅔ cups".
+Substring patterns over food names are a trap — do not add another table.
 
 **Recompute the shop total in code.** Hand-quoted figures have been wrong
 three times ($83 vs $92, $110 vs $124, $109 vs $116).

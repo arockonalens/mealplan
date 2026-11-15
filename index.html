@@ -731,15 +731,7 @@
 <div class="wrap">
 
   <div class="panel" id="panel-week" role="tabpanel" aria-labelledby="tab-week">
-  <header class="mast">
-    <h1 class="vh">Meal Planner</h1>
-    <dl class="tape">
-      <div class="tp"><dt>Shop total</dt><dd id="t-total">$276.50</dd></div>
-      <div class="tp"><dt>Protein · aim 130</dt><dd id="t-pro">124<i>g/day</i></dd></div>
-      <div class="tp"><dt>Hands-on Sun</dt><dd>60<i>min</i></dd></div>
-      <div class="tp"><dt>Energy</dt><dd>1580<i>kcal/day</i></dd></div>
-    </dl>
-  </header>
+  <h1 class="vh">Meal Planner</h1>
   <section id="week">
     <div class="sh"><h2>The week</h2><p class="sh-note">Tap a meal for the method ·  weekly staple</p></div>
     <div class="rail" id="rail">
@@ -1358,15 +1350,6 @@
   /* ---------- formatting ---------- */
   function money(n){ return "$" + n.toFixed(2); }
   function trim(n){ return String(Math.round(n*100)/100); }
-  var CUP = [
-    [/coconut flour/, 115], [/almond meal|almond flour/, 96], [/plain flour|flour/, 150], [/rolled oats|oats/, 90],
-    [/cooked rice/, 175], [/rice/, 200],
-    [/greek yoghurt|yoghurt|mayo/, 260],
-    [/cheese/, 100],
-    [/cooked chickpeas/, 165], [/chickpeas/, 200],
-    [/cannellini|haricot|beans/, 200],
-    [/sugar/, 220], [/honey/, 340], [/butter/, 225]
-  ];
   /* grams per level teaspoon - for the things measured in spoons, not cups */
   var TSP = [
     [/dry yeast|yeast/, 3.1],
@@ -1405,13 +1388,16 @@
     if(t >= 4) return nice(t / 4, "tbsp", "tbsp");   /* 4 tsp to an AU tbsp */
     return nice(t, "tsp", "tsp");
   }
+  /* Cups are wrong for anything you buy by weight: 2 kg of yoghurt is not
+     "7 2/3 cups", and a /butter/ pattern here once matched "butterflied" and
+     put 1.5 kg of chicken breast into cups. Weigh everything. A spoon measure
+     only survives below SPOONABLE, where a spoon is how you would measure it
+     anyway and the scales are no help. */
+  var SPOONABLE = 60;   /* grams or millilitres */
   function cups(q, u, name){
+    if(!(q > 0) || q > SPOONABLE) return null;
     if(u === "ml") return frac(q / 250);
-    if(u !== "g") return null;
-    var sp = spoons(q, u, name); if(sp) return sp;
-    var nm = String(name).toLowerCase();
-    for(var i = 0; i < CUP.length; i++){ if(CUP[i][0].test(nm)) return frac(q / CUP[i][1]); }
-    return null;
+    return spoons(q, u, name);
   }
   function qty(q,u,s){
     var v = q;
