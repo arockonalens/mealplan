@@ -43,6 +43,10 @@ recipe or an inspiration menu wants to.
   **Bacon, ham and chorizo are fine** — he confirmed that immediately after,
   so the line is fresh pork, not cured. Do not widen it back out.
 - **No lentils** — they bloat him. **Chickpeas are fine and he loves them.**
+- **No chicken wings** — "chicken wings is a no", 15 Nov 2026, said about a
+  week that had already shipped with wings in four slots. **No edamame
+  either**: he asked for it gone the same day. Treat both as a standing no
+  until he says otherwise; `build/week.py` fails the build if either comes back.
 - Dairy limited *in dishes*; no daily glass of milk.
 - **Pack sizes must be buyable**: 500 g / 1 kg trays. Never "700 g of mince".
   He is not going to the deli.

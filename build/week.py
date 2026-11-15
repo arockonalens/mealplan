@@ -20,32 +20,34 @@ PAGE = os.path.join(ROOT, "index.html")
 # key: (title, protein/serve, kcal/serve, portions or None for a snack)
 T = {
  "cheeks":  ("Cider-braised beef cheeks, fennel and apple", 56, 715,  2),
- "wings":   ("Lemon pepper wings",                          42, 600,  8),
+ "chilli":  ("Smoky turkey and black bean chilli",          46, 560,  8),
  "harvest": ("Harvest chicken bowl, apple and pecan",       55, 588,  6),
  "grinder": ("Italian grinder sliders",                     42, 562,  6),
  "salmon":  ("Blackened salmon, charred corn salsa",        43, 525,  6),
- "edamame": ("Chilli-salt edamame",                         15, 170, None),
+ "tofu":    ("Crispy chilli-sesame tofu",                   14, 170, None),
  "parfait": ("Apple cinnamon yoghurt parfait",              17, 235, None),
 }
 DAYS = [
  ("Sun", "Braise day",          "harvest", "cheeks"),
- ("Mon", "Blackened fresh",     "wings",   "salmon"),
- ("Tue", "Air fryer",           "grinder", "wings"),
+ ("Mon", "Chilli, then fish",   "chilli",  "salmon"),
+ ("Tue", "Reheat and go",       "grinder", "chilli"),
  ("Wed", "Second salmon",       "harvest", "salmon"),
- ("Thu", "Air fryer",           "grinder", "wings"),
+ ("Thu", "Reheat and go",       "grinder", "chilli"),
  ("Fri", "Out of the freezer",  "harvest", "salmon"),
- ("Sat", "Last of it",          "grinder", "wings"),
+ ("Sat", "Last of it",          "grinder", "chilli"),
 ]
-SNACK_P = T["edamame"][1] + T["parfait"][1]
-SNACK_K = T["edamame"][2] + T["parfait"][2]
+SNACK_P = T["tofu"][1] + T["parfait"][1]
+SNACK_K = T["tofu"][2] + T["parfait"][2]
 BAND = (112, 154)
 
-# --------------------------------------------------- the dish being swapped
-# Replaces whatever is currently keyed "mongolian" (last week's velveted beef,
-# which Greg had already eaten). Source is Tim Laielli's 13 Nov cider braise,
-# moved off pulled chicken because four pulled chickens have already shipped.
-SWAP_OUT = "mongolian"
-SWAP_IN = u'''"cheeks":{r:"Dinner \u00b7 2 portions",t:"Cider-braised beef cheeks, fennel and apple",p:56,c:42,sv:"2 portions \u00b7 tonight \u00b7 3\u00bd hours, nearly all of it unattended",m:["Slow cooker","3\u00bd hr","Flag \u00b7 715 kcal"],
+# ------------------------------------------------- recipes this file owns
+# Every recipe here is written into the page, replacing the page's copy if it
+# has one. Anything on the page whose key is not in T is dropped, and printed.
+#  - cheeks: Tim Laielli's 13 Nov cider braise, in place of last week's beef
+#  - chilli: Tim's October turkey chilli, in place of the wings (15 Nov: "chicken
+#    wings is a no")
+#  - tofu:   in place of the edamame (15 Nov: "get rid of edamame")
+CHEEKS = u'''"cheeks":{r:"Dinner \u00b7 2 portions",t:"Cider-braised beef cheeks, fennel and apple",p:56,c:42,sv:"2 portions \u00b7 tonight \u00b7 3\u00bd hours, nearly all of it unattended",m:["Slow cooker","3\u00bd hr","Flag \u00b7 715 kcal"],
       src:"Tim Laielli, the bare minimum, 13 Nov \u2014 his cider braise, moved onto beef cheeks",
       kp:"Better the next day \u00b7 freezes 3 months flat in its juices",al:"mustard",
       i:[["The rub",[
@@ -78,15 +80,75 @@ SWAP_IN = u'''"cheeks":{r:"Dinner \u00b7 2 portions",t:"Cider-braised beef cheek
          ["It cannot be hurried","Three and a half hours, and under-braised cheek is rubbery rather than tough. Nearly all of it is unattended: about 20 minutes of actual work."],
          ["Better tomorrow","If you can, braise it a day ahead \u2014 it is better reheated. Freezes flat in its juices for three months."]]}'''
 
+CHILLI = u'''"chilli":{r:"Lunch and dinner · 8 portions",t:"Smoky turkey and black bean chilli",p:46,c:50,sv:"8 portions · one lunch and three dinners for two · reheats",m:["Cooktop","50 min","Freezes"],
+      src:"Tim Laielli, the bare minimum, October round-up — his smoky pumpkin turkey chilli, without the pumpkin",
+      kp:"4 days chilled · Saturday’s two frozen on Sunday · rice cooked fresh",al:"none of the big ones",
+      i:[["The chilli",[
+            [1,"ea","tbsp olive oil"],
+            [2,"ea","brown onions, diced"],
+            [4,"ea","cloves garlic, crushed"],
+            [1500,"g","turkey mince"],
+            [2,"ea","tbsp smoked paprika"],
+            [1,"ea","tbsp ground cumin"],
+            [1,"ea","tsp dried oregano"],
+            [1200,"g","tinned crushed tomatoes — three tins"],
+            [800,"g","black beans, drained — two tins"]]],
+         ["To serve",[
+            [320,"g","jasmine rice"],
+            [2,"ea","limes"],
+            [1,"ea","bunch coriander"]]]],
+      s:[["Soften","Oil into a big heavy pot over medium. Onion in until soft and gold.",8],
+         ["Brown","Turkey in, heat up, broken up hard with a spoon until no pink is left and it <b>catches on the bottom</b>.",10],
+         ["Bloom","Garlic, smoked paprika, cumin and oregano stirred through.",1],
+         ["Simmer","Tomatoes and beans in, plus one of the empty tins filled with water. Lid half on, low.",30],
+         ["Season","Salt tasted for. The juice of one lime stirred through off the heat.",0],
+         ["Portion","Cooled. <b>Two portions into the freezer for Saturday</b>, the rest into the fridge.",0],
+         ["Serve","Reheated hard, over rice cooked fresh, with coriander and a wedge of the other lime.",15]],
+      n:[["Tim’s, without the pumpkin","His is a pumpkin chilli. <b>Pumpkin has already been in four dishes here</b>, and the beans give it the body without it."],
+         ["Turkey, two weeks on","Turkey last ran 1–7 November, in the tagine, and I had noted to leave it a few weeks. This is two. It is a mince in a smoky tomato chilli this time rather than a spiced tagine, so it should not eat like the same thing — but it is sooner than I said."],
+         ["Why it gets browned so hard","Turkey is lean, so it has almost no fat of its own to colour in. Left pale it tastes of nothing. Let it catch."],
+         ["46 g protein, 560 kcal, 16 g fat a serve","With the rice. Without it, about 420 kcal. Not a fat-heavy plate."],
+         ["Saturday’s two","Frozen on Sunday, out on Friday night. Chilli comes out of the freezer better than nearly anything."]]}'''
+
+TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy chilli-sesame tofu",p:14,c:4,sv:"14 servings · about 105 g each · one a day",m:["Air fryer","35 min Sunday","First time here"],
+      kp:"Half chilled, 4 days · half frozen for Thursday on · dressing kept apart",al:"soy, sesame",
+      i:[["Tofu",[
+            [1500,"g","firm tofu"],
+            [3,"ea","tbsp cornflour"],
+            [1,"ea","tbsp olive oil"]]],
+         ["Chilli-sesame dressing",[
+            [3,"ea","tbsp soy sauce"],
+            [2,"ea","tsp sesame oil"],
+            [2,"ea","tsp chilli flakes"],
+            [2,"ea","tbsp sesame seeds, toasted"]]]],
+      s:[["Press","Tofu pressed between paper towel under a heavy board.",20],
+         ["Cube","Cut into 2 cm cubes.",0],
+         ["Coat","Cubes tossed with the cornflour and the oil until every face is dusted.",0],
+         ["Air fry","Air fryer 200 °C, <b>single layer</b>, shaken halfway. In batches.",15],
+         ["Split","Cooled on a rack. Half into the fridge, <b>half into the freezer for Thursday on</b>.",0],
+         ["Dressing","Soy, sesame oil, chilli flakes and sesame seeds shaken in a jar.",0],
+         ["Each day","A serve back in the air fryer at 200 °C, then tossed in a spoon of the dressing.",4]],
+      n:[["Why tofu","It takes the edamame’s slot because it carries nearly the same protein, and <b>tofu has never been in this plan</b>."],
+         ["Pressing is the whole trick","Wet tofu steams in the basket instead of crisping, whatever the temperature."],
+         ["Dressed at the last second","Dressed and left in the tub, the crust goes soft within minutes."],
+         ["From the freezer","Straight in, no thawing, about 8 minutes instead of 4. Freezing makes tofu chewier and meatier, which suits this."],
+         ["Fat flag — 14 g protein, 11 g fat, 170 kcal a serve","<b>Fattier than the edamame was</b> (7 g), and it is the tofu itself rather than the oil: soy is about half fat by energy. A snack-sized amount, but it is not the leanest thing here any more."]]}'''
+
+OWN = {"cheeks": CHEEKS, "chilli": CHILLI, "tofu": TOFU}
+# dishes Greg has said no to; the build fails if one comes back
+BANNED = ["wings", "edamame", "mongolian"]
+
+
 # ------------------------------------------------------------- the shopping
 # (name, qty, unit, hint, price, what it is for, recipe-ingredient key or None)
 # Price is a read-out, never a constraint — see CLAUDE.md.
 CATS = [
  ("Protein", [
-  ("Chicken wings",2500,"g","\u00b7 one 2 kg and one 500 g tray",20.00,"Lemon pepper \u2014 four dinners, cooked on the night","chicken wings"),
   ("Chicken breast",1500,"g","",19.00,"The harvest bowls \u2014 three lunches","chicken breast"),
+  ("Turkey mince",1500,"g","\u00b7 three 500 g packs",25.50,"The chilli \u2014 one lunch and three dinners","turkey mince"),
   ("Beef cheeks",500,"g","\u00b7 one pack, about two",14.00,"<b>Tonight</b> \u2014 the cider braise","beef cheeks"),
   ("Salmon fillets",1200,"g","",42.00,"Three dinners \u2014 freeze a third on Sunday","salmon fillets"),
+  ("Firm tofu",1500,"g","\u00b7 in whatever blocks they have",15.00,"The savoury snack, all fortnight\u2019s worth pressed on Sunday","firm tofu"),
   ("Shaved ham",600,"g","",12.00,"The grinders \u2014 cured, so it is fine","shaved ham"),
   ("Salami",200,"g","",6.00,"The grinders \u2014 200 g, not 300; it is the fattiest thing in them","salami"),
  ]),
@@ -95,38 +157,44 @@ CATS = [
   ("Greek yoghurt, 0% fat",2000,"g","",12.00,"The parfaits \u2014 0%, not the 10% stuff","Greek yoghurt"),
  ]),
  ("Produce", [
-  ("Potatoes",2600,"g","\u00b7 a 3 kg bag",8.00,"Wedges with the wings, and tonight\u2019s mash","potatoes"),
+  ("Potatoes",600,"g","\u00b7 loose, about four",2.50,"Tonight\u2019s mash","potatoes"),
   ("Sweet potatoes",900,"g","",3.50,"Roasted, into the harvest bowls","sweet potatoes"),
   ("Fennel",1,"ea","",4.00,"<b>Tonight</b> \u2014 it goes under the cheeks","fennel bulb"),
   ("Apples",10,"ea","",8.00,"Three to the bowls, six to the parfaits, one to the braise","apples"),
   ("Cos lettuce",4,"ea","",8.00,"Two for the grinder salad, two for the bowls","cos lettuce"),
   ("Corn cobs",6,"ea","",7.50,"Two a night, charred for the salsa","corn cobs"),
-  ("Lemons",8,"ea","",6.00,"The salmon, the wings and the edamame","lemons"),
+  ("Lemons",4,"ea","",3.00,"The salsa, three nights","lemons"),
+  ("Limes",3,"ea","",2.40,"The chilli \u2014 one into the pot, one for wedges","limes"),
   ("Tomatoes",600,"g","",4.00,"Grinder salad and the corn salsa","tomatoes"),
   ("Red onions",4,"ea","",2.50,"Two grinders, two salsas","red onions"),
-  ("Cabbage",1,"ea","",2.50,"The wing slaw",None),
-  ("Carrots",500,"g","",1.50,"The slaw","carrots"),
+  ("Brown onions",2,"ea","",1.50,"The chilli","brown onions"),
+  ("Garlic",1,"ea","\u00b7 one bulb",1.50,"Four cloves into the chilli",None),
   ("Chives",2,"ea","",6.00,"The bowls and the salsa","bunch chives"),
+  ("Coriander",1,"ea","",3.00,"Over the chilli","bunch coriander"),
   ("Thyme",1,"ea","",3.50,"<b>Tonight</b> \u2014 four sprigs into the braise",None),
- ]),
- ("Frozen", [
-  ("Shelled edamame",2000,"g","\u00b7 four 500 g bags",24.00,"The whole savoury snack","shelled edamame"),
  ]),
  ("Pantry \u2014 one-off, lasts months", [
   ("Bread rolls",12,"ea","",6.00,"Two each, three lunches","bread rolls"),
+  ("Jasmine rice",1000,"g","",3.50,"Under the chilli, cooked fresh each time","jasmine rice"),
+  ("Crushed tomatoes",1200,"g","\u00b7 three 400 g tins",3.30,"The chilli","tinned crushed tomatoes"),
+  ("Black beans",800,"g","\u00b7 two 400 g tins",2.40,"The chilli","black beans"),
   ("Cloudy apple juice",1000,"ml","",4.00,"<b>The braise.</b> Cloudy juice, <b>not</b> alcoholic cider","cloudy apple juice"),
   ("Apple cider vinegar",500,"ml","",4.00,"Two tablespoons into the braise",None),
-  ("Smoked paprika",50,"g","",3.50,"The rub on the cheeks",None),
+  ("Smoked paprika",50,"g","",3.50,"The rub on the cheeks and the chilli",None),
+  ("Ground cumin",40,"g","",3.00,"The chilli",None),
   ("Bay leaves",10,"g","",3.00,"Two into the braise",None),
   ("Brown sugar",500,"g","",2.50,"A tablespoon into the rub",None),
+  ("Cornflour",300,"g","",2.50,"The tofu coating",None),
+  ("Soy sauce",250,"ml","",3.50,"The tofu dressing",None),
+  ("Sesame oil",150,"ml","",4.00,"The tofu dressing",None),
+  ("Sesame seeds",100,"g","",3.00,"The tofu dressing, toasted",None),
   ("Cajun seasoning",50,"g","",4.00,"The blackened salmon, three nights",None),
-  ("Lemon pepper seasoning",50,"g","",3.50,"The wings, four nights",None),
   ("Rolled oats",500,"g","",2.50,"The parfait mix","rolled oats"),
   ("Pecans",150,"g","",6.00,"Toasted \u2014 bowls and parfaits","pecans"),
   ("Honey",500,"g","",6.00,"Parfaits and the bowl dressing","honey"),
-  ("Dijon mustard",200,"g","",3.00,"The braise, the slaw and the dressing",None),
-  ("Mayonnaise",250,"g","",4.00,"The slaw and the grinder salad",None),
-  ("Chilli flakes",50,"g","",3.00,"The edamame",None),
+  ("Dijon mustard",200,"g","",3.00,"The braise and the bowl dressing",None),
+  ("Mayonnaise",250,"g","",4.00,"The grinder salad",None),
+  ("Chilli flakes",50,"g","",3.00,"The tofu dressing",None),
  ]),
 ]
 
@@ -144,18 +212,22 @@ a = s.index("  var M = {")
 b = s.index("\n  };", a)
 meals = s[a:b]
 
-if ('"%s":{' % SWAP_OUT) in meals:
-    ms = meals.index('"%s":{' % SWAP_OUT)
-    me = meals.index('\n\n    "', ms)
-    meals = meals[:ms] + SWAP_IN + "," + meals[me:]
-    print("swapped %s -> cheeks" % SWAP_OUT)
-else:
-    assert '"cheeks":{' in meals, "neither the old dish nor the new one is present"
-    print("cheeks already in place")
-
-for key in T:
-    assert ('"%s":{' % key) in meals, "recipe missing from the page: %s" % key
-assert ('"%s":{' % SWAP_OUT) not in meals, "the swapped-out dish is still there"
+starts = [(m.group(1), m.start()) for m in re.finditer(r'\n    "(\w+)":\{', meals)]
+entries = {}
+for n_, (key, st) in enumerate(starts):
+    en = starts[n_ + 1][1] if n_ + 1 < len(starts) else len(meals)
+    entries[key] = meals[st + 5:en].rstrip().rstrip(",")
+head = meals[:starts[0][1]]
+dropped = [k for k in entries if k not in T]
+entries.update(OWN)
+missing = [k for k in T if k not in entries]
+assert not missing, "recipe missing from the page and from OWN: %s" % missing
+meals = head + "\n    " + ",\n\n    ".join(entries[k] for k in T)
+print("recipes:", ", ".join(T), "| dropped:", ", ".join(dropped) or "none")
+for k in BANNED:
+    assert ('"%s":{' % k) not in meals, "a banned dish is back: %s" % k
+for k in OWN:
+    assert meals.count('"%s":{' % k) == 1, "%s appears more than once" % k
 
 # =========================================================== audit
 tally, perday, energy = {}, [], []
@@ -232,7 +304,7 @@ for day, mode, L, D in DAYS:
       '        <div class="d-head"><h3 class="d-day">%s</h3><span class="d-date"></span><span class="d-mode">%s</span></div>' % (day, mode),
       '        <div class="rows">',
       row("Lunch", L), row("Dinner", D),
-      row("Savoury", "edamame"), row("Sweet", "parfait"),
+      row("Savoury", "tofu"), row("Sweet", "parfait"),
       '        </div>', '      </article>']
 rail = "\n".join(out)
 
@@ -252,14 +324,15 @@ for cat, items in CATS:
 shop = "\n".join(lines[:-1])
 print("lines %d | total $%.2f  (a read-out, not a target)" % (n, total))
 
-SHOP_INTRO = (u'    <p class="para"><b>Last week\u2019s velveted beef is gone</b> \u2014 you ate it, and nothing '
- u'in this plan repeats. In its place is <b>Tim Laielli\u2019s cider braise from 13 November, moved onto beef '
- u'cheeks</b>: his own version is pulled chicken, and four pulled chickens have already been through here. '
- u'Beef cheek never has. <b>Four proteins and no fresh pork</b> \u2014 chicken wings, chicken breast, salmon, '
- u'beef cheeks, and cured ham and salami. No lentils, as always. The shop comes to <b>$%.2f</b> across %d '
- u'lines. <b>Check the Dijon, mayonnaise, honey and the apple cider vinegar before you leave</b>: they are '
- u'on the list because I cannot see your cupboard. <b>Cloudy apple juice, not alcoholic cider</b> \u2014 that '
- u'one would change the dish.</p>') % (total, n)
+SHOP_INTRO = (u'    <p class="para"><b>No wings and no edamame this week.</b> The wings\u2019 four slots \u2014 '
+ u'one lunch and three dinners \u2014 go to <b>a smoky turkey and black bean chilli</b> from Tim Laielli\u2019s '
+ u'October list, and the savoury snack is now <b>crispy chilli-sesame tofu</b>, the first time tofu has been '
+ u'in this plan. Last week\u2019s velveted beef is gone too, replaced by <b>Tim\u2019s cider braise on beef '
+ u'cheeks</b>. <b>Five proteins and no fresh pork</b> \u2014 chicken breast, turkey mince, salmon, beef '
+ u'cheeks and tofu, plus cured ham and salami. No lentils, as always. The shop comes to <b>$%.2f</b> across '
+ u'%d lines. <b>Check the Dijon, mayonnaise, honey, soy and the apple cider vinegar before you leave</b>: '
+ u'they are on the list because I cannot see your cupboard. <b>Cloudy apple juice, not alcoholic cider</b> '
+ u'\u2014 that one would change the dish.</p>') % (total, n)
 
 RTOP = u'          <p>%s \u00b7 %d lines \u00b7 no fresh pork, no lentils</p>' % (DATES, n)
 
@@ -272,18 +345,19 @@ RFOOT = (u'        <p class="r-foot">Protein averages <b>%d g each a day</b> \u2
  u'the top. <b>Every single day lands inside the %d\u2013%d target</b>, which is the third week running. '
  u'Energy about %d kcal a day.</p>') % (PRO, min(perday), max(perday), BAND[0], BAND[1], KCAL)
 
-PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">55 minutes \u00b7 the braise does the waiting, not you</p></div>
-    <p class="para"><b>55 minutes hands-on</b>, and the shape of the day is set by one thing: <b>the cheeks go in early and then look after themselves for three and a half hours</b>. Everything else fits inside that window. The oven is only needed once, at 200 \u00b0C for the chicken tray \u2014 so if you braise in the slow cooker the two never collide. Braise from <b>@barefoodtim</b>, 13 November, moved onto beef cheeks.</p>
+PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 90 minutes hands-on \u00b7 the braise and the chilli overlap</p></div>
+    <p class="para"><b>About 90 minutes hands-on</b> \u2014 longer than last week, and on purpose: the wings were rubbed on Sunday and then cooked fresh on four weeknights, and <b>the chilli moves all of that work to today</b>. Tuesday, Thursday and Saturday are now reheat-and-eat. <b>The cheeks go in first and look after themselves for three and a half hours</b>; everything else fits inside that window. The oven is needed once, at 200 \u00b0C for the chicken tray, so if the cheeks are in the slow cooker the two never collide. The braise and the chilli are both from <b>@barefoodtim</b>.</p>
     <div class="prep">
       <ol class="prep-ol">
         <li><div><b>1:00 \u2014 rub the cheeks and get them in</b><p>Salt, smoked paprika, brown sugar and pepper rubbed all over. Fennel and apple down first, cheeks on top, then the juice, vinegar and Dijon <b>poured around rather than over</b>. Thyme and bay tucked in, lid on, low. <b>Walk away until 4:30.</b></p></div></li>
-        <li><div><b>1:20 \u2014 the chicken tray</b><p>Breast butterflied flat, sweet potato cubed and oiled on the same tray, 200 \u00b0C. Out at 70 \u00b0C internal and rested.</p></div></li>
-        <li><div><b>2:00 \u2014 the parfait jar</b><p>Pecans toasted dry and chopped, oats and cinnamon stirred through. One jar, lasts the fortnight.</p></div></li>
-        <li><div><b>2:15 \u2014 the bagging</b><p>Wings rubbed and bagged raw. Grinder meat and cheese in one tub. Salmon split three ways and <b>Friday\u2019s portion into the freezer</b>.</p></div></li>
-        <li><div><b>2:30 \u2014 done until dinner</b><p>Nothing else needs you for two hours.</p></div></li>
+        <li><div><b>1:15 \u2014 tofu under a board, chicken in the oven</b><p>Tofu pressed between paper towel under something heavy, and left. Breast butterflied flat, sweet potato cubed and oiled on the same tray, 200 \u00b0C. Out at 70 \u00b0C internal and rested.</p></div></li>
+        <li><div><b>1:25 \u2014 the chilli</b><p>Onion softened, then the turkey <b>browned hard until it catches</b>. Garlic and spices for a minute, tomatoes and beans in, lid half on, low for 30 minutes.</p></div></li>
+        <li><div><b>1:45 \u2014 the tofu, while the chilli simmers</b><p>Cubed, tossed in cornflour and oil, air-fried in batches at 200 \u00b0C. Dressing shaken in a jar.</p></div></li>
+        <li><div><b>2:30 \u2014 the parfait jar and the bagging</b><p>Pecans toasted and chopped into the oats and cinnamon. Grinder meat and cheese in one tub. Salmon split three ways. <b>Into the freezer: Friday\u2019s salmon, Saturday\u2019s two portions of chilli, half the tofu.</b></p></div></li>
+        <li><div><b>3:00 \u2014 done until dinner</b><p>Nothing else needs you for an hour and a half.</p></div></li>
         <li><div><b>4:30 \u2014 potatoes on, cheeks out</b><p>Potatoes boiled and mashed. Cheeks lifted out, the liquid reduced hard by a third, then <b>a ladle of it through the mash instead of butter</b>.</p></div></li>
       </ol>
-      <p class="aside"><b>The bare minimum, if Sunday gets away from you.</b> Get the cheeks in and put the chicken tray on. The wing rub, the grinder bags and the parfait jar are fifteen minutes of bagging that can happen any evening. <b>The braise is the only thing with a clock on it</b>, and it is the one that needs you least.</p>
+      <p class="aside"><b>The bare minimum, if Sunday gets away from you.</b> Get the cheeks in, the chilli on and the chicken tray in. The tofu can be pressed and fried any evening, and the parfait jar is five minutes. <b>The braise is the only thing with a clock on it</b>, and it is the one that needs you least.</p>
     </div>''')
 
 PAIR = (u'      <table class="pair"><tbody>'
@@ -292,14 +366,16 @@ PAIR = (u'      <table class="pair"><tbody>'
  u'<tr><td>Poured around, not over</td><td>the top of the meat stays above the liquid, so it roasts while the bottom braises</td></tr>'
  u'<tr><td>Reduce before serving</td><td>braising liquid is thin until you take a third out of it; that is the sauce</td></tr>'
  u'<tr><td>Mash, no butter</td><td>a ladle of the reduced juices beats butter here, and keeps 12 g of fat a serve off the plate</td></tr>'
- u'<tr><td>Chicken wings \u2014 baking powder</td><td>lifts the skin\u2019s pH so it blisters instead of tightening</td></tr>'
- u'<tr><td>Wings \u2014 frozen raw</td><td>never frozen cooked; four dinners of wings only works if they are fried fresh</td></tr>'
+ u'<tr><td>Turkey mince \u2014 browned hard</td><td>lean, so it has almost no fat of its own to colour in; pale turkey tastes of nothing</td></tr>'
+ u'<tr><td>Black beans \u2014 drained</td><td>the tin liquid goes gluey and dulls the chilli</td></tr>'
+ u'<tr><td>Chilli \u2014 frozen on Sunday</td><td>Saturday\u2019s two portions; a chilli comes out of the freezer better than almost anything</td></tr>'
  u'<tr><td>Chicken breast \u2014 butterflied</td><td>even thickness beats any cooking time you could pick</td></tr>'
  u'<tr><td>Salmon \u2014 blackened</td><td>spice on the flesh side only, into a dry screaming pan, turned once</td></tr>'
  u'<tr><td>Corn \u2014 charred dry</td><td>no oil and no stirring; let it sit still and catch</td></tr>'
  u'<tr><td>The grinder salad</td><td>salted, rested ten minutes, <b>drained</b> \u2014 that liquid is what ruins the bread</td></tr>'
  u'<tr><td>Greek yoghurt \u2014 0%</td><td>same protein as the 10%, a third of the fat, and here it is most of the dish</td></tr>'
- u'<tr><td>Edamame</td><td>salted while still steaming, or the salt never sticks at all</td></tr>'
+ u'<tr><td>Tofu \u2014 pressed</td><td>wet tofu steams in the basket instead of crisping; twenty minutes under a board</td></tr>'
+ u'<tr><td>Tofu \u2014 dressed last</td><td>dressed and left, the crust goes soft in minutes</td></tr>'
  u'</tbody></table>')
 
 # =========================================================== splice
@@ -340,7 +416,7 @@ sub1(re.search(r'<textarea id="note-text" placeholder="[^"]*">', s).group(0),
      'want something baked again, more fish, less bread, Sunday took too long...">',
      "notes placeholder")
 
-assert s != orig
+UNCHANGED = (s == orig)   # a rerun on a built page is a no-op, not an error
 
 # 1. the page script must parse. A missing comma between two recipes kills
 #    the whole IIFE: the shop never paints and no cook sheet opens, with
@@ -356,14 +432,31 @@ if _r.returncode:
 os.unlink(_tmp)
 print("page script parses")
 
-io.open(PAGE, "w", encoding="utf-8").write(s)
-print("\nwritten: %d -> %d bytes" % (len(orig), len(s)))
-
-# check the page content only: the script block holds regex tables with words
-# like "bicarb" in them, and they are code rather than a stale dish reference
+# 2. nothing from a dropped dish is left behind. Whole words only: "wing"
+#    as a substring matches "swinging" in the gym panels and "thawing" in a
+#    method. ALLOWED is the prose that names a dropped dish on purpose, to say
+#    it has gone; it is cut out before counting.
 content = s[:s.index("<script>")]
-stale = ["mongolian", "Mongolian", "goosetheory", "Shaoxing", "Velveted",
-         "velveting", "potroast", "8\u201314 November", "your 460 g"]
-left = [(t, content.count(t)) for t in stale if content.count(t)]
-print("stale references:", left or "none")
-assert not left, left
+STALE = [r"[Mm]ongolian", r"goosetheory", r"Shaoxing", r"[Vv]elvet",
+         r"potroast", r"8\u201314 November", r"your 460 g",
+         r"\b[Ww]ings?\b", r"\b[Ee]damame\b", r"[Ll]emon pepper", r"\bslaw\b"]
+ALLOWED = [u"No wings and no edamame this week", u"The wings\u2019 four slots",
+           u"the wings were rubbed on Sunday", u"the edamame\u2019s slot",
+           u"Fattier than the edamame was", u"pulled chicken slaw bowl",
+           u"Last week\u2019s velveted beef is gone"]
+def _strip(x):
+    for a in ALLOWED:
+        x = x.replace(a, "")
+    return x
+_c, _m = _strip(content), _strip(meals)
+left = [("page " + t, len(re.findall(t, _c))) for t in STALE if re.search(t, _c)]
+left += [("recipes " + t, len(re.findall(t, _m))) for t in STALE if re.search(t, _m)]
+if left:
+    raise SystemExit("stale references, nothing written: %s" % left)
+print("stale references: none")
+
+if UNCHANGED:
+    print("\npage already up to date - nothing written")
+else:
+    io.open(PAGE, "w", encoding="utf-8").write(s)
+    print("\nwritten: %d -> %d bytes" % (len(orig), len(s)))

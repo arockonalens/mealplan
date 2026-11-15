@@ -74,7 +74,7 @@ A titles-only round-up, no methods. 26 dishes. **7 clash with the history.**
 | **Rosemary balsamic pot roast**, carrots and potatoes | slow cooker, beef chuck never used, freezes well | **was built for 8 Nov and pulled** when Greg said he only had two steaks — still unshipped, still good |
 | **Ham & swiss sliders** | ham **newly allowed**; never used | it is a breakfast dish — rebuild as a lunch |
 | **Bacon, egg & pepper jack biscuits** | bacon **newly allowed** | close to the egg sheet + bacon muffins already shipped — only with a real redesign |
-| **Smoky pumpkin turkey chilli** | never used, lean, freezes | **turkey ran 1–7 Nov** — leave it a few weeks |
+| **Smoky pumpkin turkey chilli** | never used, lean, freezes | **shipped 15–21 Nov** in place of the wings, without the pumpkin (four pumpkin dishes already). Two weeks after the turkey tagine — sooner than this note advised |
 
 ### Rejected, with the reason
 
@@ -88,6 +88,9 @@ A titles-only round-up, no methods. 26 dishes. **7 clash with the history.**
 
 *Lemon pepper wings* · *Italian grinder sliders* · *Harvest chicken bowl* ·
 *Apple cinnamon yoghurt parfait* — all four shipped 8–14 Nov.
+
+*Smoky turkey and black bean chilli* · *Crispy chilli-sesame tofu* ·
+*Cider-braised beef cheeks* — shipped 15–21 Nov.
 
 *Green chile, potato & cheddar burritos* · *Crunchy peanut chicken bowls* ·
 *Roasted tomato & feta pasta* · *Creamy Tuscan chicken & white beans* ·
