@@ -81,7 +81,7 @@ CIDER = u'''"cider":{r:"Dinner · 2 portions",t:"Cider-braised chicken thighs, f
          ["Cooked is not the same as tender","Thigh is safe well before the hour is up, but it is the full 75 minutes that turns it soft."],
          ["Fat flag — 790 kcal, 21 g fat a serve","<b>The heaviest plate of the week.</b> Most of the fat is the thigh itself; trimming what you can see before the rub takes a few grams off. <b>No butter in the mash</b> — the reduced juices do the job and keep about 110 kcal and 12 g of fat a serve off the plate."]]}'''
 
-CHILLI = u'''"chilli":{r:"Lunch and dinner · 8 portions",t:"Smoky turkey and black bean chilli",p:46,c:50,sv:"8 portions · one lunch and three dinners for two · reheats",m:["Cooktop","50 min","Freezes"],
+CHILLI = u'''"chilli":{r:"Dinner and lunch · 8 portions",t:"Smoky turkey and black bean chilli",p:46,c:50,sv:"8 portions · one lunch and three dinners for two · reheats",m:["Cooktop","50 min","Freezes"],
       src:"Tim Laielli, the bare minimum, October round-up — his smoky pumpkin turkey chilli, without the pumpkin",
       kp:"4 days chilled · Saturday’s two frozen on Sunday · rice cooked fresh",al:"none of the big ones",
       i:[["The chilli",[
@@ -246,6 +246,17 @@ assert sum(v[3] for v in T.values() if v[3]) == 28, "portions != 28"
 assert sum(tally.values()) == 14, "meals != 14"
 assert len(DAYS) == 7
 print("portions 28 ok, meals 14 ok (7 lunch / 7 dinner)")
+
+# The recipe index files each dish by the FIRST word of its r: label, so a dish
+# served at dinner must start "Dinner" or it vanishes from the Dinners list.
+# 15 Nov: the chilli read "Lunch and dinner" and Greg saw "only two dinners".
+roles = dict(re.findall(r'"(\w+)":\{r:"([^"]*)"', meals))
+for k, v in T.items():
+    if v[3] is None:
+        continue
+    want = "Dinner" if any(D == k for _, _, _, D in DAYS) else "Lunch"
+    assert roles[k].startswith(want), "%s is labelled %r but is served as a %s" % (k, roles[k], want.lower())
+print("recipe-index labels match the days")
 print("protein/day:", perday, "avg %.1f" % (sum(perday) / 7.0))
 assert all(BAND[0] <= p <= BAND[1] for p in perday), "OUT OF BAND: %s" % perday
 PRO = int(round(sum(perday) / 7.0))
