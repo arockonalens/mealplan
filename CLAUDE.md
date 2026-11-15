@@ -246,9 +246,21 @@ git add -A && git commit -F /tmp/msg.txt && git push origin HEAD
 ```
 
 Use a **message file**, not `-m` — quotes in the message have broken the
-shell. Then rebuild the artifact fragment (body + fonts links + style,
-favicon rewritten absolute) and publish it to the artifact URL above.
+shell. Then rebuild the artifact fragment and publish it to the artifact URL
+above:
+
+```bash
+python3 -I build/artifact.py <scratchpad>/mealplan-artifact.html
+```
+
+It keeps the title, fonts links, style and inner body, and fails if a
+favicon, manifest, document tag or plain `github.io` sneaks in.
 GitHub Pages takes about 30–60 seconds.
+
+**Both build scripts live in `build/`, in the repo.** `week.py` builds and
+audits the week; `artifact.py` cuts the artifact copy. They used to live in
+the session scratchpad, which is wiped between sessions, and the audit
+silently stopped running when it was. Never move them back out.
 
 The page has a **network-first service worker** (`sw.js`) so the phone
 home-screen shortcut always gets the newest version and still works offline.
