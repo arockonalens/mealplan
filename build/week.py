@@ -19,7 +19,7 @@ PAGE = os.path.join(ROOT, "index.html")
 # --------------------------------------------------------------- the week
 # key: (title, protein/serve, kcal/serve, portions or None for a snack)
 T = {
- "cheeks":  ("Cider-braised beef cheeks, fennel and apple", 56, 715,  2),
+ "cider":   ("Cider-braised chicken thighs, fennel and apple", 54, 790, 2),
  "chilli":  ("Smoky turkey and black bean chilli",          46, 560,  8),
  "harvest": ("Harvest chicken bowl, apple and pecan",       55, 588,  6),
  "grinder": ("Italian grinder sliders",                     42, 562,  6),
@@ -28,9 +28,9 @@ T = {
  "parfait": ("Apple cinnamon yoghurt parfait",              17, 235, None),
 }
 DAYS = [
- ("Sun", "Braise day",          "harvest", "cheeks"),
+ ("Sun", "Braise day",          "grinder", "cider"),
  ("Mon", "Chilli, then fish",   "chilli",  "salmon"),
- ("Tue", "Reheat and go",       "grinder", "chilli"),
+ ("Tue", "Reheat and go",       "harvest", "chilli"),
  ("Wed", "Second salmon",       "harvest", "salmon"),
  ("Thu", "Reheat and go",       "grinder", "chilli"),
  ("Fri", "Out of the freezer",  "harvest", "salmon"),
@@ -43,15 +43,16 @@ BAND = (112, 154)
 # ------------------------------------------------- recipes this file owns
 # Every recipe here is written into the page, replacing the page's copy if it
 # has one. Anything on the page whose key is not in T is dropped, and printed.
-#  - cheeks: Tim Laielli's 13 Nov cider braise, in place of last week's beef
+#  - cider:  Tim Laielli's 13 Nov cider braise, in place of last week's beef.
+#    Briefly on beef cheeks; Greg asked for chicken (15 Nov), so thighs, whole
 #  - chilli: Tim's October turkey chilli, in place of the wings (15 Nov: "chicken
 #    wings is a no")
 #  - tofu:   in place of the edamame (15 Nov: "get rid of edamame")
-CHEEKS = u'''"cheeks":{r:"Dinner \u00b7 2 portions",t:"Cider-braised beef cheeks, fennel and apple",p:56,c:42,sv:"2 portions \u00b7 tonight \u00b7 3\u00bd hours, nearly all of it unattended",m:["Slow cooker","3\u00bd hr","Flag \u00b7 715 kcal"],
-      src:"Tim Laielli, the bare minimum, 13 Nov \u2014 his cider braise, moved onto beef cheeks",
-      kp:"Better the next day \u00b7 freezes 3 months flat in its juices",al:"mustard",
+CIDER = u'''"cider":{r:"Dinner · 2 portions",t:"Cider-braised chicken thighs, fennel and apple",p:54,c:70,sv:"2 portions · tonight · 1¼ hours in the oven, 20 minutes of work",m:["Oven","1¼ hr","Flag · 790 kcal"],
+      src:"Tim Laielli, the bare minimum, 13 Nov — his cider-braised chicken, with the thighs left whole",
+      kp:"Tonight · any left over keeps 3 days in its juices",al:"mustard",
       i:[["The rub",[
-            [500,"g","beef cheeks, trimmed \u2014 one pack, about two"],
+            [500,"g","chicken thigh fillets, trimmed"],
             [1,"ea","tsp salt"],
             [2,"ea","tsp smoked paprika"],
             [1,"ea","tbsp brown sugar"],
@@ -66,19 +67,19 @@ CHEEKS = u'''"cheeks":{r:"Dinner \u00b7 2 portions",t:"Cider-braised beef cheeks
             [2,"ea","bay leaves"]]],
          ["To serve",[
             [600,"g","potatoes, peeled and chunked"]]]],
-      s:[["Rub","Salt, smoked paprika, brown sugar and pepper mixed together, then rubbed all over the cheeks.",0],
-         ["Layer","Fennel and apple scattered over the base of the pot. Cheeks laid on top of them.",0],
-         ["Pour","Apple juice, vinegar and Dijon whisked, then poured <b>around</b> the cheeks rather than over them. Thyme and bay tucked in.",0],
-         ["Braise","Lid on. <b>Slow cooker on low, or the oven at 165 \u00b0C.</b> Done when a fork turns in the meat with no resistance.",210],
+      s:[["Rub","Salt, smoked paprika, brown sugar and pepper mixed together, then rubbed all over the thighs.",0],
+         ["Layer","Fennel and apple scattered over the base of an ovenproof pot with a lid. Thighs laid on top, <b>whole</b>.",0],
+         ["Pour","Apple juice, vinegar and Dijon whisked, then poured <b>around</b> the thighs rather than over them. Thyme and bay tucked in.",0],
+         ["Braise","Lid on. <b>Oven at 165 °C.</b>",75],
          ["Mash","Potatoes boiled in well-salted water until tender.",18],
-         ["Reduce","Cheeks lifted out. The liquid simmered hard on the stove until it reduces by about a third.",10],
-         ["Finish","<b>A ladle of the reduced juices through the mash instead of butter.</b> Cheeks back in with the fennel and apple.",0],
-         ["Serve","Cheeks over the mash, the braised fennel and apple alongside.",0]],
-      n:[["Why beef cheeks and not Tim\u2019s pulled chicken","His version is pulled chicken. <b>Four pulled chickens have already shipped</b> \u2014 harissa pulled chicken, harissa pulled thigh, pulled chicken bowl, pulled chicken slaw bowl. <b>Beef cheek has never been used here</b>, and it is what a cider braise actually wants: it is almost all collagen, so it goes silky instead of stringy."],
-         ["Cloudy apple juice, not cider","<b>Tim\u2019s \u201cunfiltered apple cider\u201d is American for cloudy apple juice.</b> The alcoholic cider at Coles is a different drink and would leave this sharp and thin."],
-         ["Fat flag \u2014 715 kcal, 20 g fat a serve","Reasonable for a braise, and the mash is most of the carbs. <b>No butter in the mash</b> \u2014 the reduced braising liquid does the job better and keeps about 110 kcal and 12 g of fat a serve off the plate."],
-         ["It cannot be hurried","Three and a half hours, and under-braised cheek is rubbery rather than tough. Nearly all of it is unattended: about 20 minutes of actual work."],
-         ["Better tomorrow","If you can, braise it a day ahead \u2014 it is better reheated. Freezes flat in its juices for three months."]]}'''
+         ["Reduce","Thighs lifted out and kept warm. The liquid simmered hard on the stove until it reduces by about a third.",10],
+         ["Finish","<b>A ladle of the reduced juices through the mash instead of butter.</b>",0],
+         ["Serve","Thighs whole over the mash, the braised fennel and apple alongside, the rest of the juices spooned over.",0]],
+      n:[["Whole thighs, not pulled","Tim shreds his. <b>Four pulled chickens have already been through here</b> — harissa pulled chicken, harissa pulled thigh, pulled chicken bowl, pulled chicken slaw bowl — so these stay whole. Thigh rather than breast because breast goes dry and stringy sitting in liquid for over an hour."],
+         ["Cloudy apple juice, not cider","<b>Tim’s “unfiltered apple cider” is American for cloudy apple juice.</b> The alcoholic cider at Coles is a different drink and would leave this sharp and thin."],
+         ["No sear","Tim’s own shortcut: the thighs go straight into the pot. In a braise this wet, nobody can tell."],
+         ["Cooked is not the same as tender","Thigh is safe well before the hour is up, but it is the full 75 minutes that turns it soft."],
+         ["Fat flag — 790 kcal, 21 g fat a serve","<b>The heaviest plate of the week.</b> Most of the fat is the thigh itself; trimming what you can see before the rub takes a few grams off. <b>No butter in the mash</b> — the reduced juices do the job and keep about 110 kcal and 12 g of fat a serve off the plate."]]}'''
 
 CHILLI = u'''"chilli":{r:"Lunch and dinner · 8 portions",t:"Smoky turkey and black bean chilli",p:46,c:50,sv:"8 portions · one lunch and three dinners for two · reheats",m:["Cooktop","50 min","Freezes"],
       src:"Tim Laielli, the bare minimum, October round-up — his smoky pumpkin turkey chilli, without the pumpkin",
@@ -134,7 +135,7 @@ TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy chilli-sesame 
          ["From the freezer","Straight in, no thawing, about 8 minutes instead of 4. Freezing makes tofu chewier and meatier, which suits this."],
          ["Fat flag — 14 g protein, 11 g fat, 170 kcal a serve","<b>Fattier than the edamame was</b> (7 g), and it is the tofu itself rather than the oil: soy is about half fat by energy. A snack-sized amount, but it is not the leanest thing here any more."]]}'''
 
-OWN = {"cheeks": CHEEKS, "chilli": CHILLI, "tofu": TOFU}
+OWN = {"cider": CIDER, "chilli": CHILLI, "tofu": TOFU}
 # dishes Greg has said no to; the build fails if one comes back
 BANNED = ["wings", "edamame", "mongolian"]
 
@@ -146,7 +147,7 @@ CATS = [
  ("Protein", [
   ("Chicken breast",1500,"g","",19.00,"The harvest bowls \u2014 three lunches","chicken breast"),
   ("Turkey mince",1500,"g","\u00b7 three 500 g packs",25.50,"The chilli \u2014 one lunch and three dinners","turkey mince"),
-  ("Beef cheeks",500,"g","\u00b7 one pack, about two",14.00,"<b>Tonight</b> \u2014 the cider braise","beef cheeks"),
+  ("Chicken thigh fillets",500,"g","\u00b7 one 500 g tray",8.00,"<b>Tonight</b> \u2014 the cider braise","chicken thigh fillets"),
   ("Salmon fillets",1200,"g","",42.00,"Three dinners \u2014 freeze a third on Sunday","salmon fillets"),
   ("Firm tofu",1500,"g","\u00b7 in whatever blocks they have",15.00,"The savoury snack, all fortnight\u2019s worth pressed on Sunday","firm tofu"),
   ("Shaved ham",600,"g","",12.00,"The grinders \u2014 cured, so it is fine","shaved ham"),
@@ -159,7 +160,7 @@ CATS = [
  ("Produce", [
   ("Potatoes",600,"g","\u00b7 loose, about four",2.50,"Tonight\u2019s mash","potatoes"),
   ("Sweet potatoes",900,"g","",3.50,"Roasted, into the harvest bowls","sweet potatoes"),
-  ("Fennel",1,"ea","",4.00,"<b>Tonight</b> \u2014 it goes under the cheeks","fennel bulb"),
+  ("Fennel",1,"ea","",4.00,"<b>Tonight</b> \u2014 it goes under the thighs","fennel bulb"),
   ("Apples",10,"ea","",8.00,"Three to the bowls, six to the parfaits, one to the braise","apples"),
   ("Cos lettuce",4,"ea","",8.00,"Two for the grinder salad, two for the bowls","cos lettuce"),
   ("Corn cobs",6,"ea","",7.50,"Two a night, charred for the salsa","corn cobs"),
@@ -180,7 +181,7 @@ CATS = [
   ("Black beans",800,"g","\u00b7 two 400 g tins",2.40,"The chilli","black beans"),
   ("Cloudy apple juice",1000,"ml","",4.00,"<b>The braise.</b> Cloudy juice, <b>not</b> alcoholic cider","cloudy apple juice"),
   ("Apple cider vinegar",500,"ml","",4.00,"Two tablespoons into the braise",None),
-  ("Smoked paprika",50,"g","",3.50,"The rub on the cheeks and the chilli",None),
+  ("Smoked paprika",50,"g","",3.50,"The rub on the thighs, and the chilli",None),
   ("Ground cumin",40,"g","",3.00,"The chilli",None),
   ("Bay leaves",10,"g","",3.00,"Two into the braise",None),
   ("Brown sugar",500,"g","",2.50,"A tablespoon into the rub",None),
@@ -327,9 +328,9 @@ print("lines %d | total $%.2f  (a read-out, not a target)" % (n, total))
 SHOP_INTRO = (u'    <p class="para"><b>No wings and no edamame this week.</b> The wings\u2019 four slots \u2014 '
  u'one lunch and three dinners \u2014 go to <b>a smoky turkey and black bean chilli</b> from Tim Laielli\u2019s '
  u'October list, and the savoury snack is now <b>crispy chilli-sesame tofu</b>, the first time tofu has been '
- u'in this plan. Last week\u2019s velveted beef is gone too, replaced by <b>Tim\u2019s cider braise on beef '
- u'cheeks</b>. <b>Five proteins and no fresh pork</b> \u2014 chicken breast, turkey mince, salmon, beef '
- u'cheeks and tofu, plus cured ham and salami. No lentils, as always. The shop comes to <b>$%.2f</b> across '
+ u'in this plan. Last week\u2019s velveted beef is gone too, replaced by <b>Tim\u2019s cider braise, on chicken '
+ u'thighs left whole</b>. <b>No beef and no fresh pork this week</b> \u2014 chicken breast and thigh, '
+ u'turkey mince, salmon and tofu, plus cured ham and salami. No lentils, as always. The shop comes to <b>$%.2f</b> across '
  u'%d lines. <b>Check the Dijon, mayonnaise, honey, soy and the apple cider vinegar before you leave</b>: '
  u'they are on the list because I cannot see your cupboard. <b>Cloudy apple juice, not alcoholic cider</b> '
  u'\u2014 that one would change the dish.</p>') % (total, n)
@@ -345,23 +346,24 @@ RFOOT = (u'        <p class="r-foot">Protein averages <b>%d g each a day</b> \u2
  u'the top. <b>Every single day lands inside the %d\u2013%d target</b>, which is the third week running. '
  u'Energy about %d kcal a day.</p>') % (PRO, min(perday), max(perday), BAND[0], BAND[1], KCAL)
 
-PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 90 minutes hands-on \u00b7 the braise and the chilli overlap</p></div>
-    <p class="para"><b>About 90 minutes hands-on</b> \u2014 longer than last week, and on purpose: the wings were rubbed on Sunday and then cooked fresh on four weeknights, and <b>the chilli moves all of that work to today</b>. Tuesday, Thursday and Saturday are now reheat-and-eat. <b>The cheeks go in first and look after themselves for three and a half hours</b>; everything else fits inside that window. The oven is needed once, at 200 \u00b0C for the chicken tray, so if the cheeks are in the slow cooker the two never collide. The braise and the chilli are both from <b>@barefoodtim</b>.</p>
+PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 90 minutes hands-on · the braise goes in last</p></div>
+    <p class="para"><b>About 90 minutes hands-on</b> — longer than last week, and on purpose: the wings were rubbed on Sunday and then cooked fresh on four weeknights, and <b>the chilli moves all of that work to today</b>. Tuesday, Thursday and Saturday are now reheat-and-eat. <b>The oven does two jobs at two temperatures</b>: the chicken tray at 200 °C first, then the braise at 165 °C from 4:00, so they never collide. Lunch today is the grinder, which needs no cooking at all. The braise and the chilli are both from <b>@barefoodtim</b>.</p>
     <div class="prep">
       <ol class="prep-ol">
-        <li><div><b>1:00 \u2014 rub the cheeks and get them in</b><p>Salt, smoked paprika, brown sugar and pepper rubbed all over. Fennel and apple down first, cheeks on top, then the juice, vinegar and Dijon <b>poured around rather than over</b>. Thyme and bay tucked in, lid on, low. <b>Walk away until 4:30.</b></p></div></li>
-        <li><div><b>1:15 \u2014 tofu under a board, chicken in the oven</b><p>Tofu pressed between paper towel under something heavy, and left. Breast butterflied flat, sweet potato cubed and oiled on the same tray, 200 \u00b0C. Out at 70 \u00b0C internal and rested.</p></div></li>
-        <li><div><b>1:25 \u2014 the chilli</b><p>Onion softened, then the turkey <b>browned hard until it catches</b>. Garlic and spices for a minute, tomatoes and beans in, lid half on, low for 30 minutes.</p></div></li>
-        <li><div><b>1:45 \u2014 the tofu, while the chilli simmers</b><p>Cubed, tossed in cornflour and oil, air-fried in batches at 200 \u00b0C. Dressing shaken in a jar.</p></div></li>
-        <li><div><b>2:30 \u2014 the parfait jar and the bagging</b><p>Pecans toasted and chopped into the oats and cinnamon. Grinder meat and cheese in one tub. Salmon split three ways. <b>Into the freezer: Friday\u2019s salmon, Saturday\u2019s two portions of chilli, half the tofu.</b></p></div></li>
-        <li><div><b>3:00 \u2014 done until dinner</b><p>Nothing else needs you for an hour and a half.</p></div></li>
-        <li><div><b>4:30 \u2014 potatoes on, cheeks out</b><p>Potatoes boiled and mashed. Cheeks lifted out, the liquid reduced hard by a third, then <b>a ladle of it through the mash instead of butter</b>.</p></div></li>
+        <li><div><b>1:00 — tofu under a board, chicken tray in</b><p>Tofu pressed between paper towel under something heavy, and left. Breast butterflied flat, sweet potato cubed and oiled on the same tray, 200 °C. Out at 70 °C internal and rested.</p></div></li>
+        <li><div><b>1:10 — the chilli</b><p>Onion softened, then the turkey <b>browned hard until it catches</b>. Garlic and spices for a minute, tomatoes and beans in, lid half on, low for 30 minutes.</p></div></li>
+        <li><div><b>1:40 — the tofu, while the chilli simmers</b><p>Cubed, tossed in cornflour and oil, air-fried in batches at 200 °C. Dressing shaken in a jar.</p></div></li>
+        <li><div><b>2:30 — the parfait jar and the bagging</b><p>Pecans toasted and chopped into the oats and cinnamon. Grinder meat and cheese in one tub. Salmon split three ways. <b>Into the freezer: Friday’s salmon, Saturday’s two portions of chilli, half the tofu.</b></p></div></li>
+        <li><div><b>3:00 — build the braise, then stop</b><p>Thighs rubbed with salt, smoked paprika, brown sugar and pepper. Fennel and apple down first, thighs on top <b>whole</b>, then the juice, vinegar and Dijon <b>poured around rather than over</b>. Thyme and bay tucked in, lid on, into the fridge.</p></div></li>
+        <li><div><b>4:00 — braise in</b><p>Lid on, 165 °C, an hour and a quarter. Nothing needs you until it comes out.</p></div></li>
+        <li><div><b>4:55 — potatoes on</b><p>Boiled in well-salted water.</p></div></li>
+        <li><div><b>5:15 — thighs out</b><p>Lifted out and kept warm. The liquid reduced hard by a third, then <b>a ladle of it through the mash instead of butter</b>.</p></div></li>
       </ol>
-      <p class="aside"><b>The bare minimum, if Sunday gets away from you.</b> Get the cheeks in, the chilli on and the chicken tray in. The tofu can be pressed and fried any evening, and the parfait jar is five minutes. <b>The braise is the only thing with a clock on it</b>, and it is the one that needs you least.</p>
+      <p class="aside"><b>The bare minimum, if Sunday gets away from you.</b> Get the chilli on and the chicken tray in. The braise is twenty minutes of work and an oven, and it can be built at four. The tofu can be pressed and fried any evening, and the parfait jar is five minutes.</p>
     </div>''')
 
 PAIR = (u'      <table class="pair"><tbody>'
- u'<tr><td>Beef cheek</td><td>almost all collagen \u2014 it goes <b>silky</b> rather than stringy, which is why a braise suits it and a pan does not</td></tr>'
+ u'<tr><td>Chicken thigh, not breast</td><td>thigh has the fat and connective tissue to sit in liquid for over an hour; <b>breast goes dry and stringy</b></td></tr>'
  u'<tr><td>Cloudy apple juice</td><td>Tim\u2019s \u201cunfiltered apple cider\u201d is American for this. <b>Alcoholic cider is a different drink</b></td></tr>'
  u'<tr><td>Poured around, not over</td><td>the top of the meat stays above the liquid, so it roasts while the bottom braises</td></tr>'
  u'<tr><td>Reduce before serving</td><td>braising liquid is thin until you take a third out of it; that is the sauce</td></tr>'
@@ -439,7 +441,7 @@ print("page script parses")
 content = s[:s.index("<script>")]
 STALE = [r"[Mm]ongolian", r"goosetheory", r"Shaoxing", r"[Vv]elvet",
          r"potroast", r"8\u201314 November", r"your 460 g",
-         r"\b[Ww]ings?\b", r"\b[Ee]damame\b", r"[Ll]emon pepper", r"\bslaw\b"]
+         r"\b[Ww]ings?\b", r"[Cc]heeks?\b", r"\b[Ee]damame\b", r"[Ll]emon pepper", r"\bslaw\b"]
 ALLOWED = [u"No wings and no edamame this week", u"The wings\u2019 four slots",
            u"the wings were rubbed on Sunday", u"the edamame\u2019s slot",
            u"Fattier than the edamame was", u"pulled chicken slaw bowl",

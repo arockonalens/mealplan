@@ -21,7 +21,7 @@ history, not from memory.
 | Dish | Why it fits | What has to change |
 |---|---|---|
 | **Roasted veg and white bean farro bowl, lemon-tahini** | **The best thing in this newsletter for Greg.** Eaten cold, keeps 5 days, no reheat — exactly his lunch pattern. Farro has never been used. Cavolo nero, tahini and dried cranberries are all new. | **Two changes.** (1) It is ~20 g protein a serve as written — **too low**, add chicken breast or double the beans. (2) **Do not use pumpkin**: *Pumpkin & chickpea bowl* is already shipped and roast-pumpkin-plus-legume-in-a-bowl is the same idea. Roast cauliflower, capsicum or beetroot instead — which also suits a warm Melbourne week better. |
-| **Cider, fennel and apple braise — on beef cheeks, not pulled chicken** | The braise itself is genuinely good: cider, Dijon, fennel, apple, thyme, bay. Slow cooker, freezes well, fennel has never been used. | **Not as pulled chicken.** *Harissa pulled chicken*, *Harissa pulled thigh*, *Pulled chicken bowl* and *Pulled chicken slaw bowl* have all shipped — a fifth pulled chicken is exactly the laziness Greg called out over focaccia. **Beef cheeks are untouched** and are what this braise wants. And **night two cannot be sliders** — *Italian grinder sliders* shipped 8–14 Nov. |
+| **Cider, fennel and apple braise — on beef cheeks, not pulled chicken** | The braise itself is genuinely good: cider, Dijon, fennel, apple, thyme, bay. Slow cooker, freezes well, fennel has never been used. | **Not as pulled chicken.** *Harissa pulled chicken*, *Harissa pulled thigh*, *Pulled chicken bowl* and *Pulled chicken slaw bowl* have all shipped — a fifth pulled chicken is exactly the laziness Greg called out over focaccia. **Beef cheeks are untouched** and are what this braise wants. And **night two cannot be sliders** — *Italian grinder sliders* shipped 8–14 Nov. **15 Nov: shipped on chicken after all, at Greg's ask — thighs braised and served whole, not pulled.** |
 
 ### Rejected, with the reason
 
@@ -90,7 +90,12 @@ A titles-only round-up, no methods. 26 dishes. **7 clash with the history.**
 *Apple cinnamon yoghurt parfait* — all four shipped 8–14 Nov.
 
 *Smoky turkey and black bean chilli* · *Crispy chilli-sesame tofu* ·
-*Cider-braised beef cheeks* — shipped 15–21 Nov.
+*Cider-braised chicken thighs* — shipped 15–21 Nov.
+
+**Beef cheeks are still unused.** The cider braise went onto them first; Greg
+asked for chicken instead (15 Nov) after I said apple is the weakest partner
+for beef. The *rosemary balsamic pot roast* would suit them — balsamic, red
+wine and onion are what beef wants.
 
 *Green chile, potato & cheddar burritos* · *Crunchy peanut chicken bowls* ·
 *Roasted tomato & feta pasta* · *Creamy Tuscan chicken & white beans* ·
