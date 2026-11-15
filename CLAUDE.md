@@ -154,6 +154,14 @@ else renders as g/kg. The old cup table had `/butter/`, which matched
 **"butterflied"** and showed 1.5 kg of chicken breast as "6 ⅔ cups".
 Substring patterns over food names are a trap — do not add another table.
 
+**But scooped things still go in cups** (15 Nov 2026). Weighing went too far:
+peanut butter shipped as "250 g" and Greg said *"peanut butter, I need that in
+cups"*. Meat, veg, tins and anything bought by weight stay in g/kg; anything you
+scoop from a jar or bag (peanut butter, oats, flour, rice, yoghurt in a recipe)
+is written into the recipe as a cup measure, grams beside it after an em dash:
+`[1,"ea","cup natural peanut butter — about 250 g"]`. Write it in the data, not
+via a name-pattern table in `cups()`. Its shop line then cross-checks as `None`.
+
 **Recompute the shop total in code.** Hand-quoted figures have been wrong
 three times ($83 vs $92, $110 vs $124, $109 vs $116).
 
