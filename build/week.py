@@ -20,7 +20,7 @@ PAGE = os.path.join(ROOT, "index.html")
 # key: (title, protein/serve, kcal/serve, portions or None for a snack)
 T = {
  "cider":   ("Cider-braised chicken thighs, fennel and apple", 54, 790, 2),
- "satay":   ("Satay chicken, rice and greens",              49, 640,  8),
+ "satay":   ("Satay chicken, rice and greens",              54, 670,  8),
  "harvest": ("Harvest chicken bowl, apple and pecan",       55, 588,  6),
  "grinder": ("Italian grinder sliders",                     42, 562,  6),
  "salmon":  ("Paprika-crusted salmon, charred corn salsa",  43, 525,  4),
@@ -83,39 +83,47 @@ CIDER = u'''"cider":{r:"Dinner · 2 portions",t:"Cider-braised chicken thighs, f
          ["Cooked is not the same as tender","Thigh is safe well before the hour is up, but it is the full 75 minutes that turns it soft."],
          ["Fat flag — 790 kcal, 21 g fat a serve","<b>The heaviest plate of the week.</b> Most of the fat is the thigh itself; trimming what you can see before the rub takes a few grams off. <b>No butter in the mash</b> — the reduced juices do the job and keep about 110 kcal and 12 g of fat a serve off the plate."]]}'''
 
-SATAY = u'''"satay":{r:"Dinner and lunch · 8 portions",t:"Satay chicken, rice and greens",p:49,c:52,sv:"8 portions · tonight, then one lunch and two dinners for two · reheats",m:["Wok","45 min","Flag · 640 kcal"],
+SATAY = u'''"satay":{r:"Dinner and lunch · 8 portions",t:"Satay chicken, rice and greens",p:54,c:52,sv:"8 portions · tonight, then one lunch and two dinners for two · reheats",m:["Pan","50 min","Flag · 670 kcal"],
+      src:"RecipeTin Eats (Nagi Maehashi) — Thai chicken satay with peanut sauce. Her sauce as written; marinade scaled to 1.5 kg; breast, no skewers, no curry paste",
       kp:"Thursday’s two chilled, 4 days · Friday’s two frozen tonight · rice cooked fresh",al:"peanut, soy",
-      i:[["The chicken",[
-            [1500,"g","chicken breast, sliced thin"],
-            [2,"ea","tbsp soy sauce"],
-            [1,"ea","tbsp cornflour"],
-            [1,"ea","tbsp olive oil"]]],
-         ["Satay sauce — or your own",[
-            [1,"ea","cup natural peanut butter — about 250 g"],
-            [400,"ml","light coconut milk"],
-            [2,"ea","tbsp soy sauce"],
-            [1,"ea","tbsp honey"],
-            [2,"ea","limes"],
-            [3,"ea","cloves garlic, crushed"],
-            [1,"ea","thumb ginger, grated"]]],
+      i:[["Marinade",[
+            [1500,"g","chicken breast, in 2 cm pieces"],
+            [2.5,"ea","tbsp mild curry powder"],
+            [2.5,"ea","tsp white sugar"],
+            [2.5,"ea","tsp salt"],
+            [150,"ml","light coconut milk — from the second tin"]]],
+         ["Thai peanut sauce",[
+            [340,"ml","light coconut milk — most of the first tin"],
+            [0.75,"ea","cup natural peanut butter, smooth — about 190 g"],
+            [0.25,"ea","cup white sugar — about 50 g"],
+            [2,"ea","tsp dark soy sauce"],
+            [1,"ea","tsp salt"],
+            [2,"ea","tbsp apple cider vinegar"],
+            [0.75,"ea","cup water"]]],
+         ["Cooking",[
+            [3,"ea","tbsp olive oil"]]],
          ["Veggies",[
             [2,"ea","heads broccoli, in small florets"],
             [2,"ea","red capsicums, sliced"],
             [2,"ea","carrots, sliced thin"]]],
          ["To serve",[
-            [320,"g","jasmine rice"]]]],
-      s:[["Coat","Chicken tossed with the soy and cornflour.",10],
-         ["Sauce","Peanut butter, coconut milk, soy, honey, garlic, ginger and the juice of the limes whisked in a pan over low until smooth. Loosened with water if thick.",5],
-         ["Sear","Wok smoking hot, a little oil. Chicken in <b>in three batches</b>, until just cooked, out.",12],
+            [320,"g","jasmine rice"],
+            [2,"ea","tbsp roasted peanuts, chopped fine"],
+            [2,"ea","limes, in wedges"]]]],
+      s:[["Marinate","Chicken mixed with the curry powder, sugar, salt and 150 ml of coconut milk.",20],
+         ["Sauce","The rest of the tin, peanut butter, sugar, dark soy, salt, vinegar and water into a saucepan over medium-low. Simmered, stirred now and then. Pourable but thick; water if it tightens. Lid on.",5],
+         ["Fry","Big non-stick pan, medium-high, a tablespoon of oil. Chicken in <b>three batches</b>, about 3 minutes a side until golden. Out.",18],
          ["Veggies","Carrot in first, then broccoli and capsicum, with a splash of water. Still crunchy.",4],
-         ["Toss","Chicken back in, sauce poured over, tossed once.",1],
-         ["Portion","Tonight’s two served over fresh rice. Cooled. <b>Two portions into the freezer for Friday</b>, the rest into the fridge.",0],
+         ["Toss","Chicken back in, sauce over, tossed.",1],
+         ["Serve","Over rice, peanuts and a lime wedge on top.",0],
+         ["Portion","Cooled. <b>Two portions into the freezer for Friday</b>, the rest into the fridge.",0],
          ["Reheat","Covered, until steaming right through, a splash of water if the sauce has set. Over rice cooked fresh.",4]],
-      n:[["Your sauce goes in","Make it your way. The numbers assume a cup of peanut butter across the batch, about 1½ tablespoons a serve; a sweeter or richer sauce moves the calories, not the protein."],
-         ["Mild","Nothing hot in the sauce, so it suits your partner. Any heat goes on your own plate at the table."],
-         ["Breast, sliced thin","Cornflour and a fast batch-sear keep it from drying out when reheated. Thigh would add about 8 g of fat a serve."],
-         ["Fat flag — 640 kcal, 22 g fat a serve","With the rice. <b>Most of the fat is the peanut butter.</b> Light coconut milk, not full-fat, keeps about 6 g off each serve."],
-         ["Not a repeat of the peanut bowls","The crunchy peanut chicken bowls ran earlier. This is a hot wok dish with greens and rice, and you are cooking it anyway."]]}'''
+      n:[["No curry paste","Nagi’s recipe has red curry paste in the marinade and the sauce. <b>Both left out</b> — it carries heat, and your partner does not want any. The mild curry powder keeps the curry note."],
+         ["Breast, not thigh, and no skewers","She uses thigh on skewers. Breast keeps about 8 g of fat a serve off, and pieces in a pan suit eight portions."],
+         ["Light coconut milk","She uses full-fat. Light keeps about 6 g of fat a serve off. Scaling her marinade to 1.5 kg takes a second tin; about 300 ml is left over, and it freezes."],
+         ["Natural peanut butter","No added sugar or oil. A sweetened spread makes it thick and flat, and needs more water."],
+         ["Fat flag — 670 kcal, 27 g fat a serve","With the rice. Peanut butter and the frying oil are most of it. About 6 g of sugar a serve from the sauce."],
+         ["Not a repeat of the peanut bowls","The crunchy peanut chicken bowls ran earlier. This is her satay, hot, with greens and rice."]]}'''
 
 SALMON = u'''"salmon":{r:"Dinner · 4 portions",t:"Paprika-crusted salmon, charred corn salsa",p:43,c:23,sv:"4 portions · two dinners for two · cooked fresh",m:["Pan","20 min","Lowest carb"],
       kp:"Monday and Wednesday · cooked fresh",al:"fish",
@@ -228,9 +236,7 @@ CATS = [
   ("Broccoli",2,"ea","",5.00,"<b>Tonight</b> \u2014 the satay","heads broccoli"),
   ("Red capsicums",2,"ea","",4.00,"<b>Tonight</b> \u2014 the satay","red capsicums"),
   ("Carrots",2,"ea","",1.00,"<b>Tonight</b> \u2014 the satay","carrots"),
-  ("Limes",2,"ea","",2.00,"The satay sauce","limes"),
-  ("Ginger",1,"ea","\u00b7 a thumb",1.00,"The satay sauce",None),
-  ("Garlic",1,"ea","\u00b7 one bulb",1.50,"Three cloves into the satay sauce",None),
+  ("Limes",2,"ea","",2.00,"Wedges over the satay","limes"),
   ("Chives",2,"ea","",6.00,"The bowls and the salsa","bunch chives"),
   ("Sage",1,"ea","",3.00,"The gnocchi",None),
   ("Baby spinach",120,"g","\u00b7 one bag",3.00,"Wilted into the gnocchi","baby spinach"),
@@ -240,21 +246,24 @@ CATS = [
   ("Plain flour",1000,"g","",2.00,"The gnocchi","plain flour"),
   ("Bread rolls",12,"ea","",6.00,"Two each, three lunches","bread rolls"),
   ("Jasmine rice",1000,"g","",3.50,"Under the satay, cooked fresh each time","jasmine rice"),
-  ("Natural peanut butter",375,"g","\u00b7 one jar",5.00,"One cup into the satay sauce \u2014 skip if your own sauce covers it",None),
-  ("Light coconut milk",400,"ml","\u00b7 one tin",2.50,"The satay sauce \u2014 light, not full-fat","light coconut milk"),
+  ("Natural peanut butter",375,"g","\u00b7 one jar",5.00,"\u00be cup into the satay sauce \u2014 natural, no added sugar or oil",None),
+  ("Light coconut milk",800,"ml","\u00b7 two 400 ml tins",5.00,"The satay marinade and sauce \u2014 light, not full-fat","light coconut milk"),
+  ("Mild curry powder",50,"g","",3.00,"The satay marinade \u2014 <b>mild</b>",None),
+  ("Dark soy sauce",150,"ml","",3.50,"Two teaspoons into the satay sauce \u2014 regular soy works, paler",None),
+  ("Roasted peanuts",100,"g","\u00b7 smallest bag",3.00,"Chopped over the satay",None),
   ("Cloudy apple juice",1000,"ml","",4.00,"<b>The braise.</b> Cloudy juice, <b>not</b> alcoholic cider","cloudy apple juice"),
-  ("Apple cider vinegar",500,"ml","",4.00,"Two tablespoons into the braise",None),
+  ("Apple cider vinegar",500,"ml","",4.00,"Two tablespoons each into the braise and the satay sauce",None),
   ("Smoked paprika",50,"g","",3.50,"The rub on the thighs, and the salmon crust",None),
   ("Bay leaves",10,"g","",3.00,"Two into the braise",None),
   ("Brown sugar",500,"g","",2.50,"A tablespoon into the rub",None),
-  ("Cornflour",300,"g","",2.50,"The tofu coating and the satay chicken",None),
-  ("Soy sauce",250,"ml","",3.50,"The tofu dressing and the satay",None),
+  ("Cornflour",300,"g","",2.50,"The tofu coating",None),
+  ("Soy sauce",250,"ml","",3.50,"The tofu dressing",None),
   ("Sesame oil",150,"ml","",4.00,"The tofu dressing",None),
   ("Sesame seeds",100,"g","",3.00,"The tofu dressing, toasted",None),
   ("Garlic powder",50,"g","",3.00,"The salmon crust",None),
   ("Rolled oats",500,"g","",2.50,"The parfait mix","rolled oats"),
   ("Pecans",150,"g","",6.00,"Toasted \u2014 bowls and parfaits","pecans"),
-  ("Honey",500,"g","",6.00,"Parfaits, the bowl dressing and the satay","honey"),
+  ("Honey",500,"g","",6.00,"Parfaits and the bowl dressing","honey"),
   ("Dijon mustard",200,"g","",3.00,"The braise and the bowl dressing",None),
   ("Mayonnaise",250,"g","",4.00,"The grinder salad",None),
  ]),
@@ -425,7 +434,7 @@ PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 
         <li><div><b>1:15 — the gnocchi</b><p>Flesh mashed with the yolk, parmesan and salt, flour worked in only until it holds. Rolled into ropes, cut into 2 cm pieces, onto a floured tray and into the freezer.</p></div></li>
         <li><div><b>1:40 — the tofu</b><p>Cubed, tossed in cornflour and oil, air-fried in batches at 200 °C. Dressing shaken in a jar.</p></div></li>
         <li><div><b>2:20 — the parfait jar and the thighs</b><p>Pecans toasted and chopped into the oats and cinnamon. Grinder meat and cheese in one tub. <b>Tuesday’s thighs rubbed</b> with salt, smoked paprika, brown sugar and pepper, bagged, into the fridge. Saturday’s thighs into a flat bag with salt, pepper and sage, into the freezer. Gnocchi bagged once hard.</p></div></li>
-        <li><div><b>5:00 — the satay</b><p>Satay breast sliced thin, tossed in soy and cornflour. Sauce warmed smooth. Chicken seared in three batches, veg in, everything tossed in the sauce.</p></div></li>
+        <li><div><b>4:40 — the satay</b><p>Breast in 2 cm pieces into the curry powder, sugar, salt and coconut milk for 20 minutes. Peanut sauce simmered and kept warm. Chicken fried in three batches, veg in, everything tossed in the sauce.</p></div></li>
         <li><div><b>5:45 — eat, then bag</b><p>Tonight’s two over fresh rice. <b>Into the freezer: Friday’s two portions of satay and half the tofu.</b> Monday’s and Thursday’s satay into the fridge.</p></div></li>
       </ol>
       <p class="aside"><b>The bare minimum, if Sunday gets away from you.</b> The satay and the chicken tray. The gnocchi can be made any evening before Saturday, the tofu any evening, the thighs rubbed Monday night, and the parfait jar is five minutes.</p>
