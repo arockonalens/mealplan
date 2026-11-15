@@ -20,21 +20,22 @@ PAGE = os.path.join(ROOT, "index.html")
 # key: (title, protein/serve, kcal/serve, portions or None for a snack)
 T = {
  "cider":   ("Cider-braised chicken thighs, fennel and apple", 54, 790, 2),
- "chilli":  ("Smoky turkey and black bean chilli",          46, 560,  8),
+ "stew":    ("Turkey, tomato and white bean stew",          46, 560,  8),
  "harvest": ("Harvest chicken bowl, apple and pecan",       55, 588,  6),
  "grinder": ("Italian grinder sliders",                     42, 562,  6),
- "salmon":  ("Blackened salmon, charred corn salsa",        43, 525,  6),
- "tofu":    ("Crispy chilli-sesame tofu",                   14, 170, None),
+ "salmon":  ("Paprika-crusted salmon, charred corn salsa",  43, 525,  4),
+ "gnocchi": ("Sweet potato gnocchi, chicken thigh and sage",54, 770,  2),
+ "tofu":    ("Crispy sesame-soy tofu",                      14, 170, None),
  "parfait": ("Apple cinnamon yoghurt parfait",              17, 235, None),
 }
 DAYS = [
  ("Sun", "Braise day",          "grinder", "cider"),
- ("Mon", "Chilli, then fish",   "chilli",  "salmon"),
- ("Tue", "Reheat and go",       "harvest", "chilli"),
+ ("Mon", "Stew, then fish",     "stew",    "salmon"),
+ ("Tue", "Reheat and go",       "harvest", "stew"),
  ("Wed", "Second salmon",       "harvest", "salmon"),
- ("Thu", "Reheat and go",       "grinder", "chilli"),
- ("Fri", "Out of the freezer",  "harvest", "salmon"),
- ("Sat", "Last of it",          "grinder", "chilli"),
+ ("Thu", "Reheat and go",       "grinder", "stew"),
+ ("Fri", "Out of the freezer",  "harvest", "stew"),
+ ("Sat", "Gnocchi night",       "grinder", "gnocchi"),
 ]
 SNACK_P = T["tofu"][1] + T["parfait"][1]
 SNACK_K = T["tofu"][2] + T["parfait"][2]
@@ -81,53 +82,99 @@ CIDER = u'''"cider":{r:"Dinner · 2 portions",t:"Cider-braised chicken thighs, f
          ["Cooked is not the same as tender","Thigh is safe well before the hour is up, but it is the full 75 minutes that turns it soft."],
          ["Fat flag — 790 kcal, 21 g fat a serve","<b>The heaviest plate of the week.</b> Most of the fat is the thigh itself; trimming what you can see before the rub takes a few grams off. <b>No butter in the mash</b> — the reduced juices do the job and keep about 110 kcal and 12 g of fat a serve off the plate."]]}'''
 
-CHILLI = u'''"chilli":{r:"Dinner and lunch · 8 portions",t:"Smoky turkey and black bean chilli",p:46,c:50,sv:"8 portions · one lunch and three dinners for two · reheats",m:["Cooktop","50 min","Freezes"],
-      src:"Tim Laielli, the bare minimum, October round-up — his smoky pumpkin turkey chilli, without the pumpkin",
-      kp:"4 days chilled · Saturday’s two frozen on Sunday · rice cooked fresh",al:"none of the big ones",
-      i:[["The chilli",[
+STEW = u'''"stew":{r:"Dinner and lunch · 8 portions",t:"Turkey, tomato and white bean stew",p:46,c:48,sv:"8 portions · one lunch and three dinners for two · reheats",m:["Cooktop","45 min","Freezes"],
+      kp:"4 days chilled · Friday’s two frozen on Sunday · rice cooked fresh",al:"none of the big ones",
+      i:[["The stew",[
             [1,"ea","tbsp olive oil"],
             [2,"ea","brown onions, diced"],
             [4,"ea","cloves garlic, crushed"],
             [1500,"g","turkey mince"],
-            [2,"ea","tbsp smoked paprika"],
-            [1,"ea","tbsp ground cumin"],
-            [1,"ea","tsp dried oregano"],
+            [2,"ea","tsp dried oregano"],
             [1200,"g","tinned crushed tomatoes — three tins"],
-            [800,"g","black beans, drained — two tins"]]],
+            [800,"g","cannellini beans, drained — two tins"]]],
          ["To serve",[
             [320,"g","jasmine rice"],
-            [2,"ea","limes"],
-            [1,"ea","bunch coriander"]]]],
+            [1,"ea","bunch flat-leaf parsley"]]]],
       s:[["Soften","Oil into a big heavy pot over medium. Onion in until soft and gold.",8],
          ["Brown","Turkey in, heat up, broken up hard with a spoon until no pink is left and it <b>catches on the bottom</b>.",10],
-         ["Bloom","Garlic, smoked paprika, cumin and oregano stirred through.",1],
+         ["Garlic","Garlic and oregano stirred through.",1],
          ["Simmer","Tomatoes and beans in, plus one of the empty tins filled with water. Lid half on, low.",30],
-         ["Season","Salt tasted for. The juice of one lime stirred through off the heat.",0],
-         ["Portion","Cooled. <b>Two portions into the freezer for Saturday</b>, the rest into the fridge.",0],
-         ["Serve","Reheated hard, over rice cooked fresh, with coriander and a wedge of the other lime.",15]],
-      n:[["Tim’s, without the pumpkin","His is a pumpkin chilli. <b>Pumpkin has already been in four dishes here</b>, and the beans give it the body without it."],
-         ["Turkey, two weeks on","Turkey last ran 1–7 November, in the tagine, and I had noted to leave it a few weeks. This is two. It is a mince in a smoky tomato chilli this time rather than a spiced tagine, so it should not eat like the same thing — but it is sooner than I said."],
+         ["Season","Salt and pepper tasted for.",0],
+         ["Portion","Cooled. <b>Two portions into the freezer for Friday</b>, the rest into the fridge.",0],
+         ["Serve","Reheated hard, over rice cooked fresh, parsley over.",15]],
+      n:[["Nothing hot in it","No chilli, no cumin, no paprika. Mild enough for anyone at the table."],
          ["Why it gets browned so hard","Turkey is lean, so it has almost no fat of its own to colour in. Left pale it tastes of nothing. Let it catch."],
-         ["46 g protein, 560 kcal, 16 g fat a serve","With the rice. Without it, about 420 kcal. Not a fat-heavy plate."],
-         ["Saturday’s two","Frozen on Sunday, out on Friday night. Chilli comes out of the freezer better than nearly anything."]]}'''
+         ["46 g protein, 560 kcal, 15 g fat a serve","With the rice. Without it, about 420 kcal."],
+         ["Turkey, two weeks on","Turkey last ran 1–7 November, in the tagine. Sooner than I would like, but a tomato stew does not eat like a spiced tagine."]]}'''
 
-TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy chilli-sesame tofu",p:14,c:4,sv:"14 servings · about 105 g each · one a day",m:["Air fryer","35 min Sunday","First time here"],
+SALMON = u'''"salmon":{r:"Dinner · 4 portions",t:"Paprika-crusted salmon, charred corn salsa",p:43,c:23,sv:"4 portions · two dinners for two · cooked fresh",m:["Pan","20 min","Lowest carb"],
+      kp:"Monday and Wednesday · cooked fresh",al:"fish",
+      i:[["Salmon",[
+            [800,"g","salmon fillets"],
+            [2,"ea","tbsp smoked paprika"],
+            [1,"ea","tsp garlic powder"],
+            [1,"ea","tsp dried oregano"]]],
+         ["Charred corn salsa",[
+            [4,"ea","corn cobs"],
+            [200,"g","tomatoes, chopped"],
+            [1,"ea","red onion, diced"],
+            [2,"ea","lemons"],
+            [1,"ea","bunch chives"]]]],
+      s:[["Press","Salmon dried, then pressed hard into the paprika, garlic powder and oregano <b>on the flesh side only</b>.",0],
+         ["Sear","Screaming hot dry pan, spice side down first.",4],
+         ["Turn","Turned once, three minutes on the skin. Out while the centre is still coral.",3],
+         ["Char the corn","Corn cut off the cob and charred in the same pan — <b>no oil, no stirring</b>.",5],
+         ["Salsa","Charred corn, tomato, red onion, lemon, salt and chives. Made fresh each night.",0]],
+      n:[["Smoky, not hot","Smoked paprika in place of the cajun mix, which carries cayenne."],
+         ["The crust goes dark, not the fish","If the pan sweats instead of catching, it is not hot enough."],
+         ["Lowest carb plate here","23 g a serve, 525 kcal."]]}'''
+
+GNOCCHI = u'''"gnocchi":{r:"Dinner · 2 portions",t:"Sweet potato gnocchi, chicken thigh and sage",p:54,c:78,sv:"2 portions · Saturday · gnocchi made Sunday and frozen raw",m:["Pan","25 min Saturday","Flag · 770 kcal"],
+      kp:"Gnocchi frozen raw on Sunday · thighs frozen raw, out Friday night",al:"wheat, egg, dairy",
+      i:[["The gnocchi — Sunday",[
+            [400,"g","sweet potatoes, whole"],
+            [100,"g","plain flour, plus some for the bench"],
+            [1,"ea","egg yolk"],
+            [15,"g","parmesan, grated fine"],
+            [1,"ea","tsp salt"]]],
+         ["Saturday",[
+            [400,"g","chicken thigh fillets, trimmed"],
+            [2,"ea","tsp olive oil"],
+            [1,"ea","bunch sage"],
+            [120,"g","baby spinach"],
+            [1,"ea","lemon"]]]],
+      s:[["Cook","Sweet potatoes pricked all over and microwaved on high, turned halfway, until soft right through.",10],
+         ["Dry","Halved, flesh scooped onto a tray and spread thin to steam off.",10],
+         ["Dough","Flesh mashed smooth. Yolk, parmesan and salt in, then the flour worked through with a fork <b>only until it holds</b>.",0],
+         ["Roll","Dough split in four, each rolled on a floured bench into a rope as thick as a thumb, cut into 2 cm pieces.",0],
+         ["Freeze","Pieces on a floured tray, not touching, frozen hard, then bagged.",60],
+         ["Thighs","Thighs into a flat bag with salt, pepper and a few chopped sage leaves, frozen. Out to the fridge Friday night.",0],
+         ["Sear","Saturday: oil into a big pan over medium-high. Thighs in flat, five minutes a side, out to rest.",10],
+         ["Boil","Gnocchi straight from the freezer into well-salted boiling water. Out a minute after they float.",4],
+         ["Colour","Gnocchi into the chicken pan with the rest of the sage, left still until golden underneath, then turned.",5],
+         ["Wilt","Spinach in, tossed until it collapses. Lemon squeezed over.",1],
+         ["Serve","Thighs sliced over the gnocchi.",0]],
+      n:[["About half the carbs are the flour","Sweet potato is wet, so it needs flour to hold together. Drying the flesh is what keeps the flour down, so do not skip it."],
+         ["Frozen raw, never cooked ahead","Cooked gnocchi goes dense and gummy in the fridge. Frozen raw, it cooks like fresh."],
+         ["Boiled, then fried","It is raw dough. Straight into the pan it stays gluey in the middle."],
+         ["Fat flag — 770 kcal, 24 g fat a serve","Level with the cider braise. Most of the fat is the thigh. No butter anywhere, and butter is where the classic brown-butter sage version gets its fat."]]}'''
+
+TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy sesame-soy tofu",p:14,c:4,sv:"14 servings · about 105 g each · one a day",m:["Air fryer","35 min Sunday","First time here"],
       kp:"Half chilled, 4 days · half frozen for Thursday on · dressing kept apart",al:"soy, sesame",
       i:[["Tofu",[
             [1500,"g","firm tofu"],
             [3,"ea","tbsp cornflour"],
             [1,"ea","tbsp olive oil"]]],
-         ["Chilli-sesame dressing",[
+         ["Sesame-soy dressing",[
             [3,"ea","tbsp soy sauce"],
             [2,"ea","tsp sesame oil"],
-            [2,"ea","tsp chilli flakes"],
             [2,"ea","tbsp sesame seeds, toasted"]]]],
       s:[["Press","Tofu pressed between paper towel under a heavy board.",20],
          ["Cube","Cut into 2 cm cubes.",0],
          ["Coat","Cubes tossed with the cornflour and the oil until every face is dusted.",0],
          ["Air fry","Air fryer 200 °C, <b>single layer</b>, shaken halfway. In batches.",15],
          ["Split","Cooled on a rack. Half into the fridge, <b>half into the freezer for Thursday on</b>.",0],
-         ["Dressing","Soy, sesame oil, chilli flakes and sesame seeds shaken in a jar.",0],
+         ["Dressing","Soy, sesame oil and sesame seeds shaken in a jar.",0],
          ["Each day","A serve back in the air fryer at 200 °C, then tossed in a spoon of the dressing.",4]],
       n:[["Why tofu","It takes the edamame’s slot because it carries nearly the same protein, and <b>tofu has never been in this plan</b>."],
          ["Pressing is the whole trick","Wet tofu steams in the basket instead of crisping, whatever the temperature."],
@@ -135,9 +182,9 @@ TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy chilli-sesame 
          ["From the freezer","Straight in, no thawing, about 8 minutes instead of 4. Freezing makes tofu chewier and meatier, which suits this."],
          ["Fat flag — 14 g protein, 11 g fat, 170 kcal a serve","<b>Fattier than the edamame was</b> (7 g), and it is the tofu itself rather than the oil: soy is about half fat by energy. A snack-sized amount, but it is not the leanest thing here any more."]]}'''
 
-OWN = {"cider": CIDER, "chilli": CHILLI, "tofu": TOFU}
+OWN = {"cider": CIDER, "stew": STEW, "salmon": SALMON, "gnocchi": GNOCCHI, "tofu": TOFU}
 # dishes Greg has said no to; the build fails if one comes back
-BANNED = ["wings", "edamame", "mongolian"]
+BANNED = ["wings", "edamame", "mongolian", "chilli"]
 
 
 # ------------------------------------------------------------- the shopping
@@ -146,56 +193,58 @@ BANNED = ["wings", "edamame", "mongolian"]
 CATS = [
  ("Protein", [
   ("Chicken breast",1500,"g","",19.00,"The harvest bowls \u2014 three lunches","chicken breast"),
-  ("Turkey mince",1500,"g","\u00b7 three 500 g packs",25.50,"The chilli \u2014 one lunch and three dinners","turkey mince"),
-  ("Chicken thigh fillets",500,"g","\u00b7 one 500 g tray",8.00,"<b>Tonight</b> \u2014 the cider braise","chicken thigh fillets"),
-  ("Salmon fillets",1200,"g","",42.00,"Three dinners \u2014 freeze a third on Sunday","salmon fillets"),
+  ("Turkey mince",1500,"g","\u00b7 three 500 g packs",25.50,"The stew \u2014 one lunch and three dinners","turkey mince"),
+  ("Chicken thigh fillets",1000,"g","\u00b7 two 500 g trays",16.00,"<b>Tonight\u2019s</b> braise, and Saturday\u2019s gnocchi \u2014 that tray frozen today","chicken thigh fillets"),
+  ("Salmon fillets",800,"g","",28.00,"Monday and Wednesday, cooked fresh","salmon fillets"),
   ("Firm tofu",1500,"g","\u00b7 in whatever blocks they have",15.00,"The savoury snack, all fortnight\u2019s worth pressed on Sunday","firm tofu"),
   ("Shaved ham",600,"g","",12.00,"The grinders \u2014 cured, so it is fine","shaved ham"),
   ("Salami",200,"g","",6.00,"The grinders \u2014 200 g, not 300; it is the fattiest thing in them","salami"),
  ]),
  ("Dairy", [
   ("Provolone",200,"g","",7.00,"The grinders \u2014 Swiss if there is no provolone","provolone"),
+  ("Parmesan",100,"g","\u00b7 smallest wedge",5.00,"15 g into the gnocchi","parmesan"),
+  ("Eggs",6,"ea","\u00b7 smallest carton",4.50,"One yolk into the gnocchi",None),
   ("Greek yoghurt, 0% fat",2000,"g","",12.00,"The parfaits \u2014 0%, not the 10% stuff","Greek yoghurt"),
  ]),
  ("Produce", [
   ("Potatoes",600,"g","\u00b7 loose, about four",2.50,"Tonight\u2019s mash","potatoes"),
-  ("Sweet potatoes",900,"g","",3.50,"Roasted, into the harvest bowls","sweet potatoes"),
+  ("Sweet potatoes",1300,"g","\u00b7 you have some \u2014 buy the difference",5.00,"900 g roasted for the bowls, 400 g for the gnocchi","sweet potatoes"),
   ("Fennel",1,"ea","",4.00,"<b>Tonight</b> \u2014 it goes under the thighs","fennel bulb"),
   ("Apples",10,"ea","",8.00,"Three to the bowls, six to the parfaits, one to the braise","apples"),
   ("Cos lettuce",4,"ea","",8.00,"Two for the grinder salad, two for the bowls","cos lettuce"),
-  ("Corn cobs",6,"ea","",7.50,"Two a night, charred for the salsa","corn cobs"),
-  ("Lemons",4,"ea","",3.00,"The salsa, three nights","lemons"),
-  ("Limes",3,"ea","",2.40,"The chilli \u2014 one into the pot, one for wedges","limes"),
-  ("Tomatoes",600,"g","",4.00,"Grinder salad and the corn salsa","tomatoes"),
-  ("Red onions",4,"ea","",2.50,"Two grinders, two salsas","red onions"),
-  ("Brown onions",2,"ea","",1.50,"The chilli","brown onions"),
-  ("Garlic",1,"ea","\u00b7 one bulb",1.50,"Four cloves into the chilli",None),
+  ("Corn cobs",4,"ea","",5.00,"Two a night, charred for the salsa","corn cobs"),
+  ("Lemons",3,"ea","",2.25,"The salsa two nights, one over the gnocchi","lemons"),
+  ("Tomatoes",500,"g","",3.50,"Grinder salad and the corn salsa","tomatoes"),
+  ("Red onions",3,"ea","",2.00,"Two for the grinders, one for the salsa","red onions"),
+  ("Brown onions",2,"ea","",1.50,"The stew","brown onions"),
+  ("Garlic",1,"ea","\u00b7 one bulb",1.50,"Four cloves into the stew",None),
   ("Chives",2,"ea","",6.00,"The bowls and the salsa","bunch chives"),
-  ("Coriander",1,"ea","",3.00,"Over the chilli","bunch coriander"),
+  ("Flat-leaf parsley",1,"ea","",3.00,"Over the stew","bunch flat-leaf parsley"),
+  ("Sage",1,"ea","",3.00,"The gnocchi",None),
+  ("Baby spinach",120,"g","\u00b7 one bag",3.00,"Wilted into the gnocchi","baby spinach"),
   ("Thyme",1,"ea","",3.50,"<b>Tonight</b> \u2014 four sprigs into the braise",None),
  ]),
  ("Pantry \u2014 one-off, lasts months", [
+  ("Plain flour",1000,"g","",2.00,"The gnocchi","plain flour"),
   ("Bread rolls",12,"ea","",6.00,"Two each, three lunches","bread rolls"),
-  ("Jasmine rice",1000,"g","",3.50,"Under the chilli, cooked fresh each time","jasmine rice"),
-  ("Crushed tomatoes",1200,"g","\u00b7 three 400 g tins",3.30,"The chilli","tinned crushed tomatoes"),
-  ("Black beans",800,"g","\u00b7 two 400 g tins",2.40,"The chilli","black beans"),
+  ("Jasmine rice",1000,"g","",3.50,"Under the stew, cooked fresh each time","jasmine rice"),
+  ("Crushed tomatoes",1200,"g","\u00b7 three 400 g tins",3.30,"The stew","tinned crushed tomatoes"),
+  ("Cannellini beans",800,"g","\u00b7 two 400 g tins",2.40,"The stew","cannellini beans"),
   ("Cloudy apple juice",1000,"ml","",4.00,"<b>The braise.</b> Cloudy juice, <b>not</b> alcoholic cider","cloudy apple juice"),
   ("Apple cider vinegar",500,"ml","",4.00,"Two tablespoons into the braise",None),
-  ("Smoked paprika",50,"g","",3.50,"The rub on the thighs, and the chilli",None),
-  ("Ground cumin",40,"g","",3.00,"The chilli",None),
+  ("Smoked paprika",50,"g","",3.50,"The rub on the thighs, and the salmon crust",None),
   ("Bay leaves",10,"g","",3.00,"Two into the braise",None),
   ("Brown sugar",500,"g","",2.50,"A tablespoon into the rub",None),
   ("Cornflour",300,"g","",2.50,"The tofu coating",None),
   ("Soy sauce",250,"ml","",3.50,"The tofu dressing",None),
   ("Sesame oil",150,"ml","",4.00,"The tofu dressing",None),
   ("Sesame seeds",100,"g","",3.00,"The tofu dressing, toasted",None),
-  ("Cajun seasoning",50,"g","",4.00,"The blackened salmon, three nights",None),
+  ("Garlic powder",50,"g","",3.00,"The salmon crust",None),
   ("Rolled oats",500,"g","",2.50,"The parfait mix","rolled oats"),
   ("Pecans",150,"g","",6.00,"Toasted \u2014 bowls and parfaits","pecans"),
   ("Honey",500,"g","",6.00,"Parfaits and the bowl dressing","honey"),
   ("Dijon mustard",200,"g","",3.00,"The braise and the bowl dressing",None),
   ("Mayonnaise",250,"g","",4.00,"The grinder salad",None),
-  ("Chilli flakes",50,"g","",3.00,"The tofu dressing",None),
  ]),
 ]
 
@@ -336,15 +385,14 @@ for cat, items in CATS:
 shop = "\n".join(lines[:-1])
 print("lines %d | total $%.2f  (a read-out, not a target)" % (n, total))
 
-SHOP_INTRO = (u'    <p class="para"><b>No wings and no edamame this week.</b> The wings\u2019 four slots \u2014 '
- u'one lunch and three dinners \u2014 go to <b>a smoky turkey and black bean chilli</b> from Tim Laielli\u2019s '
- u'October list, and the savoury snack is now <b>crispy chilli-sesame tofu</b>, the first time tofu has been '
- u'in this plan. Last week\u2019s velveted beef is gone too, replaced by <b>Tim\u2019s cider braise, on chicken '
- u'thighs left whole</b>. <b>No beef and no fresh pork this week</b> \u2014 chicken breast and thigh, '
- u'turkey mince, salmon and tofu, plus cured ham and salami. No lentils, as always. The shop comes to <b>$%.2f</b> across '
- u'%d lines. <b>Check the Dijon, mayonnaise, honey, soy and the apple cider vinegar before you leave</b>: '
- u'they are on the list because I cannot see your cupboard. <b>Cloudy apple juice, not alcoholic cider</b> '
- u'\u2014 that one would change the dish.</p>') % (total, n)
+SHOP_INTRO = (u'    <p class="para"><b>Nothing hot this week.</b> The turkey is now <b>a mild tomato and white bean stew</b>, '
+ u'the salmon is crusted in smoked paprika instead of cajun, and the tofu dressing is just soy and sesame. '
+ u'<b>Saturday is new: sweet potato gnocchi with chicken thigh</b>, made today and frozen raw. Tim\u2019s cider '
+ u'braise on whole chicken thighs stays tonight. No beef and no fresh pork \u2014 chicken, turkey, salmon and tofu, '
+ u'plus cured ham and salami. No lentils, as always. The shop comes to <b>$%.2f</b> across %d lines. '
+ u'<b>You have sweet potato</b>: 1.3 kg covers the bowls and the gnocchi, so only buy the difference. '
+ u'<b>Check the Dijon, mayonnaise, honey, soy and the apple cider vinegar before you leave.</b> '
+ u'<b>Cloudy apple juice, not alcoholic cider.</b></p>') % (total, n)
 
 RTOP = u'          <p>%s \u00b7 %d lines \u00b7 no fresh pork, no lentils</p>' % (DATES, n)
 
@@ -357,20 +405,21 @@ RFOOT = (u'        <p class="r-foot">Protein averages <b>%d g each a day</b> \u2
  u'the top. <b>Every single day lands inside the %d\u2013%d target</b>, which is the third week running. '
  u'Energy about %d kcal a day.</p>') % (PRO, min(perday), max(perday), BAND[0], BAND[1], KCAL)
 
-PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 90 minutes hands-on · the braise goes in last</p></div>
-    <p class="para"><b>About 90 minutes hands-on</b> — longer than last week, and on purpose: the wings were rubbed on Sunday and then cooked fresh on four weeknights, and <b>the chilli moves all of that work to today</b>. Tuesday, Thursday and Saturday are now reheat-and-eat. <b>The oven does two jobs at two temperatures</b>: the chicken tray at 200 °C first, then the braise at 165 °C from 4:00, so they never collide. Lunch today is the grinder, which needs no cooking at all. The braise and the chilli are both from <b>@barefoodtim</b>.</p>
+PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 110 minutes hands-on · the braise goes in last</p></div>
+    <p class="para"><b>About 110 minutes hands-on.</b> The gnocchi adds twenty, and in return Saturday is a 25-minute pan supper. Tuesday, Thursday and Friday are reheat-and-eat. <b>The oven does two jobs at two temperatures</b>: the chicken tray at 200 °C first, then the braise at 165 °C from 4:00. Lunch today is the grinder, which needs no cooking at all.</p>
     <div class="prep">
       <ol class="prep-ol">
-        <li><div><b>1:00 — tofu under a board, chicken tray in</b><p>Tofu pressed between paper towel under something heavy, and left. Breast butterflied flat, sweet potato cubed and oiled on the same tray, 200 °C. Out at 70 °C internal and rested.</p></div></li>
-        <li><div><b>1:10 — the chilli</b><p>Onion softened, then the turkey <b>browned hard until it catches</b>. Garlic and spices for a minute, tomatoes and beans in, lid half on, low for 30 minutes.</p></div></li>
-        <li><div><b>1:40 — the tofu, while the chilli simmers</b><p>Cubed, tossed in cornflour and oil, air-fried in batches at 200 °C. Dressing shaken in a jar.</p></div></li>
-        <li><div><b>2:30 — the parfait jar and the bagging</b><p>Pecans toasted and chopped into the oats and cinnamon. Grinder meat and cheese in one tub. Salmon split three ways. <b>Into the freezer: Friday’s salmon, Saturday’s two portions of chilli, half the tofu.</b></p></div></li>
+        <li><div><b>1:00 — tofu under a board, chicken tray in, sweet potatoes in the microwave</b><p>Tofu pressed under something heavy. Breast butterflied flat, sweet potato cubed and oiled on the same tray, 200 °C, out at 70 °C internal. The gnocchi’s 400 g of sweet potato microwaved whole, then scooped out and spread on a tray to dry.</p></div></li>
+        <li><div><b>1:10 — the stew</b><p>Onion softened, then the turkey <b>browned hard until it catches</b>. Garlic and oregano for a minute, tomatoes and beans in, lid half on, low for 30 minutes.</p></div></li>
+        <li><div><b>1:25 — the gnocchi, while the stew simmers</b><p>Flesh mashed with the yolk, parmesan and salt, flour worked in only until it holds. Rolled into ropes, cut into 2 cm pieces, onto a floured tray and into the freezer.</p></div></li>
+        <li><div><b>1:50 — the tofu</b><p>Cubed, tossed in cornflour and oil, air-fried in batches at 200 °C. Dressing shaken in a jar.</p></div></li>
+        <li><div><b>2:30 — the parfait jar and the bagging</b><p>Pecans toasted and chopped into the oats and cinnamon. Grinder meat and cheese in one tub. Saturday’s thighs into a flat bag with salt, pepper and sage. Gnocchi bagged once hard. <b>Into the freezer: Friday’s two portions of stew, Saturday’s thighs and gnocchi, half the tofu.</b></p></div></li>
         <li><div><b>3:00 — build the braise, then stop</b><p>Thighs rubbed with salt, smoked paprika, brown sugar and pepper. Fennel and apple down first, thighs on top <b>whole</b>, then the juice, vinegar and Dijon <b>poured around rather than over</b>. Thyme and bay tucked in, lid on, into the fridge.</p></div></li>
-        <li><div><b>4:00 — braise in</b><p>Lid on, 165 °C, an hour and a quarter. Nothing needs you until it comes out.</p></div></li>
+        <li><div><b>4:00 — braise in</b><p>Lid on, 165 °C, an hour and a quarter.</p></div></li>
         <li><div><b>4:55 — potatoes on</b><p>Boiled in well-salted water.</p></div></li>
         <li><div><b>5:15 — thighs out</b><p>Lifted out and kept warm. The liquid reduced hard by a third, then <b>a ladle of it through the mash instead of butter</b>.</p></div></li>
       </ol>
-      <p class="aside"><b>The bare minimum, if Sunday gets away from you.</b> Get the chilli on and the chicken tray in. The braise is twenty minutes of work and an oven, and it can be built at four. The tofu can be pressed and fried any evening, and the parfait jar is five minutes.</p>
+      <p class="aside"><b>The bare minimum, if Sunday gets away from you.</b> Get the stew on and the chicken tray in. The gnocchi can be made any evening before Saturday, the tofu any evening, and the parfait jar is five minutes.</p>
     </div>''')
 
 PAIR = (u'      <table class="pair"><tbody>'
@@ -380,10 +429,12 @@ PAIR = (u'      <table class="pair"><tbody>'
  u'<tr><td>Reduce before serving</td><td>braising liquid is thin until you take a third out of it; that is the sauce</td></tr>'
  u'<tr><td>Mash, no butter</td><td>a ladle of the reduced juices beats butter here, and keeps 12 g of fat a serve off the plate</td></tr>'
  u'<tr><td>Turkey mince \u2014 browned hard</td><td>lean, so it has almost no fat of its own to colour in; pale turkey tastes of nothing</td></tr>'
- u'<tr><td>Black beans \u2014 drained</td><td>the tin liquid goes gluey and dulls the chilli</td></tr>'
- u'<tr><td>Chilli \u2014 frozen on Sunday</td><td>Saturday\u2019s two portions; a chilli comes out of the freezer better than almost anything</td></tr>'
+ u'<tr><td>Cannellini \u2014 drained</td><td>the tin liquid goes gluey and dulls the stew</td></tr>'
+ u'<tr><td>Stew \u2014 frozen on Sunday</td><td>Friday\u2019s two portions; a tomato stew comes out of the freezer better than almost anything</td></tr>'
+ u'<tr><td>Sweet potato \u2014 microwaved and dried</td><td>boiled flesh drinks water and needs far more flour to hold</td></tr>'
+ u'<tr><td>Gnocchi \u2014 frozen raw</td><td>cooked ahead it goes dense; raw from frozen it cooks like fresh</td></tr>'
  u'<tr><td>Chicken breast \u2014 butterflied</td><td>even thickness beats any cooking time you could pick</td></tr>'
- u'<tr><td>Salmon \u2014 blackened</td><td>spice on the flesh side only, into a dry screaming pan, turned once</td></tr>'
+ u'<tr><td>Salmon \u2014 paprika crust</td><td>spice on the flesh side only, into a dry screaming pan, turned once</td></tr>'
  u'<tr><td>Corn \u2014 charred dry</td><td>no oil and no stirring; let it sit still and catch</td></tr>'
  u'<tr><td>The grinder salad</td><td>salted, rested ten minutes, <b>drained</b> \u2014 that liquid is what ruins the bread</td></tr>'
  u'<tr><td>Greek yoghurt \u2014 0%</td><td>same protein as the 10%, a third of the fat, and here it is most of the dish</td></tr>'
@@ -452,8 +503,8 @@ print("page script parses")
 content = s[:s.index("<script>")]
 STALE = [r"[Mm]ongolian", r"goosetheory", r"Shaoxing", r"[Vv]elvet",
          r"potroast", r"8\u201314 November", r"your 460 g",
-         r"\b[Ww]ings?\b", r"[Cc]heeks?\b", r"\b[Ee]damame\b", r"[Ll]emon pepper", r"\bslaw\b"]
-ALLOWED = [u"No wings and no edamame this week", u"The wings\u2019 four slots",
+         r"\b[Ww]ings?\b", r"\b[Cc]hilli\b", r"[Cc]ajun", r"[Bb]lack bean", r"[Cc]heeks?\b", r"\b[Ee]damame\b", r"[Ll]emon pepper", r"\bslaw\b"]
+ALLOWED = [u"in smoked paprika instead of cajun", u"No chilli, no cumin, no paprika", u"in place of the cajun mix", u"No wings and no edamame this week", u"The wings\u2019 four slots",
            u"the wings were rubbed on Sunday", u"the edamame\u2019s slot",
            u"Fattier than the edamame was", u"pulled chicken slaw bowl",
            u"Last week\u2019s velveted beef is gone"]

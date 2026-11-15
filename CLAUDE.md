@@ -51,6 +51,9 @@ recipe or an inspiration menu wants to.
   week that had already shipped with wings in four slots. **No edamame
   either**: he asked for it gone the same day. Treat both as a standing no
   until he says otherwise; `build/week.py` fails the build if either comes back.
+- **Nothing spicy** — "not chilli my partner doesnt like spicy", 15 Nov 2026.
+  No chilli, chilli flakes, cajun, cayenne or hot sauce. Smoked paprika is fine.
+  `build/week.py` fails on the words chilli, cajun and black bean.
 - Dairy limited *in dishes*; no daily glass of milk.
 - **Pack sizes must be buyable**: 500 g / 1 kg trays. Never "700 g of mince".
   He is not going to the deli.
