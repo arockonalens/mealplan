@@ -9,6 +9,10 @@ Greg's weekly meal plan + gym app. Two copies ship from this one source:
 
 This repo is deliberately **not** in iCloud — iCloud sync corrupts `.git`.
 
+**If `HANDOFF.md` exists here, read it before anything else.** It says where
+the last session stopped and what is still open. It is gitignored because
+this repo is public. Keep it current after every shipped change.
+
 ---
 
 ## Standing constraints — check these on EVERY recipe added
