@@ -17,7 +17,18 @@ These are Greg's, learned the hard way. Do not quietly drop one because a new
 recipe or an inspiration menu wants to.
 
 **The eating**
-- Two people. Australia, Coles/Woolworths prices and pack sizes.
+- Two people, Australia. **Buyable Coles/Woolworths pack sizes** — 500 g and
+  1 kg trays, never "700 g of mince". That is a **buyability** rule, not a
+  price rule, and it stays.
+- **Price is not a constraint** (15 Nov 2026). Greg: *"remove the price
+  restrictions, we will keep it fair but i dont want you to worry about price
+  anymore."* So: **never choose, drop, shrink or substitute a dish for cost.**
+  No cheaper-cut suggestions, no "800 g instead of 1.2 kg saves $14 and costs
+  you one dinner", no splurge / pantry / recurring-basket arithmetic anywhere
+  in the prose. Choose on **food**: protein, originality, how the week eats.
+  The shop total stays on the page as a **read-out, not a target** — it is how
+  "fair" stays checkable. State it once, plainly, and never argue about it.
+  *Per meal, each* is gone from the tape; it was a budget metric.
 - **No breakfast.** Lunch + dinner + snacks only. A "breakfast" dish from an
   external menu becomes lunch.
 - **Goal is fat loss with muscle gain.** 185 cm, 70 kg, 35, trains 5 days,

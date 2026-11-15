@@ -735,7 +735,6 @@
     <h1 class="vh">Meal Planner</h1>
     <dl class="tape">
       <div class="tp"><dt>Shop total</dt><dd id="t-total">$276.50</dd></div>
-      <div class="tp"><dt>Per meal, each</dt><dd id="t-permeal">$9.88</dd></div>
       <div class="tp"><dt>Protein · aim 130</dt><dd id="t-pro">124<i>g/day</i></dd></div>
       <div class="tp"><dt>Hands-on Sun</dt><dd>60<i>min</i></dd></div>
       <div class="tp"><dt>Energy</dt><dd>1580<i>kcal/day</i></dd></div>
@@ -973,7 +972,7 @@
   <div class="panel" id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" hidden>
   <section id="shop">
     <div class="sh"><h2>The shop</h2><p class="sh-note">Sunday · one trip · nothing repeated</p></div>
-    <p class="para"><b>The beef is tonight only — your 460 g, and it is not on this list.</b> That is the shape of the week: the Mongolian beef from @goosetheory05 is Sunday dinner and nothing else leans on it, so the four other mains carry the remaining thirteen meals. <b>Four proteins and no fresh pork</b> — chicken wings, chicken breast, salmon, and cured ham and salami. Velveting has never been in this plan before, and nor have wings, grinders, harvest bowls or edamame. No lentils, as always. The shop is <b>$276.50</b>, and <b>$48.50 of that is pantry that lasts months</b> — Shaoxing, white pepper, bicarb, cornflour, frying oil and two spice jars — so the recurring basket is nearer <b>$228</b>. <b>Check the Dijon, mayonnaise, honey and soy before you leave</b>: they are on the list because I cannot see your cupboard, and they are $17 of the total. The salmon at $42 is the one real splurge; 800 g instead of 1.2 kg saves $14 and costs you one dinner.</p>
+    <p class="para"><b>The beef is tonight only — your 460 g, and it is not on this list.</b> That is the shape of the week: the Mongolian beef from @goosetheory05 is Sunday dinner and nothing else leans on it, so the four other mains carry the remaining thirteen meals. <b>Four proteins and no fresh pork</b> — chicken wings, chicken breast, salmon, and cured ham and salami. Velveting has never been in this plan before, and nor have wings, grinders, harvest bowls or edamame. No lentils, as always. The shop comes to <b>$276.50</b> across 41 lines. <b>Check the Dijon, mayonnaise, honey and soy before you leave</b>: they are on the list because I cannot see your cupboard.</p>
     <div class="shoptools">
       <button class="tbtn" id="hide-got" aria-pressed="false">Hide what's in the trolley</button>
       <button class="tbtn" id="reset-shop">Clear ticks</button>
@@ -1453,7 +1452,6 @@
     [["#r-total",total],["#t-total",total]].forEach(function(x){
       var el=$(x[0]); if(el){ el.textContent = money(x[1]); }
     });
-    var pm=$("#t-permeal"); if(pm){ pm.textContent = money(total / 28); }
   }
   var hideGot = false;
   items.forEach(function(it){
