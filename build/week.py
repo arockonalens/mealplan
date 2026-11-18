@@ -20,7 +20,8 @@ PAGE = os.path.join(ROOT, "index.html")
 # key: (title, protein/serve, kcal/serve, portions or None for a snack)
 T = {
  "cider":   ("Cider-braised chicken thighs, fennel and apple", 54, 790, 2),
- "satay":   ("Satay chicken, rice and greens",              54, 670,  8),
+ "satay":   ("Satay chicken, rice and greens",              54, 670,  4),
+ "steak":   ("Rump steak, chimichurri, crisp potatoes",     57, 600,  4),
  "harvest": ("Harvest chicken bowl, apple and pecan",       55, 588,  6),
  "grinder": ("Italian grinder sliders",                     42, 562,  6),
  "salmon":  ("Paprika-crusted salmon, charred corn salsa",  43, 525,  4),
@@ -33,8 +34,8 @@ DAYS = [
  ("Mon", "Satay, then fish",    "satay",   "salmon"),
  ("Tue", "Braise night",        "harvest", "cider"),
  ("Wed", "Second salmon",       "harvest", "salmon"),
- ("Thu", "Reheat and go",       "grinder", "satay"),
- ("Fri", "Out of the freezer",  "harvest", "satay"),
+ ("Thu", "Steak night",         "grinder", "steak"),
+ ("Fri", "Steak, second night", "harvest", "steak"),
  ("Sat", "Gnocchi night",       "grinder", "gnocchi"),
 ]
 SNACK_P = T["tofu"][1] + T["parfait"][1]
@@ -83,9 +84,9 @@ CIDER = u'''"cider":{r:"Dinner · 2 portions",t:"Cider-braised chicken thighs, f
          ["Cooked is not the same as tender","Thigh is safe well before the hour is up, but it is the full 75 minutes that turns it soft."],
          ["Fat flag — 790 kcal, 21 g fat a serve","<b>The heaviest plate of the week.</b> Most of the fat is the thigh itself; trimming what you can see before the rub takes a few grams off. <b>No butter in the mash</b> — the reduced juices do the job and keep about 110 kcal and 12 g of fat a serve off the plate."]]}'''
 
-SATAY = u'''"satay":{r:"Dinner and lunch · 8 portions",t:"Satay chicken, rice and greens",p:54,c:52,sv:"8 portions · tonight, then one lunch and two dinners for two · reheats",m:["Pan","50 min","Flag · 670 kcal"],
+SATAY = u'''"satay":{r:"Dinner and lunch · 8 portions",t:"Satay chicken, rice and greens",p:54,c:52,sv:"8 portions cooked · Sunday dinner and Monday lunch · the other four frozen for another week",m:["Pan","50 min","Flag · 670 kcal"],
       src:"RecipeTin Eats (Nagi Maehashi) — Thai chicken satay with peanut sauce. Her sauce as written; marinade scaled to 1.5 kg; breast, no skewers, no curry paste",
-      kp:"Thursday’s two chilled, 4 days · Friday’s two frozen tonight · rice cooked fresh",al:"peanut, soy",
+      kp:"Four portions left · into the freezer by Wednesday · 3 months frozen",al:"peanut, soy",
       i:[["Marinade",[
             [1500,"g","chicken breast, in 2 cm pieces"],
             [2.5,"ea","tbsp mild curry powder"],
@@ -116,7 +117,7 @@ SATAY = u'''"satay":{r:"Dinner and lunch · 8 portions",t:"Satay chicken, rice a
          ["Veggies","Carrot in first, then broccoli and capsicum, with a splash of water. Still crunchy.",4],
          ["Toss","Chicken back in, sauce over, tossed.",1],
          ["Serve","Over rice, peanuts and a lime wedge on top.",0],
-         ["Portion","Cooled. <b>Two portions into the freezer for Friday</b>, the rest into the fridge.",0],
+         ["Portion","Cooled. Monday’s two into the fridge, <b>the other four into the freezer</b>.",0],
          ["Reheat","Covered, until steaming right through, a splash of water if the sauce has set. Over rice cooked fresh.",4]],
       n:[["No curry paste","Nagi’s recipe has red curry paste in the marinade and the sauce. <b>Both left out</b> — it carries heat, and your partner does not want any. The mild curry powder keeps the curry note."],
          ["Breast, not thigh, and no skewers","She uses thigh on skewers. Breast keeps about 8 g of fat a serve off, and pieces in a pan suit eight portions."],
@@ -124,6 +125,32 @@ SATAY = u'''"satay":{r:"Dinner and lunch · 8 portions",t:"Satay chicken, rice a
          ["Natural peanut butter","No added sugar or oil. A sweetened spread makes it thick and flat, and needs more water."],
          ["Fat flag — 670 kcal, 27 g fat a serve","With the rice. Peanut butter and the frying oil are most of it. About 6 g of sugar a serve from the sauce."],
          ["Not a repeat of the peanut bowls","The crunchy peanut chicken bowls ran earlier. This is her satay, hot, with greens and rice."]]}'''
+
+STEAK = u'''"steak":{r:"Dinner · 4 portions",t:"Rump steak, chimichurri, crisp potatoes",p:57,c:34,sv:"4 portions · Thursday and Friday · cooked fresh both nights",m:["Pan + air fryer","30 min","Lean beef"],
+      kp:"Chimichurri made Thursday, 3 days chilled · steak cooked fresh each night",al:"none of the big ones",
+      i:[["Chimichurri — Thursday, for both nights",[
+            [1,"ea","bunch flat-leaf parsley, chopped fine"],
+            [2,"ea","cloves garlic, crushed"],
+            [2,"ea","tsp dried oregano"],
+            [3,"ea","tbsp red wine vinegar"],
+            [60,"ml","olive oil"],
+            [0.5,"ea","tsp salt"]]],
+         ["Each night — for two",[
+            [500,"g","rump steak — one pack"],
+            [400,"g","baby potatoes, halved"],
+            [200,"g","green beans, trimmed"],
+            [1,"ea","tsp olive oil"]]]],
+      s:[["Chimichurri","Thursday: parsley, garlic, oregano, vinegar, oil and salt stirred in a jar. Half kept for Friday.",0],
+         ["Potatoes","Tossed in the teaspoon of oil and salt. Air fryer 200 °C, shaken halfway.",20],
+         ["Steak out","Steak out of the fridge, patted dry, salted both sides.",15],
+         ["Sear","Heavy pan smoking hot, no oil. Steak in, 3 minutes a side for medium-rare.",6],
+         ["Rest","Onto a board.",5],
+         ["Beans","Into the same pan with a splash of water, lid on.",3],
+         ["Serve","Steak sliced across the grain, chimichurri over, potatoes and beans alongside.",0]],
+      n:[["Nothing hot in it","Nothing hot in this chimichurri — just herbs, garlic and vinegar."],
+         ["Rump, trimmed","Lean, cheap to cook well, and the only steak this plan has run is pork. Slice across the grain or it chews."],
+         ["57 g protein, 600 kcal, 20 g fat a serve","The chimichurri oil is about a third of the fat."],
+         ["Why fresh both nights","The satay already filled Sunday dinner. Cooked steak reheats grey, so it is cooked each night: 30 minutes."]]}'''
 
 SALMON = u'''"salmon":{r:"Dinner · 4 portions",t:"Paprika-crusted salmon, charred corn salsa",p:43,c:23,sv:"4 portions · two dinners for two · cooked fresh",m:["Pan","20 min","Lowest carb"],
       kp:"Monday and Wednesday · cooked fresh",al:"fish",
@@ -200,7 +227,7 @@ TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy sesame-soy tof
          ["From the freezer","Straight in, no thawing, about 8 minutes instead of 4. Freezing makes tofu chewier and meatier, which suits this."],
          ["Fat flag — 14 g protein, 11 g fat, 170 kcal a serve","<b>Fattier than the edamame was</b> (7 g), and it is the tofu itself rather than the oil: soy is about half fat by energy. A snack-sized amount, but it is not the leanest thing here any more."]]}'''
 
-OWN = {"cider": CIDER, "satay": SATAY, "salmon": SALMON, "gnocchi": GNOCCHI, "tofu": TOFU}
+OWN = {"cider": CIDER, "satay": SATAY, "steak": STEAK, "salmon": SALMON, "gnocchi": GNOCCHI, "tofu": TOFU}
 # dishes Greg has said no to; the build fails if one comes back
 BANNED = ["wings", "edamame", "mongolian", "chilli"]
 
@@ -212,6 +239,7 @@ CATS = [
  ("Protein", [
   ("Chicken breast",3000,"g","\u00b7 1.5 kg for the satay, 1.5 kg for the bowls",38.00,"<b>Tonight\u2019s</b> satay, and the harvest bowls","chicken breast"),
   ("Chicken thigh fillets",1000,"g","\u00b7 two 500 g trays",16.00,"Tuesday\u2019s braise, and Saturday\u2019s gnocchi \u2014 that tray frozen today","chicken thigh fillets"),
+  ("Rump steak",1000,"g","\u00b7 two 500 g packs",28.00,"<b>Top-up for Thursday</b> \u2014 Thursday and Friday dinners","rump steak"),
   ("Salmon fillets",800,"g","",28.00,"Monday and Wednesday, cooked fresh","salmon fillets"),
   ("Firm tofu",1500,"g","\u00b7 in whatever blocks they have",15.00,"The savoury snack, all fortnight\u2019s worth pressed on Sunday","firm tofu"),
   ("Shaved ham",600,"g","",12.00,"The grinders \u2014 cured, so it is fine","shaved ham"),
@@ -237,6 +265,10 @@ CATS = [
   ("Red capsicums",2,"ea","",4.00,"<b>Tonight</b> \u2014 the satay","red capsicums"),
   ("Carrots",2,"ea","",1.00,"<b>Tonight</b> \u2014 the satay","carrots"),
   ("Limes",2,"ea","",2.00,"Wedges over the satay","limes"),
+  ("Baby potatoes",800,"g","\u00b7 one bag",4.00,"<b>Top-up for Thursday</b> \u2014 the steak nights","baby potatoes"),
+  ("Green beans",400,"g","",4.00,"<b>Top-up for Thursday</b> \u2014 the steak nights","green beans"),
+  ("Flat-leaf parsley",1,"ea","",3.00,"<b>Top-up for Thursday</b> \u2014 the chimichurri","bunch flat-leaf parsley"),
+  ("Garlic",1,"ea","\u00b7 one bulb",1.50,"<b>Top-up for Thursday</b> \u2014 two cloves into the chimichurri",None),
   ("Chives",2,"ea","",6.00,"The bowls and the salsa","bunch chives"),
   ("Sage",1,"ea","",3.00,"The gnocchi",None),
   ("Baby spinach",120,"g","\u00b7 one bag",3.00,"Wilted into the gnocchi","baby spinach"),
@@ -316,6 +348,12 @@ assert sum(v[3] for v in T.values() if v[3]) == 28, "portions != 28"
 assert sum(tally.values()) == 14, "meals != 14"
 assert len(DAYS) == 7
 print("portions 28 ok, meals 14 ok (7 lunch / 7 dinner)")
+# 18 Nov: satay was Sunday dinner and came back Thursday and Friday. Greg:
+# "Why am I doing satay chicken again Thursday we had it Sunday."
+for k in T:
+    nd = sum(1 for _, _, _, D in DAYS if D == k)
+    assert nd <= 2, "%s fills %d dinners; two at most" % (k, nd)
+print("no dish fills more than two dinners")
 
 # The recipe index files each dish by the FIRST word of its r: label, so a dish
 # served at dinner must start "Dinner" or it vanishes from the Dinners list.
@@ -406,7 +444,7 @@ for cat, items in CATS:
 shop = "\n".join(lines[:-1])
 print("lines %d | total $%.2f  (a read-out, not a target)" % (n, total))
 
-SHOP_INTRO = (u'    <p class="para"><b>Nothing hot this week.</b> <b>Tonight is your satay chicken</b>, which covers Monday lunch and Thursday and Friday dinners, in place of the turkey stew. '
+SHOP_INTRO = (u'    <p class="para"><b>Nothing hot this week.</b> <b>Satay chicken Sunday</b>, which covers Monday lunch, in place of the turkey stew; the other four portions go in the freezer. <b>Thursday and Friday are rump steak with chimichurri</b>, cooked fresh: the lines marked top-up are what to buy for it. '
  u'The salmon is crusted in smoked paprika instead of cajun, and the tofu dressing is just soy and sesame. '
  u'<b>Saturday is new: sweet potato gnocchi with chicken thigh</b>, made today and frozen raw. Tim\u2019s cider '
  u'braise on whole chicken thighs moves to Tuesday. No beef and no fresh pork \u2014 chicken, salmon and tofu, '
@@ -427,7 +465,7 @@ RFOOT = (u'        <p class="r-foot">Protein averages <b>%d g each a day</b> \u2
  u'Energy about %d kcal a day.</p>') % (PRO, min(perday), max(perday), BAND[0], BAND[1], KCAL)
 
 PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 100 minutes hands-on · the satay is dinner</p></div>
-    <p class="para"><b>About 100 minutes hands-on.</b> The satay is tonight’s dinner and four more meals, so it is cooked last and eaten hot. The braise moves to Tuesday: the thighs only get their rub today. Thursday and Friday are reheat-and-eat, and Saturday is a 25-minute pan supper. Lunch today is the grinder, which needs no cooking at all.</p>
+    <p class="para"><b>About 100 minutes hands-on.</b> The satay is tonight’s dinner and four more meals, so it is cooked last and eaten hot. The braise moves to Tuesday: the thighs only get their rub today. Thursday and Friday are steak, cooked fresh, and Saturday is a 25-minute pan supper. Lunch today is the grinder, which needs no cooking at all.</p>
     <div class="prep">
       <ol class="prep-ol">
         <li><div><b>1:00 — tofu under a board, chicken tray in, sweet potatoes in the microwave</b><p>Tofu pressed under something heavy. Bowl breast butterflied flat, sweet potato cubed and oiled on the same tray, 200 °C, out at 70 °C internal. The gnocchi’s 400 g of sweet potato microwaved whole, then scooped out and spread on a tray to dry.</p></div></li>
@@ -435,7 +473,7 @@ PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 
         <li><div><b>1:40 — the tofu</b><p>Cubed, tossed in cornflour and oil, air-fried in batches at 200 °C. Dressing shaken in a jar.</p></div></li>
         <li><div><b>2:20 — the parfait jar and the thighs</b><p>Pecans toasted and chopped into the oats and cinnamon. Grinder meat and cheese in one tub. <b>Tuesday’s thighs rubbed</b> with salt, smoked paprika, brown sugar and pepper, bagged, into the fridge. Saturday’s thighs into a flat bag with salt, pepper and sage, into the freezer. Gnocchi bagged once hard.</p></div></li>
         <li><div><b>4:40 — the satay</b><p>Breast in 2 cm pieces into the curry powder, sugar, salt and coconut milk for 20 minutes. Peanut sauce simmered and kept warm. Chicken fried in three batches, veg in, everything tossed in the sauce.</p></div></li>
-        <li><div><b>5:45 — eat, then bag</b><p>Tonight’s two over fresh rice. <b>Into the freezer: Friday’s two portions of satay and half the tofu.</b> Monday’s and Thursday’s satay into the fridge.</p></div></li>
+        <li><div><b>5:45 — eat, then bag</b><p>Tonight’s two over fresh rice. <b>Into the freezer: four portions of satay and half the tofu.</b> Monday’s satay into the fridge.</p></div></li>
       </ol>
       <p class="aside"><b>The bare minimum, if Sunday gets away from you.</b> The satay and the chicken tray. The gnocchi can be made any evening before Saturday, the tofu any evening, the thighs rubbed Monday night, and the parfait jar is five minutes.</p>
     </div>''')
@@ -447,7 +485,8 @@ PAIR = (u'      <table class="pair"><tbody>'
  u'<tr><td>Reduce before serving</td><td>braising liquid is thin until you take a third out of it; that is the sauce</td></tr>'
  u'<tr><td>Mash, no butter</td><td>a ladle of the reduced juices beats butter here, and keeps 12 g of fat a serve off the plate</td></tr>'
  u'<tr><td>Satay chicken \u2014 batch-seared</td><td>three batches in a smoking wok; crowded, it stews grey in its own water</td></tr>'
- u'<tr><td>Satay \u2014 frozen on Sunday</td><td>Friday\u2019s two portions, so nothing is eaten five days after cooking</td></tr>'
+ u'<tr><td>Steak \u2014 dry, salted, smoking pan</td><td>a wet steak steams grey; pat it dry and let the pan smoke first</td></tr>'
+ u'<tr><td>Steak \u2014 sliced across the grain</td><td>rump has long fibres; cut across them or it chews</td></tr>'
  u'<tr><td>Sweet potato \u2014 microwaved and dried</td><td>boiled flesh drinks water and needs far more flour to hold</td></tr>'
  u'<tr><td>Gnocchi \u2014 frozen raw</td><td>cooked ahead it goes dense; raw from frozen it cooks like fresh</td></tr>'
  u'<tr><td>Chicken breast \u2014 butterflied</td><td>even thickness beats any cooking time you could pick</td></tr>'

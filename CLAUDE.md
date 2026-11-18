@@ -70,6 +70,11 @@ recipe or an inspiration menu wants to.
   still counts as a repeat. His words: *"you are being lazy, we can rotate
   receipes but you need to be orignal each week."* Pick a cuisine region the
   recent weeks have not used and favour proteins never used at all.
+- **No dish fills more than two dinners a week.** 18 Nov 2026: satay was Sunday
+  dinner and I put it back on Thursday and Friday by refilling the stew's slots.
+  Greg: *"Why am I doing satay chicken again Thursday we had it Sunday. You need
+  to get better at this."* When a batch dish is swapped, re-plan its slots;
+  don't refill them one for one. `build/week.py` fails on a third dinner.
 - Equipment: oven, cooktop, air fryer, slow cooker, stand mixer.
 
 **The gym**
