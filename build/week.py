@@ -26,7 +26,7 @@ T = {
  "harvest": ("Harvest chicken bowl, apple and pecan",       55, 588,  6),
  "grinder": ("Italian grinder sliders",                     42, 562,  6),
  "salmon":  ("Paprika-crusted salmon, charred corn salsa",  43, 525,  4),
- "gnocchi": ("Sweet potato gnocchi, rump steak and sage",  64, 720,  2),
+ "gnocchi": ("Sweet potato gnocchi, rump steak, brown butter and sage", 64, 830, 2),
  "tofu":    ("Crispy sesame-soy tofu",                      14, 170, None),
  "parfait": ("Apple cinnamon yoghurt parfait",              17, 235, None),
 }
@@ -191,15 +191,15 @@ SALMON = u'''"salmon":{r:"Dinner · 4 portions",t:"Paprika-crusted salmon, charr
          ["The crust goes dark, not the fish","If the pan sweats instead of catching, it is not hot enough."],
          ["Lowest carb plate here","23 g a serve, 525 kcal."]]}'''
 
-GNOCCHI = u'''"gnocchi":{r:"Dinner · 2 portions",t:"Sweet potato gnocchi, rump steak and sage",p:64,c:82,sv:"2 portions · Thursday · gnocchi made tonight",m:["Pan","50 min","Lean beef"],
-      kp:"Cooked and eaten tonight",al:"wheat",
+GNOCCHI = u'''"gnocchi":{r:"Dinner · 2 portions",t:"Sweet potato gnocchi, rump steak, brown butter and sage",p:64,c:82,sv:"2 portions · Thursday · gnocchi made tonight",m:["Pan","50 min","Flag · 830 kcal"],
+      kp:"Cooked and eaten tonight",al:"wheat, dairy",
       i:[["The gnocchi",[
             [400,"g","sweet potatoes, whole"],
             [0.75,"ea","cup plain flour — about 115 g, plus some for the bench"],
             [1,"ea","tsp salt"]]],
          ["The plate",[
             [500,"g","rump steak — one pack"],
-            [2,"ea","tsp olive oil"],
+            [1.5,"ea","tbsp butter — about 30 g"],
             [1,"ea","bunch sage"],
             [120,"g","baby spinach"],
             [1,"ea","lemon"]]]],
@@ -209,15 +209,18 @@ GNOCCHI = u'''"gnocchi":{r:"Dinner · 2 portions",t:"Sweet potato gnocchi, rump 
          ["Roll","Dough split in four, each rolled on a floured bench into a rope as thick as a thumb, cut into 2 cm pieces. Onto a floured tray.",0],
          ["Steak out","Steak patted dry, salted both sides. Big pot of salted water on.",0],
          ["Sear","Big pan smoking hot, no oil. Steak in, 3 minutes a side for medium-rare. Out to rest.",6],
-         ["Boil","Gnocchi into the boiling water. Out a minute after they float.",3],
-         ["Colour","Oil into the steak pan, medium-high. Gnocchi and sage in, left still until golden underneath, then turned.",5],
-         ["Wilt","Spinach in, tossed until it collapses. Lemon squeezed over.",1],
+         ["Boil","Gnocchi into the boiling water. Out a minute after they float. <b>Half a cup of the water kept.</b>",3],
+         ["Brown butter","Butter into the steak pan, medium, until it foams and smells nutty. Sage in until crisp.",2],
+         ["Colour","Gnocchi in, left still until golden underneath, then turned.",4],
+         ["Sauce","Splash of the gnocchi water and the steak’s resting juices in, tossed hard until glossy. More water if it tightens.",1],
+         ["Wilt","Spinach in until it collapses. Lemon squeezed over.",1],
          ["Serve","Steak sliced across the grain over the gnocchi.",0]],
       n:[["Just sweet potato and flour","No egg and no parmesan, the way you make it. About 40% of the carbs are the flour."],
          ["Drying the flesh keeps the flour down","Wet flesh drinks flour and goes dense. Spread it thin and let it steam."],
          ["Boiled, then fried","It is raw dough. Straight into the pan it stays gluey in the middle."],
          ["Steak with it, not the thighs","The thighs are still frozen, and seared beef suits sage and sweet potato. They go to Saturday."],
-         ["64 g protein, 720 kcal, 17 g fat a serve","Lean rump, and no butter anywhere."]]}'''
+         ["The gnocchi water is the sauce","Starchy water shaken into the butter turns it glossy and coating. Without it, brown butter just sits on the gnocchi and it eats dry."],
+         ["Fat flag — 830 kcal, 29 g fat a serve","The butter is about 12 g of that. Still lighter than a cream sauce, which would add about twice the calories."]]}'''
 
 TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy sesame-soy tofu",p:14,c:4,sv:"14 servings · about 105 g each · one a day",m:["Air fryer","35 min Sunday","First time here"],
       kp:"Half chilled, 4 days · half frozen for Thursday on · dressing kept apart",al:"soy, sesame",
