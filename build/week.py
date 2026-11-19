@@ -109,7 +109,7 @@ SATAY = u'''"satay":{r:"Dinner and lunch · 8 portions",t:"Satay chicken, rice a
             [2,"ea","red capsicums, sliced"],
             [2,"ea","carrots, sliced thin"]]],
          ["To serve",[
-            [320,"g","jasmine rice"],
+            [1.75,"ea","cups jasmine rice — about 320 g"],
             [2,"ea","tbsp roasted peanuts, chopped fine"],
             [2,"ea","limes, in wedges"]]]],
       s:[["Marinate","Chicken mixed with the curry powder, sugar, salt and 150 ml of coconut milk.",20],
@@ -157,7 +157,7 @@ CHIMCHX = u'''"chimchx":{r:"Dinner · 2 portions",t:"Chimichurri chicken thighs,
       kp:"Thighs to the fridge Friday night · Friday’s leftover chimichurri",al:"none of the big ones",
       i:[["Saturday",[
             [400,"g","chicken thigh fillets — Sunday’s bag, with the sage"],
-            [120,"g","jasmine rice"],
+            [0.75,"ea","cup jasmine rice — about 140 g"],
             [200,"g","green beans, trimmed"],
             [2,"ea","tsp olive oil"]]]],
       s:[["Rice","Rice on.",15],
@@ -195,7 +195,7 @@ GNOCCHI = u'''"gnocchi":{r:"Dinner · 2 portions",t:"Sweet potato gnocchi, rump 
       kp:"Cooked and eaten tonight",al:"wheat",
       i:[["The gnocchi",[
             [400,"g","sweet potatoes, whole"],
-            [120,"g","plain flour, plus some for the bench"],
+            [0.75,"ea","cup plain flour — about 115 g, plus some for the bench"],
             [1,"ea","tsp salt"]]],
          ["The plate",[
             [500,"g","rump steak — one pack"],
@@ -288,9 +288,9 @@ CATS = [
   ("Thyme",1,"ea","",3.50,"Tuesday \u2014 four sprigs into the braise",None),
  ]),
  ("Pantry \u2014 one-off, lasts months", [
-  ("Plain flour",1000,"g","",2.00,"The gnocchi","plain flour"),
+  ("Plain flour",1000,"g","",2.00,"The gnocchi",None),
   ("Bread rolls",12,"ea","",6.00,"Two each, three lunches","bread rolls"),
-  ("Jasmine rice",1000,"g","",3.50,"Under the satay, cooked fresh each time","jasmine rice"),
+  ("Jasmine rice",1000,"g","",3.50,"Under the satay, and Saturday\u2019s green rice",None),
   ("Natural peanut butter",375,"g","\u00b7 one jar",5.00,"\u00be cup into the satay sauce \u2014 natural, no added sugar or oil",None),
   ("Light coconut milk",800,"ml","\u00b7 two 400 ml tins",5.00,"The satay marinade and sauce \u2014 light, not full-fat","light coconut milk"),
   ("Mild curry powder",50,"g","",3.00,"The satay marinade \u2014 <b>mild</b>",None),
