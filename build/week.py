@@ -21,11 +21,12 @@ PAGE = os.path.join(ROOT, "index.html")
 T = {
  "cider":   ("Cider-braised chicken thighs, fennel and apple", 54, 790, 2),
  "satay":   ("Satay chicken, rice and greens",              54, 670,  4),
- "steak":   ("Rump steak, chimichurri, crisp potatoes",     57, 600,  4),
+ "steak":   ("Rump steak, chimichurri, crisp potatoes",     57, 600,  2),
+ "chimchx": ("Chimichurri chicken thighs, green rice and beans", 45, 660, 2),
  "harvest": ("Harvest chicken bowl, apple and pecan",       55, 588,  6),
  "grinder": ("Italian grinder sliders",                     42, 562,  6),
  "salmon":  ("Paprika-crusted salmon, charred corn salsa",  43, 525,  4),
- "gnocchi": ("Sweet potato gnocchi, chicken thigh and sage",54, 770,  2),
+ "gnocchi": ("Sweet potato gnocchi, rump steak and sage",  64, 720,  2),
  "tofu":    ("Crispy sesame-soy tofu",                      14, 170, None),
  "parfait": ("Apple cinnamon yoghurt parfait",              17, 235, None),
 }
@@ -34,9 +35,9 @@ DAYS = [
  ("Mon", "Satay, then fish",    "satay",   "salmon"),
  ("Tue", "Braise night",        "harvest", "cider"),
  ("Wed", "Second salmon",       "harvest", "salmon"),
- ("Thu", "Steak night",         "grinder", "steak"),
- ("Fri", "Steak, second night", "harvest", "steak"),
- ("Sat", "Gnocchi night",       "grinder", "gnocchi"),
+ ("Thu", "Gnocchi night",       "grinder", "gnocchi"),
+ ("Fri", "Steak night",         "harvest", "steak"),
+ ("Sat", "Chimichurri chicken", "grinder", "chimchx"),
 ]
 SNACK_P = T["tofu"][1] + T["parfait"][1]
 SNACK_K = T["tofu"][2] + T["parfait"][2]
@@ -126,31 +127,47 @@ SATAY = u'''"satay":{r:"Dinner and lunch · 8 portions",t:"Satay chicken, rice a
          ["Fat flag — 670 kcal, 27 g fat a serve","With the rice. Peanut butter and the frying oil are most of it. About 6 g of sugar a serve from the sauce."],
          ["Not a repeat of the peanut bowls","The crunchy peanut chicken bowls ran earlier. This is her satay, hot, with greens and rice."]]}'''
 
-STEAK = u'''"steak":{r:"Dinner · 4 portions",t:"Rump steak, chimichurri, crisp potatoes",p:57,c:34,sv:"4 portions · Thursday and Friday · cooked fresh both nights",m:["Pan + air fryer","30 min","Lean beef"],
-      kp:"Chimichurri made Thursday, 3 days chilled · steak cooked fresh each night",al:"none of the big ones",
-      i:[["Chimichurri — Thursday, for both nights",[
+STEAK = u'''"steak":{r:"Dinner · 2 portions",t:"Rump steak, chimichurri, crisp potatoes",p:57,c:34,sv:"2 portions · Friday · cooked fresh",m:["Pan + air fryer","30 min","Lean beef"],
+      kp:"Chimichurri made Friday, half kept for Saturday · steak cooked fresh",al:"none of the big ones",
+      i:[["Chimichurri — Friday, for two nights",[
             [1,"ea","bunch flat-leaf parsley, chopped fine"],
             [2,"ea","cloves garlic, crushed"],
             [2,"ea","tsp dried oregano"],
             [3,"ea","tbsp red wine vinegar"],
             [60,"ml","olive oil"],
             [0.5,"ea","tsp salt"]]],
-         ["Each night — for two",[
-            [500,"g","rump steak — one pack"],
+         ["Steak night",[
+            [500,"g","rump steak — the second pack"],
             [400,"g","baby potatoes, halved"],
             [200,"g","green beans, trimmed"],
             [1,"ea","tsp olive oil"]]]],
-      s:[["Chimichurri","Thursday: parsley, garlic, oregano, vinegar, oil and salt stirred in a jar. Half kept for Friday.",0],
+      s:[["Chimichurri","Parsley, garlic, oregano, vinegar, oil and salt stirred in a jar. <b>Half kept for Saturday.</b>",0],
          ["Potatoes","Tossed in the teaspoon of oil and salt. Air fryer 200 °C, shaken halfway.",20],
          ["Steak out","Steak out of the fridge, patted dry, salted both sides.",15],
          ["Sear","Heavy pan smoking hot, no oil. Steak in, 3 minutes a side for medium-rare.",6],
          ["Rest","Onto a board.",5],
          ["Beans","Into the same pan with a splash of water, lid on.",3],
          ["Serve","Steak sliced across the grain, chimichurri over, potatoes and beans alongside.",0]],
-      n:[["Nothing hot in it","Nothing hot in this chimichurri — just herbs, garlic and vinegar."],
-         ["Rump, trimmed","Lean, cheap to cook well, and the only steak this plan has run is pork. Slice across the grain or it chews."],
+      n:[["Nothing hot in it","Just herbs, garlic and vinegar."],
+         ["Rump, trimmed","Lean, and the only steak this plan has run is pork. Slice across the grain or it chews."],
          ["57 g protein, 600 kcal, 20 g fat a serve","The chimichurri oil is about a third of the fat."],
-         ["Why fresh both nights","The satay already filled Sunday dinner. Cooked steak reheats grey, so it is cooked each night: 30 minutes."]]}'''
+         ["The other pack","Thursday’s pack went under the gnocchi."]]}'''
+
+CHIMCHX = u'''"chimchx":{r:"Dinner · 2 portions",t:"Chimichurri chicken thighs, green rice and beans",p:45,c:50,sv:"2 portions · Saturday · thighs frozen Sunday, out Friday night",m:["Pan","25 min","Flag · 660 kcal"],
+      kp:"Thighs to the fridge Friday night · Friday’s leftover chimichurri",al:"none of the big ones",
+      i:[["Saturday",[
+            [400,"g","chicken thigh fillets — Sunday’s bag, with the sage"],
+            [120,"g","jasmine rice"],
+            [200,"g","green beans, trimmed"],
+            [2,"ea","tsp olive oil"]]]],
+      s:[["Rice","Rice on.",15],
+         ["Sear","Oil into a pan over medium-high. Thighs in flat, five minutes a side.",10],
+         ["Rest","Out onto a board.",3],
+         ["Beans","Into the same pan with a splash of water, lid on.",3],
+         ["Green rice","Two spoons of the chimichurri stirred through the hot rice.",0],
+         ["Serve","Thighs sliced over the rice, beans alongside, the rest of the chimichurri over the chicken.",0]],
+      n:[["Uses what is already here","The thighs bagged with sage on Sunday, and Friday’s second half of chimichurri. Nothing new to buy."],
+         ["Fat flag — 660 kcal, 26 g fat a serve","The thigh and the chimichurri oil, about half each."]]}'''
 
 SALMON = u'''"salmon":{r:"Dinner · 4 portions",t:"Paprika-crusted salmon, charred corn salsa",p:43,c:23,sv:"4 portions · two dinners for two · cooked fresh",m:["Pan","20 min","Lowest carb"],
       kp:"Monday and Wednesday · cooked fresh",al:"fish",
@@ -174,35 +191,33 @@ SALMON = u'''"salmon":{r:"Dinner · 4 portions",t:"Paprika-crusted salmon, charr
          ["The crust goes dark, not the fish","If the pan sweats instead of catching, it is not hot enough."],
          ["Lowest carb plate here","23 g a serve, 525 kcal."]]}'''
 
-GNOCCHI = u'''"gnocchi":{r:"Dinner · 2 portions",t:"Sweet potato gnocchi, chicken thigh and sage",p:54,c:78,sv:"2 portions · Saturday · gnocchi made Sunday and frozen raw",m:["Pan","25 min Saturday","Flag · 770 kcal"],
-      kp:"Gnocchi frozen raw on Sunday · thighs frozen raw, out Friday night",al:"wheat, egg, dairy",
-      i:[["The gnocchi — Sunday",[
+GNOCCHI = u'''"gnocchi":{r:"Dinner · 2 portions",t:"Sweet potato gnocchi, rump steak and sage",p:64,c:82,sv:"2 portions · Thursday · gnocchi made tonight",m:["Pan","50 min","Lean beef"],
+      kp:"Cooked and eaten tonight",al:"wheat",
+      i:[["The gnocchi",[
             [400,"g","sweet potatoes, whole"],
-            [100,"g","plain flour, plus some for the bench"],
-            [1,"ea","egg yolk"],
-            [15,"g","parmesan, grated fine"],
+            [120,"g","plain flour, plus some for the bench"],
             [1,"ea","tsp salt"]]],
-         ["Saturday",[
-            [400,"g","chicken thigh fillets, trimmed"],
+         ["The plate",[
+            [500,"g","rump steak — one pack"],
             [2,"ea","tsp olive oil"],
             [1,"ea","bunch sage"],
             [120,"g","baby spinach"],
             [1,"ea","lemon"]]]],
       s:[["Cook","Sweet potatoes pricked all over and microwaved on high, turned halfway, until soft right through.",10],
          ["Dry","Halved, flesh scooped onto a tray and spread thin to steam off.",10],
-         ["Dough","Flesh mashed smooth. Yolk, parmesan and salt in, then the flour worked through with a fork <b>only until it holds</b>.",0],
-         ["Roll","Dough split in four, each rolled on a floured bench into a rope as thick as a thumb, cut into 2 cm pieces.",0],
-         ["Freeze","Pieces on a floured tray, not touching, frozen hard, then bagged.",60],
-         ["Thighs","Thighs into a flat bag with salt, pepper and a few chopped sage leaves, frozen. Out to the fridge Friday night.",0],
-         ["Sear","Saturday: oil into a big pan over medium-high. Thighs in flat, five minutes a side, out to rest.",10],
-         ["Boil","Gnocchi straight from the freezer into well-salted boiling water. Out a minute after they float.",4],
-         ["Colour","Gnocchi into the chicken pan with the rest of the sage, left still until golden underneath, then turned.",5],
+         ["Dough","Flesh mashed smooth with the salt. Flour worked in with a fork <b>only until it holds</b>; more only if it sticks to your hands.",0],
+         ["Roll","Dough split in four, each rolled on a floured bench into a rope as thick as a thumb, cut into 2 cm pieces. Onto a floured tray.",0],
+         ["Steak out","Steak patted dry, salted both sides. Big pot of salted water on.",0],
+         ["Sear","Big pan smoking hot, no oil. Steak in, 3 minutes a side for medium-rare. Out to rest.",6],
+         ["Boil","Gnocchi into the boiling water. Out a minute after they float.",3],
+         ["Colour","Oil into the steak pan, medium-high. Gnocchi and sage in, left still until golden underneath, then turned.",5],
          ["Wilt","Spinach in, tossed until it collapses. Lemon squeezed over.",1],
-         ["Serve","Thighs sliced over the gnocchi.",0]],
-      n:[["About half the carbs are the flour","Sweet potato is wet, so it needs flour to hold together. Drying the flesh is what keeps the flour down, so do not skip it."],
-         ["Frozen raw, never cooked ahead","Cooked gnocchi goes dense and gummy in the fridge. Frozen raw, it cooks like fresh."],
+         ["Serve","Steak sliced across the grain over the gnocchi.",0]],
+      n:[["Just sweet potato and flour","No egg and no parmesan, the way you make it. About 40% of the carbs are the flour."],
+         ["Drying the flesh keeps the flour down","Wet flesh drinks flour and goes dense. Spread it thin and let it steam."],
          ["Boiled, then fried","It is raw dough. Straight into the pan it stays gluey in the middle."],
-         ["Fat flag — 770 kcal, 24 g fat a serve","Level with the cider braise. Most of the fat is the thigh. No butter anywhere, and butter is where the classic brown-butter sage version gets its fat."]]}'''
+         ["Steak with it, not the thighs","The thighs are still frozen, and seared beef suits sage and sweet potato. They go to Saturday."],
+         ["64 g protein, 720 kcal, 17 g fat a serve","Lean rump, and no butter anywhere."]]}'''
 
 TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy sesame-soy tofu",p:14,c:4,sv:"14 servings · about 105 g each · one a day",m:["Air fryer","35 min Sunday","First time here"],
       kp:"Half chilled, 4 days · half frozen for Thursday on · dressing kept apart",al:"soy, sesame",
@@ -227,7 +242,7 @@ TOFU = u'''"tofu":{r:"Savoury snack · 4 minutes a day",t:"Crispy sesame-soy tof
          ["From the freezer","Straight in, no thawing, about 8 minutes instead of 4. Freezing makes tofu chewier and meatier, which suits this."],
          ["Fat flag — 14 g protein, 11 g fat, 170 kcal a serve","<b>Fattier than the edamame was</b> (7 g), and it is the tofu itself rather than the oil: soy is about half fat by energy. A snack-sized amount, but it is not the leanest thing here any more."]]}'''
 
-OWN = {"cider": CIDER, "satay": SATAY, "steak": STEAK, "salmon": SALMON, "gnocchi": GNOCCHI, "tofu": TOFU}
+OWN = {"cider": CIDER, "satay": SATAY, "steak": STEAK, "chimchx": CHIMCHX, "salmon": SALMON, "gnocchi": GNOCCHI, "tofu": TOFU}
 # dishes Greg has said no to; the build fails if one comes back
 BANNED = ["wings", "edamame", "mongolian", "chilli"]
 
@@ -238,8 +253,8 @@ BANNED = ["wings", "edamame", "mongolian", "chilli"]
 CATS = [
  ("Protein", [
   ("Chicken breast",3000,"g","\u00b7 1.5 kg for the satay, 1.5 kg for the bowls",38.00,"<b>Tonight\u2019s</b> satay, and the harvest bowls","chicken breast"),
-  ("Chicken thigh fillets",1000,"g","\u00b7 two 500 g trays",16.00,"Tuesday\u2019s braise, and Saturday\u2019s gnocchi \u2014 that tray frozen today","chicken thigh fillets"),
-  ("Rump steak",1000,"g","\u00b7 two 500 g packs",28.00,"<b>Top-up for Thursday</b> \u2014 Thursday and Friday dinners","rump steak"),
+  ("Chicken thigh fillets",1000,"g","\u00b7 two 500 g trays",16.00,"Tuesday\u2019s braise, and Saturday\u2019s chimichurri chicken \u2014 that tray frozen Sunday","chicken thigh fillets"),
+  ("Rump steak",1000,"g","\u00b7 two 500 g packs",28.00,"<b>Top-up for Thursday</b> \u2014 tonight\u2019s gnocchi and Friday\u2019s steak","rump steak"),
   ("Salmon fillets",800,"g","",28.00,"Monday and Wednesday, cooked fresh","salmon fillets"),
   ("Firm tofu",1500,"g","\u00b7 in whatever blocks they have",15.00,"The savoury snack, all fortnight\u2019s worth pressed on Sunday","firm tofu"),
   ("Shaved ham",600,"g","",12.00,"The grinders \u2014 cured, so it is fine","shaved ham"),
@@ -247,8 +262,6 @@ CATS = [
  ]),
  ("Dairy", [
   ("Provolone",200,"g","",7.00,"The grinders \u2014 Swiss if there is no provolone","provolone"),
-  ("Parmesan",100,"g","\u00b7 smallest wedge",5.00,"15 g into the gnocchi","parmesan"),
-  ("Eggs",6,"ea","\u00b7 smallest carton",4.50,"One yolk into the gnocchi",None),
   ("Greek yoghurt, 0% fat",2000,"g","",12.00,"The parfaits \u2014 0%, not the 10% stuff","Greek yoghurt"),
  ]),
  ("Produce", [
@@ -265,9 +278,9 @@ CATS = [
   ("Red capsicums",2,"ea","",4.00,"<b>Tonight</b> \u2014 the satay","red capsicums"),
   ("Carrots",2,"ea","",1.00,"<b>Tonight</b> \u2014 the satay","carrots"),
   ("Limes",2,"ea","",2.00,"Wedges over the satay","limes"),
-  ("Baby potatoes",800,"g","\u00b7 one bag",4.00,"<b>Top-up for Thursday</b> \u2014 the steak nights","baby potatoes"),
-  ("Green beans",400,"g","",4.00,"<b>Top-up for Thursday</b> \u2014 the steak nights","green beans"),
-  ("Flat-leaf parsley",1,"ea","",3.00,"<b>Top-up for Thursday</b> \u2014 the chimichurri","bunch flat-leaf parsley"),
+  ("Baby potatoes",800,"g","\u00b7 one bag",4.00,"<b>Top-up for Thursday</b> \u2014 Friday\u2019s steak","baby potatoes"),
+  ("Green beans",400,"g","",4.00,"<b>Top-up for Thursday</b> \u2014 Friday and Saturday","green beans"),
+  ("Flat-leaf parsley",1,"ea","",3.00,"<b>Top-up for Thursday</b> \u2014 Friday\u2019s chimichurri","bunch flat-leaf parsley"),
   ("Garlic",1,"ea","\u00b7 one bulb",1.50,"<b>Top-up for Thursday</b> \u2014 two cloves into the chimichurri",None),
   ("Chives",2,"ea","",6.00,"The bowls and the salsa","bunch chives"),
   ("Sage",1,"ea","",3.00,"The gnocchi",None),
@@ -444,9 +457,9 @@ for cat, items in CATS:
 shop = "\n".join(lines[:-1])
 print("lines %d | total $%.2f  (a read-out, not a target)" % (n, total))
 
-SHOP_INTRO = (u'    <p class="para"><b>Nothing hot this week.</b> <b>Satay chicken Sunday</b>, which covers Monday lunch, in place of the turkey stew; the other four portions go in the freezer. <b>Thursday and Friday are rump steak with chimichurri</b>, cooked fresh: the lines marked top-up are what to buy for it. '
+SHOP_INTRO = (u'    <p class="para"><b>Nothing hot this week.</b> <b>Satay chicken Sunday</b>, which covers Monday lunch, in place of the turkey stew; the other four portions go in the freezer. <b>Thursday is sweet potato gnocchi with rump steak, Friday steak with chimichurri, Saturday the frozen thighs with the rest of the chimichurri</b>: the lines marked top-up are what to buy. '
  u'The salmon is crusted in smoked paprika instead of cajun, and the tofu dressing is just soy and sesame. '
- u'<b>Saturday is new: sweet potato gnocchi with chicken thigh</b>, made today and frozen raw. Tim\u2019s cider '
+ u'Tim\u2019s cider '
  u'braise on whole chicken thighs moves to Tuesday. No beef and no fresh pork \u2014 chicken, salmon and tofu, '
  u'plus cured ham and salami. No lentils, as always. The shop comes to <b>$%.2f</b> across %d lines. '
  u'<b>You have sweet potato</b>: 1.3 kg covers the bowls and the gnocchi, so only buy the difference. '
@@ -465,7 +478,7 @@ RFOOT = (u'        <p class="r-foot">Protein averages <b>%d g each a day</b> \u2
  u'Energy about %d kcal a day.</p>') % (PRO, min(perday), max(perday), BAND[0], BAND[1], KCAL)
 
 PREP = (u'''    <div class="sh"><h2>Sunday cook-up</h2><p class="sh-note">about 100 minutes hands-on · the satay is dinner</p></div>
-    <p class="para"><b>About 100 minutes hands-on.</b> The satay is tonight’s dinner and four more meals, so it is cooked last and eaten hot. The braise moves to Tuesday: the thighs only get their rub today. Thursday and Friday are steak, cooked fresh, and Saturday is a 25-minute pan supper. Lunch today is the grinder, which needs no cooking at all.</p>
+    <p class="para"><b>About 100 minutes hands-on.</b> The satay is tonight’s dinner and four more meals, so it is cooked last and eaten hot. The braise moves to Tuesday: the thighs only get their rub today. Thursday is gnocchi and steak, Friday steak, Saturday the thighs. Lunch today is the grinder, which needs no cooking at all.</p>
     <div class="prep">
       <ol class="prep-ol">
         <li><div><b>1:00 — tofu under a board, chicken tray in, sweet potatoes in the microwave</b><p>Tofu pressed under something heavy. Bowl breast butterflied flat, sweet potato cubed and oiled on the same tray, 200 °C, out at 70 °C internal. The gnocchi’s 400 g of sweet potato microwaved whole, then scooped out and spread on a tray to dry.</p></div></li>
